@@ -11,7 +11,10 @@ public class Endpoints {
     private static final JSONObject obj;
     private static final JSONObject endpoints;
     private static final String baseEndpoint;
+    //insantiation required for var e, due to obtaining resource through stream
     private static final Endpoints e = new Endpoints();
+    // prevent instantiation of utility class
+    private Endpoints() {}
     static {
         try {
             StringBuilder out = new StringBuilder();
@@ -32,7 +35,7 @@ public class Endpoints {
         return String.format(baseEndpoint + endpoints.getString("boosters_endpoint"), key);
     }
     public static String getGuildByNameEndpoint(String key, String name) {
-        return String.format(baseEndpoint + endpoints.getString("find_guild_endpoint"), key, name);
+        return String.format(baseEndpoint + endpoints.getString("find_guild_id_endpoint"), key, name);
     }
     public static String getGuildByPlayerEndpoint(String key, String player) {
         return String.format(baseEndpoint + endpoints.getString("find_guild_by_player_endpoint"), key, player);

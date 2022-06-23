@@ -2,7 +2,7 @@
   "base_endpoint": "https://api.hypixel.net/",
   "endpoints": {
     "boosters_endpoint": "boosters?key=%s",
-    "find_guild_endpoint": "findGuild?key=%s&byName=%s",
+    "find_guild_id_endpoint": "findGuild?key=%s&byName=%s",
     "find_guild_by_player_endpoint": "findGuild?key=%s&player=%s",
     "friends_endpoint": "friends?key=%s&uuid=%s",
     "guilds_endpoint": "guild?key=%s&id=%s",
