@@ -1,3 +1,11 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+# Ignore most things in this folder, which are just user-specific noise.
+*
+!.gitignore
+
+# Include project-level style guides.
+!codeStyles/
+!codeStyles/*
+
+# Include project-level run configurations.
+!runConfigurations/
+!runConfigurations/*
