@@ -1,6 +1,6 @@
-package io.github.hypixelapiwrapper.wrapper.player;
+package io.github.hypixel_api_wrapper.wrapper.player;
 
-import io.github.hypixelapiwrapper.wrapper.guild.Guild;
+import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import java.util.List;
 
 public class HypixelPlayer {
@@ -84,7 +84,7 @@ public class HypixelPlayer {
         return null;
     }
 
-    public Guild getGuild() {
+    public HypixelGuild getGuild() {
         return null;
     }
 
