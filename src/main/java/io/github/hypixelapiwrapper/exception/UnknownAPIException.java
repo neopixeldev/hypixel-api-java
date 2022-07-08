@@ -1,4 +1,4 @@
-package com.insertign.pineapple.exception;
+package io.github.hypixelapiwrapper.exception;
 
 public class UnknownAPIException extends PineappleException {
     public UnknownAPIException(String message) {

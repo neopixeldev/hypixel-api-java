@@ -1,4 +1,4 @@
-package com.insertign.pineapple.util;
+package io.github.hypixelapiwrapper.util;
 
 import org.json.JSONObject;
 
