@@ -1,6 +1,4 @@
-package io.github.hypixelapiwrapper.util;
-
-import org.json.JSONObject;
+package io.github.hypixel_api_wrapper.util;
 
 public class JSONUtils {
     // prevent instantiation of utility class

@@ -1,11 +1,11 @@
-package io.github.hypixelapiwrapper.http;
+package io.github.hypixel_api_wrapper.http;
 
-import io.github.hypixelapiwrapper.exception.GuildNotFoundException;
-import io.github.hypixelapiwrapper.exception.InvalidAPIKeyException;
-import io.github.hypixelapiwrapper.exception.KeyThrottleException;
-import io.github.hypixelapiwrapper.exception.MalformedUUIDException;
-import io.github.hypixelapiwrapper.exception.PlayerNotFoundException;
-import io.github.hypixelapiwrapper.exception.UnknownAPIException;
+import io.github.hypixel_api_wrapper.exception.GuildNotFoundException;
+import io.github.hypixel_api_wrapper.exception.InvalidAPIKeyException;
+import io.github.hypixel_api_wrapper.exception.KeyThrottleException;
+import io.github.hypixel_api_wrapper.exception.MalformedUUIDException;
+import io.github.hypixel_api_wrapper.exception.PlayerNotFoundException;
+import io.github.hypixel_api_wrapper.exception.UnknownAPIException;
 import org.json.JSONObject;
 
 public class RequestValidator {

@@ -1,4 +1,4 @@
-package io.github.hypixelapiwrapper.http;
+package io.github.hypixel_api_wrapper.http;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;

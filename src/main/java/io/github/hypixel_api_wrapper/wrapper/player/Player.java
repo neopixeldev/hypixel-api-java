@@ -1,4 +1,4 @@
-package io.github.hypixelapiwrapper.wrapper.player;
+package io.github.hypixel_api_wrapper.wrapper.player;
 
 public class Player {
     private String uuid;

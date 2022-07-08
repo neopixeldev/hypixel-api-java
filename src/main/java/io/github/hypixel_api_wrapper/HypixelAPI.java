@@ -1,6 +1,6 @@
-package io.github.hypixelapiwrapper;
+package io.github.hypixel_api_wrapper;
 
-import io.github.hypixelapiwrapper.http.RequestFactory;
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 
 import java.io.IOException;
 
