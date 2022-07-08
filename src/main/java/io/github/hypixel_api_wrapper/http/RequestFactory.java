@@ -1,4 +1,4 @@
-package io.github.hypixelapiwrapper.http;
+package io.github.hypixel_api_wrapper.http;
 
 import org.apache.http.*;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -9,7 +9,6 @@ import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.concurrent.*;
 
 public class RequestFactory {
