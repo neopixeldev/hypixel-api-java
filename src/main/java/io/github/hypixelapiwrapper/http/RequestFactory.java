@@ -45,4 +45,9 @@ public class RequestFactory {
             throw new RuntimeException(e);
         }
     }
+
+    public static String getInformation(String endpoint, String dataLocation) {
+        JSONObject object = RequestFactory.send(endpoint);
+        return RequestFactory.send(endpoint).get(dataLocation).toString();
+    }
 }
