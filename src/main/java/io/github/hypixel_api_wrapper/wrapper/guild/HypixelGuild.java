@@ -5,11 +5,11 @@ import java.util.List;
 
 public class HypixelGuild {
     private String name;
-    private String APIKey;
+    private String apiKey;
 
-    public HypixelGuild(String name, String APIKey) {
+    public HypixelGuild(String name, String apiKey) {
         this.name = name;
-        this.APIKey = APIKey;
+        this.apiKey = apiKey;
     }
 
     public String getName() {
@@ -21,7 +21,7 @@ public class HypixelGuild {
     public HypixelPlayer getOwner() {
         return null;
     }
-    public long getDailyGXP() {
+    public long getDailyGEXP() {
         return 0;
     }
 }
