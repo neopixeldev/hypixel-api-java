@@ -1,6 +1,5 @@
 package io.github.hypixelapiwrapper.http;
 
-import com.insertign.pineapple.exception.*;
 import io.github.hypixelapiwrapper.exception.GuildNotFoundException;
 import io.github.hypixelapiwrapper.exception.InvalidAPIKeyException;
 import io.github.hypixelapiwrapper.exception.KeyThrottleException;
