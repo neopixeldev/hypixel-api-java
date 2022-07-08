@@ -11,6 +11,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.concurrent.*;
+import org.json.JSONObject;
 
 public class RequestFactory {
     private static final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
@@ -26,7 +27,7 @@ public class RequestFactory {
             client.close();
         }
     }
-    public static String send(String url) {
+    public static JSONObject send(String url) {
         try {
             client.start();
             HttpUriRequest request = RequestBuilder.create("GET")
@@ -36,10 +37,11 @@ public class RequestFactory {
             // TODO implement a CompletableFuture workaround
             Future<HttpResponse> future = client.execute(request, null);
             HttpResponse response = future.get(500, TimeUnit.MILLISECONDS);
-            String res = handler.handleResponse(response);
+            JSONObject res = new JSONObject(handler.handleResponse(response));
             EntityUtils.consume(response.getEntity());
             return res;
         } catch (InterruptedException | ExecutionException | IOException | TimeoutException e) {
+            // TODO create own error to handle these exceptions
             throw new RuntimeException(e);
         }
     }
