@@ -1,7 +1,9 @@
 package io.github.hypixel_api_wrapper.http;
 
+import io.github.hypixel_api_wrapper.util.Endpoint;
 import java.io.Closeable;
 import java.io.IOException;
+import java.net.URI;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -41,17 +43,17 @@ public class RequestFactory implements Closeable {
      * Sends a request to the Hypixel API. Returns a {@link JSONObject} of the information
      * retrieved.
      *
-     * @param url The API URL of the information that is being retrieved.
+     * @param uri The API URL of the information that is being retrieved.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(String url) {
+    public JSONObject send(URI uri) {
         if (!client.isRunning()) {
             client.start();
         }
 
         try {
             HttpUriRequest request = RequestBuilder.create("GET")
-                .setUri(url)
+                .setUri(uri)
                 .addHeader("API-Key", apiKey)
                 .addHeader("content-type", "application/json")
                 .build();
@@ -74,8 +76,7 @@ public class RequestFactory implements Closeable {
      * @param dataLocation The specific piece of data in the JSON file will be retrieved.
      * @return A piece of specified data from the retrieved JSON file.
      */
-    public String getInformation(String endpoint, String dataLocation) {
-        JSONObject object = send(endpoint);
-        return send(endpoint).get(dataLocation).toString();
+    public String getInformation(Endpoint endpoint, String dataLocation) {
+        return send(endpoint.getURI()).get(dataLocation).toString();
     }
 }

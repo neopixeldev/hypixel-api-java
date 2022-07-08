@@ -1,7 +1,7 @@
 package io.github.hypixel_api_wrapper.util;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public enum Endpoint {
     API_KEY("key"),
@@ -32,10 +32,10 @@ public enum Endpoint {
         this.path = "/" + path;
     }
 
-    public URL getURL() {
+    public URI getURI() {
         try {
-            return new URL("https", "api.hypixel.net", path);
-        } catch (MalformedURLException cause) {
+            return new URI("https", "api.hypixel.net", path, null);
+        } catch (URISyntaxException cause) {
             throw new IllegalStateException("Invalid path for " + name() + ": \"" + path + "\"");
         }
     }
