@@ -1,6 +1,8 @@
 package io.github.hypixel_api_wrapper.http;
 
+import java.io.Closeable;
 import java.io.IOException;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -14,19 +16,21 @@ import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-public class RequestFactory {
+public class RequestFactory implements Closeable {
 
-    private static final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
-    private static final BasicResponseHandler handler = new BasicResponseHandler();
+    private final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
+    private final BasicResponseHandler handler = new BasicResponseHandler();
+    private final String apiKey;
 
-    public static void start() {
-        if (client.isRunning()) {
-            throw new IllegalStateException("RequestFactory is already running");
+    public RequestFactory(UUID apiKey) {
+        if (apiKey == null) {
+            throw new IllegalArgumentException("Hypixel API key cannot be null");
         }
-        client.start();
+        this.apiKey = apiKey.toString();
     }
 
-    public static void close() throws IOException {
+    @Override
+    public void close() throws IOException {
         if (!client.isRunning()) {
             throw new IllegalStateException("RequestFactory is already not running");
         }
@@ -40,15 +44,15 @@ public class RequestFactory {
      * @param url The API URL of the information that is being retrieved.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public static JSONObject send(String url) {
+    public JSONObject send(String url) {
         if (!client.isRunning()) {
-            throw new IllegalStateException("RequestFactory is not started");
+            client.start();
         }
 
         try {
-            client.start();
             HttpUriRequest request = RequestBuilder.create("GET")
                 .setUri(url)
+                .addHeader("API-Key", apiKey)
                 .addHeader("content-type", "application/json")
                 .build();
             // TODO implement a CompletableFuture workaround
@@ -70,8 +74,8 @@ public class RequestFactory {
      * @param dataLocation The specific piece of data in the JSON file will be retrieved.
      * @return A piece of specified data from the retrieved JSON file.
      */
-    public static String getInformation(String endpoint, String dataLocation) {
-        JSONObject object = RequestFactory.send(endpoint);
-        return RequestFactory.send(endpoint).get(dataLocation).toString();
+    public String getInformation(String endpoint, String dataLocation) {
+        JSONObject object = send(endpoint);
+        return send(endpoint).get(dataLocation).toString();
     }
 }
