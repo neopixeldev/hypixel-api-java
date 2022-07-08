@@ -20,15 +20,17 @@ public class RequestFactory {
     private static final BasicResponseHandler handler = new BasicResponseHandler();
 
     public static void start() {
-        if (!client.isRunning()) {
-            client.start();
+        if (client.isRunning()) {
+            throw new IllegalStateException("RequestFactory is already running");
         }
+        client.start();
     }
 
     public static void close() throws IOException {
-        if (client.isRunning()) {
-            client.close();
+        if (!client.isRunning()) {
+            throw new IllegalStateException("RequestFactory is already not running");
         }
+        client.close();
     }
 
     /**
@@ -39,6 +41,10 @@ public class RequestFactory {
      * @return A {@link JSONObject} of the information retrieved.
      */
     public static JSONObject send(String url) {
+        if (!client.isRunning()) {
+            throw new IllegalStateException("RequestFactory is not started");
+        }
+
         try {
             client.start();
             HttpUriRequest request = RequestBuilder.create("GET")
