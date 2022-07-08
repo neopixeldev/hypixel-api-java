@@ -5,12 +5,14 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.net.URI;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
@@ -22,6 +24,7 @@ public class RequestFactory implements Closeable {
 
     private final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
     private final BasicResponseHandler handler = new BasicResponseHandler();
+    private final ExecutorService threadPool = Executors.newCachedThreadPool();
     private final String apiKey;
 
     public RequestFactory(UUID apiKey) {
@@ -46,27 +49,29 @@ public class RequestFactory implements Closeable {
      * @param uri The API URL of the information that is being retrieved.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(URI uri) {
+    public CompletableFuture<JSONObject> send(URI uri) {
         if (!client.isRunning()) {
             client.start();
         }
 
-        try {
-            HttpUriRequest request = RequestBuilder.create("GET")
-                .setUri(uri)
-                .addHeader("API-Key", apiKey)
-                .addHeader("content-type", "application/json")
-                .build();
-            // TODO implement a CompletableFuture workaround
-            Future<HttpResponse> future = client.execute(request, null);
-            HttpResponse response = future.get(500, TimeUnit.MILLISECONDS);
-            JSONObject res = new JSONObject(handler.handleResponse(response));
-            EntityUtils.consume(response.getEntity());
-            return res;
-        } catch (InterruptedException | ExecutionException | IOException | TimeoutException e) {
-            // TODO create own error to handle these exceptions
-            throw new RuntimeException(e);
-        }
+        Future<HttpResponse> pendingResponse = client.execute(RequestBuilder.get(uri)
+            .addHeader("API-Key", apiKey)
+            .addHeader("Accept", "application/json")
+            .build(), /* callback = */ null);
+
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                // TODO: 7/8/22 Make timeout configurable.
+                HttpResponse response = pendingResponse.get(1_500, TimeUnit.MILLISECONDS);
+                JSONObject responseBody = new JSONObject(handler.handleResponse(response));
+                // Release the underlying provider for the response's body.
+                EntityUtils.consume(response.getEntity());
+                return responseBody;
+            } catch (InterruptedException | ExecutionException | IOException | TimeoutException e) {
+                // TODO: 7/8/22 Wrap these in our own exception class.
+                throw new RuntimeException(e);
+            }
+        }, threadPool);
     }
 
     /**
@@ -76,7 +81,7 @@ public class RequestFactory implements Closeable {
      * @param dataLocation The specific piece of data in the JSON file will be retrieved.
      * @return A piece of specified data from the retrieved JSON file.
      */
-    public String getInformation(Endpoint endpoint, String dataLocation) {
-        return send(endpoint.getURI()).get(dataLocation).toString();
+    public CompletableFuture<String> getInformation(Endpoint endpoint, String dataLocation) {
+        return send(endpoint.getURI()).thenApply(body -> body.get(dataLocation).toString());
     }
 }
