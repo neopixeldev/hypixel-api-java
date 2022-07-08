@@ -1,6 +1,6 @@
-package io.github.hypixelapiwrapper.wrapper;
+package io.github.hypixel_api_wrapper.wrapper;
 
-import io.github.hypixelapiwrapper.http.RequestFactory;
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 import org.json.JSONObject;
 
 public class HypixelAPIDataRetrieval <E> {
