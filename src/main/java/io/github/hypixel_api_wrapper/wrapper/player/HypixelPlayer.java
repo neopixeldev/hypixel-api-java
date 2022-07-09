@@ -18,19 +18,19 @@ public class HypixelPlayer {
     }
 
     public String getUUID() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     public double getNetworkLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public double getNetworkEXP() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public int getNetworkKarma() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -38,7 +38,7 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getNetworkLevelPercentage() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -46,46 +46,46 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getEXPIntoCurrentNetworkLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
     public double getEXPToNextNetworkLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public List<HypixelPlayer> getHypixelFriends() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     public boolean isOnline() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     public int getTotalDailyRewardsClaimed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public int getTopDailyRewardStreak() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public int getCurrentDailyRewardStreak() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     public HypixelRank getHypixelRank() {
-        return HypixelRank.DEFAULT;
+        throw new UnsupportedOperationException();
     }
 
     public HypixelRankPlusColor getHypixelRankPlusColor() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     public HypixelGuild getGuild() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
 }
