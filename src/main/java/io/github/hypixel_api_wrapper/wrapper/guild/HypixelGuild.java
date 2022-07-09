@@ -15,6 +15,12 @@ public class HypixelGuild {
     public String getName() {
         return name;
     }
+    public double getLevel() {
+        return 0;
+    }
+    public double getExperience() {
+        return 0;
+    }
     public List<HypixelPlayer> getMembers() {
         return null;
     }
@@ -24,4 +30,23 @@ public class HypixelGuild {
     public long getDailyGEXP() {
         return 0;
     }
+    public boolean isPubliclyListed() {
+        return false;
+    }
+    public String getDescription() {
+        return null;
+    }
+    public boolean isJoinable() {
+        return false;
+    }
+    public int getCoins() {
+        return 0;
+    }
+    public String getTag() {
+        return null;
+    }
+    public int getPlacementOnLeaderboard() {
+        return 0;
+    }
+
 }
