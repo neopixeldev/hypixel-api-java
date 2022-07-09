@@ -11,42 +11,40 @@ public class HypixelGuild {
         this.name = name;
         this.apiKey = apiKey;
     }
-
     public String getName() {
         return name;
     }
     public double getLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
     public double getExperience() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
     public List<HypixelPlayer> getMembers() {
-        return null;
+        throw new UnsupportedOperationException();
     }
     public HypixelPlayer getOwner() {
-        return null;
+        throw new UnsupportedOperationException();
     }
     public long getDailyGEXP() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
     public boolean isPubliclyListed() {
-        return false;
+        throw new UnsupportedOperationException();
     }
     public String getDescription() {
-        return null;
+        throw new UnsupportedOperationException();
     }
     public boolean isJoinable() {
-        return false;
+        throw new UnsupportedOperationException();
     }
     public int getCoins() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
     public String getTag() {
-        return null;
+        throw new UnsupportedOperationException();
     }
     public int getPlacementOnLeaderboard() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
-
 }
