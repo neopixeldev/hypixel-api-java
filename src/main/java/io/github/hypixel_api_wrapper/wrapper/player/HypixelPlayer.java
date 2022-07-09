@@ -6,11 +6,11 @@ import java.util.List;
 public class HypixelPlayer {
 
     private String username;
-    private String APIKey;
+    private String apiKey;
 
-    public HypixelPlayer(String username, String APIKey) {
+    public HypixelPlayer(String username, String apiKey) {
         this.username = username;
-        this.APIKey = APIKey;
+        this.apiKey = apiKey;
     }
 
     public String getUsername() {
