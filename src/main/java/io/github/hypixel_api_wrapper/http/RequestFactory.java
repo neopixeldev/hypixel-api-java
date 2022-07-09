@@ -1,7 +1,7 @@
 package io.github.hypixel_api_wrapper.http;
 
+import io.github.hypixel_api_wrapper.caching.CachingStrategy;
 import io.github.hypixel_api_wrapper.util.Endpoint;
-import io.github.hypixel_api_wrapper.util.RequestCache;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -18,11 +18,16 @@ import org.json.JSONObject;
 
 public class RequestFactory {
 
-    private static final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
-    private static final BasicResponseHandler handler = new BasicResponseHandler();
+    private static CloseableHttpAsyncClient client;
+    private static BasicResponseHandler handler;
+    private static CachingStrategy cache;
 
-    public static void start() {
+    public static void start(CachingStrategy cachingStrategy) {
         if (!client.isRunning()) {
+            client = HttpAsyncClients.createDefault();
+            handler = new BasicResponseHandler();
+            cache = cachingStrategy;
+
             client.start();
         }
     }
@@ -30,6 +35,7 @@ public class RequestFactory {
     public static void close() throws IOException {
         if (client.isRunning()) {
             client.close();
+            cache.clearCache();
         }
     }
 
@@ -42,9 +48,6 @@ public class RequestFactory {
      */
     public static JSONObject send(String url) {
         try {
-            if(!client.isRunning()) {
-                client.start();
-            }
             HttpUriRequest request = RequestBuilder.create("GET")
                 .setUri(url)
                 .addHeader("content-type", "application/json")
@@ -62,11 +65,11 @@ public class RequestFactory {
     }
 
     /**
-    This method's use is the exact same as #send, but it adds requests to the cache.
+     * This method's use is the exact same as #send, but it adds requests to the cache.
      */
     public static JSONObject getEndpointThroughAPI(Endpoint endpoint) {
         JSONObject res = send(endpoint.toString());
-        RequestCache.addRequest(endpoint.name(), res);
+        cache.cacheResponse(endpoint, res);
         return res;
     }
 
