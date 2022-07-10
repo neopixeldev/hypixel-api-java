@@ -57,10 +57,9 @@ public class HypixelPlayer {
         throw new UnsupportedOperationException();
     }
 
-    public List<HypixelPlayer> getHypixelFriends() {
+    public List<HypixelFriend> getHypixelFriends() {
         throw new UnsupportedOperationException();
     }
-
     public boolean isOnline() {
         throw new UnsupportedOperationException();
     }
