@@ -2,7 +2,7 @@ package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
-import java.util.List;
+import java.util.Set;
 
 public class HypixelPlayer {
 
@@ -57,7 +57,22 @@ public class HypixelPlayer {
         throw new UnsupportedOperationException();
     }
 
-    public List<HypixelPlayer> getHypixelFriends() {
+
+    /**
+     * Meant for future usage; int limit is used to limit the amount of friends required to be
+     * parsed from the api i.e., if called with #getFriends(100), only the first 100 friends would
+     * be returned via this method
+     *
+     * @param limit The limit of the amount of friends that should be retrieved from the users
+     *              friend list.
+     * @return A Set of {@link HypixelFriend}'s that represent a given amount of
+     * {@link HypixelPlayer}'s on the users friend list.
+     */
+    public Set<HypixelFriend> getHypixelFriends(int limit) {
+        throw new UnsupportedOperationException();
+    }
+
+    public Set<HypixelFriend> getHypixelFriends() {
         throw new UnsupportedOperationException();
     }
 
