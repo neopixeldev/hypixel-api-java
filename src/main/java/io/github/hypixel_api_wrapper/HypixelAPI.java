@@ -1,7 +1,6 @@
 package io.github.hypixel_api_wrapper;
 
 import io.github.hypixel_api_wrapper.http.RequestFactory;
-
 import java.io.IOException;
 
 public class HypixelAPI {
