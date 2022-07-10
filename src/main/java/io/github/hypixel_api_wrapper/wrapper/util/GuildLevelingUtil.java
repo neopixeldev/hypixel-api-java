@@ -18,7 +18,7 @@ public class GuildLevelingUtil {
      * For example, if this list has 15 values, then the last value is used for levels 14 -> 15 and
      * any levels after that.
      */
-    static List<Integer> EXP_NEEDED = Collections.unmodifiableList(Arrays.asList(
+    private static List<Integer> EXP_NEEDED = Collections.unmodifiableList(Arrays.asList(
         100000, // Lvl 0 -> Lvl 1
         150000, // Lvl 1 -> Lvl 2
         250000, // Lvl 2 -> Lvl 3
@@ -42,7 +42,7 @@ public class GuildLevelingUtil {
      *
      * @see #EXP_NEEDED
      */
-    static int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
+    private static int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
 
     /**
      * This method returns the full level of a guild with that amount of guild experience. This
