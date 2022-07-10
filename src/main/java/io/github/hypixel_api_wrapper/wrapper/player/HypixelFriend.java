@@ -18,8 +18,8 @@ public class HypixelFriend {
         this.friend = friend;
         this.apiKey = apiKey;
     }
-
-    public HypixelPlayer getFriend() {
+    
+    public HypixelPlayer asPlayer() {
         return friend;
     }
 
