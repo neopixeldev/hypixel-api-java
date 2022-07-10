@@ -56,8 +56,14 @@ public class HypixelPlayer {
     public double getEXPToNextNetworkLevel() {
         throw new UnsupportedOperationException();
     }
-
-    public List<HypixelFriend> getHypixelFriends() {
+    // meant for future usage; int limit is used to limit the amount of friends
+    // required to be parsed from the api
+    // i.e., if called with #getFriends(100), only the first 100 friends
+    // would be returned via this method
+    public List<HypixelFriend> getFriends(int limit) {
+        throw new UnsupportedOperationException();
+    }
+    public List<HypixelFriend> getFriends() {
         throw new UnsupportedOperationException();
     }
     public boolean isOnline() {
