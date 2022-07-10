@@ -68,6 +68,10 @@ public class RequestFactory {
      * This method's use is the exact same as #send, but it adds requests to the cache.
      */
     public static JSONObject getEndpointThroughAPI(Endpoint endpoint) {
+        if (cache.isCacheValid(endpoint)) {
+            return cache.getCachedResponse(endpoint);
+        }
+
         JSONObject res = send(endpoint.toString());
         cache.cacheResponse(endpoint, res);
         return res;
