@@ -9,6 +9,8 @@ import java.time.Instant;
  */
 public class HypixelFriend {
 
+    //TODO This field will help the #getDateAdded() method retrieve information about
+    // when the player and the friend added each other as friends. 
     private final HypixelPlayer player;
     private final HypixelPlayer friend;
     private final String apiKey;
@@ -18,7 +20,7 @@ public class HypixelFriend {
         this.friend = friend;
         this.apiKey = apiKey;
     }
-    
+
     public HypixelPlayer asPlayer() {
         return friend;
     }
