@@ -68,11 +68,11 @@ public class HypixelPlayer {
      * @return A Set of {@link HypixelFriend}'s that represent a given amount of
      * {@link HypixelPlayer}'s on the users friend list.
      */
-    public Set<HypixelFriend> getFriends(int limit) {
+    public Set<HypixelFriend> getHypixelFriends(int limit) {
         throw new UnsupportedOperationException();
     }
 
-    public Set<HypixelFriend> getFriends() {
+    public Set<HypixelFriend> getHypixelFriends() {
         throw new UnsupportedOperationException();
     }
 
