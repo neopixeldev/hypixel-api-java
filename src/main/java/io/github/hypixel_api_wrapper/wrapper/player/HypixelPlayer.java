@@ -1,6 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
+import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import java.util.List;
 
 public class HypixelPlayer {
@@ -80,7 +81,7 @@ public class HypixelPlayer {
         throw new UnsupportedOperationException();
     }
 
-    public HypixelRankPlusColor getHypixelRankPlusColor() {
+    public HypixelColors getHypixelRankPlusColor() {
         throw new UnsupportedOperationException();
     }
 

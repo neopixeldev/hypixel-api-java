@@ -1,6 +1,9 @@
-package io.github.hypixel_api_wrapper.wrapper.player;
+package io.github.hypixel_api_wrapper.wrapper.util;
 
-public enum HypixelRankPlusColor {
+/**
+ * An enum of all the colors on the Hypixel Network.
+ */
+public enum HypixelColors {
     RED,
     GOLD,
     GREEN,
