@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.hypixel_api_wrapper.io.caching.BasicCachingStrategy;
 import io.github.hypixel_api_wrapper.io.caching.CachingStrategy;
-import io.github.hypixel_api_wrapper.util.Endpoint;
+import io.github.hypixel_api_wrapper.io.http.Endpoint;
 import java.time.Instant;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;

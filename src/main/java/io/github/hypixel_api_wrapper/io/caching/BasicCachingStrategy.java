@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.io.caching;
 
-import io.github.hypixel_api_wrapper.util.Endpoint;
+import io.github.hypixel_api_wrapper.io.http.Endpoint;
 import java.time.Clock;
 import java.util.HashMap;
 import java.util.Map;

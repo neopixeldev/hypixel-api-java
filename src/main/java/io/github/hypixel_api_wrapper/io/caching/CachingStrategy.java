@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.io.caching;
 
-import io.github.hypixel_api_wrapper.util.Endpoint;
+import io.github.hypixel_api_wrapper.io.http.Endpoint;
 import org.json.JSONObject;
 
 public interface CachingStrategy {
