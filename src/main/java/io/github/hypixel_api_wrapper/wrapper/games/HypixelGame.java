@@ -5,7 +5,7 @@ public interface HypixelGame {
     public String getGameName();
 
     /*
-        @return a boolean stating whether the game is currently present and playable on the Hypixel Network.
+        @return a boolean stating whether the game has been removed from the Hypixel Network.
      */
-    public boolean isPresentOnNetwork();
+    public boolean isRemoved();
 }

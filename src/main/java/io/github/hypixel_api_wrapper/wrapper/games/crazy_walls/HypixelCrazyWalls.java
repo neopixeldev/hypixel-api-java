@@ -14,7 +14,7 @@ public class HypixelCrazyWalls implements HypixelGame {
     }
 
     @Override
-    public boolean isPresentOnNetwork() {
-        return false;
+    public boolean isRemoved() {
+        return true;
     }
 }
