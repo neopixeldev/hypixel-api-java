@@ -1,6 +1,6 @@
-package io.github.hypixel_api_wrapper.io.http.cache;
+package io.github.hypixel_api_wrapper.http.cache;
 
-import io.github.hypixel_api_wrapper.io.http.Endpoint;
+import io.github.hypixel_api_wrapper.http.Endpoint;
 import org.json.JSONObject;
 
 /**

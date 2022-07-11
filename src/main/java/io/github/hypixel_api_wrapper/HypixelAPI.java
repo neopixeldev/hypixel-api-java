@@ -1,8 +1,8 @@
 package io.github.hypixel_api_wrapper;
 
-import io.github.hypixel_api_wrapper.io.http.cache.CachingStrategy;
-import io.github.hypixel_api_wrapper.io.http.cache.NoCachingStrategy;
-import io.github.hypixel_api_wrapper.io.http.RequestFactory;
+import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
+import io.github.hypixel_api_wrapper.http.cache.NoCachingStrategy;
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 import java.io.IOException;
 
 public class HypixelAPI {
