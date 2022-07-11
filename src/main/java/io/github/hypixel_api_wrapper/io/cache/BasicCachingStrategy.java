@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.io.caching;
+package io.github.hypixel_api_wrapper.io.cache;
 
 import io.github.hypixel_api_wrapper.io.http.Endpoint;
 import java.time.Clock;
