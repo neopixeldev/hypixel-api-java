@@ -7,6 +7,9 @@ import java.util.List;
 // source code: https://github.com/HypixelDev/PublicAPI/blob/master/hypixel-api-core/src/main/java/net/hypixel/api/util/IGuildLeveling.java
 public class GuildLevelingUtil {
 
+    private GuildLevelingUtil() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * An unmodifiable list containing the experience needed to get from each level to the next. For
