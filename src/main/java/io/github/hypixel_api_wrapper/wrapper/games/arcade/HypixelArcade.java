@@ -1,4 +1,6 @@
-package io.github.hypixel_api_wrapper.wrapper.games;
+package io.github.hypixel_api_wrapper.wrapper.games.arcade;
+
+import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 
 public class HypixelArcade implements HypixelGame {
     @Override
