@@ -28,13 +28,11 @@ public class HypixelAPI {
      *                        will be used to disable caching
      * @return the newly created instance
      */
-    public static HypixelAPI create(String key, CachingStrategy cachingStrategy) {
-        if (cachingStrategy == null) {
-            cachingStrategy = new NoCachingStrategy();
-        }
-        RequestFactory.start(cachingStrategy);
+    public static HypixelAPI create(String key) {
+        RequestFactory.start(new NoCachingStrategy());
         return new HypixelAPI(key);
     }
+    
     public static void shutdown() throws IOException {
         RequestFactory.close();
     }
