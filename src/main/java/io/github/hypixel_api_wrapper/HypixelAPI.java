@@ -13,6 +13,15 @@ public class HypixelAPI {
     }
 
     /**
+     * Creates a new instance of the HypixelAPI object with caching disabled.
+     * @param key the api key to use for authentication
+     * @return the newly created instance
+     */
+    public static HypixelAPI create(String key) {
+        return create(key, null);
+    }
+
+    /**
      * Creates a new instance of the HypixelAPI object
      * @param key the api key to use for authentication
      * @param cachingStrategy the caching strategy to use. If null is passed the NoCachingStrategy
