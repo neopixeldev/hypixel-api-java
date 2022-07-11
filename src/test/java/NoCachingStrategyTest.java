@@ -1,6 +1,5 @@
-import io.github.hypixel_api_wrapper.HypixelAPI;
-import io.github.hypixel_api_wrapper.caching.CachingStrategy;
-import io.github.hypixel_api_wrapper.caching.NoCachingStrategy;
+import io.github.hypixel_api_wrapper.io.caching.CachingStrategy;
+import io.github.hypixel_api_wrapper.io.caching.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.util.Endpoint;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;

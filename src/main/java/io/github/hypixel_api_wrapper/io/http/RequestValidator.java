@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.http;
+package io.github.hypixel_api_wrapper.io.http;
 
 import io.github.hypixel_api_wrapper.exception.GuildNotFoundException;
 import io.github.hypixel_api_wrapper.exception.InvalidAPIKeyException;
