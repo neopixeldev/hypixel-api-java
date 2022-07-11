@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.tnt_games;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelTNTGames implements HypixelGame {
+public class HypixelTNTGames extends HypixelGame {
+
+    protected HypixelTNTGames(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "TNTGAMES";

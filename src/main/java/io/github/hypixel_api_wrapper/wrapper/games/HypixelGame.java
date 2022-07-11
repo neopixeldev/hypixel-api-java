@@ -1,11 +1,21 @@
 package io.github.hypixel_api_wrapper.wrapper.games;
 
-public interface HypixelGame {
-    public String getGameID();
-    public String getGameName();
+import org.json.JSONObject;
+
+public abstract class HypixelGame {
+
+    protected final JSONObject stats;
+
+    protected HypixelGame(JSONObject stats) {
+        this.stats = stats;
+    }
+
+    public abstract String getGameID();
+
+    public abstract String getGameName();
 
     /*
         @return a boolean stating whether the game has been removed from the Hypixel Network.
      */
-    public boolean isRemoved();
+    public abstract boolean isRemoved();
 }

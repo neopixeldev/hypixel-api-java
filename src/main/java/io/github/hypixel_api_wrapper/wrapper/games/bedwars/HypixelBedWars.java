@@ -3,17 +3,15 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelBedWars implements HypixelGame {
+public class HypixelBedWars extends HypixelGame {
 
-    JSONObject stats;
     HypixelBedwarsSolos solos;
     HypixelBedwarsDoubles doubles;
     HypixelBedwarsTrios trios;
     HypixelBedwarsSquads squads;
 
-    public HypixelBedWars(JSONObject stats) {
-
-        this.stats = stats;
+    protected HypixelBedWars(JSONObject stats) {
+        super(stats);
 
         solos = new HypixelBedwarsSolos(stats);
         doubles = new HypixelBedwarsDoubles(stats);
@@ -39,6 +37,7 @@ public class HypixelBedWars implements HypixelGame {
     public int getFKDR() {
         throw new UnsupportedOperationException();
     }
+
     public int getStar() {
         throw new UnsupportedOperationException();
     }

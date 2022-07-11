@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.arcade.mini_walls;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelWalls implements HypixelGame {
+public class HypixelWalls extends HypixelGame {
+
+    protected HypixelWalls(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "WALLS";

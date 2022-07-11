@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.skyclash;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelSkyClash implements HypixelGame {
+public class HypixelSkyClash extends HypixelGame {
+
+    protected HypixelSkyClash(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "SKYCLASH";

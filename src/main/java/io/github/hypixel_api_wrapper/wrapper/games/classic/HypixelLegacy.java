@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.classic;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelLegacy implements HypixelGame {
+public class HypixelLegacy extends HypixelGame {
+
+    protected HypixelLegacy(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "LEGACY";

@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.pit;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelPit implements HypixelGame {
+public class HypixelPit extends HypixelGame {
+
+    protected HypixelPit(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "PIT";

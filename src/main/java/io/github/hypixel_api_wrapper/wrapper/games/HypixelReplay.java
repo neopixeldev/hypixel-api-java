@@ -1,6 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games;
 
-public class HypixelReplay implements HypixelGame {
+import org.json.JSONObject;
+
+public class HypixelReplay extends HypixelGame {
+
+    protected HypixelReplay(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "REPLAY";

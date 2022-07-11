@@ -1,8 +1,14 @@
 package io.github.hypixel_api_wrapper.wrapper.games.mcgo;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import org.json.JSONObject;
 
-public class HypixelMCGO implements HypixelGame {
+public class HypixelMCGO extends HypixelGame {
+
+    protected HypixelMCGO(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "MCGO";
