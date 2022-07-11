@@ -1,5 +1,7 @@
 package io.github.hypixel_api_wrapper.http;
 
+import io.github.hypixel_api_wrapper.caching.CachingStrategy;
+import io.github.hypixel_api_wrapper.util.Endpoint;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -16,11 +18,16 @@ import org.json.JSONObject;
 
 public class RequestFactory {
 
-    private static final CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
-    private static final BasicResponseHandler handler = new BasicResponseHandler();
+    private static CloseableHttpAsyncClient client;
+    private static BasicResponseHandler handler;
+    private static CachingStrategy cache;
 
-    public static void start() {
+    public static void start(CachingStrategy cachingStrategy) {
         if (!client.isRunning()) {
+            client = HttpAsyncClients.createDefault();
+            handler = new BasicResponseHandler();
+            cache = cachingStrategy;
+
             client.start();
         }
     }
@@ -28,6 +35,7 @@ public class RequestFactory {
     public static void close() throws IOException {
         if (client.isRunning()) {
             client.close();
+            cache.clearCache();
         }
     }
 
@@ -40,7 +48,6 @@ public class RequestFactory {
      */
     public static JSONObject send(String url) {
         try {
-            client.start();
             HttpUriRequest request = RequestBuilder.create("GET")
                 .setUri(url)
                 .addHeader("content-type", "application/json")
@@ -58,14 +65,26 @@ public class RequestFactory {
     }
 
     /**
+     * This method's use is the exact same as #send, but it adds requests to the cache.
+     */
+    public static JSONObject getEndpointThroughAPI(Endpoint endpoint) {
+        if (cache.isCacheValid(endpoint)) {
+            return cache.getCachedResponse(endpoint);
+        }
+
+        JSONObject res = send(endpoint.toString());
+        cache.cacheResponse(endpoint, res);
+        return res;
+    }
+
+    /**
      * Retrieve information from the Hypixel API.
      *
      * @param endpoint     The API URL of the information that is being retrieved.
      * @param dataLocation The specific piece of data in the JSON file will be retrieved.
      * @return A piece of specified data from the retrieved JSON file.
      */
-    public static String getInformation(String endpoint, String dataLocation) {
-        JSONObject object = RequestFactory.send(endpoint);
-        return RequestFactory.send(endpoint).get(dataLocation).toString();
+    public static String getInformation(Endpoint endpoint, String dataLocation) {
+        return RequestFactory.send(endpoint.toString()).get(dataLocation).toString();
     }
 }
