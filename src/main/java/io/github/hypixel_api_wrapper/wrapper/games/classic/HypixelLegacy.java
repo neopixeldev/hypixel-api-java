@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.wrapper.games.legacy;
+package io.github.hypixel_api_wrapper.wrapper.games.classic;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 

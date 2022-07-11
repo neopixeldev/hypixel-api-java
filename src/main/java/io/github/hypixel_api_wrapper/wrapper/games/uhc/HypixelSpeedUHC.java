@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.wrapper.games.speed_uhc;
+package io.github.hypixel_api_wrapper.wrapper.games.uhc;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 
