@@ -14,7 +14,7 @@ public class HypixelBuildBattle implements HypixelGame {
     }
 
     @Override
-    public boolean isNetworkPresent() {
+    public boolean isPresentOnNetwork() {
         return true;
     }
 }

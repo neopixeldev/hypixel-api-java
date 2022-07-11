@@ -7,5 +7,5 @@ public interface HypixelGame {
     /*
         @return a boolean stating whether the game is currently present and playable on the Hypixel Network.
      */
-    public boolean isNetworkPresent();
+    public boolean isPresentOnNetwork();
 }

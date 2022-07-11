@@ -14,7 +14,7 @@ public class HypixelSuperSmash implements HypixelGame {
     }
 
     @Override
-    public boolean isNetworkPresent() {
+    public boolean isPresentOnNetwork() {
         return true;
     }
 }
