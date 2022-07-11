@@ -1,20 +1,20 @@
-package io.github.hypixel_api_wrapper.wrapper.games.walls;
+package io.github.hypixel_api_wrapper.wrapper.games.classic.walls;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 
-public class HypixelWalls implements HypixelGame {
+public class HypixelWalls3 implements HypixelGame {
     @Override
     public String getGameID() {
-        return "WALLS";
+        return "WALLS3";
     }
 
     @Override
     public String getGameName() {
-        return "Walls";
+        return "Mega Walls";
     }
 
     @Override
     public boolean isRemoved() {
-        return true;
+        return false;
     }
 }
