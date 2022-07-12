@@ -11,11 +11,13 @@ import java.util.HashMap;
  */
 
 public class HypixelAPILogger {
+
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm:ss");
 
     // This HashMap contains a list of types the logger could display. By default, they're all true.
     private static final HashMap<LoggerFlag, Boolean> shownFlags = new HashMap<>();
     private static Boolean enabled = false;
+
     static {
         shownFlags.put(LoggerFlag.REQUEST, true);
         shownFlags.put(LoggerFlag.PARSE, true);
@@ -23,11 +25,15 @@ public class HypixelAPILogger {
     }
 
     public static void log(String message, LoggerFlag type) {
-        if(shownFlags.get(type) && enabled) System.out.println(format(message, false));
+        if (shownFlags.get(type) && enabled) {
+            System.out.println(format(message, false));
+        }
     }
 
     public static void error(String message, LoggerFlag type) {
-        if(shownFlags.get(type) && enabled) System.out.println(format(message, true));
+        if (shownFlags.get(type) && enabled) {
+            System.out.println(format(message, true));
+        }
     }
 
     // This allows the end user to modify what messages should be shown.
@@ -41,6 +47,7 @@ public class HypixelAPILogger {
 
     // This simply formats a message into the final form for printing. It adds time and either ERROR/INFO.
     private static String format(String message, boolean error) {
-        return "[" + DATE_FORMAT.format(new Date()) + "] " + "[" + (error ? "INFO" : "ERROR") + "] " + message;
+        return "[" + DATE_FORMAT.format(new Date()) + "] " + "[" + (error ? "INFO" : "ERROR") + "] "
+            + message;
     }
 }

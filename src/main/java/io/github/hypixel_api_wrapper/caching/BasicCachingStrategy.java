@@ -14,6 +14,8 @@ public class BasicCachingStrategy implements CachingStrategy {
 
     private final long validCacheTime;
     private final Clock clock;
+    // The long in the value Pair are the current time ms
+    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new HashMap<>();
 
     /**
      * Creates a new {@link BasicCachingStrategy} with a valid cache time of 20s
@@ -32,9 +34,6 @@ public class BasicCachingStrategy implements CachingStrategy {
         this.validCacheTime = validCacheTime;
         this.clock = clock;
     }
-
-    // The long in the value Pair are the current time ms
-    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new HashMap<>();
 
     @Override
     public void cacheResponse(Endpoint endpoint, JSONObject res) {

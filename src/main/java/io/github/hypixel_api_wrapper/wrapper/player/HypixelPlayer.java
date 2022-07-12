@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class HypixelPlayer {
 
-    private String username;
-    private RequestFactory requestFactory;
+    private final String username;
+    private final RequestFactory requestFactory;
 
     public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
