@@ -16,7 +16,7 @@ public class HypixelSuperSmash extends HypixelGame {
 
     @Override
     public String getGameName() {
-        return "Smash Heros";
+        return "Smash Heroes";
     }
 
     @Override
