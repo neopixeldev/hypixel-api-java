@@ -3,6 +3,7 @@ package io.github.hypixel_api_wrapper.http;
 import io.github.hypixel_api_wrapper.caching.CachingStrategy;
 import io.github.hypixel_api_wrapper.util.Endpoint;
 import java.io.IOException;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -24,8 +25,8 @@ public class RequestFactory {
 
     private final String apiKey;
 
-    public RequestFactory(String apiKey) {
-        this.apiKey = apiKey;
+    public RequestFactory(UUID apiKey) {
+        this.apiKey = apiKey.toString();
     }
 
     public void start(CachingStrategy cachingStrategy) {
