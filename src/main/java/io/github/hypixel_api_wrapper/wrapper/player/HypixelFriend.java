@@ -1,5 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 import java.time.Instant;
 
 /**
@@ -13,12 +14,12 @@ public class HypixelFriend {
     // when the player and the friend added each other as friends. 
     private final HypixelPlayer player;
     private final HypixelPlayer friend;
-    private final String apiKey;
+    private final RequestFactory requestFactory;
 
-    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend, String apiKey) {
+    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend, RequestFactory requestFactory) {
         this.player = player;
         this.friend = friend;
-        this.apiKey = apiKey;
+        this.requestFactory = requestFactory;
     }
 
     public HypixelPlayer asPlayer() {
