@@ -160,7 +160,7 @@ public abstract class HypixelBedWars extends HypixelGame {
         throw new UnsupportedOperationException();
     }
 
-    public int getItemsPurchased() {
+    public int getItemsPurchasedAmount() {
         throw new UnsupportedOperationException();
     }
 
