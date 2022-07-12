@@ -1,22 +1,22 @@
-package io.github.hypixel_api_wrapper.wrapper.games.mcgo;
+package io.github.hypixel_api_wrapper.wrapper.games.blitz;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelMCGO extends HypixelGame {
+public class HypixelBlitzSurvival extends HypixelGame {
 
-    protected HypixelMCGO(JSONObject stats) {
+    protected HypixelBlitzSurvival(JSONObject stats) {
         super(stats);
     }
 
     @Override
     public String getGameID() {
-        return "MCGO";
+        return "SURVIVAL_GAMES";
     }
 
     @Override
     public String getGameName() {
-        return "Cops and Crims";
+        return "Blitz Survival Games";
     }
 
     @Override

@@ -1,11 +1,11 @@
-package io.github.hypixel_api_wrapper.wrapper.games.classic.turbo_kart;
+package io.github.hypixel_api_wrapper.wrapper.games.classic.tkr;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelTurboKart extends HypixelGame {
+public class HypixelTurboKartRacers extends HypixelGame {
 
-    protected HypixelTurboKart(JSONObject stats) {
+    protected HypixelTurboKartRacers(JSONObject stats) {
         super(stats);
     }
 

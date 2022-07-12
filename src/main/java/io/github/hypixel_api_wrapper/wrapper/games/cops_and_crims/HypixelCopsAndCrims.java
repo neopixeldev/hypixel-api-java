@@ -1,22 +1,22 @@
-package io.github.hypixel_api_wrapper.wrapper.games.super_smash;
+package io.github.hypixel_api_wrapper.wrapper.games.cops_and_crims;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelSuperSmash extends HypixelGame {
+public class HypixelCopsAndCrims extends HypixelGame {
 
-    protected HypixelSuperSmash(JSONObject stats) {
+    protected HypixelCopsAndCrims(JSONObject stats) {
         super(stats);
     }
 
     @Override
     public String getGameID() {
-        return "SUPER_SMASH";
+        return "MCGO";
     }
 
     @Override
     public String getGameName() {
-        return "Smash Heroes";
+        return "Cops and Crims";
     }
 
     @Override

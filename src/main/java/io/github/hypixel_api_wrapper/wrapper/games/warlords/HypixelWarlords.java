@@ -1,11 +1,11 @@
-package io.github.hypixel_api_wrapper.wrapper.games.battleground;
+package io.github.hypixel_api_wrapper.wrapper.games.warlords;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelBattleground extends HypixelGame {
+public class HypixelWarlords extends HypixelGame {
 
-    protected HypixelBattleground(JSONObject stats) {
+    protected HypixelWarlords(JSONObject stats) {
         super(stats);
     }
 
