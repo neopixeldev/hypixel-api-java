@@ -21,7 +21,7 @@ public class HypixelAPI {
      * @param key the api key to use for authentication
      * @return the newly created instance
      */
-    public static HypixelAPI create(String key) {
+    public static HypixelAPI create(UUID key) {
         return create(key, new NoCachingStrategy());
     }
 
@@ -33,7 +33,7 @@ public class HypixelAPI {
      *                        will be used to disable caching
      * @return the newly created instance
      */
-    public static HypixelAPI create(String key, CachingStrategy cachingStrategy) {
+    public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
         requestFactory.start(cachingStrategy);
         return new HypixelAPI(key);
     }
