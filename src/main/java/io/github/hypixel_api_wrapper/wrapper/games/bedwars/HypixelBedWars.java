@@ -3,7 +3,7 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelBedWars extends HypixelGame {
+public abstract class HypixelBedWars extends HypixelGame {
 
     HypixelBedWars solos;
     HypixelBedWars doubles;
@@ -51,6 +51,7 @@ public class HypixelBedWars extends HypixelGame {
 
     }
 
+    abstract String dataLocation();
     @Override
     public String getGameID() {
         return "BEDWARS";
@@ -70,63 +71,59 @@ public class HypixelBedWars extends HypixelGame {
      * Methods that should not be overridden by subclasses.
      */
 
-    public int getCoins() {
+    public final int getCoins() {
         throw new UnsupportedOperationException();
     }
 
-    public int getLevel() {
+    public final int getLevel() {
         throw new UnsupportedOperationException();
     }
 
-    public int getCurrentWinstreak() {
+    public final int getExperience() {
         throw new UnsupportedOperationException();
     }
 
-    public int getExperience() {
+    public final String getBoxEpics() {
         throw new UnsupportedOperationException();
     }
 
-    public String getBoxEpics() {
+    public final String getActiveVictoryDance() {
         throw new UnsupportedOperationException();
     }
 
-    public String getActiveVictoryDance() {
+    public final String getActiveIslandTopper() {
         throw new UnsupportedOperationException();
     }
 
-    public String getActiveIslandTopper() {
+    public final String getActiveSprays() {
         throw new UnsupportedOperationException();
     }
 
-    public String getActiveSprays() {
+    public final String getActiveDeathCry() {
         throw new UnsupportedOperationException();
     }
 
-    public String getActiveDeathCry() {
+    public final int getOpenedChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
-    public int getOpenedChestsAmount() {
+    public final int getOpenedCommonChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
-    public int getOpenedCommonChestsAmount() {
+    public final int getOpenedRareChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
-    public int getOpenedRareChestsAmount() {
+    public final int getOpenedEpicChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
-    public int getOpenedEpicChestsAmount() {
+    public final int getOpenedLegendaryChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
-    public int getOpenedLegendaryChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public int getChristmasChestsAmount() {
+    public final int getChristmasChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
@@ -212,6 +209,10 @@ public class HypixelBedWars extends HypixelGame {
     }
 
     public int getGamesPlayed() {
+        throw new UnsupportedOperationException();
+    }
+
+    public int getCurrentWinstreak() {
         throw new UnsupportedOperationException();
     }
 
