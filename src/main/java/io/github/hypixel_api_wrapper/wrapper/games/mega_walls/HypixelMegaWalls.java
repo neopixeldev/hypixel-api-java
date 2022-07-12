@@ -1,11 +1,11 @@
-package io.github.hypixel_api_wrapper.wrapper.games.classic.walls;
+package io.github.hypixel_api_wrapper.wrapper.games.mega_walls;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelWalls3 extends HypixelGame {
+public class HypixelMegaWalls extends HypixelGame {
 
-    protected HypixelWalls3(JSONObject stats) {
+    protected HypixelMegaWalls(JSONObject stats) {
         super(stats);
     }
 
