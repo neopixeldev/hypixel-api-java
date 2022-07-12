@@ -22,7 +22,13 @@ public class RequestFactory {
     private static BasicResponseHandler handler;
     private static CachingStrategy cache;
 
-    public static void start(CachingStrategy cachingStrategy) {
+    private final String apiKey;
+
+    public RequestFactory(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
+    public void start(CachingStrategy cachingStrategy) {
         if (!client.isRunning()) {
             client = HttpAsyncClients.createDefault();
             handler = new BasicResponseHandler();
@@ -32,7 +38,7 @@ public class RequestFactory {
         }
     }
 
-    public static void close() throws IOException {
+    public void close() throws IOException {
         if (client.isRunning()) {
             client.close();
             cache.clearCache();
@@ -46,10 +52,10 @@ public class RequestFactory {
      * @param url The API URL of the information that is being retrieved.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public static JSONObject send(String url) {
+    public JSONObject send(String url) {
         try {
             HttpUriRequest request = RequestBuilder.create("GET")
-                .setUri(url)
+                .setUri(url + "/" + apiKey)
                 .addHeader("content-type", "application/json")
                 .build();
             // TODO implement a CompletableFuture workaround
@@ -67,7 +73,7 @@ public class RequestFactory {
     /**
      * This method's use is the exact same as #send, but it adds requests to the cache.
      */
-    public static JSONObject getEndpointThroughAPI(Endpoint endpoint) {
+    public JSONObject getEndpointThroughAPI(Endpoint endpoint) {
         if (cache.isCacheValid(endpoint)) {
             return cache.getCachedResponse(endpoint);
         }
@@ -84,7 +90,7 @@ public class RequestFactory {
      * @param dataLocation The specific piece of data in the JSON file will be retrieved.
      * @return A piece of specified data from the retrieved JSON file.
      */
-    public static String getInformation(Endpoint endpoint, String dataLocation) {
-        return RequestFactory.send(endpoint.toString()).get(dataLocation).toString();
+    public String getInformation(Endpoint endpoint, String dataLocation) {
+        return send(endpoint.toString()).get(dataLocation).toString();
     }
 }
