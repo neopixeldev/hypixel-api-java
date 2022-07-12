@@ -19,6 +19,9 @@ import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsVoidles
 import java.util.Optional;
 import org.json.JSONObject;
 
+/**
+ * A <code>Factory</code> class to instantiate {@link AbstractHypixelBedWars}.
+ */
 public class HypixelBedWarsFactory extends HypixelObjectFactory {
 
     AbstractHypixelBedWars solos;
