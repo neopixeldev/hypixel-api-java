@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.wrapper.games.classic.vampireZ;
+package io.github.hypixel_api_wrapper.wrapper.games.classic.vampirez;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
