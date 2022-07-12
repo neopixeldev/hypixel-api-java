@@ -1,15 +1,16 @@
 package io.github.hypixel_api_wrapper.wrapper.guild;
 
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.util.List;
 
 public class HypixelGuild {
     private String name;
-    private String apiKey;
+    private RequestFactory requestFactory;
 
-    public HypixelGuild(String name, String apiKey) {
+    public HypixelGuild(String name, RequestFactory requestFactory) {
         this.name = name;
-        this.apiKey = apiKey;
+        this.requestFactory = requestFactory;
     }
     public String getName() {
         return name;

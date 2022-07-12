@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
-import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWars;
+import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import java.util.Set;
@@ -8,13 +8,11 @@ import java.util.Set;
 public class HypixelPlayer {
 
     private String username;
-    private String apiKey;
+    private RequestFactory requestFactory;
 
-    private HypixelBedWars hypixelBedwarsStats;
-
-    public HypixelPlayer(String username, String apiKey) {
+    public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
-        this.apiKey = apiKey;
+        this.requestFactory = requestFactory;
     }
 
     public String getUsername() {
@@ -104,10 +102,6 @@ public class HypixelPlayer {
     }
 
     public HypixelGuild getGuild() {
-        throw new UnsupportedOperationException();
-    }
-
-    public HypixelBedWars getBedWarsStats() {
         throw new UnsupportedOperationException();
     }
 
