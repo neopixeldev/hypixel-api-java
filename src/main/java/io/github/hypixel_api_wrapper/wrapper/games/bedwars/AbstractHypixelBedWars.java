@@ -4,10 +4,13 @@ import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
 public abstract class AbstractHypixelBedWars extends HypixelGame {
+
     protected AbstractHypixelBedWars(JSONObject stats) {
         super(stats);
     }
+
     abstract String prefix();
+
     @Override
     public String getGameID() {
         return "BEDWARS";

@@ -7,6 +7,7 @@ public class HypixelBedWars extends AbstractHypixelBedWars {
     public HypixelBedWars(JSONObject stats) {
         super(stats);
     }
+
     @Override
     String prefix() {
         return "";
@@ -67,4 +68,5 @@ public class HypixelBedWars extends AbstractHypixelBedWars {
     public final int getChristmasChestsAmount() {
         throw new UnsupportedOperationException();
     }
+
 }
