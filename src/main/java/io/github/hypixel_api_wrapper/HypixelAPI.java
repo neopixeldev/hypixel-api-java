@@ -3,6 +3,7 @@ package io.github.hypixel_api_wrapper;
 import io.github.hypixel_api_wrapper.caching.CachingStrategy;
 import io.github.hypixel_api_wrapper.caching.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
+import io.github.hypixel_api_wrapper.util.Endpoint;
 import java.io.IOException;
 
 public class HypixelAPI {
