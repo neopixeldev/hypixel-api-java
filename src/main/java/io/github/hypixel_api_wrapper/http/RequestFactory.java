@@ -55,7 +55,8 @@ public class RequestFactory {
     public JSONObject send(String url) {
         try {
             HttpUriRequest request = RequestBuilder.create("GET")
-                .setUri(url + "/" + apiKey)
+                .setUri(url)
+                .addHeader("API-key", apiKey)
                 .addHeader("content-type", "application/json")
                 .build();
             // TODO implement a CompletableFuture workaround
