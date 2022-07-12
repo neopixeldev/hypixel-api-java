@@ -16,7 +16,7 @@ public class HypixelSpeedUHC extends HypixelGame {
 
     @Override
     public String getGameName() {
-        return "SpeedUHC";
+        return "Speed UHC";
     }
 
     @Override
