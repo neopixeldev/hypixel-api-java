@@ -46,6 +46,6 @@ public class HypixelAPI {
     }
 
     public HypixelGuild getGuildByName(String name) {
-        return new HypixelGuild(name, requestFactory)
+        return new HypixelGuild(name, requestFactory);
     }
 }
