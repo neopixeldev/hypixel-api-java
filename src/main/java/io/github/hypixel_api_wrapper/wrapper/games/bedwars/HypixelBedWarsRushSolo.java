@@ -107,8 +107,4 @@ public class HypixelBedWarsRushSolo extends HypixelBedWars {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public int getFireTickKills() {
-        throw new UnsupportedOperationException();
-    }
 }

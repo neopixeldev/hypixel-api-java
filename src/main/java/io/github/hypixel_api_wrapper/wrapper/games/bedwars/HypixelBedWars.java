@@ -78,7 +78,7 @@ public class HypixelBedWars extends HypixelGame {
         throw new UnsupportedOperationException();
     }
 
-    public int getCurentWinstreak() {
+    public int getCurrentWinstreak() {
         throw new UnsupportedOperationException();
     }
 
@@ -215,7 +215,4 @@ public class HypixelBedWars extends HypixelGame {
         throw new UnsupportedOperationException();
     }
 
-    public int getFireTickKills() {
-        throw new UnsupportedOperationException();
-    }
 }

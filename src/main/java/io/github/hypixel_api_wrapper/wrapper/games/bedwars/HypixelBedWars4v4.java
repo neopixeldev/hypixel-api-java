@@ -108,9 +108,5 @@ public class HypixelBedWars4v4 extends HypixelBedWars {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public int getFireTickKills() {
-        throw new UnsupportedOperationException();
-    }
 }
 
