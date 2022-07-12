@@ -5,18 +5,18 @@ import org.json.JSONObject;
 
 public class HypixelBedWars extends HypixelGame {
 
-    HypixelBedwarsSolos solos;
-    HypixelBedwarsDoubles doubles;
-    HypixelBedwarsTrios trios;
-    HypixelBedwarsSquads squads;
+    HypixelBedWarsSolos solos;
+    HypixelBedWarsDoubles doubles;
+    HypixelBedWarsTrios trios;
+    HypixelBedWarsSquads squads;
 
     protected HypixelBedWars(JSONObject stats) {
         super(stats);
 
-        solos = new HypixelBedwarsSolos(stats);
-        doubles = new HypixelBedwarsDoubles(stats);
-        trios = new HypixelBedwarsTrios(stats);
-        squads = new HypixelBedwarsSquads(stats);
+        solos = new HypixelBedWarsSolos(stats);
+        doubles = new HypixelBedWarsDoubles(stats);
+        trios = new HypixelBedWarsTrios(stats);
+        squads = new HypixelBedWarsSquads(stats);
     }
 
     @Override

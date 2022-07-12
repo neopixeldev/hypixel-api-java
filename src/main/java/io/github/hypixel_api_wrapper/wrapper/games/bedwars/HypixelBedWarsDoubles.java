@@ -2,9 +2,9 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
 import org.json.JSONObject;
 
-public class HypixelBedwarsDoubles extends HypixelBedWars {
+public class HypixelBedWarsDoubles extends HypixelBedWars {
 
-    public HypixelBedwarsDoubles(JSONObject stats) {
+    public HypixelBedWarsDoubles(JSONObject stats) {
         super(stats);
     }
 
