@@ -4,13 +4,13 @@ import org.json.JSONObject;
 
 public class HypixelBedWarsCoreModes extends AbstractHypixelBedWars {
 
-    protected HypixelBedWarsCoreModes(JSONObject stats) {
+    public HypixelBedWarsCoreModes(JSONObject stats) {
         super(stats);
     }
 
     @Override
     String prefix() {
-        return "null";
+        return null;
     }
 
 }

@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class HypixelBedWars4v4 extends AbstractHypixelBedWars {
 
-    protected HypixelBedWars4v4(JSONObject stats) {
+    public HypixelBedWars4v4(JSONObject stats) {
         super(stats);
     }
 
