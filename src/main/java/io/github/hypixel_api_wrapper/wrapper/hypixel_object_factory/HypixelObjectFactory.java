@@ -1,12 +1,12 @@
 package io.github.hypixel_api_wrapper.wrapper.hypixel_object_factory;
 
-import io.github.hypixel_api_wrapper.http.RequestFactory;
+import org.json.JSONObject;
 
 public abstract class HypixelObjectFactory {
 
-    RequestFactory requestFactory;
+    JSONObject stats;
 
-    public HypixelObjectFactory(RequestFactory requestFactory) {
-        this.requestFactory = requestFactory;
+    public HypixelObjectFactory(JSONObject stats) {
+        this.stats = stats;
     }
 }
