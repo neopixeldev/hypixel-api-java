@@ -6,11 +6,12 @@ import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.io.IOException;
+import java.util.UUID;
 
 public class HypixelAPI {
     private static RequestFactory requestFactory;
 
-    private HypixelAPI(String key) {
+    private HypixelAPI(UUID key) {
         requestFactory = new RequestFactory(key);
     }
 
