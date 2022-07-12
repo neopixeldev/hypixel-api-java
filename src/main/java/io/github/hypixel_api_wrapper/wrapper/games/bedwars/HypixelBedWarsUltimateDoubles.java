@@ -2,7 +2,7 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
 import org.json.JSONObject;
 
-public class HypixelBedWarsUltimateDoubles extends HypixelBedWars {
+public class HypixelBedWarsUltimateDoubles extends AbstractHypixelBedWars {
 
     protected HypixelBedWarsUltimateDoubles(JSONObject stats) {
         super(stats);

@@ -2,7 +2,7 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
 import org.json.JSONObject;
 
-public class HypixelBedWarsRushFours extends HypixelBedWars {
+public class HypixelBedWarsRushFours extends AbstractHypixelBedWars {
 
     protected HypixelBedWarsRushFours(JSONObject stats) {
         super(stats);
