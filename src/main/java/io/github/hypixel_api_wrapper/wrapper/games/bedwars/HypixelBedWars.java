@@ -5,18 +5,50 @@ import org.json.JSONObject;
 
 public class HypixelBedWars extends HypixelGame {
 
-    HypixelBedWarsSolos solos;
-    HypixelBedWarsDoubles doubles;
-    HypixelBedWarsTrios trios;
-    HypixelBedWarsSquads squads;
+    HypixelBedWars solos;
+    HypixelBedWars doubles;
+    HypixelBedWars trios;
+    HypixelBedWars squads;
+    HypixelBedWars coreModes;
+    HypixelBedWars fourVSfour;
+    HypixelBedWars rushSolo;
+    HypixelBedWars rushDoubles;
+    HypixelBedWars rushFours;
+    HypixelBedWars ultimateSolo;
+    HypixelBedWars ultimateDoubles;
+    HypixelBedWars ultimateFours;
+    HypixelBedWars luckyDoubles;
+    HypixelBedWars luckyFours;
+    HypixelBedWars castle;
+    HypixelBedWars capture;
+    HypixelBedWars swapDoubles;
+    HypixelBedWars swapFours;
+    HypixelBedWars voidlessFours;
 
     protected HypixelBedWars(JSONObject stats) {
+
         super(stats);
 
         solos = new HypixelBedWarsSolos(stats);
         doubles = new HypixelBedWarsDoubles(stats);
         trios = new HypixelBedWarsTrios(stats);
         squads = new HypixelBedWarsSquads(stats);
+        coreModes = new HypixelBedWarsCoreModes(stats);
+        fourVSfour = new HypixelBedWars4v4(stats);
+        rushSolo = new HypixelBedWarsRushSolo(stats);
+        rushDoubles = new HypixelBedWarsRushDoubles(stats);
+        rushFours = new HypixelBedWarsRushFours(stats);
+        ultimateSolo = new HypixelBedWarsUltimateSolos(stats);
+        ultimateDoubles = new HypixelBedWarsUltimateDoubles(stats);
+        ultimateFours = new HypixelBedWarsUltimateFours(stats);
+        luckyDoubles = new HypixelBedWarsLuckyDoubles(stats);
+        luckyFours = new HypixelBedWarsLuckyFours(stats);
+        castle = new HypixelBedWarsCastle(stats);
+        capture = new HypixelBedwarsCapture(stats);
+        swapDoubles = new HypixelBedWarsSwapDoubles(stats);
+        swapFours = new HypixelBedWarsSwapFours(stats);
+        voidlessFours = new HypixelBedWarsVoidlessFours(stats);
+
     }
 
     @Override
