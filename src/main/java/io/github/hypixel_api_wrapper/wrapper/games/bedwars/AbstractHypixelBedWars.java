@@ -75,7 +75,7 @@ public abstract class AbstractHypixelBedWars extends HypixelGame {
     }
 
     public double getWinToLossRatio() {
-        return getWins() / getLosses();
+        return getWins() / Math.max(getLosses(), 1);
     }
 
     public int getBedsBroken() {
