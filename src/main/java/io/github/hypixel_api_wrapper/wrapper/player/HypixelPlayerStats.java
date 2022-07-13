@@ -13,12 +13,12 @@ public class HypixelPlayerStats {
     private final JSONObject stats;
     private HypixelBedWarsFactory factory;
 
-    public HypixelBedWarsFactory getBedWarsStats() {
-        return Optional.ofNullable(factory).orElse(factory = new HypixelBedWarsFactory(stats));
-    }
-
     public HypixelPlayerStats(JSONObject stats) {
         this.stats = stats;
+    }
+
+    public HypixelBedWarsFactory getBedWarsStats() {
+        return Optional.ofNullable(factory).orElse(factory = new HypixelBedWarsFactory(stats));
     }
 
 }
