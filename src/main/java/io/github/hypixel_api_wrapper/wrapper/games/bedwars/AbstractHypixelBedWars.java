@@ -51,7 +51,7 @@ public abstract class AbstractHypixelBedWars extends HypixelGame {
     }
 
     public double getKillToDeathRatio() {
-        return getKills() / getDeaths();
+        return getKills() / Math.max(getDeaths(), 1);
     }
 
     public int getFinalKills() {
