@@ -15,7 +15,7 @@ public abstract class HypixelGame {
     public abstract String getGameName();
 
     /*
-        @return a boolean stating whether the game has been removed from the Hypixel Network.
+        @return whether the game has been removed from the Hypixel Network.
      */
     public abstract boolean isRemoved();
 }
