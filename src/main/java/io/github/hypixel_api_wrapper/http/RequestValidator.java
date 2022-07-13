@@ -9,9 +9,10 @@ import io.github.hypixel_api_wrapper.exception.UnknownAPIException;
 import org.json.JSONObject;
 
 public class RequestValidator {
+
     public static boolean isValid(JSONObject obj) {
-        if(!obj.getBoolean("success")) {
-            switch(obj.getString("cause")) {
+        if (!obj.getBoolean("success")) {
+            switch (obj.getString("cause")) {
                 case "Malformed UUID":
                     throw new MalformedUUIDException("Invalid UUID provided.");
                 case "Invalid API key":
@@ -21,9 +22,9 @@ public class RequestValidator {
                 default:
                     throw new UnknownAPIException("An unknown error has occurred.");
             }
-        } else if(obj.isNull("player")) {
+        } else if (obj.isNull("player")) {
             throw new PlayerNotFoundException("Player not found.");
-        } else if(obj.isNull("guild")) {
+        } else if (obj.isNull("guild")) {
             throw new GuildNotFoundException("Guild not found.");
         } else {
             return true;

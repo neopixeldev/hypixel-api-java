@@ -7,10 +7,6 @@ import java.util.List;
 // source code: https://github.com/HypixelDev/PublicAPI/blob/master/hypixel-api-core/src/main/java/net/hypixel/api/util/IGuildLeveling.java
 public class GuildLevelingUtil {
 
-    private GuildLevelingUtil() {
-        throw new UnsupportedOperationException();
-    }
-
     /**
      * An unmodifiable list containing the experience needed to get from each level to the next. For
      * example, the value at index 0 is the amount of guild experience needed to progress from guild
@@ -21,7 +17,7 @@ public class GuildLevelingUtil {
      * For example, if this list has 15 values, then the last value is used for levels 14 -> 15 and
      * any levels after that.
      */
-    private static List<Integer> EXP_NEEDED = Collections.unmodifiableList(Arrays.asList(
+    private static final List<Integer> EXP_NEEDED = Collections.unmodifiableList(Arrays.asList(
         100000, // Lvl 0 -> Lvl 1
         150000, // Lvl 1 -> Lvl 2
         250000, // Lvl 2 -> Lvl 3
@@ -38,14 +34,17 @@ public class GuildLevelingUtil {
         2500000,
         3000000
     ));
-
     /**
      * The last value in {@link #EXP_NEEDED}. This represents exp difference between any two levels
      * >= {@link #EXP_NEEDED}.size() - 1.
      *
      * @see #EXP_NEEDED
      */
-    private static int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
+    private static final int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
+
+    private GuildLevelingUtil() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * This method returns the full level of a guild with that amount of guild experience. This
@@ -73,10 +72,10 @@ public class GuildLevelingUtil {
 
     /**
      * This method returns the precise guild level for that amount of guild experience. This is the
-     * equivalent of adding up the result of {@link #getLevel(double)} and {@link
-     * #getPercentageToNextLevel(double)}. The value returned by this method is a floating point
-     * number greater than or equal to 0, representing the guild's previse level. If the experience
-     * parameter is less than 0, an {@link IllegalArgumentException} may be thrown.
+     * equivalent of adding up the result of {@link #getLevel(double)} and
+     * {@link #getPercentageToNextLevel(double)}. The value returned by this method is a floating
+     * point number greater than or equal to 0, representing the guild's previse level. If the
+     * experience parameter is less than 0, an {@link IllegalArgumentException} may be thrown.
      *
      * @param exp The total experience gathered by a guild; should be >= 0
      * @return Exact level of a guild with that much experience
