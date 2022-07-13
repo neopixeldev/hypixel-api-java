@@ -3,7 +3,7 @@ package io.github.hypixel_api_wrapper.wrapper.games.classic;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelLegacy extends HypixelGame {
+public class HypixelClassicGames extends HypixelGame {
 
     protected HypixelLegacy(JSONObject stats) {
         super(stats);
