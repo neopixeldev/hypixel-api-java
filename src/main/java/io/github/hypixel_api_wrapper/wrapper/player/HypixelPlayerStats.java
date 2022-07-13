@@ -13,7 +13,7 @@ public class HypixelPlayerStats {
     private final JSONObject stats;
     private HypixelBedWarsFactory factory;
 
-    public HypixelBedWarsFactory getBedwarsStats() {
+    public HypixelBedWarsFactory getBedWarsStats() {
         return Optional.ofNullable(factory).orElse(factory = new HypixelBedWarsFactory(stats));
     }
 
