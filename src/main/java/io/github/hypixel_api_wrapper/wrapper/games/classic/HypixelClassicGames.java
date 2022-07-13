@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class HypixelClassicGames extends HypixelGame {
 
-    protected HypixelLegacy(JSONObject stats) {
+    protected HypixelClassicGames(JSONObject stats) {
         super(stats);
     }
 
