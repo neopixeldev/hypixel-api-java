@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
-import io.github.hypixel_api_wrapper.wrapper.hypixel_object_factory.HypixelBedWarsFactory;
+import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import java.util.Optional;
 import org.json.JSONObject;
 
@@ -11,14 +11,15 @@ import org.json.JSONObject;
 public class HypixelPlayerStats {
 
     private final JSONObject stats;
-    private HypixelBedWarsFactory factory;
+
+    HypixelBedWarsStats bedWarsStats;
 
     public HypixelPlayerStats(JSONObject stats) {
         this.stats = stats;
     }
 
-    public HypixelBedWarsFactory getBedWarsStats() {
-        return Optional.ofNullable(factory).orElse(factory = new HypixelBedWarsFactory(stats));
+    public HypixelBedWarsStats getBedWarsStats() {
+        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(stats));
     }
 
 }
