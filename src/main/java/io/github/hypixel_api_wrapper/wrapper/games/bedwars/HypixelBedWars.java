@@ -1,8 +1,9 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
+import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import org.json.JSONObject;
 
-public class HypixelBedWars extends AbstractHypixelBedWars {
+public class HypixelBedWars extends AbstractHypixelBedWars implements HypixelLootChestGame {
 
     public HypixelBedWars(JSONObject stats) {
         super(stats);
@@ -45,28 +46,32 @@ public class HypixelBedWars extends AbstractHypixelBedWars {
         throw new UnsupportedOperationException();
     }
 
-    public final int getOpenedChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedCommonChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedRareChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedEpicChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedLegendaryChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
     public final int getChristmasChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public final int getOpenedChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final int getOpenedCommonChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final int getOpenedRareChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final int getOpenedEpicChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final int getOpenedLegendaryChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
 }
