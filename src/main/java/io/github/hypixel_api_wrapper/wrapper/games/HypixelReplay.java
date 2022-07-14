@@ -1,6 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games;
 
-public class HypixelReplay implements HypixelGame {
+import org.json.JSONObject;
+
+public class HypixelReplay extends HypixelGame {
+
+    protected HypixelReplay(JSONObject stats) {
+        super(stats);
+    }
+
     @Override
     public String getGameID() {
         return "REPLAY";
@@ -12,7 +19,7 @@ public class HypixelReplay implements HypixelGame {
     }
 
     @Override
-    public boolean isNetworkPresent() {
-        return true;
+    public boolean isRemoved() {
+        return false;
     }
 }
