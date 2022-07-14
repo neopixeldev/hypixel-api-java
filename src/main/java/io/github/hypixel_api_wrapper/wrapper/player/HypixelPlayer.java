@@ -8,16 +8,15 @@ import java.util.Set;
 
 public class HypixelPlayer {
 
-    private String username;
-    private RequestFactory requestFactory;
-    HypixelPlayerStats stats;
+    private final String username;
+    private final RequestFactory requestFactory;
+    HypixelPlayerGames games;
 
     public HypixelPlayer(String username, RequestFactory requestFactory) {
-
         this.username = username;
         this.requestFactory = requestFactory;
 
-        stats = new HypixelPlayerStats(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER));
+        games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER));
     }
 
     public String getUsername() {
@@ -110,8 +109,7 @@ public class HypixelPlayer {
         throw new UnsupportedOperationException();
     }
 
-    public HypixelPlayerStats getStats() {
-        return stats;
+    public HypixelPlayerGames getGames() {
+        return games;
     }
-
 }

@@ -1,9 +1,9 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
-
+import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import org.json.JSONObject;
 
-public class HypixelBedWars {
+public class HypixelBedWars implements HypixelLootChestGame {
 
     private final String JSONKey;
     private final JSONObject stats;
@@ -97,4 +97,32 @@ public class HypixelBedWars {
         throw new UnsupportedOperationException();
     }
 
+    public int getChristmasChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedCommonChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedRareChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedEpicChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedLegendaryChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
 }
