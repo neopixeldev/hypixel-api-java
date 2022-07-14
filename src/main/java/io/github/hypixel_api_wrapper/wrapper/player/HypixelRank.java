@@ -18,5 +18,5 @@ public enum HypixelRank {
 
     GAME_MASTER,
     ADMIN,
-    OWNER;
+    OWNER
 }

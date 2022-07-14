@@ -17,5 +17,5 @@ public enum HypixelColors {
     DARK_PURPLE,
     DARK_GRAY,
     BLACK,
-    DARK_BLUE;
+    DARK_BLUE
 }

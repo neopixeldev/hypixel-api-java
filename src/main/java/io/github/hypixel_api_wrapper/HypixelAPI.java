@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class HypixelAPI {
+
     private static RequestFactory requestFactory;
 
     private HypixelAPI(UUID key) {

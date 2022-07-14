@@ -16,7 +16,8 @@ public class HypixelFriend {
     private final HypixelPlayer friend;
     private final RequestFactory requestFactory;
 
-    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend, RequestFactory requestFactory) {
+    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend,
+        RequestFactory requestFactory) {
         this.player = player;
         this.friend = friend;
         this.requestFactory = requestFactory;
