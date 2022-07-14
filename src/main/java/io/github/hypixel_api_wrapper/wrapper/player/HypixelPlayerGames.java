@@ -8,12 +8,12 @@ import org.json.JSONObject;
  * Used to keep track of a {@link HypixelPlayer}'s statistics on the
  * Hypixel Network.
  */
-public class HypixelPlayerStats {
+public class HypixelPlayerGames {
 
     private final JSONObject stats;
     private HypixelBedWarsFactory factory;
 
-    public HypixelPlayerStats(JSONObject stats) {
+    public HypixelPlayerGames(JSONObject stats) {
         this.stats = stats;
     }
 
