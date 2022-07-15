@@ -7,7 +7,7 @@ public class HypixelBedWars {
     private final String JSONKey;
     private final JSONObject stats;
 
-    protected HypixelBedWars(JSONObject stats, HypixelBedWarsModes mode) {
+    protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
         this.JSONKey = mode.getJSONKey();
         this.stats = stats;
     }

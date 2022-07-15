@@ -21,7 +21,8 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
         return false;
     }
 
-    public HypixelBedWars getMode(HypixelBedWarsModes mode) {
+
+    public HypixelBedWars getMode(HypixelBedWarsMode mode) {
         return new HypixelBedWars(stats, mode);
     }
 
