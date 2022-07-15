@@ -4,11 +4,11 @@ import org.json.JSONObject;
 
 public class HypixelBedWars {
 
-    private final String JSONKey;
+    private final String statsPrefix ;
     private final JSONObject stats;
 
     protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
-        this.JSONKey = mode.getJSONKey();
+        this.statsPrefix  = mode.getStatsPrefix();
         this.stats = stats;
     }
 

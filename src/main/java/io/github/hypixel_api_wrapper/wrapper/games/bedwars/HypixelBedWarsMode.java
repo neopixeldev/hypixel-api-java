@@ -24,13 +24,13 @@ public enum HypixelBedWarsMode {
 
     OVERALL("");
 
-    String JSONKey;
+    String statsPrefix ;
 
-    HypixelBedWarsMode(String JSONKey) {
-        this.JSONKey = JSONKey;
+    HypixelBedWarsMode(String statsPrefix ) {
+        this.statsPrefix  = statsPrefix ;
     }
 
-    public String getJSONKey() {
-        return JSONKey;
+    public String getStatsPrefix() {
+        return statsPrefix ;
     }
 }
