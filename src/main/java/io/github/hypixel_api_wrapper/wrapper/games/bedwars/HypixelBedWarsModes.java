@@ -9,6 +9,7 @@ public enum HypixelBedWarsModes {
 
     FOUR_VS_FOUR("two_four_"),
 
+    RUSH_SOLOS("eight_one_rush_"),
     RUSH_DOUBLES("eight_two_rush_"),
     RUSH_FOURS("four_four_rush_"),
 
@@ -18,9 +19,19 @@ public enum HypixelBedWarsModes {
     LUCKY_DOUBLES("eight_two_lucky_"),
     LUCKY_FOURS("four_four_lucky_"),
 
+    ARMED_DOUBLES("eight_two_armed_"),
+    ARMED_FOURS("four_four_armed_"),
+
     CASTLE("castle_"),
 
+    VOIDLESS_DOUBLES("eight_two_voidless_"),
     VOIDLESS_FOURS("four_four_voidless_"),
+
+    UNDERWORLD_DOUBLES("eight_two_underworld_"),
+    UNDERWORLD_FOURS("four_four_underworld_"),
+
+    SWAP_DOUBLES("eight_two_swap_"),
+    SWAP_FOURS("four_four_swap_"),
 
     OVERALL("");
 
