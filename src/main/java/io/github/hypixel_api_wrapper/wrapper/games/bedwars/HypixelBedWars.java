@@ -1,77 +1,98 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
-import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import org.json.JSONObject;
 
-public class HypixelBedWars extends AbstractHypixelBedWars implements HypixelLootChestGame {
+public class HypixelBedWars {
 
-    public HypixelBedWars(JSONObject stats) {
-        super(stats);
+    private final String JSONKey;
+    private final JSONObject stats;
+
+    protected HypixelBedWars(JSONObject stats, HypixelBedWarsModes mode) {
+        this.JSONKey = mode.getJSONKey();
+        this.stats = stats;
     }
 
-    @Override
-    String prefix() {
-        return "";
-    }
-
-    public final int getCoins() {
+    public int getDiamondsCollected() {
         throw new UnsupportedOperationException();
     }
 
-    public final int getLevel() {
+    public int getEmeraldsCollected() {
         throw new UnsupportedOperationException();
     }
 
-    public final int getExperience() {
+    public int getGoldCollected() {
         throw new UnsupportedOperationException();
     }
 
-    public final String getBoxEpics() {
+    public int getIronCollected() {
         throw new UnsupportedOperationException();
     }
 
-    public final String getActiveVictoryDance() {
+    public int getKills() {
         throw new UnsupportedOperationException();
     }
 
-    public final String getActiveIslandTopper() {
+    public int getDeaths() {
         throw new UnsupportedOperationException();
     }
 
-    public final String getActiveSprays() {
+    public double getKillToDeathRatio() {
+        return getKills() / Math.max(getDeaths(), 1);
+    }
+
+    public int getFinalKills() {
         throw new UnsupportedOperationException();
     }
 
-    public final String getActiveDeathCry() {
+    public int getFinalDeaths() {
         throw new UnsupportedOperationException();
     }
 
-    public final int getChristmasChestsAmount() {
+    public double getFinalKillToDeathRatio() {
+        return getFinalKills() / Math.max(getFinalDeaths(), 1);
+    }
+
+    public int getWins() {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public final int getOpenedChestsAmount() {
+    public int getLosses() {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public final int getOpenedCommonChestsAmount() {
+    public double getWinToLossRatio() {
+        return getWins() / Math.max(getLosses(), 1);
+    }
+
+    public int getBedsBroken() {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public final int getOpenedRareChestsAmount() {
+    public int getVoidKills() {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public final int getOpenedEpicChestsAmount() {
+    public int getVoidFinalKills() {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public final int getOpenedLegendaryChestsAmount() {
+    public int getProjectileDeaths() {
+        throw new UnsupportedOperationException();
+    }
+
+    public int getProjectileKills() {
+        throw new UnsupportedOperationException();
+    }
+
+    public int getItemsPurchasedAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    public int getGamesPlayed() {
+        throw new UnsupportedOperationException();
+    }
+
+    public int getCurrentWinstreak() {
         throw new UnsupportedOperationException();
     }
 }
