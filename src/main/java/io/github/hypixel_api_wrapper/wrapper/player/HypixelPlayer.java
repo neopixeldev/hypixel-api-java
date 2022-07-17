@@ -4,20 +4,19 @@ import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.util.Endpoint;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
-import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
 import java.util.Set;
-import org.json.JSONObject;
 
 public class HypixelPlayer {
 
     private final String username;
     private final RequestFactory requestFactory;
-    JSONObject playerNetworkStats;
+    HypixelPlayerGames games;
 
     public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
         this.requestFactory = requestFactory;
-        this.playerNetworkStats = requestFactory.getEndpointThroughAPI(Endpoint.PLAYER);
+
+        games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER));
     }
 
     public String getUsername() {
@@ -25,26 +24,26 @@ public class HypixelPlayer {
     }
 
     public String getUUID() {
-        return playerNetworkStats.getString("uuid");
+        throw new UnsupportedOperationException();
     }
 
-    public int getNetworkLevel() {
-        return LevelUtil.getFullNetworkLevel(playerNetworkStats.getInt("networkExp"));
+    public double getNetworkLevel() {
+        throw new UnsupportedOperationException();
     }
 
-    public int getNetworkEXP() {
-        return playerNetworkStats.getInt("networkExp");
+    public double getNetworkEXP() {
+        throw new UnsupportedOperationException();
     }
 
     public int getNetworkKarma() {
-        return playerNetworkStats.getInt("karma");
+        throw new UnsupportedOperationException();
     }
 
     /**
      * @return A double representing the percentage of how far a HypixelPlayer is through their
      * current Network Level.
      */
-    public int getNetworkLevelPercentage() {
+    public double getNetworkLevelPercentage() {
         throw new UnsupportedOperationException();
     }
 
@@ -52,15 +51,15 @@ public class HypixelPlayer {
      * @return A double representing the amount of EXP the HypixelPlayer has progressed into their
      * current Network Level.
      */
-    public int getExpPastLastEventLevel() {
-        return LevelUtil.getExpPastLastEventLevel(playerNetworkStats.getInt("networkExp"));
+    public double getEXPIntoCurrentNetworkLevel() {
+        throw new UnsupportedOperationException();
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
-    public double getExpUntilNextEventLevel() {
-        return LevelUtil.getExpUntilNextEventLevel(playerNetworkStats.getInt("networkExp"));
+    public double getEXPToNextNetworkLevel() {
+        throw new UnsupportedOperationException();
     }
 
 
@@ -82,45 +81,35 @@ public class HypixelPlayer {
         throw new UnsupportedOperationException();
     }
 
-    //TODO check if this is actually the correct JSON
     public boolean isOnline() {
-        return requestFactory.getEndpointThroughAPI(Endpoint.PLAYER_STATUS).getBoolean("status.online");
+        throw new UnsupportedOperationException();
     }
 
     public int getTotalDailyRewardsClaimed() {
-        return playerNetworkStats.getInt("totalDailyRewards");
+        throw new UnsupportedOperationException();
     }
 
     public int getTopDailyRewardStreak() {
-        return playerNetworkStats.getInt("rewardHighScore");
+        throw new UnsupportedOperationException();
     }
 
     public int getCurrentDailyRewardStreak() {
-        return playerNetworkStats.getInt("rewardStreak");
+        throw new UnsupportedOperationException();
     }
 
     public HypixelRank getHypixelRank() {
-        return HypixelRank.valueOf(playerNetworkStats.getString("newPackageRank"));
+        throw new UnsupportedOperationException();
     }
 
     public HypixelColors getHypixelRankPlusColor() {
-        return HypixelColors.valueOf(playerNetworkStats.getString("rankPlusColor"));
+        throw new UnsupportedOperationException();
     }
 
     public HypixelGuild getGuild() {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * @param level The level being tested if it's reward has been claimed.
-     * @return A boolean stating whether if a Players leveling rewards has been claimed.
-     */
-    public boolean isLevelingRewardClaimed(int level) {
-        return playerNetworkStats.getBoolean("levelingReward_" + level);
+    public HypixelPlayerGames getGames() {
+        return games;
     }
-
-    public String getUserLanguage() {
-        return playerNetworkStats.getString("userLanguage");
-    }
-
 }
