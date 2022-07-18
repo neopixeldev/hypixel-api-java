@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.util.log;
+package io.github.hypixel_api_wrapper.log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package io.github.hypixel_api_wrapper.util;
+package io.github.hypixel_api_wrapper.http;
 
 import java.net.MalformedURLException;
 import java.net.URL;

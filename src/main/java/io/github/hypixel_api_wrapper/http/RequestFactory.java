@@ -1,7 +1,6 @@
 package io.github.hypixel_api_wrapper.http;
 
-import io.github.hypixel_api_wrapper.caching.CachingStrategy;
-import io.github.hypixel_api_wrapper.util.Endpoint;
+import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import java.io.IOException;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;

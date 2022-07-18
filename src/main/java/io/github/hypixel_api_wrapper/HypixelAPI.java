@@ -1,7 +1,7 @@
 package io.github.hypixel_api_wrapper;
 
-import io.github.hypixel_api_wrapper.caching.CachingStrategy;
-import io.github.hypixel_api_wrapper.caching.NoCachingStrategy;
+import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
+import io.github.hypixel_api_wrapper.http.cache.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;

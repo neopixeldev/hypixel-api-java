@@ -1,7 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
+import io.github.hypixel_api_wrapper.http.Endpoint;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
-import io.github.hypixel_api_wrapper.util.Endpoint;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import java.util.Set;
