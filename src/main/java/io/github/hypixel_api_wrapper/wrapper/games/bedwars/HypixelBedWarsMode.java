@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
-public enum HypixelBedWarsModes {
+public enum HypixelBedWarsMode {
 
     SOLOS("eight_one_"),
     DOUBLES("eight_two_"),
@@ -35,13 +35,13 @@ public enum HypixelBedWarsModes {
 
     OVERALL("");
 
-    String JSONKey;
+    String statsPrefix ;
 
-    HypixelBedWarsModes(String JSONKey) {
-        this.JSONKey = JSONKey;
+    HypixelBedWarsMode(String statsPrefix ) {
+        this.statsPrefix  = statsPrefix ;
     }
 
-    public String getJSONKey() {
-        return JSONKey;
+    public String getStatsPrefix() {
+        return statsPrefix ;
     }
 }

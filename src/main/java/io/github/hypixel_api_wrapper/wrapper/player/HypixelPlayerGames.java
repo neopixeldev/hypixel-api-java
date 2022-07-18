@@ -12,7 +12,7 @@ public class HypixelPlayerGames {
 
     private final JSONObject stats;
 
-    HypixelBedWarsStats bedWarsStats;
+    private HypixelBedWarsStats bedWarsStats;
 
     public HypixelPlayerGames(JSONObject stats) {
         this.stats = stats;

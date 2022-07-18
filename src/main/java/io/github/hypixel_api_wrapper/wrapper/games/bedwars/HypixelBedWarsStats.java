@@ -1,9 +1,10 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
+import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
-public class HypixelBedWarsStats extends HypixelGame  {
+public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChestGame {
     public HypixelBedWarsStats(JSONObject stats) {
         super(stats);
     }
@@ -20,7 +21,8 @@ public class HypixelBedWarsStats extends HypixelGame  {
         return false;
     }
 
-    public HypixelBedWars getMode(JSONObject stats, HypixelBedWarsModes mode) {
+
+    public HypixelBedWars getMode(HypixelBedWarsMode mode) {
         return new HypixelBedWars(stats, mode);
     }
 
@@ -56,27 +58,32 @@ public class HypixelBedWarsStats extends HypixelGame  {
         throw new UnsupportedOperationException();
     }
 
-    public final int getOpenedChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedCommonChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedRareChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedEpicChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final int getOpenedLegendaryChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
     public final int getChristmasChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedCommonChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedRareChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedEpicChestsAmount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getOpenedLegendaryChestsAmount() {
         throw new UnsupportedOperationException();
     }
 }
