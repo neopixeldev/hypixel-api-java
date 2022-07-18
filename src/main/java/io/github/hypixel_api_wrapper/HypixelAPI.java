@@ -3,14 +3,17 @@ package io.github.hypixel_api_wrapper;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import io.github.hypixel_api_wrapper.http.cache.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
+import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
+import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.io.IOException;
+import java.util.UUID;
 
 public class HypixelAPI {
 
-    private final String key;
+    private static RequestFactory requestFactory;
 
-    private HypixelAPI(String key) {
-        this.key = key;
+    private HypixelAPI(UUID key) {
+        requestFactory = new RequestFactory(key);
     }
 
     /**
@@ -19,7 +22,7 @@ public class HypixelAPI {
      * @param key the api key to use for authentication
      * @return the newly created instance
      */
-    public static HypixelAPI create(String key) {
+    public static HypixelAPI create(UUID key) {
         return create(key, new NoCachingStrategy());
     }
 
@@ -31,12 +34,20 @@ public class HypixelAPI {
      *                        will be used to disable caching
      * @return the newly created instance
      */
-    public static HypixelAPI create(String key, CachingStrategy cachingStrategy) {
-        RequestFactory.start(cachingStrategy);
+    public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
+        requestFactory.start(cachingStrategy);
         return new HypixelAPI(key);
     }
 
     public static void shutdown() throws IOException {
-        RequestFactory.close();
+        requestFactory.close();
+    }
+
+    public HypixelPlayer getPlayerByName(String username) {
+        return new HypixelPlayer(username, requestFactory);
+    }
+
+    public HypixelGuild getGuildByName(String name) {
+        return new HypixelGuild(name, requestFactory);
     }
 }

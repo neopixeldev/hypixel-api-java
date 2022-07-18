@@ -1,6 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.util;
 
 public class LevelUtil {
+
     public static int getFullNetworkLevel(long exp) {
         return (int) Math.floor((Math.sqrt(exp * 2 + 30625) / 50) - 2.5);
     }
@@ -25,8 +26,6 @@ public class LevelUtil {
     private static long getTotalExpNeeded(int targetLevel) {
         return (1250L * (targetLevel - 2) + 10000) * (targetLevel - 1);
     }
-
-
 
 
     public static int getEventLevel(long exp) {
