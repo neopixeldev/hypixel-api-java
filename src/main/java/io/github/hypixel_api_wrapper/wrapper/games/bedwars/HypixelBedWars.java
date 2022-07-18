@@ -5,6 +5,7 @@ import org.json.JSONObject;
 public class HypixelBedWars {
 
     private final String statsPrefix ;
+
     private final JSONObject stats;
 
     protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
