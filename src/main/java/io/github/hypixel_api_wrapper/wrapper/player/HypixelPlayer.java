@@ -65,7 +65,7 @@ public class HypixelPlayer {
 
     /**
      * Meant for future usage; int limit is used to limit the amount of friends required to be
-     * parsed from the api i.e., if called with #getFriends(100), only the first 100 friends would
+     * parsed from the api i.e., if called with #getHypixelFriends(100), only the first 100 friends would
      * be returned via this method
      *
      * @param limit The limit of the amount of friends that should be retrieved from the users
