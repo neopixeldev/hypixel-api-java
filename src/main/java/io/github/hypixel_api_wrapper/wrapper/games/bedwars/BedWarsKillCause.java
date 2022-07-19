@@ -11,7 +11,6 @@ public enum BedWarsKillCause {
     ENTITY("entity_attack_"),
     OVERALL("");
 
-
     String key;
      BedWarsKillCause(String key) {
         this.key = key;
