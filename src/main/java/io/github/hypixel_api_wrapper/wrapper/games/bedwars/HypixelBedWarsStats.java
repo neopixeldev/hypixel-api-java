@@ -27,18 +27,14 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     public final int getCoins() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("coins");
     }
 
     public final int getLevel() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("coins");
     }
 
     public final int getExperience() {
-        throw new UnsupportedOperationException();
-    }
-
-    public final String getBoxEpics() {
         throw new UnsupportedOperationException();
     }
 
@@ -58,32 +54,28 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
         throw new UnsupportedOperationException();
     }
 
-    public final int getChristmasChestsAmount() {
-        throw new UnsupportedOperationException();
-    }
-
     @Override
     public int getOpenedChestsAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Bedwars_openedChests");
     }
 
     @Override
     public int getOpenedCommonChestsAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Bedwars_openedCommons");
     }
 
     @Override
     public int getOpenedRareChestsAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Bedwars_openedRares");
     }
 
     @Override
     public int getOpenedEpicChestsAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Bedwars_openedEpics");
     }
 
     @Override
     public int getOpenedLegendaryChestsAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Bedwars_openedLegendaries");
     }
 }

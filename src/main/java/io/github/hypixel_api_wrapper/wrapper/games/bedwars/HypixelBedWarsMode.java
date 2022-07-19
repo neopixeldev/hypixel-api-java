@@ -37,7 +37,7 @@ public enum HypixelBedWarsMode {
 
     String statsPrefix ;
 
-    HypixelBedWarsMode(String statsPrefix ) {
+    HypixelBedWarsMode(String statsPrefix) {
         this.statsPrefix  = statsPrefix ;
     }
 

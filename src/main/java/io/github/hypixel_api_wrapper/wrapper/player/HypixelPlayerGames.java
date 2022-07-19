@@ -19,7 +19,7 @@ public class HypixelPlayerGames {
     }
 
     public HypixelBedWarsStats getBedWarsStats() {
-        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(stats));
+        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(stats.getJSONObject("Bedwars")));
     }
 
 }
