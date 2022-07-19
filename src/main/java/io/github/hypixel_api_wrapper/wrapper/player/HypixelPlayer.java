@@ -2,8 +2,10 @@ package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
+import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
+import java.util.Optional;
 import java.util.Set;
 
 public class HypixelPlayer {
@@ -15,8 +17,6 @@ public class HypixelPlayer {
     public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
         this.requestFactory = requestFactory;
-
-        games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER));
     }
 
     public String getUsername() {
@@ -110,6 +110,6 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return games;
+        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
     }
 }

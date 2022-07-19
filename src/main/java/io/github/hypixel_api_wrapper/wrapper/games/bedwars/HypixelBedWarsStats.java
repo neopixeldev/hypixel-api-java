@@ -31,7 +31,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     public final int getLevel() {
-        return stats.getInt("coins");
+        return stats.getInt("level");
     }
 
     public final int getExperience() {
