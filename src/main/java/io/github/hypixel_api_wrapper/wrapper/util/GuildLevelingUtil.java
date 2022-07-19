@@ -17,11 +17,11 @@ public class GuildLevelingUtil {
      * For example, if this list has 15 values, then the last value is used for levels 14 -> 15 and
      * any levels after that.
      */
-    private static final List<Integer> EXP_NEEDED = Collections.unmodifiableList(Arrays.asList(
+    private static final Integer[] EXP_NEEDED = {
         100000, // Lvl 0 -> Lvl 1
         150000, // Lvl 1 -> Lvl 2
         250000, // Lvl 2 -> Lvl 3
-        500000, // Etc
+        500000,
         750000,
         1000000,
         1250000,
@@ -33,14 +33,14 @@ public class GuildLevelingUtil {
         2500000,
         2500000,
         3000000
-    ));
+        };
     /**
      * The last value in {@link #EXP_NEEDED}. This represents exp difference between any two levels
      * >= {@link #EXP_NEEDED}.size() - 1.
      *
      * @see #EXP_NEEDED
      */
-    private static final int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
+    private static final int MAX_EXP_NEEDED = EXP_NEEDED[EXP_NEEDED.length - 1];
 
     private GuildLevelingUtil() {
         throw new UnsupportedOperationException();
@@ -98,7 +98,7 @@ public class GuildLevelingUtil {
             throw new IllegalArgumentException("Level value must be >= 0");
         }
 
-        return level >= EXP_NEEDED.size() ? MAX_EXP_NEEDED : EXP_NEEDED.get((int) level);
+        return level >= EXP_NEEDED.length ? MAX_EXP_NEEDED : EXP_NEEDED[(int) level];
     }
 
     /**
