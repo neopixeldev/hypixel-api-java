@@ -5,7 +5,6 @@ import org.json.JSONObject;
 public class HypixelBedWars {
 
     private final String statsPrefix ;
-
     private final JSONObject stats;
 
     protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
@@ -13,20 +12,23 @@ public class HypixelBedWars {
         this.stats = stats;
     }
 
+    public int getResourcesCollected() {
+        return stats.getInt(stats + "resources_collected_bedwars");
+    }
     public int getDiamondsCollected() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(stats + "diamond_resources_collected_bedwars");
     }
 
     public int getEmeraldsCollected() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(stats + "emerald_resources_collected_bedwars");
     }
 
     public int getGoldCollected() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(stats + "gold_resources_collected_bedwars");
     }
 
     public int getIronCollected() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(stats + "iron_resources_collected_bedwars");
     }
 
     public int getKills() {
@@ -54,11 +56,11 @@ public class HypixelBedWars {
     }
 
     public int getWins() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "wins_bedwars");
     }
 
     public int getLosses() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "losses_bedwars");
     }
 
     public double getWinToLossRatio() {
@@ -66,7 +68,7 @@ public class HypixelBedWars {
     }
 
     public int getBedsBroken() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "beds_broken_bedwars");
     }
 
     public int getVoidKills() {
@@ -86,14 +88,14 @@ public class HypixelBedWars {
     }
 
     public int getItemsPurchasedAmount() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "items_purchased_bedwars");
     }
 
     public int getGamesPlayed() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "games_played_bedwars");
     }
 
     public int getCurrentWinstreak() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(stats + "winstreak");
     }
 }
