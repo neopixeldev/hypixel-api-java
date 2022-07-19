@@ -5,28 +5,34 @@ import io.github.hypixel_api_wrapper.wrapper.games.HypixelCosmeticRarities;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 
 public enum BedwarsDeathCries implements HypixelCosmetic {
+
     DINOSAUR("Dinosaur", "deathcry_dinosaur", HypixelCosmeticRarities.COMMON),
     DEFLATED_TOY("Deflated Toy", "deathcry_deflated_toy", HypixelCosmeticRarities.COMMON),
     DRY_BONES("Dry Bones", "deathcry_dry_bones", HypixelCosmeticRarities.COMMON),
     MONSTER_BURP("Monster Burp", "deathcry_monster_burp", HypixelCosmeticRarities.COMMON),
     PIG("Pig", "deathcry_pig", HypixelCosmeticRarities.COMMON),
-    SPLASH("Splash", "deathcry_splash", HypixelCosmeticRarities.RARE),
     BAZINGA("Bazinga", "deathcry_bazinga", HypixelCosmeticRarities.COMMON),
     SAD_PUPPY("Sad Puppy", "deathcry_sad_puppy", HypixelCosmeticRarities.COMMON),
-    PLOP("Plop", "deathcry_plop", HypixelCosmeticRarities.RARE),
     GRUMPY_VILLAGER("Grumpy Villager", "deathcry_grumpy_villager", HypixelCosmeticRarities.COMMON),
-    GONE("Gone", "deathcry_gone", HypixelCosmeticRarities.RARE),
     ROBOT_MOUSE("Robot Mouse", "deathcry_robot_mouse", HypixelCosmeticRarities.COMMON),
-    ENERGY("Energy", "deathcry_energy", HypixelCosmeticRarities.EPIC),
     ENDERMAN("Enderman", "deathcry_enderman", HypixelCosmeticRarities.COMMON),
-    AWW("Aww", "deathcry_aww", HypixelCosmeticRarities.EPIC),
-    BAT("Bat", "deathcry_bat", HypixelCosmeticRarities.RARE),
-    MIRACLE("Miracle", "deathcry_miracle", HypixelCosmeticRarities.LEGENDARY),
-    GRUMBLE("Grumble", "deathcry_grumble", HypixelCosmeticRarities.EPIC),
     FIREBALL("Fireball", "deathcry_fireball", HypixelCosmeticRarities.COMMON),
+
+    SPLASH("Splash", "deathcry_splash", HypixelCosmeticRarities.RARE),
+    PLOP("Plop", "deathcry_plop", HypixelCosmeticRarities.RARE),
+    GONE("Gone", "deathcry_gone", HypixelCosmeticRarities.RARE),
+    BAT("Bat", "deathcry_bat", HypixelCosmeticRarities.RARE),
+    CAT("Cat", "deathcry_cat_hit", HypixelCosmeticRarities.RARE),
+
+
+    ENERGY("Energy", "deathcry_energy", HypixelCosmeticRarities.EPIC),
+    AWW("Aww", "deathcry_aww", HypixelCosmeticRarities.EPIC),
+    GRUMBLE("Grumble", "deathcry_grumble", HypixelCosmeticRarities.EPIC),
     HOWL("Howl", "deathcry_howl", HypixelCosmeticRarities.EPIC),
     FIREWORK("Firework", "deathcry_firework", HypixelCosmeticRarities.EPIC),
-    CAT("Cat", "deathcry_cat_hit", HypixelCosmeticRarities.RARE),
+
+    MIRACLE("Miracle", "deathcry_miracle", HypixelCosmeticRarities.LEGENDARY),
+
 
     // TODO: the following cosmetics have no keys. a list of unassigned keys are below
     /*
