@@ -31,28 +31,28 @@ public class HypixelBedWars {
         return stats.getInt(stats + "iron_resources_collected_bedwars");
     }
 
-    public int getKills() {
-        throw new UnsupportedOperationException();
+    public int getKills(BedWarsKillCause cause) {
+        return stats.getInt(statsPrefix + cause.getKey() + "kills_bedwars");
     }
 
-    public int getDeaths() {
-        throw new UnsupportedOperationException();
+    public int getDeaths(BedWarsKillCause cause) {
+        return stats.getInt(statsPrefix + cause.getKey() + "deaths_bedwars");
     }
 
-    public double getKillToDeathRatio() {
-        return getKills() / Math.max(getDeaths(), 1);
+    public double getKillToDeathRatio(BedWarsKillCause cause) {
+        return getKills(cause) / Math.max(getDeaths(cause), 1);
     }
 
-    public int getFinalKills() {
-        throw new UnsupportedOperationException();
+    public int getFinalKills(BedWarsKillCause cause) {
+        return stats.getInt(statsPrefix + cause.getKey() + "final_kills_bedwars");
     }
 
-    public int getFinalDeaths() {
-        throw new UnsupportedOperationException();
+    public int getFinalDeaths(BedWarsKillCause cause) {
+        return stats.getInt(statsPrefix + cause.getKey() + "final_deaths_bedwars");
     }
 
-    public double getFinalKillToDeathRatio() {
-        return getFinalKills() / Math.max(getFinalDeaths(), 1);
+    public double getFinalKillToDeathRatio(BedWarsKillCause cause) {
+        return getFinalKills(cause) / Math.max(getFinalDeaths(cause), 1);
     }
 
     public int getWins() {
@@ -69,22 +69,6 @@ public class HypixelBedWars {
 
     public int getBedsBroken() {
         return stats.getInt(statsPrefix + "beds_broken_bedwars");
-    }
-
-    public int getVoidKills() {
-        throw new UnsupportedOperationException();
-    }
-
-    public int getVoidFinalKills() {
-        throw new UnsupportedOperationException();
-    }
-
-    public int getProjectileDeaths() {
-        throw new UnsupportedOperationException();
-    }
-
-    public int getProjectileKills() {
-        throw new UnsupportedOperationException();
     }
 
     public int getItemsPurchasedAmount() {
