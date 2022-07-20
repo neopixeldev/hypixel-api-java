@@ -1,5 +1,10 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
+/**
+ * Used to relay the mode of BedWars to the methods in {@link HypixelBedWars} so they retrieve the
+ * data from the right mode. They do that by attaching a prefix to each of their calls to the
+ * Bedwars object. The prefix is retrieved with the #getStatsPrefix() method.
+ */
 public enum HypixelBedWarsMode {
 
     SOLOS("eight_one_"),
@@ -35,13 +40,13 @@ public enum HypixelBedWarsMode {
 
     OVERALL("");
 
-    String statsPrefix ;
+    String statsPrefix;
 
     HypixelBedWarsMode(String statsPrefix) {
-        this.statsPrefix  = statsPrefix ;
+        this.statsPrefix = statsPrefix;
     }
 
     public String getStatsPrefix() {
-        return statsPrefix ;
+        return statsPrefix;
     }
 }
