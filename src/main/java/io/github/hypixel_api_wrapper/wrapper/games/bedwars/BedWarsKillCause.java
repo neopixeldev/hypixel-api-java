@@ -17,7 +17,7 @@ public enum BedWarsKillCause {
         this.key = key;
     }
 
-    public String getKey() {
+    String getKey() {
         return key;
     }
 }
