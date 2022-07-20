@@ -12,11 +12,12 @@ public enum BedWarsKillCause {
     OVERALL("");
 
     String key;
-     BedWarsKillCause(String key) {
+
+    BedWarsKillCause(String key) {
         this.key = key;
     }
 
     public String getKey() {
-         return key;
+        return key;
     }
 }
