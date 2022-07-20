@@ -12,7 +12,7 @@ public class HypixelPlayer {
 
     private final String username;
     private final RequestFactory requestFactory;
-    HypixelPlayerGames games;
+    private HypixelPlayerGames games;
 
     public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
