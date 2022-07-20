@@ -2,6 +2,7 @@ package io.github.hypixel_api_wrapper.http;
 
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -21,7 +22,6 @@ public class RequestFactory {
     private static CloseableHttpAsyncClient client;
     private static BasicResponseHandler handler;
     private static CachingStrategy cache;
-
     private final String apiKey;
 
     public RequestFactory(UUID apiKey) {
@@ -49,12 +49,12 @@ public class RequestFactory {
      * Sends a request to the Hypixel API. Returns a {@link JSONObject} of the information
      * retrieved.
      *
-     * @param url The API URL of the information that is being retrieved.
+     * @param endpoint The API URL of the information that is being retrieved.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(String url) {
+    public JSONObject send(Endpoint endpoint) {
         try {
-            HttpUriRequest request = RequestBuilder.get(url)
+            HttpUriRequest request = RequestBuilder.get(endpoint.getURL().toURI())
                 .addHeader("API-key", apiKey)
                 .build();
             // TODO implement a CompletableFuture workaround
@@ -65,6 +65,8 @@ public class RequestFactory {
             return res;
         } catch (InterruptedException | ExecutionException | IOException | TimeoutException e) {
             // TODO create own error to handle these exceptions
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
@@ -77,7 +79,7 @@ public class RequestFactory {
             return cache.getCachedResponse(endpoint);
         }
 
-        JSONObject res = send(endpoint.toString());
+        JSONObject res = send(endpoint);
         cache.cacheResponse(endpoint, res);
         return res;
     }
@@ -90,6 +92,6 @@ public class RequestFactory {
      * @return A piece of specified data from the retrieved JSON file.
      */
     public String getInformation(Endpoint endpoint, String dataLocation) {
-        return send(endpoint.toString()).get(dataLocation).toString();
+        return send(endpoint).get(dataLocation).toString();
     }
 }
