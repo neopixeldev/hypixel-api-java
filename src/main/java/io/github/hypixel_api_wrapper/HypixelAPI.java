@@ -35,7 +35,7 @@ public class HypixelAPI {
      * @return the newly created instance
      */
     public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
-        RequestFactory.setCachingStrategy(cachingStrategy);
+        RequestFactory.configure(cachingStrategy);
         return new HypixelAPI(key);
     }
 

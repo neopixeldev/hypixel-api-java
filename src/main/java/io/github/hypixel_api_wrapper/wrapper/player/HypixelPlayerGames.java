@@ -3,6 +3,7 @@ package io.github.hypixel_api_wrapper.wrapper.player;
 import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import org.json.JSONObject;
 
 /**
@@ -11,7 +12,7 @@ import org.json.JSONObject;
  */
 public class HypixelPlayerGames {
 
-    private final JSONObject stats;
+    private final CompletableFuture<JSONObject> stats;
 
     private HypixelBedWarsStats bedWarsStats;
 
@@ -19,8 +20,8 @@ public class HypixelPlayerGames {
         this.stats = stats;
     }
 
-    public HypixelBedWarsStats getBedWarsStats() {
-        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(stats.getJSONObject("Bedwars")));
+    public HypixelBedWarsStats getBedWarsStats() throws ExecutionException, InterruptedException {
+        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(stats.get().getJSONObject("BedWars")));
     }
 
 }
