@@ -1,17 +1,12 @@
 package io.github.hypixel_api_wrapper.http;
 
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 public class RequestFactory {
