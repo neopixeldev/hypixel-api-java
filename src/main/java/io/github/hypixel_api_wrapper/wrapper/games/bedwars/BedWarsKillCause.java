@@ -9,6 +9,7 @@ public enum BedWarsKillCause {
     FALL("fall_"),
     VOID("void_"),
     ENTITY("entity_attack_"),
+    ENTITY_EXPLOSION("entity_explosion_"),
     OVERALL("");
 
     private final String key;
