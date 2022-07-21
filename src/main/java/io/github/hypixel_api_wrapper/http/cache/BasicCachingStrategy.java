@@ -4,6 +4,7 @@ import io.github.hypixel_api_wrapper.http.Endpoint;
 import java.time.Clock;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;
 
@@ -15,7 +16,7 @@ public class BasicCachingStrategy implements CachingStrategy {
     private final long validCacheTime;
     private final Clock clock;
     // The long in the value Pair are the current time ms
-    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new HashMap<>();
+    private final Map<Endpoint, Pair<CompletableFuture<JSONObject>, Long>> cache = new HashMap<>();
 
     /**
      * Creates a new {@link BasicCachingStrategy} with a valid cache time of 20s
@@ -36,19 +37,19 @@ public class BasicCachingStrategy implements CachingStrategy {
     }
 
     @Override
-    public void cacheResponse(Endpoint endpoint, JSONObject res) {
+    public void cacheResponse(Endpoint endpoint, CompletableFuture<JSONObject> res) {
         cache.put(endpoint, Pair.of(res, clock.millis()));
     }
 
     @Override
-    public JSONObject getCachedResponse(Endpoint endpoint) {
-        Pair<JSONObject, Long> pair = cache.get(endpoint);
+    public CompletableFuture<JSONObject> getCachedResponse(Endpoint endpoint) {
+        Pair<CompletableFuture<JSONObject>, Long> pair = cache.get(endpoint);
         return pair == null ? null : pair.getLeft();
     }
 
     @Override
     public boolean isCacheValid(Endpoint endpoint) {
-        Pair<JSONObject, Long> pair = cache.get(endpoint);
+        Pair<CompletableFuture<JSONObject>, Long> pair = cache.get(endpoint);
         return pair != null && clock.millis() <= pair.getRight() + validCacheTime;
     }
 

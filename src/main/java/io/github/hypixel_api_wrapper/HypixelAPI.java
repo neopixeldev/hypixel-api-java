@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public class HypixelAPI {
 
-    private static RequestFactory requestFactory;
+    private static UUID key;
 
     private HypixelAPI(UUID key) {
-        requestFactory = new RequestFactory(key);
+        this.key = key;
     }
 
     /**
@@ -35,19 +35,15 @@ public class HypixelAPI {
      * @return the newly created instance
      */
     public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
-        requestFactory.start(cachingStrategy);
+        RequestFactory.setCachingStrategy(cachingStrategy);
         return new HypixelAPI(key);
     }
 
-    public static void shutdown() throws IOException {
-        requestFactory.close();
-    }
-
     public HypixelPlayer getPlayerByName(String username) {
-        return new HypixelPlayer(username, requestFactory);
+        return new HypixelPlayer(username);
     }
 
     public HypixelGuild getGuildByName(String name) {
-        return new HypixelGuild(name, requestFactory);
+        return new HypixelGuild(name);
     }
 }

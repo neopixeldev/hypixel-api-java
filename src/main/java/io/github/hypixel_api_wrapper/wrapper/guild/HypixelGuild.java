@@ -7,11 +7,9 @@ import java.util.List;
 public class HypixelGuild {
 
     private final String name;
-    private final RequestFactory requestFactory;
 
-    public HypixelGuild(String name, RequestFactory requestFactory) {
+    public HypixelGuild(String name) {
         this.name = name;
-        this.requestFactory = requestFactory;
     }
 
     public String getName() {

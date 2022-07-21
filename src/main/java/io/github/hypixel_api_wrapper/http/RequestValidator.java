@@ -9,18 +9,15 @@ import io.github.hypixel_api_wrapper.exception.UnknownAPIException;
 import org.json.JSONObject;
 
 public class RequestValidator {
-
+    // prevent instantiation of what is (essentially) a utitlity class
+    private RequestValidator() {}
     public static boolean isValid(JSONObject obj) {
         if (!obj.getBoolean("success")) {
             switch (obj.getString("cause")) {
-                case "Malformed UUID":
-                    throw new MalformedUUIDException("Invalid UUID provided.");
-                case "Invalid API key":
-                    throw new InvalidAPIKeyException("Invalid API key provided");
-                case "Key throttle":
-                    throw new KeyThrottleException("Exceeded 120 requests/minute to the API.");
-                default:
-                    throw new UnknownAPIException("An unknown error has occurred.");
+                case "Malformed UUID" -> throw new MalformedUUIDException("Invalid UUID provided.");
+                case "Invalid API key" -> throw new InvalidAPIKeyException("Invalid API key provided");
+                case "Key throttle" -> throw new KeyThrottleException("Exceeded 120 requests/minute to the API.");
+                default -> throw new UnknownAPIException("An unknown error has occurred.");
             }
         } else if (obj.isNull("player")) {
             throw new PlayerNotFoundException("Player not found.");

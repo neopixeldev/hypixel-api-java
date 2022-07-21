@@ -1,6 +1,7 @@
 package io.github.hypixel_api_wrapper.http.cache;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
+import java.util.concurrent.CompletableFuture;
 import org.json.JSONObject;
 
 public interface CachingStrategy {
@@ -11,7 +12,7 @@ public interface CachingStrategy {
      * @param endpoint the endpoint from where the response came from
      * @param res      the json response
      */
-    void cacheResponse(Endpoint endpoint, JSONObject res);
+    void cacheResponse(Endpoint endpoint, CompletableFuture<JSONObject> res);
 
     /**
      * Gets a response of the cache
@@ -19,7 +20,7 @@ public interface CachingStrategy {
      * @param endpoint the endpoint where the object came from
      * @return the response if one for the given endpoint was cached. {@code null} if not
      */
-    JSONObject getCachedResponse(Endpoint endpoint);
+    CompletableFuture<JSONObject> getCachedResponse(Endpoint endpoint);
 
     /**
      * Checks if a cached object is still judged as valid based on the time since caching

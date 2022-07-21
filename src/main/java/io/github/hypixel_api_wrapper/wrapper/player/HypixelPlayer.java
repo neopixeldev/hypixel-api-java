@@ -11,12 +11,10 @@ import java.util.Set;
 public class HypixelPlayer {
 
     private final String username;
-    private final RequestFactory requestFactory;
     HypixelPlayerGames games;
 
-    public HypixelPlayer(String username, RequestFactory requestFactory) {
+    public HypixelPlayer(String username) {
         this.username = username;
-        this.requestFactory = requestFactory;
     }
 
     public String getUsername() {
@@ -110,6 +108,6 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
+        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(RequestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
     }
 }

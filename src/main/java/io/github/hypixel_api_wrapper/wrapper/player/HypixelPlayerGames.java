@@ -2,6 +2,7 @@ package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import org.json.JSONObject;
 
 /**
@@ -14,7 +15,7 @@ public class HypixelPlayerGames {
 
     private HypixelBedWarsStats bedWarsStats;
 
-    public HypixelPlayerGames(JSONObject stats) {
+    public HypixelPlayerGames(CompletableFuture<JSONObject> stats) {
         this.stats = stats;
     }
 
