@@ -6,10 +6,12 @@ public class HypixelBedWars {
 
     private final String statsPrefix ;
     private final JSONObject stats;
+    private final HypixelBedWarsMode mode;
 
     protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
-        this.statsPrefix  = mode.getStatsPrefix();
         this.stats = stats;
+        this.mode = mode;
+        this.statsPrefix = mode.getStatsPrefix();
     }
 
     public int getResourcesCollected() {
@@ -97,5 +99,13 @@ public class HypixelBedWars {
 
     public int getCurrentWinstreak() {
         return stats.getInt(stats + "winstreak");
+    }
+
+    /**
+     * @return The {@link HypixelBedWarsMode} that the statsPrefix
+     * is using. 
+     */
+    public HypixelBedWarsMode getMode() {
+        return mode;
     }
 }
