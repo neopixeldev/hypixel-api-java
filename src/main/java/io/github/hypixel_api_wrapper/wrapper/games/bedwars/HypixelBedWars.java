@@ -11,7 +11,7 @@ public class HypixelBedWars {
     protected HypixelBedWars(JSONObject stats, HypixelBedWarsMode mode) {
         this.stats = stats;
         this.mode = mode;
-        this.statsPrefix  = mode.getStatsPrefix();
+        this.statsPrefix = mode.getStatsPrefix();
     }
 
     public int getResourcesCollected() {
