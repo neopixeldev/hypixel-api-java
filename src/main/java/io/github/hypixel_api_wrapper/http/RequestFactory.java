@@ -81,15 +81,4 @@ public class RequestFactory {
         cache.cacheResponse(endpoint, res);
         return res;
     }
-
-    /**
-     * Retrieve information from the Hypixel API.
-     *
-     * @param endpoint     The API URL of the information that is being retrieved.
-     * @param dataLocation The specific piece of data in the JSON file will be retrieved.
-     * @return A piece of specified data from the retrieved JSON file.
-     */
-    public String getInformation(Endpoint endpoint, String dataLocation) {
-        return send(endpoint.toString()).get(dataLocation).toString();
-    }
 }
