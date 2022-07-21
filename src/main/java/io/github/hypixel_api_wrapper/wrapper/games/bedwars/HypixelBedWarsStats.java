@@ -6,8 +6,8 @@ import org.json.JSONObject;
 
 /**
  * Used to retrieve information about a players BedWars stats. The methods in this class fetch
- * information about a players statistics that apply to all of BedWars, not a specific mode.
- * It can also be used to retrieve data about sub-modes of BedWars.
+ * information about a players statistics that apply to all of BedWars, not a specific mode. It can
+ * also be used to retrieve data about sub-modes of BedWars.
  */
 public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChestGame {
 
@@ -74,8 +74,9 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * When a player wins a game, their currently selected victory dance is activated.
-     * Victory dances can be bought with coins.
+     * When a player wins a game, their currently selected victory dance is activated. Victory
+     * dances can be bought with coins.
+     *
      * @return The players currently selected victory dance.
      */
     public final String getActiveVictoryDance() {
@@ -84,20 +85,27 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
 
     /**
      * An island topper is a structure placed on top of a players base.
+     *
      * @return The players currently selected island topper.
      */
     public final String getActiveIslandTopper() {
         throw new UnsupportedOperationException();
     }
 
-    //TODO no idea what this is
-    public final String getActiveSprays() {
+    /**
+     * a spray is a picture applied to item frames all over a map.
+     *
+     * @return The players currently selected spray.
+     */
+    public final String getActiveSpray() {
         throw new UnsupportedOperationException();
     }
 
     //TODO is it a final death or just a normal death?
+
     /**
      * When a player dies their selected death cry is activated.
+     *
      * @return The players currently selected death cry.
      */
     public final String getActiveDeathCry() {
