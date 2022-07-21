@@ -7,6 +7,8 @@ import io.github.hypixel_api_wrapper.http.cache.BasicCachingStrategy;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import io.github.hypixel_api_wrapper.http.Endpoint;
 import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,18 +31,18 @@ public class BasicCachingStrategyTest {
     }
 
     @Test
-    void testAdd() {
+    void testAdd() throws ExecutionException, InterruptedException {
         JSONObject object = new JSONObject();
         object.append("foo", 1);
 
-        strategy.cacheResponse(endpoint, object);
+        strategy.cacheResponse(endpoint, CompletableFuture.completedFuture(object));
 
-        assertEquals(object, strategy.getCachedResponse(endpoint));
+        assertEquals(object, strategy.getCachedResponse(endpoint).get());
     }
 
     @Test
     void testRemoval() {
-        strategy.cacheResponse(endpoint, new JSONObject());
+        strategy.cacheResponse(endpoint, CompletableFuture.completedFuture(new JSONObject()));
         strategy.removeCachedResponse(endpoint);
 
         assertNull(strategy.getCachedResponse(endpoint));
@@ -50,7 +52,7 @@ public class BasicCachingStrategyTest {
 
     @Test
     void testValidTime() {
-        strategy.cacheResponse(endpoint, object);
+        strategy.cacheResponse(endpoint, CompletableFuture.completedFuture(object));
 
         assertTrue(strategy.isCacheValid(endpoint));
 
@@ -61,7 +63,7 @@ public class BasicCachingStrategyTest {
 
     @Test
     void testInvalidTime() {
-        strategy.cacheResponse(endpoint, object);
+        strategy.cacheResponse(endpoint, CompletableFuture.completedFuture(object));
 
         mockClock.plusMillis(validCacheTime + 1);
 
