@@ -106,9 +106,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     //TODO is it a final death or just a normal death?
 
     /**
-     * When a player dies their selected death cry is activated.
+     * An effect played when the player is killed. Death cries are bought with
+     * {@link #getCoins() coins} from the Bed Wars shop, or found randomly in
+     * {@link #getOpenedChestsAmount() loot boxes}.
      *
-     * @return The players currently selected death cry.
+     * @return The ID of the effect played when the player dies.
      */
     public final String getActiveDeathCry() {
         throw new UnsupportedOperationException();
