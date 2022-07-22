@@ -5,9 +5,10 @@ import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
 import org.json.JSONObject;
 
 /**
- * Used to retrieve information about a players BedWars stats. The methods in this class fetch
- * information about a players statistics that apply to all of BedWars, not a specific mode. It can
- * also be used to retrieve data about sub-modes of BedWars.
+ * A player's overall stats for the game Bed Wars.
+ * <p>
+ * To get their stats for a particular {@link HypixelBedWarsMode mode}, use
+ * {@link #getMode(HypixelBedWarsMode) getMode}.
  */
 public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChestGame {
 
