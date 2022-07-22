@@ -3,9 +3,8 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 import org.json.JSONObject;
 
 /**
- * Retrieves data from a {@link JSONObject} about a specific BedWars sub-mode for a player. Each
- * methods uses a prefix to retrieve the information from the correct mode. Use the
- * {@link HypixelBedWarsMode} enum to specify which mode it should be using.
+ * Retrieves data about a particular BedWars mode.
+ * Use a {@link HypixelBedWarsMode} to specify the mode.
  */
 public class HypixelBedWars {
 

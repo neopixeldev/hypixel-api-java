@@ -32,7 +32,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * Gets the player's stats for a particular Bed Wars {@link HypixelBedWarsMode mode}.
+     * Gets the player's stats for a particular BedWars mode.
      *
      * @param mode The mode to get the player's stats for.
      * @return The player's stats for that {@code mode}.
@@ -105,8 +105,6 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     public final String getActiveSpray() {
         throw new UnsupportedOperationException();
     }
-
-    //TODO is it a final death or just a normal death?
 
     /**
      * An effect played when the player is killed. Death cries are bought with
