@@ -51,12 +51,12 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
         return stats.getInt("coins");
     }
 
-    /**
-     * A players BedWars level is simply their experience converted into a smaller integer. The
-     * amount of experience required to level up exponentially grows. Every 100 levels the player is
-     * prestieged.
+/**
+     * Players increase their Bed Wars level by gaining {@link #getExperience() experience}. The
+     * higher the level, the more experience is required to move to the next level. Every 100
+     * levels, a player advances to the next prestige.
      *
-     * @return The players BedWars level. (AKA star)
+     * @return The player's current Bed Wars level.
      */
     public final int getLevel() {
         return stats.getInt("level");
