@@ -42,10 +42,10 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * Coins can be added coins to a players profile from kills, bed-breaks, quest
-     * completions, wins, and more. They can be used to purchase BedWars cosmetics.
+     * Coins are earned by winning, killing other players, breaking beds, and completing quests.
+     * They can be used to purchase Bed Wars cosmetics, such as shopkeeper skins and victory dances.
      *
-     * @return The amount of BedWars coins a player has.
+     * @return The total number of Bed Wars coins the player currently has.
      */
     public final int getCoins() {
         return stats.getInt("coins");
