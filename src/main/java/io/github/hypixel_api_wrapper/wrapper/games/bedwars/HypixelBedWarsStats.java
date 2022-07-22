@@ -32,12 +32,10 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * Instantiates and returns a {@link HypixelBedWars}.
+     * Gets the player's stats for a particular Bed Wars {@link HypixelBedWarsMode mode}.
      *
-     * @param mode The sub-mode of BedWars that the {@link HypixelBedWars} will reference when
-     *             retrieving information.
-     * @return A {@link HypixelBedWars} that holds a {@link JSONObject} and
-     * {@link HypixelBedWarsMode} that will be used to fetch data from the API.
+     * @param mode The mode to get the player's stats for.
+     * @return The player's stats for that {@code mode}.
      */
     public HypixelBedWars getMode(HypixelBedWarsMode mode) {
         return new HypixelBedWars(stats, mode);
