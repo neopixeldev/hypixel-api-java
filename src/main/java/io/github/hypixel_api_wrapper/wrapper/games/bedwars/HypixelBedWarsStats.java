@@ -96,9 +96,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * a spray is a picture applied to item frames all over a map.
+     * An image that the player can place in various spots around Bed Wars maps. Sprays are bought
+     * with {@link #getCoins() coins} from the Bed Wars shop, or found randomly in
+     * {@link #getOpenedChestsAmount() loot boxes}.
      *
-     * @return The players currently selected spray.
+     * @return The ID of the player's selected spray.
      */
     public final String getActiveSpray() {
         throw new UnsupportedOperationException();
