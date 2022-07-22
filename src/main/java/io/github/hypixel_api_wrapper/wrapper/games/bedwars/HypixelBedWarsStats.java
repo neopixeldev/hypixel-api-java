@@ -84,9 +84,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * An island topper is a structure placed on top of a players base.
-     *
-     * @return The players currently selected island topper.
+     * A little structure that appears on top of the player's island. Island toppers are bought with
+     * {@link #getCoins() coins} from the Bed Wars shop, or found randomly in
+     * {@link #getOpenedChestsAmount() loot boxes}.
+     * 
+     * @return The ID of the player's selected island topper.
      */
     public final String getActiveIslandTopper() {
         throw new UnsupportedOperationException();
