@@ -137,7 +137,7 @@ public class HypixelBedWars {
     }
 
     /**
-     * @return The players current winstreak.
+     * @return The player's current winstreak.
      */
     public int getCurrentWinstreak() {
         return stats.getInt(stats + "winstreak");
