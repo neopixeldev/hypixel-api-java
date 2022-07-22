@@ -74,10 +74,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * When a player wins a game, their currently selected victory dance is activated. Victory
-     * dances can be bought with coins.
-     *
-     * @return The players currently selected victory dance.
+     * The effect played when the player wins a game. Victory dances are bought with
+     * {@link #getCoins() coins} from the Bed Wars shop, or found randomly in
+     * {@link #getOpenedChestsAmount() loot boxes}.
+     * 
+     * @return The ID of the effect played when the player wins.
      */
     public final String getActiveVictoryDance() {
         throw new UnsupportedOperationException();
