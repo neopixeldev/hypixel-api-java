@@ -1,5 +1,8 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
+/**
+ * Past and present Bed Wars modes, including play-styles and team arrangements.
+ */
 public enum HypixelBedWarsMode {
 
     SOLOS("eight_one_"),
@@ -35,13 +38,13 @@ public enum HypixelBedWarsMode {
 
     OVERALL("");
 
-    String statsPrefix ;
+    String statsPrefix;
 
     HypixelBedWarsMode(String statsPrefix) {
-        this.statsPrefix  = statsPrefix ;
+        this.statsPrefix = statsPrefix;
     }
 
     public String getStatsPrefix() {
-        return statsPrefix ;
+        return statsPrefix;
     }
 }
