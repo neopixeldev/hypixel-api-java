@@ -1,9 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
 /**
- * Used to relay the mode of BedWars to the methods in {@link HypixelBedWars} so they retrieve the
- * data from the right mode. They do that by attaching a prefix to each of their calls to the
- * Bedwars object. The prefix is retrieved with the #getStatsPrefix() method.
+ * Past and present Bed Wars modes, including play-styles and team arrangements.
  */
 public enum HypixelBedWarsMode {
 
