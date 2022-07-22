@@ -93,7 +93,7 @@ public class HypixelBedWars {
     }
 
     /**
-     * @return The players win to loss ratio.
+     * @return The player's win to loss ratio.
      */
     public double getWinToLossRatio() {
         return getWins() / Math.max(getLosses(), 1);
