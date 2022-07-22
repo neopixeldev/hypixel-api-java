@@ -63,10 +63,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
     }
 
     /**
-     * Experience can be obtained from playing BedWars. Kills, bed-breaks, quest completions, wins,
-     * and more add Experience to the players profile. It directly corrolates to the players level.
+     * Experience is accumulated while playing Bed Wars, especially by winning games, breaking beds,
+     * and completing quests. The more experience a player earns, the more they
+     * {@link #getLevel() level up}.
      *
-     * @return The amount of BedWars experience the player has.
+     * @return The player's total Bed Wars experience.
      */
     public final int getExperience() {
         throw new UnsupportedOperationException();
