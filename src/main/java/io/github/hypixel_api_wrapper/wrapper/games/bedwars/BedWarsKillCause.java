@@ -22,7 +22,7 @@ public enum BedWarsKillCause {
     ENTITY_ATTACK("entity_attack_"),
 
     // Kill caused from all kill causes combined.
-    OVERALL("")
+    OVERALL(""),
 
 
     /**
@@ -35,7 +35,7 @@ public enum BedWarsKillCause {
     // Kill caused when an entity comes in contact with a block such as a Cactus.
     CONTACT("contact_"),
 
-    // Custom kill.    
+    // Custom kill.
     CUSTOM("custom_"),
 
     // Kill caused from running out of air while being in water.
@@ -92,4 +92,5 @@ public enum BedWarsKillCause {
     String getKey() {
         return key;
     }
+
     }
