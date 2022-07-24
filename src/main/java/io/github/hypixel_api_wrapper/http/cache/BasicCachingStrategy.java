@@ -2,7 +2,7 @@ package io.github.hypixel_api_wrapper.http.cache;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
 import java.time.Clock;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;
@@ -15,7 +15,7 @@ public class BasicCachingStrategy implements CachingStrategy {
     private final long validCacheTime;
     private final Clock clock;
     // The long in the value Pair are the current time ms
-    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new HashMap<>();
+    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new EnumMap<>(Endpoint.class);
 
     /**
      * Creates a new {@link BasicCachingStrategy} with a valid cache time of 20s
