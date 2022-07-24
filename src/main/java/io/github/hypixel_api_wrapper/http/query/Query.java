@@ -1,5 +1,6 @@
 package io.github.hypixel_api_wrapper.http.query;
 
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 /**
@@ -20,7 +21,7 @@ public abstract class Query {
      * caller can attach any additional information it needs to the request, such as a user-agent or
      * API credentials.
      */
-    public abstract Request.Builder createRequest();
+    public abstract HttpUrl.Builder createRequest();
 
     @SuppressWarnings("unused")
     Query() {

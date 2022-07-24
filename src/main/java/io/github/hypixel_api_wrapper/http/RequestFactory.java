@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -30,11 +31,15 @@ public class RequestFactory {
      *                       already set.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(Request.Builder requestBuilder) {
+    public JSONObject send(HttpUrl.Builder requestBuilder) {
 
         final JSONObject[] res = new JSONObject[1];
 
-        Request request = requestBuilder.addHeader("Authorization", apiKey).build();
+        requestBuilder.addQueryParameter("key", apiKey);
+
+        Request request = new Request.Builder()
+            .url(requestBuilder.build().toString())
+            .build();
 
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
