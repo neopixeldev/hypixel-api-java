@@ -16,8 +16,9 @@ public class RequestFactory {
     private final String apiKey;
     private final OkHttpClient client = new OkHttpClient();
 
-    public RequestFactory(UUID apiKey) {
+    public RequestFactory(UUID apiKey, CachingStrategy cache) {
         this.apiKey = apiKey.toString();
+        this.cache = cache;
     }
 
 
