@@ -2,7 +2,7 @@ package io.github.hypixel_api_wrapper.http.cache;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
 import java.time.Clock;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;
