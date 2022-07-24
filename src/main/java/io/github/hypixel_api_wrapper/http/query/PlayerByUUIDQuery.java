@@ -8,6 +8,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 public class PlayerByUUIDQuery extends Query {
+
     private final UUID uuid;
 
     protected PlayerByUUIDQuery(UUID uuid) {
@@ -16,6 +17,7 @@ public class PlayerByUUIDQuery extends Query {
 
     @Override
     public HttpUrl.Builder createRequest() {
-        return null;
+        return HttpUrl.parse(Endpoint.PLAYER.getURL().toString()).newBuilder()
+            .addQueryParameter("uuid", uuid.toString());
     }
 }
