@@ -6,6 +6,7 @@ import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
 public class HypixelAPI {
@@ -13,8 +14,7 @@ public class HypixelAPI {
     private RequestFactory requestFactory;
 
     private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
-        requestFactory = new RequestFactory(key);
-        requestFactory.start(cachingStrategy);
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -40,7 +40,7 @@ public class HypixelAPI {
     }
 
     public void shutdown() throws IOException {
-        requestFactory.close();
+        throw new UnsupportedOperationException();
     }
 
     public HypixelPlayer getPlayerByName(String username) {
