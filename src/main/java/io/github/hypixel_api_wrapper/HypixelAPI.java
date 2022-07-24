@@ -1,5 +1,6 @@
 package io.github.hypixel_api_wrapper;
 
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import io.github.hypixel_api_wrapper.http.cache.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
@@ -11,10 +12,10 @@ import java.util.UUID;
 
 public class HypixelAPI {
 
-    private RequestFactory requestFactory;
+    private RequestController requestController;
 
     private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
-        throw new UnsupportedOperationException();
+        this.requestController = new RequestController(key, cachingStrategy);
     }
 
     /**
@@ -44,10 +45,10 @@ public class HypixelAPI {
     }
 
     public HypixelPlayer getPlayerByName(String username) {
-        return new HypixelPlayer(username, requestFactory);
+        return new HypixelPlayer(username, requestController);
     }
 
     public HypixelGuild getGuildByName(String name) {
-        return new HypixelGuild(name, requestFactory);
+        return new HypixelGuild(name, requestController);
     }
 }
