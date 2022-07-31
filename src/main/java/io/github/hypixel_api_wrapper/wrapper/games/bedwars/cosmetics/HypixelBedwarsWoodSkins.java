@@ -4,7 +4,21 @@ import io.github.hypixel_api_wrapper.wrapper.games.HypixelCosmetic;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelCosmeticRarities;
 
 public enum HypixelBedwarsWoodSkins implements HypixelCosmetic {
-    ;
+    OAK_PLANK("Oak Plank", "", HypixelCosmeticRarities.COMMON),
+
+    BIRCH_PLANK("Birch Plank", "", HypixelCosmeticRarities.RARE),
+    SPRUCE_PLANK("Spruce Plank", "", HypixelCosmeticRarities.RARE),
+
+    ACACIA_PLANK("Acacia Plank", "", HypixelCosmeticRarities.EPIC),
+    JUNGLE_PLANK("Jungle Plank", "", HypixelCosmeticRarities.EPIC),
+
+    OAK_LOG("Oak Log", "", HypixelCosmeticRarities.LEGENDARY),
+    BIRCH_LOG("Birch Log", "", HypixelCosmeticRarities.LEGENDARY),
+    SPRUCE_LOG("Spruce Log", "", HypixelCosmeticRarities.LEGENDARY),
+    ACACIA_LOG("Acacia Log", "", HypixelCosmeticRarities.LEGENDARY),
+    JUNGLE_LOG("Jungle Log", "", HypixelCosmeticRarities.LEGENDARY),
+    DARK_OAK_PLANK("Dark Oak Plank", "", HypixelCosmeticRarities.LEGENDARY),
+    DARK_OAK_LOG("Dark Oak Log", "", HypixelCosmeticRarities.LEGENDARY);
 
     private String name;
     private String key;
@@ -18,16 +32,16 @@ public enum HypixelBedwarsWoodSkins implements HypixelCosmetic {
 
     @Override
     public String getFormattedName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public String getKey() {
-        return null;
+        return this.key;
     }
 
     @Override
     public HypixelCosmeticRarities getRarity() {
-        return null;
+        return this.rarity;
     }
 }
