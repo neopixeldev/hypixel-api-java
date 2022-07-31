@@ -18,16 +18,16 @@ public enum BedwarsSprays implements HypixelCosmetic {
 
     @Override
     public String getFormattedName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public String getKey() {
-        return null;
+        return this.key;
     }
 
     @Override
     public HypixelCosmeticRarities getRarity() {
-        return null;
+        return this.rarity;
     }
 }
