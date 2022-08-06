@@ -53,26 +53,44 @@ public class HypixelBedWars {
         return stats.getInt(stats + "iron_resources_collected_bedwars");
     }
 
+    /**
+     * @return The amount of kills the player has.
+     */
     public int getKills() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "kills_bedwars");
     }
 
+    /**
+     * @return The amount of deaths the player has.
+     */
     public int getDeaths() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "deaths_bedwars");
     }
 
+    /**
+     * @return The player's kill to death ratio.
+     */
     public double getKillToDeathRatio() {
         return getKills() / Math.max(getDeaths(), 1);
     }
 
+    /**
+     * @return The amount of final kills the player has.
+     */
     public int getFinalKills() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "final_kills_bedwars");
     }
 
+    /**
+     * @return The amount of final deaths the player has.
+     */
     public int getFinalDeaths() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "final_deaths_bedwars");
     }
 
+    /**
+     * @return The player's final kill to death ratio.
+     */
     public double getFinalKillToDeathRatio() {
         return getFinalKills() / Math.max(getFinalDeaths(), 1);
     }
@@ -105,20 +123,39 @@ public class HypixelBedWars {
         return stats.getInt(statsPrefix + "beds_broken_bedwars");
     }
 
+    /**
+     * @return The amount of kills that the player has gotten in the void mode.
+     */
     public int getVoidKills() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("void_kills_bedwars");
     }
 
+    /**
+     * @return The amount of deaths that the player has gotten in the void mode.
+     */
+    public int getVoidDeaths() {
+        return stats.getInt("void_deaths_bedwars");
+    }
+
+    /**
+     * @return The amount of final kills that the player has gotten in the void mode.
+     */
     public int getVoidFinalKills() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("void_final_kills_bedwars");
     }
 
+    /**
+     * @return The amount of deaths that the player has had from projectiles.
+     */
     public int getProjectileDeaths() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "entity_attack_deaths_bedwars");
     }
 
+    /**
+     * @return The amount of player's that the player has killed using projectiles.
+     */
     public int getProjectileKills() {
-        throw new UnsupportedOperationException();
+        return stats.getInt(statsPrefix + "entity_attack_kills_bedwars");
     }
 
     /**
