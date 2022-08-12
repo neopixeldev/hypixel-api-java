@@ -1,6 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.games.build_battle;
 
-public enum BuildBattlePackages {
+public enum HypixelBuildBattlePackages {
 
     SUPER_VOTES("super_votes"),
     SUMMER_HAT("summer_hat"),
@@ -21,7 +21,7 @@ public enum BuildBattlePackages {
 
     private final String key;
 
-    BuildBattlePackages(String key) {
+    HypixelBuildBattlePackages(String key) {
         this.key = key;
     }
 }

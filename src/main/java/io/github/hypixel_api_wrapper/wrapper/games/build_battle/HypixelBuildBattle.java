@@ -86,13 +86,12 @@ public class HypixelBuildBattle extends HypixelGame {
         throw new UnsupportedOperationException();
     }
 
-    public EnumSet<BuildBattlePackages> getPackages() {
-        // I'm not sure if this would work I am having a big brain fart
-        return (EnumSet<BuildBattlePackages>) stats.get("packages");
+    public EnumSet<HypixelBuildBattlePackages> getPackages() {
+        throw new UnsupportedOperationException();
     }
 
-    public BuildBattlePackages getSelectedHat() {
-        return BuildBattlePackages.valueOf(stats.getString("new_selected_hat").toUpperCase());
+    public HypixelBuildBattlePackages getSelectedHat() {
+        return HypixelBuildBattlePackages.valueOf(stats.getString("new_selected_hat").toUpperCase());
     }
 
     public int getMonthlyCoinsB() {
