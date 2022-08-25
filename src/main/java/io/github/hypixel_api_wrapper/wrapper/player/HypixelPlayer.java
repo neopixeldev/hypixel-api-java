@@ -11,12 +11,12 @@ import java.util.Set;
 public class HypixelPlayer {
 
     private final String username;
-    private final RequestController requestFactory;
+    private final RequestController requestController;
     HypixelPlayerGames games;
 
-    public HypixelPlayer(String username, RequestController requestFactory) {
+    public HypixelPlayer(String username, RequestController requestController) {
         this.username = username;
-        this.requestFactory = requestFactory;
+        this.requestFactory = requestController;
     }
 
     public String getUsername() {
