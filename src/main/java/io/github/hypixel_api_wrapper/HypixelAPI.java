@@ -13,8 +13,7 @@ public class HypixelAPI {
     private RequestFactory requestFactory;
 
     private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
-        requestFactory = new RequestFactory(key);
-        requestFactory.start(cachingStrategy);
+        requestFactory = new RequestFactory(key, cachingStrategy);
     }
 
     /**
@@ -39,9 +38,6 @@ public class HypixelAPI {
         return new HypixelAPI(key, cachingStrategy);
     }
 
-    public void shutdown() throws IOException {
-        requestFactory.close();
-    }
 
     public HypixelPlayer getPlayerByName(String username) {
         return new HypixelPlayer(username, requestFactory);
