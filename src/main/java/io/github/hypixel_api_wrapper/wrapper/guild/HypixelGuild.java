@@ -1,5 +1,6 @@
 package io.github.hypixel_api_wrapper.wrapper.guild;
 
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.util.List;
@@ -7,9 +8,9 @@ import java.util.List;
 public class HypixelGuild {
 
     private final String name;
-    private final RequestFactory requestFactory;
+    private final RequestController requestFactory;
 
-    public HypixelGuild(String name, RequestFactory requestFactory) {
+    public HypixelGuild(String name, RequestController requestFactory) {
         this.name = name;
         this.requestFactory = requestFactory;
     }

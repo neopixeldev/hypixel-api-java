@@ -3,82 +3,55 @@ package io.github.hypixel_api_wrapper.http;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import java.io.IOException;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-import org.apache.http.impl.nio.client.HttpAsyncClients;
-import org.apache.http.util.EntityUtils;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.json.JSONObject;
 
 public class RequestFactory {
 
-    private static CloseableHttpAsyncClient client;
-    private static BasicResponseHandler handler;
-    private static CachingStrategy cache;
-
+    private CachingStrategy cache;
     private final String apiKey;
+    private final OkHttpClient client = new OkHttpClient();
 
-    public RequestFactory(UUID apiKey) {
+    protected RequestFactory(UUID apiKey, CachingStrategy cache) {
         this.apiKey = apiKey.toString();
+        this.cache = cache;
     }
 
-    public void start(CachingStrategy cachingStrategy) {
-        if (!client.isRunning()) {
-            client = HttpAsyncClients.createDefault();
-            handler = new BasicResponseHandler();
-            cache = cachingStrategy;
-
-            client.start();
-        }
-    }
-
-    public void close() throws IOException {
-        if (client.isRunning()) {
-            client.close();
-            cache.clearCache();
-        }
-    }
 
     /**
      * Sends a request to the Hypixel API. Returns a {@link JSONObject} of the information
      * retrieved.
      *
-     * @param url The API URL of the information that is being retrieved.
+     * @param requestBuilder A {@link Request.Builder} with the base <code>URL</code> and parameters
+     *                       already set.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(String url) {
-        try {
-            HttpUriRequest request = RequestBuilder.get(url)
-                .addHeader("API-key", apiKey)
-                .build();
-            // TODO implement a CompletableFuture workaround
-            Future<HttpResponse> future = client.execute(request, null);
-            HttpResponse response = future.get(500, TimeUnit.MILLISECONDS);
-            JSONObject res = new JSONObject(handler.handleResponse(response));
-            EntityUtils.consume(response.getEntity());
-            return res;
-        } catch (InterruptedException | ExecutionException | IOException | TimeoutException e) {
-            // TODO create own error to handle these exceptions
-            throw new RuntimeException(e);
-        }
-    }
+    public JSONObject send(HttpUrl.Builder requestBuilder) {
 
-    /**
-     * This method's use is the exact same as #send, but it adds requests to the cache.
-     */
-    public JSONObject getEndpointThroughAPI(Endpoint endpoint) {
-        if (cache.isCacheValid(endpoint)) {
-            return cache.getCachedResponse(endpoint);
-        }
+        final JSONObject[] res = new JSONObject[1];
 
-        JSONObject res = send(endpoint.toString());
-        cache.cacheResponse(endpoint, res);
-        return res;
+        requestBuilder.addQueryParameter("key", apiKey);
+
+        Request request = new Request.Builder()
+            .url(requestBuilder.build().toString())
+            .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            public void onResponse(Call call, Response response)
+                throws IOException {
+                res[0] = new JSONObject(response.body().toString());
+            }
+
+            public void onFailure(Call call, IOException e) {
+                // TODO failure
+            }
+        });
+        return res[0];
     }
 }

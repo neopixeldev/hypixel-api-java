@@ -1,8 +1,8 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
-import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import java.util.Optional;
@@ -11,12 +11,12 @@ import java.util.Set;
 public class HypixelPlayer {
 
     private final String username;
-    private final RequestFactory requestFactory;
+    private final RequestController requestController;
     HypixelPlayerGames games;
 
-    public HypixelPlayer(String username, RequestFactory requestFactory) {
+    public HypixelPlayer(String username, RequestController requestController) {
         this.username = username;
-        this.requestFactory = requestFactory;
+        this.requestController = requestController;
     }
 
     public String getUsername() {
@@ -110,6 +110,6 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
+        throw new UnsupportedOperationException();
     }
 }
