@@ -16,7 +16,7 @@ public class HypixelPlayer {
 
     public HypixelPlayer(String username, RequestController requestController) {
         this.username = username;
-        this.requestFactory = requestController;
+        this.requestController = requestController;
     }
 
     public String getUsername() {
