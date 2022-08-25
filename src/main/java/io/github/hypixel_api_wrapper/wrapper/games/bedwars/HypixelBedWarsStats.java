@@ -70,7 +70,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The player's total Bed Wars experience.
      */
     public final int getExperience() {
-        throw new UnsupportedOperationException();
+        return stats.getInt("Experience");
     }
 
     /**
@@ -81,7 +81,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the effect played when the player wins.
      */
     public final String getActiveVictoryDance() {
-        throw new UnsupportedOperationException();
+        return stats.getString("activeVictoryDance");
     }
 
     /**
@@ -92,7 +92,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the player's selected island topper.
      */
     public final String getActiveIslandTopper() {
-        throw new UnsupportedOperationException();
+        return stats.getString("activeIslandTopper");
     }
 
     /**
@@ -103,7 +103,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the player's selected spray.
      */
     public final String getActiveSpray() {
-        throw new UnsupportedOperationException();
+        return stats.getString("activeSprays");
     }
 
     /**
@@ -114,7 +114,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the effect played when the player dies.
      */
     public final String getActiveDeathCry() {
-        throw new UnsupportedOperationException();
+        return stats.getString("activeDeathCry");
     }
 
     @Override
