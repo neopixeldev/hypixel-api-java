@@ -18,4 +18,8 @@ public class QueryFactory {
     public Query getPlayerFriendsByUsername(String username) {
         return new FriendsByUsernameQuery(username);
     }
+
+    public Query getPlayerRecentGamesByUsername(String username) {
+        return new RecentGamesByUsernameQuery(username);
+    }
 }

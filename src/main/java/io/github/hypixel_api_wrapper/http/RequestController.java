@@ -34,4 +34,9 @@ public class RequestController {
         Query query = queryFactory.getPlayerFriendsByUsername(username);
         return requestFactory.send(query.createRequest());
     }
+
+    public JSONObject getPlayerRecentGamesByUsername(String username) {
+        Query query = queryFactory.getPlayerRecentGamesByUsername(username);
+        return requestFactory.send(query.createRequest());
+    }
 }
