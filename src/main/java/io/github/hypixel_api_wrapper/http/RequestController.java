@@ -35,6 +35,10 @@ public class RequestController {
         return requestFactory.send(query.createRequest());
     }
 
+    public JSONObject getPlayerRecentGamesByUUID(UUID uuid) {
+        Query query = queryFactory.getPlayerRecentGamesByUUID(uuid);
+        return requestFactory.send(query.createRequest());
+    }
     public JSONObject getPlayerRecentGamesByUsername(String username) {
         Query query = queryFactory.getPlayerRecentGamesByUsername(username);
         return requestFactory.send(query.createRequest());
