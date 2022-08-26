@@ -1,6 +1,8 @@
 package io.github.hypixel_api_wrapper.http;
 
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
+import io.github.hypixel_api_wrapper.http.query.PlayerStatusByUUIDQuery;
+import io.github.hypixel_api_wrapper.http.query.PlayerStatusByUsernameQuery;
 import io.github.hypixel_api_wrapper.http.query.Query;
 import io.github.hypixel_api_wrapper.http.query.QueryFactory;
 import java.util.UUID;
@@ -41,6 +43,16 @@ public class RequestController {
     }
     public JSONObject getPlayerRecentGamesByUsername(String username) {
         Query query = queryFactory.getPlayerRecentGamesByUsername(username);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getPlayerStatusByUUID(UUID uuid) {
+        Query query = queryFactory.getPlayerStatusByUUID(uuid);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getPlayerStatusByUsername(String username) {
+        Query query = queryFactory.getPlayerStatusByUsername(username);
         return requestFactory.send(query.createRequest());
     }
 }

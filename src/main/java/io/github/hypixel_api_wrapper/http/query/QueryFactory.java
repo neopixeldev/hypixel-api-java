@@ -19,7 +19,20 @@ public class QueryFactory {
         return new FriendsByUsernameQuery(username);
     }
 
+    public Query getPlayerRecentGamesByUUID(UUID uuid) {
+        return new RecentGamesByUUIDQuery(uuid);
+    }
+
     public Query getPlayerRecentGamesByUsername(String username) {
         return new RecentGamesByUsernameQuery(username);
     }
+
+    public Query getPlayerStatusByUUID(UUID uuid) {
+        return new PlayerStatusByUUIDQuery(uuid);
+    }
+
+    public Query getPlayerStatusByUsername(String username) {
+        return new PlayerStatusByUsernameQuery(username);
+    }
+
 }
