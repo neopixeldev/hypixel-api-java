@@ -9,6 +9,7 @@ import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
 import java.util.Optional;
 import java.util.Set;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HypixelPlayer {
@@ -21,8 +22,7 @@ public class HypixelPlayer {
     public HypixelPlayer(String username, RequestController requestController) {
         this.username = username;
         this.requestController = requestController;
-        //TODO add #getPlayerByUsername to `RequestController`
-        this.playerStats = null;
+        this.playerStats = requestController.getPlayer(username).getJSONObject("player");
     }
 
     public String getUsername() {

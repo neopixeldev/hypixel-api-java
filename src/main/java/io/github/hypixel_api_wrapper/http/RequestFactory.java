@@ -41,17 +41,10 @@ public class RequestFactory {
             .url(requestBuilder.build().toString())
             .build();
 
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            public void onResponse(Call call, Response response)
-                throws IOException {
-                res[0] = new JSONObject(response.body().toString());
-            }
-
-            public void onFailure(Call call, IOException e) {
-                // TODO failure
-            }
-        });
-        return res[0];
+        try {
+            return new JSONObject(client.newCall(request).execute().body().string());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
