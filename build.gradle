@@ -19,6 +19,7 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpasyncclient:4.1.5'
     implementation 'com.spikhalskiy.futurity:futurity-core:0.3-RC3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 }
 
 test {

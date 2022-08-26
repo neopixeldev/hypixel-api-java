@@ -1,19 +1,21 @@
 package io.github.hypixel_api_wrapper;
 
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import io.github.hypixel_api_wrapper.http.cache.NoCachingStrategy;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
 public class HypixelAPI {
 
-    private static RequestFactory requestFactory;
+    private RequestController requestController;
 
-    private HypixelAPI(UUID key) {
-        requestFactory = new RequestFactory(key);
+    private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
+        this.requestController = new RequestController(key, cachingStrategy);
     }
 
     /**
@@ -35,19 +37,18 @@ public class HypixelAPI {
      * @return the newly created instance
      */
     public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
-        requestFactory.start(cachingStrategy);
-        return new HypixelAPI(key);
+        return new HypixelAPI(key, cachingStrategy);
     }
 
-    public static void shutdown() throws IOException {
-        requestFactory.close();
+    public void shutdown() throws IOException {
+        throw new UnsupportedOperationException();
     }
 
     public HypixelPlayer getPlayerByName(String username) {
-        return new HypixelPlayer(username, requestFactory);
+        return new HypixelPlayer(username, requestController);
     }
 
     public HypixelGuild getGuildByName(String name) {
-        return new HypixelGuild(name, requestFactory);
+        return new HypixelGuild(name, requestController);
     }
 }
