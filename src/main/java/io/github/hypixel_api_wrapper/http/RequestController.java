@@ -20,4 +20,18 @@ public class RequestController {
         return requestFactory.send(query.createRequest());
     }
 
+    public JSONObject getPlayerByUsername(String username) {
+        Query query = queryFactory.getPlayerByUsername(username);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getPlayerFriendsByUUID(UUID uuid) {
+        Query query = queryFactory.getPlayerFriendsByUUID(uuid);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getPlayerFriendsByUsername(String username) {
+        Query query = queryFactory.getPlayerFriendsByUsername(username);
+        return requestFactory.send(query.createRequest());
+    }
 }
