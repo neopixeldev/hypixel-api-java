@@ -88,7 +88,7 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        throw new UnsupportedOperationException();
+        return requestController.getPlayerStatus(username).getJSONObject("session").getBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
