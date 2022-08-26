@@ -92,7 +92,7 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(username).getJSONObject("session").getBoolean("online");
+        return requestController.getPlayerStatus(getUsername()).getJSONObject("session").getBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
