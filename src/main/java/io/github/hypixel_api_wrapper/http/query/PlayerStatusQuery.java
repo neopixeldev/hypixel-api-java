@@ -38,10 +38,6 @@ public class PlayerStatusQuery extends Query {
     public boolean equals(Object o) {
         PlayerStatusQuery other = (PlayerStatusQuery) o;
 
-        if (o == this) {
-            return true;
-        }
-
         if(uuid != null) {
             return other.getUUID().equals(uuid);
         }

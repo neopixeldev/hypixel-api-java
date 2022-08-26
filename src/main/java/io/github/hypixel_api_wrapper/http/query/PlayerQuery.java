@@ -39,10 +39,6 @@ public class PlayerQuery extends Query {
     public boolean equals(Object o) {
         PlayerQuery other = (PlayerQuery) o;
 
-        if (o == this) {
-            return true;
-        }
-
         if(uuid != null) {
             return other.getUUID().equals(uuid);
         }
