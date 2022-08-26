@@ -9,6 +9,7 @@ import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,6 +22,11 @@ public class HypixelPlayer {
     public HypixelPlayer(String username, RequestController requestController) {
         this.requestController = requestController;
         this.playerStats = requestController.getPlayer(username).getJSONObject("player");
+    }
+
+    public HypixelPlayer(UUID uuid, RequestController requestController) {
+        this.requestController = requestController;
+        this.playerStats = requestController.getPlayer(uuid).getJSONObject("player");
     }
 
     public String getUsername() {
