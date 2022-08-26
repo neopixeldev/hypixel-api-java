@@ -20,4 +20,19 @@ public class PlayerByUUIDQuery extends Query {
         return HttpUrl.parse(Endpoint.PLAYER.getURL().toString()).newBuilder()
             .addQueryParameter("uuid", uuid.toString());
     }
+
+    public UUID getUUID() {
+        return uuid;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        PlayerByUUIDQuery other = (PlayerByUUIDQuery) o;
+
+        if (o == this) {
+            return true;
+        }
+
+        return other.getUUID().equals(uuid);
+    }
 }
