@@ -118,6 +118,7 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
+        //TODO add #getPlayerByUsername to `RequestController`
+        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(null));
     }
 }
