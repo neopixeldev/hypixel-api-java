@@ -112,7 +112,7 @@ public class HypixelPlayer {
     }
 
     public HypixelGuild getGuild() {
-        throw new UnsupportedOperationException();
+        return new HypixelGuild(getUUID(), requestController);
     }
 
     public HypixelPlayerGames getGames() {
