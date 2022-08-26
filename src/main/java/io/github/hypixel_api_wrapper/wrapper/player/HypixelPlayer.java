@@ -5,18 +5,22 @@ import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
+import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
 import java.util.Optional;
 import java.util.Set;
+import org.json.JSONObject;
 
 public class HypixelPlayer {
 
     private final String username;
     private final RequestFactory requestFactory;
     private HypixelPlayerGames games;
+    private final JSONObject playerStats;
 
     public HypixelPlayer(String username, RequestFactory requestFactory) {
         this.username = username;
         this.requestFactory = requestFactory;
+        this.playerStats = requestFactory.getEndpointThroughAPI(Endpoint.PLAYER).getJSONObject("player");
     }
 
     public String getUsername() {
@@ -24,19 +28,19 @@ public class HypixelPlayer {
     }
 
     public String getUUID() {
-        throw new UnsupportedOperationException();
+        return playerStats.getString("uuid");
     }
 
-    public double getNetworkLevel() {
-        throw new UnsupportedOperationException();
+    public int getNetworkLevel() {
+        return LevelUtil.getFullNetworkLevel(playerStats.getInt("networkExp"));
     }
 
     public double getNetworkEXP() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("networkExp");
     }
 
     public int getNetworkKarma() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("karma");
     }
 
     /**
@@ -44,7 +48,9 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getNetworkLevelPercentage() {
-        throw new UnsupportedOperationException();
+        int exp = playerStats.getInt("networkExp");
+        int
+        return LevelUtil.getProgressExp(playerStats.getInt("networkExp"));
     }
 
     /**
