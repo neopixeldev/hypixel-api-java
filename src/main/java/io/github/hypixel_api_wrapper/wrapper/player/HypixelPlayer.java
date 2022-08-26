@@ -58,14 +58,14 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getEXPIntoCurrentNetworkLevel() {
-        throw new UnsupportedOperationException();
+        return LevelUtil.getExpPastLastEventLevel(playerStats.getInt("networkExp"));
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
     public double getEXPToNextNetworkLevel() {
-        throw new UnsupportedOperationException();
+        return LevelUtil.getExpUntilNextEventLevel(playerStats.getInt("networkExp"));
     }
 
 
