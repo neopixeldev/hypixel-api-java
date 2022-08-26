@@ -32,9 +32,7 @@ public class RequestFactory {
      * @return A {@link JSONObject} of the information retrieved.
      */
     public JSONObject send(HttpUrl.Builder requestBuilder) {
-
-        final JSONObject[] res = new JSONObject[1];
-
+        
         requestBuilder.addQueryParameter("key", apiKey);
 
         Request request = new Request.Builder()
