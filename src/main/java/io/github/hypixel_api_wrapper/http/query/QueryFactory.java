@@ -3,36 +3,36 @@ package io.github.hypixel_api_wrapper.http.query;
 import java.util.UUID;
 
 public class QueryFactory {
-    public Query getPlayerByUUIDQuery(UUID uuid) {
-        return new PlayerByUUIDQuery(uuid);
+    public Query getPlayer(UUID uuid) {
+        return new PlayerQuery(uuid);
     }
-    
-    public Query getPlayerByUsername(String username) {
+
+    public Query getPlayer(String username) {
         return new PlayerQuery(username);
     }
 
-    public Query getPlayerFriendsByUUID(UUID uuid) {
-        return new FriendsByUUIDQuery(uuid);
+    public Query getPlayerFriends(UUID uuid) {
+        return new PlayerFriendsQuery(uuid);
     }
 
-    public Query getPlayerFriendsByUsername(String username) {
-        return new FriendsByUsernameQuery(username);
+    public Query getPlayerFriends(String username) {
+        return new PlayerFriendsQuery(username);
     }
 
-    public Query getPlayerRecentGamesByUUID(UUID uuid) {
-        return new RecentGamesByUUIDQuery(uuid);
+    public Query getPlayerRecentGames(UUID uuid) {
+        return new PlayerRecentGamesQuery(uuid);
     }
 
-    public Query getPlayerRecentGamesByUsername(String username) {
-        return new RecentGamesByUsernameQuery(username);
+    public Query getPlayerRecentGames(String username) {
+        return new PlayerRecentGamesQuery(username);
     }
 
-    public Query getPlayerStatusByUUID(UUID uuid) {
-        return new PlayerStatusByUUIDQuery(uuid);
+    public Query getPlayerStatus(UUID uuid) {
+        return new PlayerStatusQuery(uuid);
     }
 
-    public Query getPlayerStatusByUsername(String username) {
-        return new PlayerStatusByUsernameQuery(username);
+    public Query getPlayerStatus(String username) {
+        return new PlayerStatusQuery(username);
     }
 
 }

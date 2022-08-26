@@ -1,8 +1,6 @@
 package io.github.hypixel_api_wrapper.http;
 
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
-import io.github.hypixel_api_wrapper.http.query.PlayerStatusByUUIDQuery;
-import io.github.hypixel_api_wrapper.http.query.PlayerStatusByUsernameQuery;
 import io.github.hypixel_api_wrapper.http.query.Query;
 import io.github.hypixel_api_wrapper.http.query.QueryFactory;
 import java.util.UUID;
@@ -17,42 +15,43 @@ public class RequestController {
         requestFactory = new RequestFactory(apiKey, cachingStrategy);
     }
 
-    public JSONObject getPlayerByUUID(UUID uuid) {
-        Query query = queryFactory.getPlayerByUUIDQuery(uuid);
+    public JSONObject getPlayer(UUID uuid) {
+        Query query = queryFactory.getPlayer(uuid);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerByUsername(String username) {
-        Query query = queryFactory.getPlayerByUsername(username);
+    public JSONObject getPlayer(String username) {
+        Query query = queryFactory.getPlayer(username);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerFriendsByUUID(UUID uuid) {
-        Query query = queryFactory.getPlayerFriendsByUUID(uuid);
+    public JSONObject getPlayerFriends(UUID uuid) {
+        Query query = queryFactory.getPlayerFriends(uuid);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerFriendsByUsername(String username) {
-        Query query = queryFactory.getPlayerFriendsByUsername(username);
+    public JSONObject getPlayerFriends(String username) {
+        Query query = queryFactory.getPlayerFriends(username);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerRecentGamesByUUID(UUID uuid) {
-        Query query = queryFactory.getPlayerRecentGamesByUUID(uuid);
-        return requestFactory.send(query.createRequest());
-    }
-    public JSONObject getPlayerRecentGamesByUsername(String username) {
-        Query query = queryFactory.getPlayerRecentGamesByUsername(username);
+    public JSONObject getPlayerRecentGames(UUID uuid) {
+        Query query = queryFactory.getPlayerRecentGames(uuid);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerStatusByUUID(UUID uuid) {
-        Query query = queryFactory.getPlayerStatusByUUID(uuid);
+    public JSONObject getPlayerRecentGames(String username) {
+        Query query = queryFactory.getPlayerRecentGames(username);
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONObject getPlayerStatusByUsername(String username) {
-        Query query = queryFactory.getPlayerStatusByUsername(username);
+    public JSONObject getPlayerStatus(UUID uuid) {
+        Query query = queryFactory.getPlayerStatus(uuid);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getPlayerStatus(String username) {
+        Query query = queryFactory.getPlayerStatus(username);
         return requestFactory.send(query.createRequest());
     }
 }
