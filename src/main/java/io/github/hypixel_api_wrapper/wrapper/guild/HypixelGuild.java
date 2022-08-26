@@ -4,19 +4,25 @@ import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.player.HypixelPlayer;
 import java.util.List;
+import java.util.UUID;
+import org.json.JSONObject;
 
 public class HypixelGuild {
+    private final RequestController requestController;
+    private final JSONObject guildStats;
 
-    private final String name;
-    private final RequestController requestFactory;
+    public HypixelGuild(String name, RequestController requestController) {
+        this.requestController = requestController;
+        this.guildStats = requestController.getGuild(name);
+    }
 
-    public HypixelGuild(String name, RequestController requestFactory) {
-        this.name = name;
-        this.requestFactory = requestFactory;
+    public HypixelGuild(UUID uuid, RequestController requestController) {
+        this.requestController = requestController;
+        this.guildStats = requestController.getGuild(uuid);
     }
 
     public String getName() {
-        return name;
+        return throw new UnsupportedOperationException();
     }
 
     public double getLevel() {
