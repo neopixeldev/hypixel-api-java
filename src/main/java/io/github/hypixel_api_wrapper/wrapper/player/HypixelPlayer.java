@@ -1,6 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
 import io.github.hypixel_api_wrapper.http.Endpoint;
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
@@ -13,14 +14,15 @@ import org.json.JSONObject;
 public class HypixelPlayer {
 
     private final String username;
-    private final RequestFactory requestFactory;
+    private final RequestController requestController;
     private HypixelPlayerGames games;
     private final JSONObject playerStats;
 
-    public HypixelPlayer(String username, RequestFactory requestFactory) {
+    public HypixelPlayer(String username, RequestController requestController) {
         this.username = username;
-        this.requestFactory = requestFactory;
-        this.playerStats = requestFactory.getEndpointThroughAPI(Endpoint.PLAYER).getJSONObject("player");
+        this.requestController = requestController;
+        //TODO add #getPlayerByUsername to `RequestController`
+        this.playerStats = null;
     }
 
     public String getUsername() {
@@ -49,7 +51,6 @@ public class HypixelPlayer {
      */
     public double getNetworkLevelPercentage() {
         int exp = playerStats.getInt("networkExp");
-        int
         return LevelUtil.getProgressExp(playerStats.getInt("networkExp"));
     }
 
@@ -116,6 +117,7 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(requestFactory.getEndpointThroughAPI(Endpoint.PLAYER)));
+        //TODO add #getPlayerByUsername to `RequestController`
+        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(null));
     }
 }
