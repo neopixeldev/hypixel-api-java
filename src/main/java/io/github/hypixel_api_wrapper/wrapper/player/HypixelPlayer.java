@@ -51,7 +51,6 @@ public class HypixelPlayer {
      */
     public double getNetworkLevelPercentage() {
         int exp = playerStats.getInt("networkExp");
-        int
         return LevelUtil.getProgressExp(playerStats.getInt("networkExp"));
     }
 
