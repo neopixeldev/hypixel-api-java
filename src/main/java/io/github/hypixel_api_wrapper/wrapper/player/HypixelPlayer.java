@@ -14,19 +14,17 @@ import org.json.JSONObject;
 
 public class HypixelPlayer {
 
-    private final String username;
     private final RequestController requestController;
     private HypixelPlayerGames games;
     private final JSONObject playerStats;
 
     public HypixelPlayer(String username, RequestController requestController) {
-        this.username = username;
         this.requestController = requestController;
         this.playerStats = requestController.getPlayer(username).getJSONObject("player");
     }
 
     public String getUsername() {
-        return username;
+        return playerStats.getString("displayName");
     }
 
     public String getUUID() {
