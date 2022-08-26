@@ -10,4 +10,8 @@ public class QueryFactory {
     public Query getPlayerByUsername(String username) {
         return new PlayerByUsernameQuery(username);
     }
+
+    public Query getPlayerFriendsByUUID(UUID uuid) {
+        return new FriendsByUUIDQuery(uuid);
+    }
 }
