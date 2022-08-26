@@ -104,7 +104,7 @@ public class HypixelPlayer {
     }
 
     public HypixelRank getHypixelRank() {
-        throw new UnsupportedOperationException();
+        return HypixelRank.valueOf(playerStats.getString("newPackageRank"));
     }
 
     public HypixelColors getHypixelRankPlusColor() {
