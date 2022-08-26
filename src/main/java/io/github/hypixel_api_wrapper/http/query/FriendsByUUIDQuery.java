@@ -23,7 +23,7 @@ public class FriendsByUUIDQuery extends Query {
 
     @Override
     public boolean equals(Object o) {
-        PlayerByUUIDQuery other = (PlayerByUUIDQuery) o;
+        FriendsByUUIDQuery other = (FriendsByUUIDQuery) o;
 
         if (o == this) {
             return true;

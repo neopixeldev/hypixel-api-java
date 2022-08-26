@@ -23,7 +23,7 @@ public class FriendsByUsernameQuery extends Query {
 
     @Override
     public boolean equals(Object o) {
-        PlayerByUsernameQuery other = (PlayerByUsernameQuery) o;
+        FriendsByUsernameQuery other = (FriendsByUsernameQuery) o;
 
         if (o == this) {
             return true;
