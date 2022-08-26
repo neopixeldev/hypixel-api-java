@@ -92,15 +92,15 @@ public class HypixelPlayer {
     }
 
     public int getTotalDailyRewardsClaimed() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("totalDailyRewards");
     }
 
     public int getTopDailyRewardStreak() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("rewardHighScore");
     }
 
     public int getCurrentDailyRewardStreak() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("rewardStreak");
     }
 
     public HypixelRank getHypixelRank() {
