@@ -13,7 +13,7 @@ public class PlayerByUsernameQuery extends Query {
 
     @Override
     public HttpUrl.Builder createRequest() {
-        return HttpUrl.parse(Endpoint.PLAYER.getURL().toString()).newBuilder()
+        return HttpUrl.get(Endpoint.PLAYER.getURL()).newBuilder()
             .addQueryParameter("name", username);
     }
 
