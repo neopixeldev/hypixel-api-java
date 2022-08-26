@@ -108,7 +108,7 @@ public class HypixelPlayer {
     }
 
     public HypixelColors getHypixelRankPlusColor() {
-        throw new UnsupportedOperationException();
+        return HypixelColors.valueOf(playerStats.getString("rankPlusColor"));
     }
 
     public HypixelGuild getGuild() {
