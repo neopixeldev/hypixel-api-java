@@ -14,4 +14,8 @@ public class QueryFactory {
     public Query getPlayerFriendsByUUID(UUID uuid) {
         return new FriendsByUUIDQuery(uuid);
     }
+
+    public Query getPlayerFriendsByUsername(String username) {
+        return new FriendsByUsernameQuery(username);
+    }
 }
