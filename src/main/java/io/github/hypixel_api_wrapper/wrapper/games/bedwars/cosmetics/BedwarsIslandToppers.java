@@ -122,12 +122,6 @@ public enum BedwarsIslandToppers implements HypixelCosmetic {
     CHICKEN("Chicken", "islandtopper_chicken", HypixelCosmeticRarities.LEGENDARY),
     BALLISTA("Ballista", "islandtopper_ballista", HypixelCosmeticRarities.LEGENDARY),;
 
-    /*
-
-
-
-     */
-
     private String name;
     private String key;
     private HypixelCosmeticRarities rarity;
