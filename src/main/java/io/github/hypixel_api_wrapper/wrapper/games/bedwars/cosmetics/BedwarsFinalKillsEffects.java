@@ -8,6 +8,7 @@ public enum BedwarsFinalKillsEffects implements HypixelCosmetic {
     FIREWORK("Firework", "killeffect_firework", HypixelCosmeticRarities.COMMON),
     TNT("TNT", "killeffect_tnt", HypixelCosmeticRarities.COMMON),
     SQUID_MISSILE("Squid Missile", "killeffect_squid_missile", HypixelCosmeticRarities.COMMON),
+
     LAST_CANDLE("Last Candle", "killeffect_candle", HypixelCosmeticRarities.RARE),
     ITS_RAINING_GOLD("Its Raining Gold", "killeffect_raining_gold", HypixelCosmeticRarities.RARE),
     HEART_AURA("Heart Aura", "killeffect_heart_aura", HypixelCosmeticRarities.RARE),
@@ -19,6 +20,7 @@ public enum BedwarsFinalKillsEffects implements HypixelCosmetic {
     BLACK_MARK("Black Mark", "killeffect_black_mark", HypixelCosmeticRarities.RARE),
     MAGNOLIA("Magnolia", "killeffect_magnolia", HypixelCosmeticRarities.RARE),
     EASTER_EGG_THEFT("Easter Egg Theft", "killeffect_egg_theft", HypixelCosmeticRarities.RARE),
+
     REKT("Rekt", "killeffect_rekt", HypixelCosmeticRarities.EPIC),
     PIÑATA("Piñata", "killeffect_piñata", HypixelCosmeticRarities.EPIC),
     BLOOD_EXPLOSION("Blood Explosion", "killeffect_blood_explosion", HypixelCosmeticRarities.EPIC),
@@ -38,6 +40,7 @@ public enum BedwarsFinalKillsEffects implements HypixelCosmetic {
     RAINING_EASTER_EGGS("Raining Easter Eggs", "killeffect_raining_eggs", HypixelCosmeticRarities.EPIC),
     RAIN_ON_MY_PARADE("Rain on my Parade", "killeffect_rain_on_my_parade", HypixelCosmeticRarities.EPIC),
     PUMPKIN_ROCKET("Pumpkin Rocket", "killeffect_pumpkin_rocket", HypixelCosmeticRarities.EPIC),
+
     PETAL_GUST("Petal Gust", "killeffect_petal_gust", HypixelCosmeticRarities.LEGENDARY),
     SHOCK_WAVE("Shock Wave", "killeffect_shockwave", HypixelCosmeticRarities.LEGENDARY),
     LIT("Lit", "killeffect_lit", HypixelCosmeticRarities.LEGENDARY),

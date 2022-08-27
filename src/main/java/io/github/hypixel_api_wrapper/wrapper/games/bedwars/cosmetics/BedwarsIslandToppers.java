@@ -20,6 +20,7 @@ public enum BedwarsIslandToppers implements HypixelCosmetic {
     CANDY_CANE("Candy Cane", "islandtopper_candy_cane", HypixelCosmeticRarities.COMMON),
     BUNNY("Bunny", "islandtopper_bunny", HypixelCosmeticRarities.COMMON),
     BUNCH_OF_PRESENTS("Bunch of Presents", "islandtopper_presents", HypixelCosmeticRarities.COMMON),
+
     WAVE("Wave", "islandtopper_wave", HypixelCosmeticRarities.RARE),
     SURFBOARD("Surfboard", "islandtopper_surfboard", HypixelCosmeticRarities.RARE),
     SPOOKY_LANTERN("Spooky Lantern", "islandtopper_spooky_lantern", HypixelCosmeticRarities.RARE),
@@ -56,6 +57,7 @@ public enum BedwarsIslandToppers implements HypixelCosmetic {
     BOO("Boo!", "islandtopper_new_ghost", HypixelCosmeticRarities.RARE),
     BOMB("Bomb", "islandtopper_bomb", HypixelCosmeticRarities.RARE),
     ASSASSIN("Assassin", "islandtopper_assassin", HypixelCosmeticRarities.RARE),
+
     WITCHS_HOUSE("Witch's House", "islandtopper_witch_house", HypixelCosmeticRarities.EPIC),
     TIGER("Tiger", "islandtopper_tiger", HypixelCosmeticRarities.EPIC),
     TEMPLE_HUT("Temple Hut", "islandtopper_temple_hut", HypixelCosmeticRarities.EPIC),
@@ -92,6 +94,7 @@ public enum BedwarsIslandToppers implements HypixelCosmetic {
     RAINBOW_SHEEP("Rainbow Sheep", "islandtopper_rainbow_sheep", HypixelCosmeticRarities.EPIC),
     COLLECTORS_CHEST("Collector's Chest", "islandtopper_collector", HypixelCosmeticRarities.EPIC),
     CANDY_BASKET("Candy Basket", "islandtopper_candy_basket", HypixelCosmeticRarities.EPIC),
+
     WITCH_HAT("Witch Hat", "islandtopper_witch_hat", HypixelCosmeticRarities.LEGENDARY),
     TULIPS("Tulips", "islandtopper_tulips", HypixelCosmeticRarities.LEGENDARY),
     TRAFFIC_LIGHT("Traffic Light", "islandtopper_stoplight", HypixelCosmeticRarities.LEGENDARY),

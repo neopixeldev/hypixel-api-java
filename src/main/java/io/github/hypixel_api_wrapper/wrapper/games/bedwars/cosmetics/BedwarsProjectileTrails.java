@@ -11,6 +11,7 @@ public enum BedwarsProjectileTrails implements HypixelCosmetic {
     LAVA("Lava", "projectiletrail_lava", HypixelCosmeticRarities.COMMON),
     ENDER("Ender", "projectiletrail_ender", HypixelCosmeticRarities.COMMON),
     BLACK_SMOKE("Black Smoke", "projectiletrail_black_smoke", HypixelCosmeticRarities.COMMON),
+
     ROSES("Roses", "projectiletrail_rose", HypixelCosmeticRarities.RARE),
     LUNAR_DUST("Lunar Dust", "projectiletrail_lunar_dust", HypixelCosmeticRarities.RARE),
     THE_END("The End", "projectiletrail_the_end_trail", HypixelCosmeticRarities.RARE),
@@ -18,6 +19,7 @@ public enum BedwarsProjectileTrails implements HypixelCosmetic {
     PURPLE_DUST("Purple Dust", "projectiletrail_purple_dust", HypixelCosmeticRarities.RARE),
     NOTES("Notes", "projectiletrail_notes", HypixelCosmeticRarities.RARE),
     BLUE_DUST("Blue Dust", "projectiletrail_blue_dust", HypixelCosmeticRarities.RARE),
+
     SPRING_RIBBONS("Spring Ribbons", "projectiletrail_spring_ribbons", HypixelCosmeticRarities.EPIC),
     ROCKET("Rocket", "projectiletrail_rocket", HypixelCosmeticRarities.EPIC),
     RAINY("Rainy", "projectiletrail_rainy", HypixelCosmeticRarities.EPIC),
@@ -34,6 +36,7 @@ public enum BedwarsProjectileTrails implements HypixelCosmetic {
     FIREWORK("Firework", "projectiletrail_firework", HypixelCosmeticRarities.EPIC),
     FIRE("Fire", "projectiletrail_fire", HypixelCosmeticRarities.EPIC),
     ANGRY_VILLAGER("Angry Villager", "projectiletrail_angry_villager", HypixelCosmeticRarities.EPIC),
+
     WINGMAN("Wingman", "projectiletrail_wingman", HypixelCosmeticRarities.LEGENDARY),
     TWISTED("Twisted", "projectiletrail_twisted_trail", HypixelCosmeticRarities.LEGENDARY),
     TWIN_DRAGON("Twin Dragon", "projectiletrail_twin_dragon", HypixelCosmeticRarities.LEGENDARY),

@@ -23,6 +23,7 @@ public enum BedwarsSprays implements HypixelCosmetic {
     CAREFUL_SANTA("Careful Santa", "sprays_santa", HypixelCosmeticRarities.COMMON),
     BUNNY_GG("Bunny GG", "sprays_bunny_gg", HypixelCosmeticRarities.COMMON),
     HYPIXEL_LOGO("Hypixel Logo", "sprays_hypixel_logo", HypixelCosmeticRarities.COMMON),
+
     SWEETS("Sweets", "sprays_sweets", HypixelCosmeticRarities.RARE),
     SNOW_ANGEL("Snow Angel", "sprays_snow_angel", HypixelCosmeticRarities.RARE),
     RABBITS_IN_A_BASKET("Rabbits in a Basket", "sprays_rabbits_in_basket", HypixelCosmeticRarities.RARE),
@@ -56,6 +57,7 @@ public enum BedwarsSprays implements HypixelCosmetic {
     DRAGON("Dragon", "sprays_dragon", HypixelCosmeticRarities.RARE),
     BUNNY_PARKOUR("Bunny Parkour", "sprays_bunny_parkour", HypixelCosmeticRarities.RARE),
     ANGRY_COW("Angry Cow", "sprays_angry_cow", HypixelCosmeticRarities.RARE),
+
     SPOOKY_SKELINGTON("Spooky Skelington", "sprays_spooky_skelington", HypixelCosmeticRarities.EPIC),
     SNOW_JERRY("Snow Jerry", "sprays_snow_jerry", HypixelCosmeticRarities.EPIC),
     SMUG_PIG("Smug Pig", "sprays_smug_pig", HypixelCosmeticRarities.EPIC),
@@ -95,6 +97,7 @@ public enum BedwarsSprays implements HypixelCosmetic {
     CUTE_BUNNY("Cute Bunny", "sprays_cute_bunny", HypixelCosmeticRarities.EPIC),
     CURLED_OX("Curled Ox", "sprays_curled_ox", HypixelCosmeticRarities.EPIC),
     CANDY_KING("Candy King", "sprays_candy_king", HypixelCosmeticRarities.EPIC),
+
     SWEET_DREAMS("Sweet Dreams", "sprays_sweet_dreams", HypixelCosmeticRarities.LEGENDARY),
     SNOWMAN_RAMPAGE("Snowman Rampage", "sprays_snowman_rampage", HypixelCosmeticRarities.LEGENDARY),
     SKELETON_SAYS_HI("Skeleton Says Hi", "sprays_skeleton_wave", HypixelCosmeticRarities.LEGENDARY),

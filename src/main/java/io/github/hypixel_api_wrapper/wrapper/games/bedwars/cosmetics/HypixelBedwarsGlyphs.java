@@ -32,6 +32,7 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     STORM("Storm", "glyph_storm", HypixelCosmeticRarities.COMMON),
     STAR("Star", "glyph_star", HypixelCosmeticRarities.COMMON),
     SQUEAK("Squeak", "glyph_squeak", HypixelCosmeticRarities.COMMON),
+
     SMILEY_FACE("Smiley Face", "glyph_smiley_face", HypixelCosmeticRarities.RARE),
     QUACK("Quack", "glyph_quack", HypixelCosmeticRarities.RARE),
     LOL("Lol", "glyph_lol", HypixelCosmeticRarities.RARE),
@@ -58,6 +59,7 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     SUPER_SNOW_GOLEM("Super Snow Golem", "glyph_snowman", HypixelCosmeticRarities.RARE),
     SPIDER("Spider", "glyph_spider", HypixelCosmeticRarities.RARE),
     SPECTRUM("Spectrum", "glyph_spectrum", HypixelCosmeticRarities.RARE),
+
     SKULL("Skull", "glyph_skull", HypixelCosmeticRarities.EPIC),
     SHOCK_FACE("Shock Face", "glyph_shock_face", HypixelCosmeticRarities.EPIC),
     SCREAM_FACE("Scream Face", "glyph_scream_face", HypixelCosmeticRarities.EPIC),
@@ -85,6 +87,7 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     BAT("Bat", "glyph_bat", HypixelCosmeticRarities.EPIC),
     WITCH_HAT("Witch Hat", "glyph_witch_hat", HypixelCosmeticRarities.EPIC),
     WINKY_FACE("Winky Face", "glyph_winky_face", HypixelCosmeticRarities.EPIC),
+
     RAINBOW("Rainbow", "glyph_rainbow", HypixelCosmeticRarities.LEGENDARY),
     RIP("RIP", "glyph_rip", HypixelCosmeticRarities.LEGENDARY),
     EVIL_KITTY("Evil Kitty", "glyph_cat", HypixelCosmeticRarities.LEGENDARY),

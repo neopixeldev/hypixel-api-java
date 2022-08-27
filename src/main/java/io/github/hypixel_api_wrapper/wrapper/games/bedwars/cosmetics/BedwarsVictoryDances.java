@@ -8,6 +8,7 @@ public enum BedwarsVictoryDances implements HypixelCosmetic {
     FIREWORKS("Fireworks", "victorydance_fireworks", HypixelCosmeticRarities.COMMON),
     COLD_SNAP("Cold Snap", "victorydance_cold_snap", HypixelCosmeticRarities.COMMON),
     ANVIL_RAIN("Anvil Rain", "victorydance_anvil_rain", HypixelCosmeticRarities.COMMON),
+
     RAINING_PIGS("Raining Pigs", "victorydance_raining_pigs", HypixelCosmeticRarities.RARE),
     FESTIVE_MUSIC("Festive Music", "victorydance_festive_music", HypixelCosmeticRarities.RARE),
     AURA("Aura", "victorydance_aura", HypixelCosmeticRarities.RARE),
@@ -16,6 +17,7 @@ public enum BedwarsVictoryDances implements HypixelCosmetic {
     METEOR_SHOWER("Meteor Shower", "victorydance_meteor_shower", HypixelCosmeticRarities.RARE),
     GUARDIANS("Guardians", "victorydance_guardians", HypixelCosmeticRarities.RARE),
     FLOATING_LANTERNS("Floating Lanterns", "victorydance_floating_lanterns", HypixelCosmeticRarities.RARE),
+
     PUMPKIN_PATCH("Pumpkin Patch", "victorydance_pumpkin_patch", HypixelCosmeticRarities.EPIC),
     HEAT_WAVE("Heat Wave", "victorydance_heat_wave", HypixelCosmeticRarities.EPIC),
     FLOWER_BED("Flower Bed", "victorydance_flower_bed", HypixelCosmeticRarities.EPIC),
@@ -28,6 +30,7 @@ public enum BedwarsVictoryDances implements HypixelCosmetic {
     RAINBOW_DOLLY("Rainbow Dolly", "victorydance_rainbow_dolly", HypixelCosmeticRarities.EPIC),
     CHINESE_DRAGON("Chinese Dragon", "victorydance_chinese_dragon", HypixelCosmeticRarities.EPIC),
     CAKE_WALK("Cake Walk", "victorydance_cake_walk", HypixelCosmeticRarities.EPIC),
+
     TO_BUILD_A_SNOWMAN("To Build a Snowman", "victorydance_to_build_a_snowman", HypixelCosmeticRarities.LEGENDARY),
     SNOWED_IN("Snowed In", "victorydance_snowed_in", HypixelCosmeticRarities.LEGENDARY),
     PUPPY_PARTY("Puppy Party", "victorydance_puppy_party", HypixelCosmeticRarities.LEGENDARY),

@@ -7,6 +7,7 @@ public enum HypixelBedwarsKillMessages implements HypixelCosmetic {
     WESTERN("Western", "killmessages_western", HypixelCosmeticRarities.COMMON),
     HONOURABLE("Honourable", "killmessages_honourable", HypixelCosmeticRarities.COMMON),
     FIRE("Fire", "killmessages_fire", HypixelCosmeticRarities.COMMON),
+
     SQUEAK("Squeak", "killmessages_squeak", HypixelCosmeticRarities.RARE),
     OXED("Ox'd", "killmessages_oxed", HypixelCosmeticRarities.RARE),
     WOOF_WOOF("Woof Woof", "killmessages_woof_woof", HypixelCosmeticRarities.RARE),
@@ -16,6 +17,7 @@ public enum HypixelBedwarsKillMessages implements HypixelCosmetic {
     LOVE("Love", "killmessages_love", HypixelCosmeticRarities.RARE),
     BUZZ("Buzz", "killmessages_buzz", HypixelCosmeticRarities.RARE),
     BBQ("Bbq", "killmessages_bbq", HypixelCosmeticRarities.RARE),
+
     WRAPPED_UP("Wrapped Up", "killmessages_wrapped_up", HypixelCosmeticRarities.EPIC),
     TO_THE_MOON("To The Moon", "killmessages_to_the_moon", HypixelCosmeticRarities.EPIC),
     ROAR("Roar", "killmessages_roar", HypixelCosmeticRarities.EPIC),
@@ -28,6 +30,7 @@ public enum HypixelBedwarsKillMessages implements HypixelCosmetic {
     LITERALLY_SPOOKY("Literally Spooky", "killmessages_spooky", HypixelCosmeticRarities.EPIC),
     EGGY("Eggy", "killmessages_eggy", HypixelCosmeticRarities.EPIC),
     DRAMATIC("Dramatic", "killmessages_dramatic", HypixelCosmeticRarities.EPIC),
+
     SOCIAL_DISTANCE("Social Distance", "killmessages_social_distancing", HypixelCosmeticRarities.LEGENDARY),
     OLD_MAN("Old Man", "killmessages_old_man", HypixelCosmeticRarities.LEGENDARY),
     BRIDGING_FOR_DUMMIES("Bridging for Dummies", "killmessages_bridging_for_dummies", HypixelCosmeticRarities.LEGENDARY),

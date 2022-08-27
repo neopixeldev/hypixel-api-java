@@ -18,6 +18,7 @@ public enum BedwarsShopkeeperSkins implements HypixelCosmetic {
     VILLAGER_ZOMBIE("Villager Zombie", "npcskin_villager_zombie", HypixelCosmeticRarities.COMMON),
     STELLAR("Stellar", "npcskin_stellar", HypixelCosmeticRarities.COMMON),
     SKELETON("Skeleton", "npcskin_skeleton", HypixelCosmeticRarities.COMMON),
+
     KING_OF_BEDS("King Of Beds", "npcskin_king_of_beds", HypixelCosmeticRarities.RARE),
     KILLER("Killer", "npcskin_killer", HypixelCosmeticRarities.RARE),
     EGG_DELIVERY("Egg Delivery", "npcskin_egg_delivery", HypixelCosmeticRarities.RARE),
@@ -34,6 +35,7 @@ public enum BedwarsShopkeeperSkins implements HypixelCosmetic {
     PRESENT_MAN("Present Man", "npcskin_present_man", HypixelCosmeticRarities.RARE),
     RED_FROG_PAJAMAS("Red Frog Pajamas", "npcskin_red_frog_pajamas", HypixelCosmeticRarities.RARE),
     PURPLE_PIG_PAJAMAS("Purple Pig Pajamas", "npcskin_purple_pig_pajamas", HypixelCosmeticRarities.RARE),
+
     LUMBERJACK("Lumberjack", "npcskin_lumberjack", HypixelCosmeticRarities.EPIC),
     LUCKY_CAT("Lucky Cat", "npcskin_lucky_cat", HypixelCosmeticRarities.EPIC),
     EVIL_EYE("Evil Eye", "npcskin_evil_eye", HypixelCosmeticRarities.EPIC),
@@ -59,6 +61,7 @@ public enum BedwarsShopkeeperSkins implements HypixelCosmetic {
     SKELETOR("Skeletor", "npcskin_skeletor", HypixelCosmeticRarities.EPIC),
     SCARECROW("Scarecrow", "npcskin_scarecrow", HypixelCosmeticRarities.EPIC),
     REINDEER("Reindeer", "npcskin_reindeer", HypixelCosmeticRarities.EPIC),
+
     DEFUSER("Defuser", "npcskin_defuser", HypixelCosmeticRarities.LEGENDARY),
     ASTRONAUT("Astronaut", "npcskin_astronaut", HypixelCosmeticRarities.LEGENDARY),
     PRESIDENT_SLOTH("President Sloth", "npcskin_president_sloth", HypixelCosmeticRarities.LEGENDARY),
