@@ -22,35 +22,35 @@ public class HypixelBedWars {
      * @return The amount of resources the player has collected.
      */
     public int getResourcesCollected() {
-        return stats.getInt(stats + "resources_collected_bedwars");
+        return stats.getInt(statsPrefix + "resources_collected_bedwars");
     }
 
     /**
      * @return The amount of diamonds the player has collected.
      */
     public int getDiamondsCollected() {
-        return stats.getInt(stats + "diamond_resources_collected_bedwars");
+        return stats.getInt(statsPrefix + "diamond_resources_collected_bedwars");
     }
 
     /**
      * @return The amount of emeralds the player has collected.
      */
     public int getEmeraldsCollected() {
-        return stats.getInt(stats + "emerald_resources_collected_bedwars");
+        return stats.getInt(statsPrefix + "emerald_resources_collected_bedwars");
     }
 
     /**
      * @return The amount of gold the player has collected.
      */
     public int getGoldCollected() {
-        return stats.getInt(stats + "gold_resources_collected_bedwars");
+        return stats.getInt(statsPrefix + "gold_resources_collected_bedwars");
     }
 
     /**
      * @return The amount of iron the player has collected.
      */
     public int getIronCollected() {
-        return stats.getInt(stats + "iron_resources_collected_bedwars");
+        return stats.getInt(statsPrefix + "iron_resources_collected_bedwars");
     }
 
     public int getKills(BedWarsKillCause cause) {
@@ -124,7 +124,7 @@ public class HypixelBedWars {
      * @return The player's current winstreak.
      */
     public int getCurrentWinstreak() {
-        return stats.getInt(stats + "winstreak");
+        return stats.getInt(statsPrefix + "winstreak");
     }
 
     /**
