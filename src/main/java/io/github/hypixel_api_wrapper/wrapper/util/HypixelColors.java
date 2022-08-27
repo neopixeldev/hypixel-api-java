@@ -10,6 +10,7 @@ public enum HypixelColors {
     YELLOW,
     LIGHT_PURPLE,
     WHITE,
+    AQUA,
     BLUE,
     DARK_GREEN,
     DARK_RED,
