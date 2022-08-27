@@ -9,24 +9,28 @@ import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HypixelPlayer {
 
-    private final String username;
     private final RequestController requestController;
     private HypixelPlayerGames games;
     private final JSONObject playerStats;
 
     public HypixelPlayer(String username, RequestController requestController) {
-        this.username = username;
         this.requestController = requestController;
         this.playerStats = requestController.getPlayer(username).getJSONObject("player");
     }
 
+    public HypixelPlayer(UUID uuid, RequestController requestController) {
+        this.requestController = requestController;
+        this.playerStats = requestController.getPlayer(uuid).getJSONObject("player");
+    }
+
     public String getUsername() {
-        return username;
+        return playerStats.getString("displayName");
     }
 
     public String getUUID() {
@@ -50,7 +54,6 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getNetworkLevelPercentage() {
-        int exp = playerStats.getInt("networkExp");
         return LevelUtil.getProgressExp(playerStats.getInt("networkExp"));
     }
 
@@ -59,14 +62,14 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public double getEXPIntoCurrentNetworkLevel() {
-        throw new UnsupportedOperationException();
+        return LevelUtil.getExpPastLastEventLevel(playerStats.getInt("networkExp"));
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
     public double getEXPToNextNetworkLevel() {
-        throw new UnsupportedOperationException();
+        return LevelUtil.getExpUntilNextEventLevel(playerStats.getInt("networkExp"));
     }
 
 
@@ -89,35 +92,34 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        throw new UnsupportedOperationException();
+        return requestController.getPlayerStatus(getUsername()).getJSONObject("session").getBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("totalDailyRewards");
     }
 
     public int getTopDailyRewardStreak() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("rewardHighScore");
     }
 
     public int getCurrentDailyRewardStreak() {
-        throw new UnsupportedOperationException();
+        return playerStats.getInt("rewardStreak");
     }
 
     public HypixelRank getHypixelRank() {
-        throw new UnsupportedOperationException();
+        return HypixelRank.valueOf(playerStats.getString("newPackageRank"));
     }
 
     public HypixelColors getHypixelRankPlusColor() {
-        throw new UnsupportedOperationException();
+        return HypixelColors.valueOf(playerStats.getString("rankPlusColor"));
     }
 
     public HypixelGuild getGuild() {
-        throw new UnsupportedOperationException();
+        return new HypixelGuild(getUUID(), requestController);
     }
 
     public HypixelPlayerGames getGames() {
-        //TODO add #getPlayerByUsername to `RequestController`
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(null));
+        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(playerStats.getJSONObject("stats")));
     }
 }
