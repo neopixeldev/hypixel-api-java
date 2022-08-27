@@ -101,10 +101,10 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     OX_COSTUME("Ox Costume", "sprays_ox_costume", HypixelCosmeticRarities.LEGENDARY),
     WATCHER("Watcher", "sprays_watcher", HypixelCosmeticRarities.LEGENDARY),
     TRICK_OR_TREAT("Trick or Treat", "sprays_trick_or_treat", HypixelCosmeticRarities.LEGENDARY),
-    VIP_PLUS("VIP+", "", HypixelCosmeticRarities.LEGENDARY),
-    VIP("VIP", "", HypixelCosmeticRarities.LEGENDARY),
-    MVP_PLUS("MVP+", "", HypixelCosmeticRarities.LEGENDARY),
-    MVP("MVP", "", HypixelCosmeticRarities.LEGENDARY),
+    VIP_PLUS("VIP+", "", HypixelCosmeticRarities.LEGENDARY), // Has no package name.
+    VIP("VIP", "", HypixelCosmeticRarities.LEGENDARY), // Has no package name.
+    MVP_PLUS("MVP+", "", HypixelCosmeticRarities.LEGENDARY), // Has no package name.
+    MVP("MVP", "", HypixelCosmeticRarities.LEGENDARY), // Has no package name.
     LOOT_CHEST("Loot Chest", "sprays_loot_chest", HypixelCosmeticRarities.LEGENDARY),
     DRAGON_SLAYER("Dragon Slayer", "sprays_dragon_slayer", HypixelCosmeticRarities.LEGENDARY),
     DOOT_DOOT("Doot Doot", "sprays_doot", HypixelCosmeticRarities.LEGENDARY),
@@ -113,15 +113,6 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     CHOCOLATE_FEAST("Chocolate Feast", "sprays_choc_feast", HypixelCosmeticRarities.LEGENDARY),
     CHICKENS("Chickens", "sprays_chickens", HypixelCosmeticRarities.LEGENDARY),
     CANDY_CANE_SNIPER("Candy Cane Sniper", "sprays_candy_cane_sniper", HypixelCosmeticRarities.LEGENDARY);
-
-    /*
-
-
-
-
-
-
-     */
 
     private String name;
     private String key;
