@@ -28,9 +28,9 @@ public enum HypixelBedwarsBedDestroys implements HypixelCosmetic {
     FISHY("Fishy", "", HypixelCosmeticRarities.LEGENDARY),
     STORMY("Stormy", "", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     HypixelBedwarsBedDestroys(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

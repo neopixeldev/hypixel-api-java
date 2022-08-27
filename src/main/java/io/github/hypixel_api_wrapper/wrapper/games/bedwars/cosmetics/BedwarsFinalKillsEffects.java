@@ -54,9 +54,9 @@ public enum BedwarsFinalKillsEffects implements HypixelCosmetic {
     PUMPKIN_POPPER("Pumpkin Popper", "killeffect_pumpkin_popper", HypixelCosmeticRarities.LEGENDARY),
     PIG_SMASH("Pig Smash", "killeffect_pigsmash", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsFinalKillsEffects(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

@@ -34,9 +34,9 @@ public enum HypixelBedwarsKillMessages implements HypixelCosmetic {
     GLORIOUS("Glorious", "killmessages_glorious", HypixelCosmeticRarities.LEGENDARY),
     TRIUMPH("Triumph", "killmessages_counter", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     HypixelBedwarsKillMessages(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

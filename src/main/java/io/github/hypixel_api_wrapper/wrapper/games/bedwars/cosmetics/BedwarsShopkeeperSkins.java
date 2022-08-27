@@ -76,9 +76,9 @@ public enum BedwarsShopkeeperSkins implements HypixelCosmetic {
     SACRED_CATTLE("Sacred Cattle", "npcskin_sacred_cattle", HypixelCosmeticRarities.LEGENDARY),
     QUACK("Quack", "npcskin_quack", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsShopkeeperSkins(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

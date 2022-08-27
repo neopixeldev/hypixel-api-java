@@ -42,9 +42,9 @@ public enum BedwarsVictoryDances implements HypixelCosmetic {
     GHAST_RIDER("Ghast Rider", "victorydance_ghast_rider", HypixelCosmeticRarities.LEGENDARY),
     DRAGON_RIDER("Dragon Rider", "victorydance_dragon_rider", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsVictoryDances(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

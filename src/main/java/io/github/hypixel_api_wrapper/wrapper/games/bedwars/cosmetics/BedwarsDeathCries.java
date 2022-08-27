@@ -60,10 +60,9 @@ public enum BedwarsDeathCries implements HypixelCosmetic {
     SQUEAK("Squeak", "deathcry_squeak", HypixelCosmeticRarities.EPIC),
     SQUEAL("Squeal", "", HypixelCosmeticRarities.RARE);
 
-
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsDeathCries(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

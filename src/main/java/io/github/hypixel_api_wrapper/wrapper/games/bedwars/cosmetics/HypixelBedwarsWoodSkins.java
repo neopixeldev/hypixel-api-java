@@ -20,9 +20,9 @@ public enum HypixelBedwarsWoodSkins implements HypixelCosmetic {
     DARK_OAK_PLANK("Dark Oak Plank", "", HypixelCosmeticRarities.LEGENDARY),
     DARK_OAK_LOG("Dark Oak Log", "", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     HypixelBedwarsWoodSkins(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

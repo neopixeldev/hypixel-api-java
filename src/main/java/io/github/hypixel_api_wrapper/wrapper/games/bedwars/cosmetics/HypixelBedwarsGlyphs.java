@@ -104,9 +104,9 @@ public enum HypixelBedwarsGlyphs implements HypixelCosmetic {
     MOON("Moon", "glyph_moon", HypixelCosmeticRarities.LEGENDARY),
     NUMBER_1("#1", "glyph_no_1", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     HypixelBedwarsGlyphs(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

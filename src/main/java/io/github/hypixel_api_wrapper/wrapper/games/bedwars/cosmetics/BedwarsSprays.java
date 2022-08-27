@@ -114,9 +114,9 @@ public enum BedwarsSprays implements HypixelCosmetic {
     CHICKENS("Chickens", "sprays_chickens", HypixelCosmeticRarities.LEGENDARY),
     CANDY_CANE_SNIPER("Candy Cane Sniper", "sprays_candy_cane_sniper", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsSprays(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;

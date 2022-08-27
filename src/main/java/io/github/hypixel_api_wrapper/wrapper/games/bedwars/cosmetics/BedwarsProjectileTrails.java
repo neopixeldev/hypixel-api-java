@@ -55,9 +55,9 @@ public enum BedwarsProjectileTrails implements HypixelCosmetic {
     HEARTS("Hearts", "projectiletrail_hearts", HypixelCosmeticRarities.LEGENDARY),
     BITE("Bite", "projectiletrail_bite", HypixelCosmeticRarities.LEGENDARY);
 
-    private String name;
-    private String key;
-    private HypixelCosmeticRarities rarity;
+    private final String name;
+    private final String key;
+    private final HypixelCosmeticRarities rarity;
 
     BedwarsProjectileTrails(String name, String key, HypixelCosmeticRarities rarity) {
         this.name = name;
