@@ -9,6 +9,9 @@
 # - macOS
 # =====================================================================================
 
+# Test folder
+src/test/
+
 ### Java template
 # Compiled class file
 *.class
