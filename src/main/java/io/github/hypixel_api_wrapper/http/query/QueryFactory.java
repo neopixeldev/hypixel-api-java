@@ -35,4 +35,12 @@ public class QueryFactory {
         return new PlayerStatusQuery(username);
     }
 
+    public Query getGuild(UUID uuid) {
+        return new GuildQuery(uuid);
+    }
+
+    public Query getGuild(String username) {
+        return new GuildQuery(username);
+    }
+
 }

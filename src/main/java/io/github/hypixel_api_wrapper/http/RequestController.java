@@ -54,4 +54,14 @@ public class RequestController {
         Query query = queryFactory.getPlayerStatus(username);
         return requestFactory.send(query.createRequest());
     }
+
+    public JSONObject getGuild(UUID uuid) {
+        Query query = queryFactory.getGuild(uuid);
+        return requestFactory.send(query.createRequest());
+    }
+
+    public JSONObject getGuild(String username) {
+        Query query = queryFactory.getGuild(username);
+        return requestFactory.send(query.createRequest());
+    }
 }
