@@ -9,18 +9,11 @@ import java.time.Instant;
  * @author sam & insert
  */
 public class HypixelFriend {
-
-    //TODO This field will help the #getDateAdded() method retrieve information about
-    // when the player and the friend added each other as friends. 
-    private final HypixelPlayer player;
     private final HypixelPlayer friend;
-    private final RequestFactory requestFactory;
-
-    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend,
-        RequestFactory requestFactory) {
-        this.player = player;
+    private final Instant dateAdded;
+    public HypixelFriend(HypixelPlayer friend, Instant dateAdded) {
         this.friend = friend;
-        this.requestFactory = requestFactory;
+        this.dateAdded = dateAdded;
     }
 
     public HypixelPlayer asPlayer() {
@@ -31,6 +24,6 @@ public class HypixelFriend {
      * @return The date the {@player} added the {@friend} as a friend on the network.
      */
     public Instant getDateAdded() {
-        throw new UnsupportedOperationException();
+        return dateAdded;
     }
 }
