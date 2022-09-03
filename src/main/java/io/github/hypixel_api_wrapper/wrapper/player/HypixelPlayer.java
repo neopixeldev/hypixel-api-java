@@ -7,6 +7,8 @@ import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
+import java.time.Instant;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -33,8 +35,8 @@ public class HypixelPlayer {
         return playerStats.getString("displayName");
     }
 
-    public String getUUID() {
-        return playerStats.getString("uuid");
+    public UUID getUUID() {
+        return UUID.nameUUIDFromBytes(playerStats.getString("uuid").getBytes());
     }
 
     public int getNetworkLevel() {
@@ -84,15 +86,60 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        throw new UnsupportedOperationException();
+        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
+            .getJSONArray("records");
+        Set<HypixelFriend> hypixelFriends = new HashSet<>();
+
+        friendsRecords.toList().stream().limit(limit).forEach(friendObject -> {
+            JSONObject friendJSONObject = (JSONObject) friendObject;
+            HypixelFriend hypixelFriend;
+            if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+                hypixelFriend = new HypixelFriend(
+                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
+                        requestController),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+            } else {
+                hypixelFriend = new HypixelFriend(
+                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
+                        requestController),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+            }
+
+            hypixelFriends.add(hypixelFriend);
+        });
+
+        return hypixelFriends;
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
-        throw new UnsupportedOperationException();
+        JSONArray friendsRecords =
+            requestController.getPlayerFriends(getUUID()).getJSONArray("records");
+        Set<HypixelFriend> hypixelFriends = new HashSet<>();
+
+        friendsRecords.forEach(friendObject -> {
+            JSONObject friendJSONObject = (JSONObject) friendObject;
+            HypixelFriend hypixelFriend;
+            if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+                hypixelFriend = new HypixelFriend(
+                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
+                        requestController),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+            } else {
+                hypixelFriend = new HypixelFriend(
+                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
+                        requestController),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+            }
+
+            hypixelFriends.add(hypixelFriend);
+        });
+
+        return hypixelFriends;
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername()).getJSONObject("session").getBoolean("online");
+        return requestController.getPlayerStatus(getUsername()).getJSONObject("session")
+            .getBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
@@ -120,6 +167,7 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(playerStats.getJSONObject("stats")));
+        return Optional.ofNullable(games)
+            .orElse(games = new HypixelPlayerGames(playerStats.getJSONObject("stats")));
     }
 }
