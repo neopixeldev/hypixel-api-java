@@ -1,7 +1,9 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * This class is used to link two {@link HypixelPlayer}'s as friends on the Hypixel network.
@@ -10,27 +12,37 @@ import java.time.Instant;
  */
 public class HypixelFriend {
 
-    //TODO This field will help the #getDateAdded() method retrieve information about
-    // when the player and the friend added each other as friends. 
-    private final HypixelPlayer player;
-    private final HypixelPlayer friend;
-    private final RequestFactory requestFactory;
+    private final UUID friend;
+    private final UUID requestSender;
+    private final UUID requestReciever;
+    private final Instant dateAdded;
+    private final RequestController requestController;
 
-    public HypixelFriend(HypixelPlayer player, HypixelPlayer friend,
-        RequestFactory requestFactory) {
-        this.player = player;
+    public HypixelFriend(UUID friend, UUID requestSender, UUID requestReciever, Instant dateAdded,
+        RequestController requestController) {
         this.friend = friend;
-        this.requestFactory = requestFactory;
+        this.requestSender = requestSender;
+        this.requestReciever = requestReciever;
+        this.dateAdded = dateAdded;
+        this.requestController = requestController;
     }
 
     public HypixelPlayer asPlayer() {
-        return friend;
+        return new HypixelPlayer(friend, requestController);
+    }
+
+    public UUID getRequestSender() {
+        return requestSender;
+    }
+
+    public UUID getRequestReciever() {
+        return requestReciever;
     }
 
     /**
      * @return The date the {@player} added the {@friend} as a friend on the network.
      */
     public Instant getDateAdded() {
-        throw new UnsupportedOperationException();
+        return dateAdded;
     }
 }

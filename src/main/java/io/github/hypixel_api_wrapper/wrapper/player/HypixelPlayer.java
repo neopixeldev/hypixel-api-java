@@ -1,12 +1,12 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
-import io.github.hypixel_api_wrapper.http.Endpoint;
 import io.github.hypixel_api_wrapper.http.RequestController;
-import io.github.hypixel_api_wrapper.http.RequestFactory;
-import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
+import io.github.hypixel_api_wrapper.wrapper.util.UnformattedStringToUUID;
+import java.time.Instant;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -30,11 +30,11 @@ public class HypixelPlayer {
     }
 
     public String getUsername() {
-        return playerStats.getString("displayName");
+        return playerStats.getString("displayname");
     }
 
-    public String getUUID() {
-        return playerStats.getString("uuid");
+    public UUID getUUID() {
+        return UnformattedStringToUUID.convertUnformattedStringToUUID(playerStats.getString("uuid"));
     }
 
     public int getNetworkLevel() {
@@ -84,15 +84,73 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        throw new UnsupportedOperationException();
+        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
+            .getJSONArray("records");
+        Set<HypixelFriend> hypixelFriends = new HashSet<>();
+
+        friendsRecords.toList().stream().limit(limit).forEach(friendObject -> {
+            JSONObject friendJSONObject = (JSONObject) friendObject;
+            HypixelFriend hypixelFriend;
+            if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+                hypixelFriend = new HypixelFriend(
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
+            } else {
+                hypixelFriend = new HypixelFriend(
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
+            }
+            hypixelFriends.add(hypixelFriend);
+        });
+
+        return hypixelFriends;
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
-        throw new UnsupportedOperationException();
+        JSONArray friendsRecords =
+            requestController.getPlayerFriends(getUUID()).getJSONArray("records");
+        Set<HypixelFriend> hypixelFriends = new HashSet<>();
+        friendsRecords.forEach(friendObject -> {
+            JSONObject friendJSONObject = (JSONObject) friendObject;
+            HypixelFriend hypixelFriend;
+            if (UnformattedStringToUUID.convertUnformattedStringToUUID(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+                hypixelFriend = new HypixelFriend(
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
+            } else {
+                hypixelFriend = new HypixelFriend(
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
+            }
+            hypixelFriends.add(hypixelFriend);
+        });
+
+        return hypixelFriends;
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername()).getJSONObject("session").getBoolean("online");
+        return requestController.getPlayerStatus(getUsername()).getJSONObject("session")
+            .getBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
@@ -120,6 +178,7 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games).orElse(games = new HypixelPlayerGames(playerStats.getJSONObject("stats")));
+        return Optional.ofNullable(games)
+            .orElse(games = new HypixelPlayerGames(playerStats.getJSONObject("stats")));
     }
 }
