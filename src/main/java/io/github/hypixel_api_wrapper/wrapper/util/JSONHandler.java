@@ -21,23 +21,45 @@ public class JSONHandler {
     }
 
     public Optional<String> getSafeString(String key) {
-            return Optional.ofNullable(stats.getString(statsPrefix + key));
+        if (stats.has(key)) {
+            return Optional.of(stats.getString(statsPrefix + key));
+        } else {
+            return null;
+        }
     }
 
     public Optional<Integer> getSafeInt(String key) {
-        return Optional.ofNullable(stats.getInt(statsPrefix + key));
+        if (stats.has(key)) {
+            return Optional.of(stats.getInt(statsPrefix + key));
+        } else {
+            return null;
+        }
     }
 
     public Optional<Double> getSafeDouble(String key) {
-        return Optional.ofNullable(stats.getDouble(statsPrefix + key));
+        if (stats.has(key)) {
+            return Optional.of(stats.getDouble(statsPrefix + key));
+        } else {
+            return null;
+        }
     }
 
     public Optional<Long> getSafeLong(String key) {
-        return Optional.ofNullable(stats.getLong(statsPrefix + key));
+        if (stats.has(key)) {
+            return Optional.of(stats.getLong(statsPrefix + key));
+        } else {
+            return null;
+        }
     }
 
     public Optional<UUID> getSafeUUID(String key) {
-        return Optional.ofNullable(UnformattedStringToUUID.convertUnformattedStringToUUID(stats.getString(statsPrefix + key)));
+        if (stats.has(key)) {
+            return Optional.of(UnformattedStringToUUID.convertUnformattedStringToUUID(
+                stats.getString(statsPrefix + key)));
+        } else {
+            return null;
+        }
+
     }
 
     public JSONObject getJSONObject(String key) {
