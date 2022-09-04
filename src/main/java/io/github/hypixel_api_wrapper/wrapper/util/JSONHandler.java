@@ -1,7 +1,7 @@
 package io.github.hypixel_api_wrapper.wrapper.util;
 
 import java.util.Optional;
-import org.json.JSONException;
+import java.util.UUID;
 import org.json.JSONObject;
 
 public class JSONHandler {
@@ -19,7 +19,28 @@ public class JSONHandler {
         this.statsPrefix = statsPrefix;
     }
 
-    public <T> Optional<T> getSafe(String key) {
-            return (Optional<T>) Optional.ofNullable(stats.get(statsPrefix + key));
+    public Optional<String> getSafeString(String key) {
+            return Optional.ofNullable(stats.getString(statsPrefix + key));
     }
+
+    public Optional<Integer> getSafeInt(String key) {
+        return Optional.ofNullable(stats.getInt(statsPrefix + key));
+    }
+
+    public Optional<Double> getSafeDouble(String key) {
+        return Optional.ofNullable(stats.getDouble(statsPrefix + key));
+    }
+
+    public Optional<Long> getSafeLong(String key) {
+        return Optional.ofNullable(stats.getLong(statsPrefix + key));
+    }
+
+    public Optional<UUID> getSafeUUID(String key) {
+        return Optional.ofNullable(UnformattedStringToUUID.convertUnformattedStringToUUID(stats.getString(statsPrefix + key)));
+    }
+
+    public JSONObject getJSONObject(String key) {
+        return stats.getJSONObject(key);
+    }
+
 }
