@@ -1,7 +1,9 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
+import io.github.hypixel_api_wrapper.http.RequestController;
 import io.github.hypixel_api_wrapper.http.RequestFactory;
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * This class is used to link two {@link HypixelPlayer}'s as friends on the Hypixel network.
@@ -9,15 +11,32 @@ import java.time.Instant;
  * @author sam & insert
  */
 public class HypixelFriend {
-    private final HypixelPlayer friend;
+
+    private final UUID friend;
+    private final UUID requestSender;
+    private final UUID requestReciever;
     private final Instant dateAdded;
-    public HypixelFriend(HypixelPlayer friend, Instant dateAdded) {
+    private final RequestController requestController;
+
+    public HypixelFriend(UUID friend, UUID requestSender, UUID requestReciever, Instant dateAdded,
+        RequestController requestController) {
         this.friend = friend;
+        this.requestSender = requestSender;
+        this.requestReciever = requestReciever;
         this.dateAdded = dateAdded;
+        this.requestController = requestController;
     }
 
     public HypixelPlayer asPlayer() {
-        return friend;
+        return new HypixelPlayer(friend, requestController);
+    }
+
+    public UUID getRequestSender() {
+        return requestSender;
+    }
+
+    public UUID getRequestReciever() {
+        return requestReciever;
     }
 
     /**

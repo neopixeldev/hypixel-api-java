@@ -1,12 +1,10 @@
 package io.github.hypixel_api_wrapper.wrapper.player;
 
-import io.github.hypixel_api_wrapper.http.Endpoint;
 import io.github.hypixel_api_wrapper.http.RequestController;
-import io.github.hypixel_api_wrapper.http.RequestFactory;
-import io.github.hypixel_api_wrapper.wrapper.games.bedwars.HypixelBedWarsStats;
 import io.github.hypixel_api_wrapper.wrapper.guild.HypixelGuild;
 import io.github.hypixel_api_wrapper.wrapper.util.HypixelColors;
 import io.github.hypixel_api_wrapper.wrapper.util.LevelUtil;
+import io.github.hypixel_api_wrapper.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Optional;
@@ -32,11 +30,11 @@ public class HypixelPlayer {
     }
 
     public String getUsername() {
-        return playerStats.getString("displayName");
+        return playerStats.getString("displayname");
     }
 
     public UUID getUUID() {
-        return UUID.nameUUIDFromBytes(playerStats.getString("uuid").getBytes());
+        return UnformattedStringToUUID.convertUnformattedStringToUUID(playerStats.getString("uuid"));
     }
 
     public int getNetworkLevel() {
@@ -95,16 +93,23 @@ public class HypixelPlayer {
             HypixelFriend hypixelFriend;
             if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
                 hypixelFriend = new HypixelFriend(
-                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
-                        requestController),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
             } else {
                 hypixelFriend = new HypixelFriend(
-                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
-                        requestController),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
             }
-
             hypixelFriends.add(hypixelFriend);
         });
 
@@ -115,22 +120,28 @@ public class HypixelPlayer {
         JSONArray friendsRecords =
             requestController.getPlayerFriends(getUUID()).getJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
-
         friendsRecords.forEach(friendObject -> {
             JSONObject friendJSONObject = (JSONObject) friendObject;
             HypixelFriend hypixelFriend;
-            if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+            if (UnformattedStringToUUID.convertUnformattedStringToUUID(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
                 hypixelFriend = new HypixelFriend(
-                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
-                        requestController),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
             } else {
                 hypixelFriend = new HypixelFriend(
-                    new HypixelPlayer(UUID.fromString(friendJSONObject.getString("uuidReceiver")),
-                        requestController),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")));
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidSender")),
+                    UnformattedStringToUUID.convertUnformattedStringToUUID(
+                        friendJSONObject.getString("uuidReceiver")),
+                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
             }
-
             hypixelFriends.add(hypixelFriend);
         });
 
