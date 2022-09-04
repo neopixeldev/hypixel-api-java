@@ -165,11 +165,7 @@ public class HypixelPlayer {
     public Optional<Integer> getCurrentDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardStreak");
     }
-
-    public Optional<Integer> getStupidValue() {
-        return jsonHandler.getSafeInt("AAAAAA");
-    }
-
+    
     public Optional<HypixelRank> getHypixelRank() {
         return Optional.ofNullable(HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
     }
