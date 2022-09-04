@@ -12,6 +12,7 @@ public class JSONHandler {
 
     public JSONHandler(JSONObject stats) {
         this.stats = stats;
+        this.statsPrefix = "";
     }
 
     public JSONHandler(JSONObject stats, String statsPrefix) {
