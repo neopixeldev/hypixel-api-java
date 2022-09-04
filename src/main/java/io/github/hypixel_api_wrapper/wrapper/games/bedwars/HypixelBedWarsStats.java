@@ -2,6 +2,7 @@ package io.github.hypixel_api_wrapper.wrapper.games.bedwars;
 
 import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 /**
@@ -38,7 +39,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The player's stats for that {@code mode}.
      */
     public HypixelBedWars getMode(HypixelBedWarsMode mode) {
-        return new HypixelBedWars(stats, mode);
+        return new HypixelBedWars(new JSONHandler(stats, mode.getStatsPrefix()));
     }
 
     /**
