@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.skyblock;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelSkyblock extends HypixelGame {
 
-    protected HypixelSkyblock(JSONObject stats) {
-        super(stats);
+    protected HypixelSkyblock(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

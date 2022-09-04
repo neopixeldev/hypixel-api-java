@@ -2,13 +2,14 @@ package io.github.hypixel_api_wrapper.wrapper.games.skywars;
 
 import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import java.util.Optional;
 import org.json.JSONObject;
 
 public class HypixelSkyWars extends HypixelGame implements HypixelLootChestGame {
 
-    protected HypixelSkyWars(JSONObject stats) {
-        super(stats);
+    protected HypixelSkyWars(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

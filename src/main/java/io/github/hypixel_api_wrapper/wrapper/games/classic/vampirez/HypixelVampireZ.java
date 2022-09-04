@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.classic.vampirez;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelVampireZ extends HypixelGame {
 
-    protected HypixelVampireZ(JSONObject stats) {
-        super(stats);
+    protected HypixelVampireZ(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

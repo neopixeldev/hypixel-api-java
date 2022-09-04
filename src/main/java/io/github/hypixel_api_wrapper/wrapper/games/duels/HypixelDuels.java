@@ -2,13 +2,14 @@ package io.github.hypixel_api_wrapper.wrapper.games.duels;
 
 import io.github.hypixel_api_wrapper.wrapper.HypixelLootChestGame;
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import java.util.Optional;
 import org.json.JSONObject;
 
 public class HypixelDuels extends HypixelGame implements HypixelLootChestGame {
 
-    protected HypixelDuels(JSONObject stats) {
-        super(stats);
+    protected HypixelDuels(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override
