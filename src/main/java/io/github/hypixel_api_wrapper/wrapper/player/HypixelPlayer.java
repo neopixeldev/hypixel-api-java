@@ -166,6 +166,10 @@ public class HypixelPlayer {
         return jsonHandler.getSafeInt("rewardStreak");
     }
 
+    public Optional<Integer> getStupidValue() {
+        return jsonHandler.getSafeInt("AAAAAA");
+    }
+
     public Optional<HypixelRank> getHypixelRank() {
         return Optional.ofNullable(HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
     }
@@ -180,6 +184,6 @@ public class HypixelPlayer {
 
     public HypixelPlayerGames getGames() {
         return Optional.ofNullable(games)
-            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats")));
+            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats").get()));
     }
 }
