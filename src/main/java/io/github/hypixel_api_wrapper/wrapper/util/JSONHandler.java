@@ -24,7 +24,7 @@ public class JSONHandler {
         if (stats.has(key)) {
             return Optional.of(stats.getString(statsPrefix + key));
         } else {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -32,7 +32,7 @@ public class JSONHandler {
         if (stats.has(key)) {
             return Optional.of(stats.getInt(statsPrefix + key));
         } else {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -40,7 +40,7 @@ public class JSONHandler {
         if (stats.has(key)) {
             return Optional.of(stats.getDouble(statsPrefix + key));
         } else {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -48,7 +48,7 @@ public class JSONHandler {
         if (stats.has(key)) {
             return Optional.of(stats.getLong(statsPrefix + key));
         } else {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -57,13 +57,17 @@ public class JSONHandler {
             return Optional.of(UnformattedStringToUUID.convertUnformattedStringToUUID(
                 stats.getString(statsPrefix + key)));
         } else {
-            return null;
+            return Optional.empty();
         }
 
     }
 
-    public JSONObject getJSONObject(String key) {
-        return stats.getJSONObject(key);
+    public Optional<JSONObject> getJSONObject(String key) {
+        if (stats.has(key)) {
+            return Optional.of(stats.getJSONObject(key));
+        } else {
+            return Optional.empty();
+        }
     }
 
 }
