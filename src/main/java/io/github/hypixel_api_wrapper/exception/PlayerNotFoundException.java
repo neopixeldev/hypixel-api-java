@@ -1,6 +1,9 @@
 package io.github.hypixel_api_wrapper.exception;
 
-public class PlayerNotFoundException extends PineappleException {
+/**
+ * A player is not found in the API.
+ */
+public class PlayerNotFoundException extends NovopixelException {
 
     public PlayerNotFoundException(String message) {
         super(message);

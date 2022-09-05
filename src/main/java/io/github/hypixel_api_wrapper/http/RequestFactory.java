@@ -1,5 +1,6 @@
 package io.github.hypixel_api_wrapper.http;
 
+import io.github.hypixel_api_wrapper.exception.NovopixelException;
 import io.github.hypixel_api_wrapper.http.cache.CachingStrategy;
 import java.io.IOException;
 import java.util.UUID;
@@ -32,15 +33,19 @@ public class RequestFactory {
      * @return A {@link JSONObject} of the information retrieved.
      */
     public JSONObject send(HttpUrl.Builder requestBuilder) {
-        
+
         requestBuilder.addQueryParameter("key", apiKey);
 
         Request request = new Request.Builder()
             .url(requestBuilder.build().toString())
             .build();
 
-        try {
-            return new JSONObject(client.newCall(request).execute().body().string());
+        try (Response response = client.newCall(request).execute()) {
+            if (RequestValidator.isValid(response)) {
+                return new JSONObject(response.body().string());
+            } else {
+                throw new NovopixelException("Fatal error, invalid response not caught.");
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

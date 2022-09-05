@@ -1,10 +1,10 @@
 package io.github.hypixel_api_wrapper.exception;
 
-public class PineappleException extends RuntimeException {
+public class NovopixelException extends RuntimeException {
 
     private final String message;
 
-    public PineappleException(String message) {
+    public NovopixelException(String message) {
         this.message = message;
     }
 
@@ -15,8 +15,7 @@ public class PineappleException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "PineappleException{" +
-            "message='" + message + '\'' +
-            '}';
+        return "NovopixelException: " +
+            "API response = '" + message + '\'';
     }
 }
