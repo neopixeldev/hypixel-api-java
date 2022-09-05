@@ -167,11 +167,11 @@ public class HypixelPlayer {
     }
     
     public Optional<HypixelRank> getHypixelRank() {
-        return Optional.ofNullable(HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
+        return Optional.of(HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
     }
 
     public Optional<HypixelColors> getHypixelRankPlusColor() {
-        return Optional.ofNullable(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
+        return Optional.of(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
     }
 
     public HypixelGuild getGuild() {
