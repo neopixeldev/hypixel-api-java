@@ -55,7 +55,7 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public Optional<Long> getNetworkLevelPercentage() {
-        return Optional.of(LevelUtil.getProgressExp(jsonHandler.getSafeLong("networkExp").get()));
+        return Optional.ofNullable(LevelUtil.getProgressExp(jsonHandler.getSafeLong("networkExp").get()));
     }
 
     /**
@@ -63,14 +63,15 @@ public class HypixelPlayer {
      * current Network Level.
      */
     public Optional<Integer> getEXPIntoCurrentNetworkLevel() {
-        return Optional.of(LevelUtil.getExpPastLastEventLevel(jsonHandler.getSafeLong("networkExp").get()));
+        return Optional.ofNullable(LevelUtil.getExpPastLastEventLevel(jsonHandler.getSafeLong("networkExp").get()));
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
     public Optional<Integer> getEXPToNextNetworkLevel() {
-        return Optional.of(LevelUtil.getExpUntilNextEventLevel(jsonHandler.getSafeLong("networkExp").get()));
+        return Optional.<Integer>ofNullable(
+            LevelUtil.getExpUntilNextEventLevel(jsonHandler.getSafeLong("networkExp").get()));
     }
 
 
@@ -167,11 +168,12 @@ public class HypixelPlayer {
     }
     
     public Optional<HypixelRank> getHypixelRank() {
-        return Optional.of(HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
+        return Optional.<HypixelRank>ofNullable(
+            HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
     }
 
     public Optional<HypixelColors> getHypixelRankPlusColor() {
-        return Optional.of(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
+        return Optional.ofNullable(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
     }
 
     public HypixelGuild getGuild() {
