@@ -21,7 +21,7 @@ public class JSONHandler {
     }
 
     public Optional<String> getSafeString(String key) {
-        if (stats.has(key)) {
+        if (stats.has(statsPrefix + key)) {
             return Optional.of(stats.getString(statsPrefix + key));
         } else {
             return Optional.empty();
@@ -29,7 +29,7 @@ public class JSONHandler {
     }
 
     public Optional<Integer> getSafeInt(String key) {
-        if (stats.has(key)) {
+        if (stats.has(statsPrefix + key)) {
             return Optional.of(stats.getInt(statsPrefix + key));
         } else {
             return Optional.empty();
@@ -37,7 +37,7 @@ public class JSONHandler {
     }
 
     public Optional<Double> getSafeDouble(String key) {
-        if (stats.has(key)) {
+        if (stats.has(statsPrefix + key)) {
             return Optional.of(stats.getDouble(statsPrefix + key));
         } else {
             return Optional.empty();
@@ -45,7 +45,7 @@ public class JSONHandler {
     }
 
     public Optional<Long> getSafeLong(String key) {
-        if (stats.has(key)) {
+        if (stats.has(statsPrefix + key)) {
             return Optional.of(stats.getLong(statsPrefix + key));
         } else {
             return Optional.empty();
@@ -53,7 +53,7 @@ public class JSONHandler {
     }
 
     public Optional<UUID> getSafeUUID(String key) {
-        if (stats.has(key)) {
+        if (stats.has(statsPrefix + key)) {
             return Optional.of(UnformattedStringToUUID.convertUnformattedStringToUUID(
                 stats.getString(statsPrefix + key)));
         } else {
