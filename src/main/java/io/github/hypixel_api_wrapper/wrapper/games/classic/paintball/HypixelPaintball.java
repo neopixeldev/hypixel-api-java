@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.classic.paintball;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelPaintball extends HypixelGame {
 
-    protected HypixelPaintball(JSONObject stats) {
-        super(stats);
+    protected HypixelPaintball(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

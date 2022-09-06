@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.classic.arena_brawl;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelArenaBrawl extends HypixelGame {
 
-    protected HypixelArenaBrawl(JSONObject stats) {
-        super(stats);
+    protected HypixelArenaBrawl(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

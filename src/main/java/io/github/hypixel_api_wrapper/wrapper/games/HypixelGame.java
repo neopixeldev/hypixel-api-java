@@ -1,13 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games;
 
-import org.json.JSONObject;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 
 public abstract class HypixelGame {
 
-    protected final JSONObject stats;
+    protected final JSONHandler jsonHandler;
 
-    protected HypixelGame(JSONObject stats) {
-        this.stats = stats;
+    protected HypixelGame(JSONHandler jsonHandler) {
+        this.jsonHandler = jsonHandler;
     }
 
     public abstract String getGameID();

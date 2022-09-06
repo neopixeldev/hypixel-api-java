@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.murder_mystery;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelMurderMystery extends HypixelGame {
 
-    protected HypixelMurderMystery(JSONObject stats) {
-        super(stats);
+    protected HypixelMurderMystery(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override
