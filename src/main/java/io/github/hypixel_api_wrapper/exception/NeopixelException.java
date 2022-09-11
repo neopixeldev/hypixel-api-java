@@ -1,10 +1,10 @@
 package io.github.hypixel_api_wrapper.exception;
 
-public class NovopixelException extends RuntimeException {
+public class NeopixelException extends RuntimeException {
 
     private final String message;
 
-    public NovopixelException(String message) {
+    public NeopixelException(String message) {
         this.message = message;
     }
 
