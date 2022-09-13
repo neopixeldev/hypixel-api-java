@@ -2,19 +2,26 @@ package io.github.hypixel_api_wrapper.wrapper.util;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelCosmetic;
 import java.util.Arrays;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class HypixelCosmeticEnumFinder {
-    public static HypixelCosmetic getHypixelCosmeticFromKey(Class<HypixelCosmetic> enumeration,
+    public static Optional<HypixelCosmetic> getHypixelCosmeticFromKey(Class<? extends HypixelCosmetic> enumeration,
         String string) {
-        Arrays.stream(enumeration.getEnumConstants()).sequential().anyMatch(enumValue -> {
+
+        AtomicReference<HypixelCosmetic> cosmeticObject = null;
+
+       if(Arrays.stream(enumeration.getEnumConstants()).sequential().anyMatch(enumValue -> {
             HypixelCosmetic cosmetic = (HypixelCosmetic) enumValue;
             if (cosmetic.getKey().equals(string)) {
+                cosmeticObject.set(cosmetic);
                 return true;
             }
             return false;
-        });
-
-        throw new RuntimeException(String.format("There is no Type mapping with name (%s)", string
-        ));
+        })) {
+           return Optional.of(cosmeticObject.get());
+       } else {
+           return Optional.empty();
+       }
     }
 }
