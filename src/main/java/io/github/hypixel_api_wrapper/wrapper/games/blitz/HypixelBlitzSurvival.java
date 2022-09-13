@@ -1,12 +1,13 @@
 package io.github.hypixel_api_wrapper.wrapper.games.blitz;
 
 import io.github.hypixel_api_wrapper.wrapper.games.HypixelGame;
+import io.github.hypixel_api_wrapper.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 public class HypixelBlitzSurvival extends HypixelGame {
 
-    protected HypixelBlitzSurvival(JSONObject stats) {
-        super(stats);
+    protected HypixelBlitzSurvival(JSONHandler jsonHandler) {
+        super(jsonHandler);
     }
 
     @Override

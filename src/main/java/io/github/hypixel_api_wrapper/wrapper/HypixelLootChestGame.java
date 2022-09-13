@@ -1,14 +1,16 @@
 package io.github.hypixel_api_wrapper.wrapper;
 
+import java.util.Optional;
+
 public interface HypixelLootChestGame {
 
-    int getOpenedChestsAmount();
+    Optional<Integer> getOpenedChestsAmount();
 
-    int getOpenedCommonChestsAmount();
+    Optional<Integer> getOpenedCommonChestsAmount();
 
-    int getOpenedRareChestsAmount();
+    Optional<Integer> getOpenedRareChestsAmount();
 
-    int getOpenedEpicChestsAmount();
+    Optional<Integer> getOpenedEpicChestsAmount();
 
-    int getOpenedLegendaryChestsAmount();
+    Optional<Integer> getOpenedLegendaryChestsAmount();
 }
