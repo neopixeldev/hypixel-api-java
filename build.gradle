@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.7.0'
 }
 
-group 'io.github.hypixelapiwrapper'
+group 'io.github.neopixel'
 version '1.0.0'
 
 repositories {
