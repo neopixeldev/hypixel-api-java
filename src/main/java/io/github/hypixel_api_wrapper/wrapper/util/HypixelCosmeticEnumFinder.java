@@ -4,18 +4,17 @@ import io.github.hypixel_api_wrapper.wrapper.games.HypixelCosmetic;
 import java.util.Arrays;
 
 public class HypixelCosmeticEnumFinder {
-
-    public static HypixelCosmetic searchEnum(HypixelCosmetic enumeration,
-        String search) {
-
-        Arrays.stream(enumeration.getClass().getEnumConstants()).sequential().anyMatch(cosmetic -> {
-            if (cosmetic.getKey().equals(search)) {
+    public static HypixelCosmetic getHypixelCosmeticFromKey(Class<HypixelCosmetic> enumeration,
+        String string) {
+        Arrays.stream(enumeration.getEnumConstants()).sequential().anyMatch(enumValue -> {
+            HypixelCosmetic cosmetic = (HypixelCosmetic) enumValue;
+            if (cosmetic.getKey().equals(string)) {
                 return true;
             }
             return false;
         });
 
-        throw new RuntimeException(String.format("There is no Type mapping with name (%s)",
-            enumeration.getFormattedName()));
+        throw new RuntimeException(String.format("There is no Type mapping with name (%s)", string
+        ));
     }
 }
