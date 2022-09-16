@@ -7,22 +7,18 @@ import java.util.concurrent.atomic.AtomicReference;
 
 
 public class HypixelCosmeticEnumFinder {
-    public static Optional<HypixelCosmetic> getHypixelCosmeticFromKey(Class<? extends HypixelCosmetic> enumeration,
+
+    public static Optional<HypixelCosmetic> getHypixelCosmeticFromKey(
+        Class<? extends HypixelCosmetic> enumeration,
         String string) {
 
-        AtomicReference<HypixelCosmetic> cosmeticObject = null;
-
-       if(Arrays.stream(enumeration.getEnumConstants()).sequential().anyMatch(enumValue -> {
-            HypixelCosmetic cosmetic = (HypixelCosmetic) enumValue;
+        for (Object e : enumeration.getEnumConstants()) {
+            HypixelCosmetic cosmetic = (HypixelCosmetic) e;
             if (cosmetic.getKey().equals(string)) {
-                cosmeticObject.set(cosmetic);
-                return true;
+                return Optional.of(cosmetic);
             }
-            return false;
-        })) {
-           return Optional.of(cosmeticObject.get());
-       } else {
-           return Optional.empty();
-       }
+        }
+
+        return Optional.empty();
     }
 }
