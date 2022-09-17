@@ -15,7 +15,7 @@ public class NeopixelException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "NovopixelException: " +
+        return "NeoException: " +
             "API response = '" + message + '\'';
     }
 }

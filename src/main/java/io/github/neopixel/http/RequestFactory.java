@@ -1,6 +1,6 @@
 package io.github.neopixel.http;
 
-import io.github.neopixel.exception.NovopixelException;
+import io.github.neopixel.exception.NeopixelException;
 import io.github.neopixel.http.cache.CachingStrategy;
 import java.io.IOException;
 import java.util.UUID;
@@ -43,7 +43,7 @@ public class RequestFactory {
             if (RequestValidator.isValid(response, returnObject)) {
                 return returnObject;
             } else {
-                throw new NovopixelException("Fatal error, invalid response not caught.");
+                throw new NeopixelException("Fatal error, invalid response not caught.");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
