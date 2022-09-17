@@ -39,8 +39,9 @@ public class RequestFactory {
             .build();
 
         try (Response response = client.newCall(request).execute()) {
-            if (RequestValidator.isValid(response)) {
-                return new JSONObject(response.body().string());
+            JSONObject returnObject = new JSONObject(response.body().string());
+            if (RequestValidator.isValid(response, returnObject)) {
+                return returnObject;
             } else {
                 throw new NovopixelException("Fatal error, invalid response not caught.");
             }
