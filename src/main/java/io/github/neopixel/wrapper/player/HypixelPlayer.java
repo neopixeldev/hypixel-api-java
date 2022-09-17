@@ -184,6 +184,10 @@ public class HypixelPlayer {
         return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("firstLogin").get()));
     }
 
+    public Optional<Instant> getLastLogout() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastLogout").get()));
+    }
+
     public HypixelGuild getGuild() {
         return new HypixelGuild(getUUID().get(), requestController);
     }
