@@ -166,7 +166,11 @@ public class HypixelPlayer {
     public Optional<Integer> getCurrentDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardStreak");
     }
-    
+
+    public Optional<Instant> getLastClaimedRewardTime() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastClaimedReward").get()));
+    }
+
     public Optional<HypixelRank> getHypixelRank() {
         return Optional.<HypixelRank>ofNullable(
             HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
