@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class JSONHandler {
 
     private final JSONObject stats;
-    private String statsPrefix;
+    private final String statsPrefix;
 
 
     public JSONHandler(JSONObject stats) {

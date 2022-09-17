@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class HypixelAPI {
 
-    private RequestController requestController;
+    private final RequestController requestController;
 
     private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
         this.requestController = new RequestController(key, cachingStrategy);

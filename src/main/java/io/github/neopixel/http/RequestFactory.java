@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class RequestFactory {
 
-    private CachingStrategy cache;
+    private final CachingStrategy cache;
     private final String apiKey;
     private final OkHttpClient client = new OkHttpClient();
 
