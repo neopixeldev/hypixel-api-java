@@ -176,6 +176,14 @@ public class HypixelPlayer {
         return Optional.ofNullable(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
     }
 
+    public Optional<Instant> getLastLogin() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastLogin").get()));
+    }
+
+    public Optional<Instant> getFirstLogin() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("firstLogin").get()));
+    }
+
     public HypixelGuild getGuild() {
         return new HypixelGuild(getUUID().get(), requestController);
     }
