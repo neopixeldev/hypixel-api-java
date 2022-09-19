@@ -70,7 +70,7 @@ public class HypixelPlayer {
      * @return A double representing how much EXP is required to the next level.
      */
     public Optional<Integer> getEXPToNextNetworkLevel() {
-        return Optional.<Integer>ofNullable(
+        return Optional.ofNullable(
             LevelUtil.getExpUntilNextEventLevel(jsonHandler.getSafeLong("networkExp").get()));
     }
 
@@ -168,7 +168,7 @@ public class HypixelPlayer {
     }
     
     public Optional<HypixelRank> getHypixelRank() {
-        return Optional.<HypixelRank>ofNullable(
+        return Optional.ofNullable(
             HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
     }
 
