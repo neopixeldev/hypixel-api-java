@@ -7,7 +7,6 @@ import io.github.neopixel.wrapper.games.bedwars.cosmetics.BedwarsDeathCries;
 import io.github.neopixel.wrapper.games.bedwars.cosmetics.BedwarsIslandToppers;
 import io.github.neopixel.wrapper.games.bedwars.cosmetics.BedwarsSprays;
 import io.github.neopixel.wrapper.games.bedwars.cosmetics.BedwarsVictoryDances;
-import io.github.neopixel.wrapper.util.HypixelCosmeticEnumFinder;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.Optional;
 
@@ -90,7 +89,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the effect played when the player wins.
      */
     public final Optional<HypixelCosmetic> getActiveVictoryDance() {
-        return HypixelCosmeticEnumFinder.getHypixelCosmeticFromKey(BedwarsVictoryDances.class, jsonHandler.getSafeString("activeVictoryDance").get());
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsVictoryDances.class, jsonHandler.getSafeString("activeVictoryDance").get());
     }
 
     /**
@@ -101,7 +100,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the player's selected island topper.
      */
     public final Optional<HypixelCosmetic> getActiveIslandTopper() {
-        return HypixelCosmeticEnumFinder.getHypixelCosmeticFromKey(BedwarsIslandToppers.class, jsonHandler.getSafeString("activeIslandTopper").get());
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsIslandToppers.class, jsonHandler.getSafeString("activeIslandTopper").get());
     }
 
     /**
@@ -112,7 +111,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the player's selected spray.
      */
     public final Optional<HypixelCosmetic> getActiveSpray() {
-        return HypixelCosmeticEnumFinder.getHypixelCosmeticFromKey(BedwarsSprays.class, jsonHandler.getSafeString("activeSprays").get());
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsSprays.class, jsonHandler.getSafeString("activeSprays").get());
     }
 
     /**
@@ -123,7 +122,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      * @return The ID of the effect played when the player dies.
      */
     public final Optional<HypixelCosmetic> getActiveDeathCry() {
-        return HypixelCosmeticEnumFinder.getHypixelCosmeticFromKey(BedwarsDeathCries.class, jsonHandler.getSafeString("activeDeathCry").get());
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsDeathCries.class, jsonHandler.getSafeString("activeDeathCry").get());
     }
 
     @Override
