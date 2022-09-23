@@ -70,6 +70,14 @@ public class JSONHandler {
         }
     }
 
+    public Optional<JSONHandler> getJSONHandler(String key) {
+        if (stats.has(key)) {
+            return Optional.of(new JSONHandler(stats.getJSONObject(key)));
+        } else {
+            return Optional.empty();
+        }
+    }
+
     public JSONObject getStatsObject() {
         return stats;
     }
