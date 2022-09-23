@@ -7,7 +7,9 @@ import io.github.neopixel.wrapper.util.JSONHandler;
 import io.github.neopixel.wrapper.util.LevelUtil;
 import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -199,5 +201,9 @@ public class HypixelPlayer {
     public HypixelPlayerGames getGames() {
         return Optional.ofNullable(games)
             .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats").get()));
+    }
+
+    public Optional<String> getUserLanguage() {
+        return Optional.ofNullable(jsonHandler.getSafeString("userLanguage").get());
     }
 }
