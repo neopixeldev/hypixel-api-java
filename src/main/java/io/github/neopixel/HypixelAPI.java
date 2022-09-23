@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class HypixelAPI {
 
-    private RequestController requestController;
+    private final RequestController requestController;
 
     private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
         this.requestController = new RequestController(key, cachingStrategy);
@@ -37,10 +37,7 @@ public class HypixelAPI {
     public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
         return new HypixelAPI(key, cachingStrategy);
     }
-
-    public void shutdown() throws IOException {
-        throw new UnsupportedOperationException();
-    }
+    
 
     public HypixelPlayer getPlayerByName(String username) {
         return new HypixelPlayer(username, requestController);

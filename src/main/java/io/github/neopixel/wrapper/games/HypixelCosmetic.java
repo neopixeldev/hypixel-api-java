@@ -3,6 +3,7 @@ package io.github.neopixel.wrapper.games;
 import java.util.Optional;
 
 public interface HypixelCosmetic {
+
     public String getFormattedName();
     public String getKey();
     public HypixelCosmeticRarities getRarity();
