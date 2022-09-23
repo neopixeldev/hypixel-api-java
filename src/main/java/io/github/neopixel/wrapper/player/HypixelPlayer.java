@@ -214,4 +214,8 @@ public class HypixelPlayer {
     public Optional<String> getTwitterLink() {
         return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("TWITTER").get());
     }
+
+    public Optional<String> getDiscordTag() {
+        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("DISCORD").get());
+    }
 }
