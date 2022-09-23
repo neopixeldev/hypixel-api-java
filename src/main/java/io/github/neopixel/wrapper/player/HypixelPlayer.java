@@ -206,4 +206,12 @@ public class HypixelPlayer {
     public Optional<String> getUserLanguage() {
         return Optional.ofNullable(jsonHandler.getSafeString("userLanguage").get());
     }
+
+    public Optional<String> getYoutubeLink() {
+        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("YOUTUBE").get());
+    }
+
+    public Optional<String> getTwitterLink() {
+        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("TWITTER").get());
+    }
 }
