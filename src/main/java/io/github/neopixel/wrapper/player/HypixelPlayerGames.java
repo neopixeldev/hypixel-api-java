@@ -13,13 +13,11 @@ public class HypixelPlayerGames {
 
     private final JSONHandler jsonHandler;
 
-    private HypixelBedWarsStats bedWarsStats;
-
     public HypixelPlayerGames(JSONHandler jsonHandler) {
         this.jsonHandler = jsonHandler;
     }
 
     public HypixelBedWarsStats getBedWarsStats() {
-        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(jsonHandler));
+        return new HypixelBedWarsStats(jsonHandler);
     }
 }
