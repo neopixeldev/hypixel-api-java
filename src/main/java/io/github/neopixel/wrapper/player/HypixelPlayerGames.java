@@ -15,7 +15,7 @@ public class HypixelPlayerGames {
 
     private HypixelBedWarsStats bedWarsStats;
 
-    public HypixelPlayerGames(JSONObject stats) {
+    public HypixelPlayerGames(JSONHandler stats) {
         this.stats = stats;
     }
 

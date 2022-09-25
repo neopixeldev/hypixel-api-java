@@ -19,7 +19,6 @@ import org.json.JSONObject;
 public class HypixelPlayer {
 
     private final RequestController requestController;
-    private HypixelPlayerGames games;
     private final JSONHandler jsonHandler;
 
     public HypixelPlayer(String username, RequestController requestController) {
@@ -199,8 +198,7 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games)
-            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats").get()));
+        return new HypixelPlayerGames(jsonHandler.getJSONHandler("stats").get());
     }
 
     public Optional<String> getUserLanguage() {
