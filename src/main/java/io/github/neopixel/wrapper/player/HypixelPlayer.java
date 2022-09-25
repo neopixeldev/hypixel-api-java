@@ -7,7 +7,9 @@ import io.github.neopixel.wrapper.util.JSONHandler;
 import io.github.neopixel.wrapper.util.LevelUtil;
 import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -166,7 +168,11 @@ public class HypixelPlayer {
     public Optional<Integer> getCurrentDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardStreak");
     }
-    
+
+    public Optional<Instant> getLastClaimedRewardTime() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastClaimedReward").get()));
+    }
+
     public Optional<HypixelRank> getHypixelRank() {
         return Optional.ofNullable(
             HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
@@ -176,6 +182,18 @@ public class HypixelPlayer {
         return Optional.ofNullable(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
     }
 
+    public Optional<Instant> getLastLogin() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastLogin").get()));
+    }
+
+    public Optional<Instant> getFirstLogin() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("firstLogin").get()));
+    }
+
+    public Optional<Instant> getLastLogout() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("lastLogout").get()));
+    }
+
     public HypixelGuild getGuild() {
         return new HypixelGuild(getUUID().get(), requestController);
     }
@@ -183,5 +201,21 @@ public class HypixelPlayer {
     public HypixelPlayerGames getGames() {
         return Optional.ofNullable(games)
             .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats").get()));
+    }
+
+    public Optional<String> getUserLanguage() {
+        return jsonHandler.getSafeString("userLanguage");
+    }
+
+    public Optional<String> getYoutubeLink() {
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("YOUTUBE");
+    }
+
+    public Optional<String> getTwitterLink() {
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("TWITTER");
+    }
+
+    public Optional<String> getDiscordTag() {
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("DISCORD");
     }
 }
