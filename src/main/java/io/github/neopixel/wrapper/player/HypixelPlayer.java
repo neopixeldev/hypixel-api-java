@@ -204,18 +204,18 @@ public class HypixelPlayer {
     }
 
     public Optional<String> getUserLanguage() {
-        return Optional.ofNullable(jsonHandler.getSafeString("userLanguage").get());
+        return jsonHandler.getSafeString("userLanguage");
     }
 
     public Optional<String> getYoutubeLink() {
-        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("YOUTUBE").get());
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("YOUTUBE");
     }
 
     public Optional<String> getTwitterLink() {
-        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("TWITTER").get());
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("TWITTER");
     }
 
     public Optional<String> getDiscordTag() {
-        return Optional.ofNullable(jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("DISCORD").get());
+        return jsonHandler.getJSONHandler("socialMedia").get().getJSONHandler("links").get().getSafeString("DISCORD");
     }
 }
