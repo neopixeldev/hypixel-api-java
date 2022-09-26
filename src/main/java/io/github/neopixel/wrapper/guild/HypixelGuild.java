@@ -9,6 +9,8 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import org.json.JSONObject;
 
 public class HypixelGuild {
     private final RequestController requestController;
@@ -78,6 +80,13 @@ public class HypixelGuild {
 
     public Optional<Integer> getChatMute() {
         return jsonHandler.getSafeInt("chatMute");
+    }
+
+    public Optional<List<HypixelGuildRank>> getGuildRanks() {
+        return Optional.of(jsonHandler.getJSONArray("ranks").get().toList().stream().map(rankObject -> {
+            JSONObject rankJSONObject = (JSONObject) rankObject;
+            return new HypixelGuildRank(rankJSONObject);
+        }).collect(Collectors.toList()));
     }
 
     public int getPlacementOnLeaderboard() {
