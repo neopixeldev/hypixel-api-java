@@ -3,6 +3,7 @@ package io.github.neopixel.wrapper.guild;
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.player.HypixelPlayer;
 import io.github.neopixel.wrapper.util.GuildLevelingUtil;
+import io.github.neopixel.wrapper.util.HypixelColors;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +65,10 @@ public class HypixelGuild {
 
     public Optional<String> getTag() {
        return jsonHandler.getSafeString("tag");
+    }
+
+    public Optional<HypixelColors> getTagColor() {
+        return Optional.of(HypixelColors.valueOf(jsonHandler.getSafeString("tagColor").get()));
     }
 
     public int getPlacementOnLeaderboard() {
