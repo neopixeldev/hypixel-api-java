@@ -39,6 +39,14 @@ public class HypixelGuildMember {
         return UnformattedStringToUUID.convertUnformattedStringToUUID(guildMemberObject.getString("uuid"));
     }
 
+    public Instant getDailyGXP() {
+        throw new UnsupportedOperationException();
+    }
+
+    public Instant getWeeklyGXP() {
+        throw new UnsupportedOperationException();
+    }
+
     public HypixelPlayer asPlayer() {
         return new HypixelPlayer(getUUID(), requestController);
     }
