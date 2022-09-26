@@ -51,7 +51,7 @@ public class GuildLevelingUtil {
      * @param exp The total experience gathered by a guild; should be >= 0
      * @return An integer representing the guild's current whole level
      */
-    static double getLevel(double exp) {
+    public static double getLevel(double exp) {
         if (exp < 0) {
             throw new IllegalArgumentException("Experience value must be >= 0");
         }
