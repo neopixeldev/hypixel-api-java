@@ -20,6 +20,14 @@ public class JSONHandler {
         this.statsPrefix = statsPrefix;
     }
 
+    public Optional<Boolean> getSafeBoolean(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return Optional.of(stats.getBoolean(statsPrefix + key));
+        } else {
+            return Optional.empty();
+        }
+    }
+
     public Optional<String> getSafeString(String key) {
         if (stats.has(statsPrefix + key)) {
             return Optional.of(stats.getString(statsPrefix + key));
