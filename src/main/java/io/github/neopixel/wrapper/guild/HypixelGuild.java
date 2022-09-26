@@ -76,6 +76,10 @@ public class HypixelGuild {
         return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("created").get()));
     }
 
+    public Optional<Integer> getChatMute() {
+        return jsonHandler.getSafeInt("chatMute");
+    }
+
     public int getPlacementOnLeaderboard() {
         throw new UnsupportedOperationException();
     }
