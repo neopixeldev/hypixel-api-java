@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class HypixelGuildRank {
 
-    public final JSONObject object;
+    private final JSONObject object;
 
     public HypixelGuildRank(JSONObject object) {
         this.object = object;
