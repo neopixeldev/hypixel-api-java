@@ -2,10 +2,11 @@ package io.github.neopixel.wrapper.guild;
 
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.player.HypixelPlayer;
+import io.github.neopixel.wrapper.util.GuildLevelingUtil;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
-import org.json.JSONObject;
 
 public class HypixelGuild {
     private final RequestController requestController;
@@ -21,16 +22,16 @@ public class HypixelGuild {
         this.jsonHandler = new JSONHandler(requestController.getPlayer(uuid).getJSONObject("player"));
     }
 
-    public String getName() {
-        throw new UnsupportedOperationException();
+    public Optional<String> getName() {
+        return jsonHandler.getSafeString("name");
     }
 
-    public double getLevel() {
-        throw new UnsupportedOperationException();
+    public Optional<Double> getLevel() {
+        return Optional.of(GuildLevelingUtil.getLevel(jsonHandler.getSafeInt("exp").get()));
     }
 
-    public double getExperience() {
-        throw new UnsupportedOperationException();
+    public Optional<Integer> getExperience() {
+        return jsonHandler.getSafeInt("exp");
     }
 
     public List<HypixelPlayer> getMembers() {
@@ -45,24 +46,24 @@ public class HypixelGuild {
         throw new UnsupportedOperationException();
     }
 
-    public boolean isPubliclyListed() {
-        throw new UnsupportedOperationException();
+    public Optional<Boolean> isPubliclyListed() {
+        return jsonHandler.getSafeBoolean("publiclyListed");
     }
 
-    public String getDescription() {
-        throw new UnsupportedOperationException();
+    public Optional<String> getDescription() {
+        return jsonHandler.getSafeString("description");
     }
 
-    public boolean isJoinable() {
-        throw new UnsupportedOperationException();
+    public Optional<Integer> getCoins() {
+        return jsonHandler.getSafeInt("coins");
     }
 
-    public int getCoins() {
-        throw new UnsupportedOperationException();
+    public Optional<Integer> getCoinsEver() {
+        return jsonHandler.getSafeInt("coinsEver");
     }
 
-    public String getTag() {
-        throw new UnsupportedOperationException();
+    public Optional<String> getTag() {
+       return jsonHandler.getSafeString("tag");
     }
 
     public int getPlacementOnLeaderboard() {
