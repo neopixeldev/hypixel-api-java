@@ -5,6 +5,7 @@ import io.github.neopixel.wrapper.player.HypixelPlayer;
 import io.github.neopixel.wrapper.util.GuildLevelingUtil;
 import io.github.neopixel.wrapper.util.HypixelColors;
 import io.github.neopixel.wrapper.util.JSONHandler;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -69,6 +70,10 @@ public class HypixelGuild {
 
     public Optional<HypixelColors> getTagColor() {
         return Optional.of(HypixelColors.valueOf(jsonHandler.getSafeString("tagColor").get()));
+    }
+
+    public Optional<Instant> getDateCreated() {
+        return Optional.ofNullable(Instant.ofEpochSecond(jsonHandler.getSafeLong("created").get()));
     }
 
     public int getPlacementOnLeaderboard() {
