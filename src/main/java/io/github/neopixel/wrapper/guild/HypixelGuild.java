@@ -38,8 +38,11 @@ public class HypixelGuild {
         return jsonHandler.getSafeInt("exp");
     }
 
-    public List<HypixelPlayer> getMembers() {
-        throw new UnsupportedOperationException();
+    public List<HypixelGuildMember> getMembers() {
+        return jsonHandler.getJSONArray("members").get().toList().stream().map(playerObject -> {
+            JSONObject playerJSONObject = (JSONObject) playerObject;
+            return new HypixelGuildMember(playerJSONObject, this, requestController);
+        }).collect(Collectors.toList());
     }
 
     public HypixelPlayer getOwner() {
