@@ -55,7 +55,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The total number of Bed Wars coins the player currently has.
      */
-    public final Optional<Integer> getCoins() {
+    public final int getCoins() {
         return jsonHandler.getSafeInt("coins");
     }
 
@@ -66,7 +66,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The player's current Bed Wars level.
      */
-    public final Optional<Integer> getLevel() {
+    public final int getLevel() {
         return jsonHandler.getSafeInt("level");
     }
 
@@ -77,7 +77,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The player's total Bed Wars experience.
      */
-    public final Optional<Integer> getExperience() {
+    public final int getExperience() {
         return jsonHandler.getSafeInt("Experience");
     }
 
@@ -88,8 +88,8 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The ID of the effect played when the player wins.
      */
-    public final Optional<HypixelCosmetic> getActiveVictoryDance() {
-        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsVictoryDances.class, jsonHandler.getSafeString("activeVictoryDance").get());
+    public final HypixelCosmetic getActiveVictoryDance() {
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsVictoryDances.class, jsonHandler.getSafeString("activeVictoryDance"));
     }
 
     /**
@@ -99,8 +99,8 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The ID of the player's selected island topper.
      */
-    public final Optional<HypixelCosmetic> getActiveIslandTopper() {
-        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsIslandToppers.class, jsonHandler.getSafeString("activeIslandTopper").get());
+    public final HypixelCosmetic getActiveIslandTopper() {
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsIslandToppers.class, jsonHandler.getSafeString("activeIslandTopper"));
     }
 
     /**
@@ -110,8 +110,8 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The ID of the player's selected spray.
      */
-    public final Optional<HypixelCosmetic> getActiveSpray() {
-        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsSprays.class, jsonHandler.getSafeString("activeSprays").get());
+    public final HypixelCosmetic getActiveSpray() {
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsSprays.class, jsonHandler.getSafeString("activeSprays"));
     }
 
     /**
@@ -121,32 +121,32 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      *
      * @return The ID of the effect played when the player dies.
      */
-    public final Optional<HypixelCosmetic> getActiveDeathCry() {
-        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsDeathCries.class, jsonHandler.getSafeString("activeDeathCry").get());
+    public final HypixelCosmetic getActiveDeathCry() {
+        return HypixelCosmetic.getHypixelCosmeticFromKey(BedwarsDeathCries.class, jsonHandler.getSafeString("activeDeathCry"));
     }
 
     @Override
-    public Optional<Integer> getOpenedChestsAmount() {
+    public int getOpenedChestsAmount() {
         return jsonHandler.getSafeInt("Bedwars_openedChests");
     }
 
     @Override
-    public Optional<Integer> getOpenedCommonChestsAmount() {
+    public int getOpenedCommonChestsAmount() {
         return jsonHandler.getSafeInt("Bedwars_openedCommons");
     }
 
     @Override
-    public Optional<Integer> getOpenedRareChestsAmount() {
+    public int getOpenedRareChestsAmount() {
         return jsonHandler.getSafeInt("Bedwars_openedRares");
     }
 
     @Override
-    public Optional<Integer> getOpenedEpicChestsAmount() {
+    public int getOpenedEpicChestsAmount() {
         return jsonHandler.getSafeInt("Bedwars_openedEpics");
     }
 
     @Override
-    public Optional<Integer> getOpenedLegendaryChestsAmount() {
+    public int getOpenedLegendaryChestsAmount() {
         return jsonHandler.getSafeInt("Bedwars_openedLegendaries");
     }
 }

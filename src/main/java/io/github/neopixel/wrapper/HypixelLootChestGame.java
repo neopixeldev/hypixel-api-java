@@ -4,13 +4,13 @@ import java.util.Optional;
 
 public interface HypixelLootChestGame {
 
-    Optional<Integer> getOpenedChestsAmount();
+    int getOpenedChestsAmount();
 
-    Optional<Integer> getOpenedCommonChestsAmount();
+    int getOpenedCommonChestsAmount();
 
-    Optional<Integer> getOpenedRareChestsAmount();
+    int getOpenedRareChestsAmount();
 
-    Optional<Integer> getOpenedEpicChestsAmount();
+    int getOpenedEpicChestsAmount();
 
-    Optional<Integer> getOpenedLegendaryChestsAmount();
+    int getOpenedLegendaryChestsAmount();
 }

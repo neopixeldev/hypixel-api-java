@@ -20,53 +20,53 @@ public class JSONHandler {
         this.statsPrefix = statsPrefix;
     }
 
-    public Optional<String> getSafeString(String key) {
+    public String getSafeString(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getString(statsPrefix + key));
+            return stats.getString(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return null;
         }
     }
 
-    public Optional<Integer> getSafeInt(String key) {
+    public int getSafeInt(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getInt(statsPrefix + key));
+          return stats.getInt(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
         }
     }
 
-    public Optional<Double> getSafeDouble(String key) {
+    public double getSafeDouble(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getDouble(statsPrefix + key));
+            return stats.getDouble(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
         }
     }
 
-    public Optional<Long> getSafeLong(String key) {
+    public long getSafeLong(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getLong(statsPrefix + key));
+            return stats.getLong(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
         }
     }
 
-    public Optional<UUID> getSafeUUID(String key) {
+    public UUID getSafeUUID(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(UnformattedStringToUUID.convertUnformattedStringToUUID(
-                stats.getString(statsPrefix + key)));
+            return UnformattedStringToUUID.convertUnformattedStringToUUID(
+                getSafeString(key));
         } else {
-            return Optional.empty();
+            return null;
         }
 
     }
 
-    public Optional<JSONObject> getJSONObject(String key) {
+    public JSONObject getJSONObject(String key) {
         if (stats.has(key)) {
-            return Optional.of(stats.getJSONObject(key));
+            return stats.getJSONObject(key);
         } else {
-            return Optional.empty();
+            return null;
         }
     }
 

@@ -27,59 +27,59 @@ public class HypixelBuildBattle extends HypixelGame {
         return false;
     }
 
-    public Optional<Integer> getSoloWins() {
+    public int getSoloWins() {
         return jsonHandler.getSafeInt("wins_solo_normal");
     }
 
-    public Optional<Integer> getTeamWins() {
+    public int getTeamWins() {
         return jsonHandler.getSafeInt("wins_teams_normal");
     }
 
-    public Optional<Integer> getWins() {
+    public int getWins() {
         return jsonHandler.getSafeInt("wins");
     }
 
-    public Optional<Integer> getCoins() {
+    public int getCoins() {
         return jsonHandler.getSafeInt("coins");
     }
 
-    public Optional<Integer> getGuessTheBuildWins() {
+    public int getGuessTheBuildWins() {
         return jsonHandler.getSafeInt("wins_guess_the_build");
     }
 
-    public Optional<Integer> getGamesPlayed() {
+    public int getGamesPlayed() {
         return jsonHandler.getSafeInt("games_played");
     }
 
-    public Optional<Integer> getScore() {
+    public int getScore() {
         return jsonHandler.getSafeInt("score");
     }
 
-    public Optional<Integer> getMonthlyCoinsA() {
+    public int getMonthlyCoinsA() {
         return jsonHandler.getSafeInt("monthly_coins_a");
     }
 
-    public Optional<Integer> getWeeklyCoinsB() {
+    public int getWeeklyCoinsB() {
         return jsonHandler.getSafeInt("weekly_coins_b");
     }
 
-    public Optional<Integer> getCorrectGuesses() {
+    public int getCorrectGuesses() {
         return jsonHandler.getSafeInt("correct_guesses");
     }
 
-    public Optional<Integer> getSoloMostPoints() {
+    public int getSoloMostPoints() {
         return jsonHandler.getSafeInt("solo_most_points");
     }
 
-    public Optional<Integer> getWeeklyCoinsA() {
+    public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("weekly_coins_a");
     }
 
-    public Optional<Integer> getTotalVotes() {
+    public int getTotalVotes() {
         return jsonHandler.getSafeInt("total_votes");
     }
 
-    public Optional<Integer> getSuperVotes() {
+    public int getSuperVotes() {
         return jsonHandler.getSafeInt("super_votes");
     }
 
@@ -92,10 +92,10 @@ public class HypixelBuildBattle extends HypixelGame {
     }
 
     public HypixelBuildBattlePackages getSelectedHat() {
-        return HypixelBuildBattlePackages.valueOf(jsonHandler.getSafeInt("new_selected_hat").get().toString().toUpperCase());
+        return HypixelBuildBattlePackages.valueOf(jsonHandler.getSafeString("new_selected_hat").toUpperCase());
     }
 
-    public Optional<Integer> getMonthlyCoinsB() {
+    public int getMonthlyCoinsB() {
         return jsonHandler.getSafeInt("monthly_coins_b");
     }
 }

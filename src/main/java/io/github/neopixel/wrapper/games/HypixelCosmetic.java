@@ -8,16 +8,16 @@ public interface HypixelCosmetic {
     public String getKey();
     public HypixelCosmeticRarities getRarity();
 
-    public static Optional<HypixelCosmetic> getHypixelCosmeticFromKey(
+    public static HypixelCosmetic getHypixelCosmeticFromKey(
         Class<? extends HypixelCosmetic> enumeration,
         String string) {
 
         for (Object e : enumeration.getEnumConstants()) {
             HypixelCosmetic cosmetic = (HypixelCosmetic) e;
             if (cosmetic.getKey().equals(string)) {
-                return Optional.of(cosmetic);
+                return cosmetic;
             }
         }
-        return Optional.empty();
+        return null;
     }
 }
