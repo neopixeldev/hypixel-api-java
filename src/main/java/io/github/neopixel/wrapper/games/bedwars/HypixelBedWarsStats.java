@@ -45,7 +45,7 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
      */
     public HypixelBedWars getMode(HypixelBedWarsMode mode) {
         return new HypixelBedWars(
-            new JSONHandler(jsonHandler.getStatsObject(), mode.getStatsPrefix()));
+            jsonHandler.getThisJSONHandlerWithStatsPrefix(mode.getStatsPrefix()));
     }
 
     /**

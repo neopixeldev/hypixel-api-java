@@ -22,12 +22,12 @@ public class HypixelPlayer {
 
     public HypixelPlayer(String username, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = new JSONHandler(requestController.getPlayer(username).getJSONObject("player"));
+        this.jsonHandler = requestController.getPlayer(username).getJSONHandler("player");
     }
 
     public HypixelPlayer(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = new JSONHandler(requestController.getPlayer(uuid).getJSONObject("player"));
+        this.jsonHandler = requestController.getPlayer(uuid).getJSONHandler("player");
     }
 
     public String getUsername() {
@@ -86,7 +86,7 @@ public class HypixelPlayer {
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
         JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
-            .getJSONArray("records");
+            .getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
 
         friendsRecords.toList().stream().limit(limit).forEach(friendObject -> {
@@ -119,7 +119,7 @@ public class HypixelPlayer {
 
     public Set<HypixelFriend> getHypixelFriends() {
         JSONArray friendsRecords =
-            requestController.getPlayerFriends(getUUID()).getJSONArray("records");
+            requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
         friendsRecords.forEach(friendObject -> {
             JSONObject friendJSONObject = (JSONObject) friendObject;
@@ -150,8 +150,8 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername()).getJSONObject("session")
-            .getBoolean("online");
+        return requestController.getPlayerStatus(getUsername()).getJSONHandler("session")
+            .getSafeBoolean("online");
     }
 
     public int getTotalDailyRewardsClaimed() {
@@ -180,6 +180,6 @@ public class HypixelPlayer {
 
     public HypixelPlayerGames getGames() {
         return Optional.ofNullable(games)
-            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats")));
+            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONHandler("stats")));
     }
 }

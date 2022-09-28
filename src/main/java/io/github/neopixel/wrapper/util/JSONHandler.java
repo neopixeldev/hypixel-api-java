@@ -2,6 +2,7 @@ package io.github.neopixel.wrapper.util;
 
 import java.util.Optional;
 import java.util.UUID;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONHandler {
@@ -20,6 +21,13 @@ public class JSONHandler {
         this.statsPrefix = statsPrefix;
     }
 
+    public JSONArray getSafeJSONArray(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return stats.getJSONArray(statsPrefix + key);
+        } else {
+            return null;
+        }
+    }
     public String getSafeString(String key) {
         if (stats.has(statsPrefix + key)) {
             return stats.getString(statsPrefix + key);
@@ -27,6 +35,15 @@ public class JSONHandler {
             return null;
         }
     }
+
+    public boolean getSafeBoolean(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return stats.getBoolean(statsPrefix + key);
+        } else {
+            return false;
+        }
+    }
+
 
     public int getSafeInt(String key) {
         if (stats.has(statsPrefix + key)) {
@@ -62,12 +79,15 @@ public class JSONHandler {
 
     }
 
-    public JSONObject getJSONObject(String key) {
+    public JSONHandler getJSONHandler(String key) {
         if (stats.has(key)) {
-            return stats.getJSONObject(key);
+            return new JSONHandler(stats.getJSONObject(key));
         } else {
-            return null;
+           return null;
         }
     }
 
+    public JSONHandler getThisJSONHandlerWithStatsPrefix(String statsPrefix) {
+        return new JSONHandler(stats, statsPrefix);
+    }
 }
