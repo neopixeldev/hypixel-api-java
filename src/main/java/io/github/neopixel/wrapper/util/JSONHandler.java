@@ -70,8 +70,4 @@ public class JSONHandler {
         }
     }
 
-    public JSONObject getStatsObject() {
-        return stats;
-    }
-
 }
