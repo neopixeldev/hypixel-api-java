@@ -1,5 +1,7 @@
 package io.github.neopixel.wrapper.util;
 
+import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.UUID;
 import org.json.JSONArray;
@@ -77,6 +79,10 @@ public class JSONHandler {
             return null;
         }
 
+    }
+
+    public Iterator<String> getKeys() {
+        return stats.keys();
     }
 
     public JSONHandler getJSONHandler(String key) {
