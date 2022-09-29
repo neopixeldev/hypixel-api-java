@@ -11,29 +11,33 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
 
+/**
+ * Uses {@link OkHttpClient} to connect to the Hypixel API. Handles the brunt of the connection and
+ * validation with the API.
+ */
 public class RequestFactory {
 
     private final CachingStrategy cache;
-    private final String apiKey;
+    private final UUID apiKey;
     private final OkHttpClient client = new OkHttpClient();
 
     protected RequestFactory(UUID apiKey, CachingStrategy cache) {
-        this.apiKey = apiKey.toString();
+        this.apiKey = apiKey;
         this.cache = cache;
     }
 
 
     /**
-     * Sends a request to the Hypixel API. Returns a {@link JSONObject} of the information
-     * retrieved.
+     * Sends a request to the Hypixel API. Returns a {@link JSONHandler} of the data retrieved.
      *
      * @param requestBuilder A {@link Request.Builder} with the base <code>URL</code> and parameters
      *                       already set.
-     * @return A {@link JSONObject} of the information retrieved.
+     * @return A {@link JSONHandler} wrapping the {@link JSONObject} retrieved.
+     * @throws NeopixelException If an exception is not caught by the {@link RequestValidator} arises.
      */
     public JSONHandler send(HttpUrl.Builder requestBuilder) {
 
-        requestBuilder.addQueryParameter("key", apiKey);
+        requestBuilder.addQueryParameter("key", apiKey.toString());
 
         Request request = new Request.Builder()
             .url(requestBuilder.build().toString())
