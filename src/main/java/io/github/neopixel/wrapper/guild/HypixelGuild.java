@@ -101,7 +101,6 @@ public class HypixelGuild {
     }
 
     public int getGXPByGameType(HypixelGameTypes type) {
-
         AtomicInteger gameTypeGXP = new AtomicInteger();
 
         jsonHandler.getJSONHandler("guildExpByGameType").getKeys().forEachRemaining(gameType -> {
@@ -111,6 +110,16 @@ public class HypixelGuild {
             }
         });
         return gameTypeGXP.get();
+    }
+
+    public int getDailyGXP() {
+
+        AtomicInteger dailyGXP = new AtomicInteger();
+
+        getMembers().forEach(member -> {
+            dailyGXP.addAndGet(member.getDailyGXP());
+        });
+        return dailyGXP.get();
     }
 
     public int getPlacementOnLeaderboard() {
