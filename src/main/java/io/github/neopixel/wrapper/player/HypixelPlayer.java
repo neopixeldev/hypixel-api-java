@@ -2,6 +2,7 @@ package io.github.neopixel.wrapper.player;
 
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.guild.HypixelGuild;
+import io.github.neopixel.wrapper.guild.HypixelGuildMember;
 import io.github.neopixel.wrapper.util.HypixelColors;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import io.github.neopixel.wrapper.util.LevelUtil;
@@ -171,6 +172,10 @@ public class HypixelPlayer {
 
     public HypixelColors getHypixelRankPlusColor() {
         return HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor"));
+    }
+
+    public HypixelGuildMember asGuildMember() {
+        return getGuild().getMemberByUUID(getUUID());
     }
 
     public HypixelGuild getGuild() {
