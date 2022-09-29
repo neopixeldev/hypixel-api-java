@@ -3,6 +3,9 @@ package io.github.neopixel.http;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * An enum of endpoints to the Hypixel API.
+ */
 public enum Endpoint {
     API_KEY("key"),
     BOOSTERS("boosters"),
