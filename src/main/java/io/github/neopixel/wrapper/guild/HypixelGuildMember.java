@@ -54,7 +54,7 @@ public class HypixelGuildMember {
         return jsonHandler.getJSONHandler("expHistory").getSafeInt(dailyGXPObject);
     }
 
-    public int getWeeklyGXPCombined() {
+    public int getWeeklyGXP() {
 
         AtomicInteger weeklyGXP = new AtomicInteger();
 
@@ -63,20 +63,6 @@ public class HypixelGuildMember {
         });
 
         return weeklyGXP.get();
-    }
-
-    public Map<Instant, Integer> getWeeklyGXPByDay() {
-
-        Map<Instant, Integer> weeklyGXPByDateMap = new HashMap<>();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("uuuu-mm-dd");
-
-        jsonHandler.getJSONHandler("expHistory").getKeys().forEachRemaining(date -> {
-            ZonedDateTime zonedDateTime = ZonedDateTime.parse(date, dateTimeFormatter);
-            weeklyGXPByDateMap.put(zonedDateTime.toInstant(),
-                jsonHandler.getJSONHandler("expHistory").getSafeInt(date));
-        });
-
-        return weeklyGXPByDateMap;
     }
 
     public int getMutedTill() {
