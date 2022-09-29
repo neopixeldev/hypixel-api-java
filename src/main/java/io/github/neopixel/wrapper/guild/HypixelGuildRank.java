@@ -1,33 +1,34 @@
 package io.github.neopixel.wrapper.guild;
 
+import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Instant;
 import org.json.JSONObject;
 
 public class HypixelGuildRank {
 
-    private final JSONObject object;
+    private final JSONHandler jsonHandler;
 
-    public HypixelGuildRank(JSONObject object) {
-        this.object = object;
+    public HypixelGuildRank(JSONHandler jsonHandler) {
+        this.jsonHandler = jsonHandler;
     }
 
     public String getName() {
-        return object.getString("name");
+        return jsonHandler.getSafeString("name");
     }
 
     public boolean isDefault() {
-        return object.getBoolean("default");
+        return jsonHandler.getSafeBoolean("default");
     }
 
     public String getTag() {
-        return object.getString("tag");
+        return jsonHandler.getSafeString("tag");
     }
 
     public Instant getDateCreated() {
-        return Instant.ofEpochSecond(object.getLong("created"));
+        return Instant.ofEpochSecond(jsonHandler.getSafeLong("created"));
     }
 
     public int getPriority() {
-        return object.getInt("priority");
+        return jsonHandler.getSafeInt("priority");
     }
 }
