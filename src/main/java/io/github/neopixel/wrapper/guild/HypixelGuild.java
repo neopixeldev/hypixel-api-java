@@ -1,17 +1,19 @@
 package io.github.neopixel.wrapper.guild;
 
 import io.github.neopixel.http.RequestController;
-import io.github.neopixel.wrapper.player.HypixelPlayer;
 import io.github.neopixel.wrapper.util.GuildLevelingUtil;
 import io.github.neopixel.wrapper.util.HypixelColors;
+import io.github.neopixel.wrapper.util.HypixelGameTypes;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
 
 public class HypixelGuild {
+
     private final RequestController requestController;
     private final JSONHandler jsonHandler;
 
@@ -39,17 +41,20 @@ public class HypixelGuild {
 
     public List<HypixelGuildMember> getMembers() {
         return jsonHandler.getSafeJSONArray("members").toList().stream().map(playerObject -> {
-            JSONHandler playerJSONHandler = new JSONHandler((JSONObject) JSONObject.wrap(playerObject));
+            JSONHandler playerJSONHandler = new JSONHandler(
+                (JSONObject) JSONObject.wrap(playerObject));
             return new HypixelGuildMember(playerJSONHandler, this, requestController);
         }).collect(Collectors.toList());
     }
 
     public HypixelGuildMember getMemberByUUID(UUID uuid) {
-        return getMembers().stream().filter(member -> member.getUUID().equals(uuid)).findFirst().get();
+        return getMembers().stream().filter(member -> member.getUUID().equals(uuid)).findFirst()
+            .get();
     }
 
     public HypixelGuildMember getOwner() {
-        return getMembers().stream().filter(member -> member.getRank().getName().equals("Guild Master")).findFirst().get();
+        return getMembers().stream()
+            .filter(member -> member.getRank().getName().equals("Guild Master")).findFirst().get();
     }
 
     public long getDailyGEXP() {
@@ -93,6 +98,19 @@ public class HypixelGuild {
             JSONHandler rankJSONHandler = new JSONHandler((JSONObject) JSONObject.wrap(rankObject));
             return new HypixelGuildRank(rankJSONHandler);
         }).collect(Collectors.toList());
+    }
+
+    public int getGXPByGameType(HypixelGameTypes type) {
+
+        AtomicInteger gameTypeGXP = new AtomicInteger();
+
+        jsonHandler.getJSONHandler("guildExpByGameType").getKeys().forEachRemaining(gameType -> {
+            if (gameType.equals(type.toString())) {
+                gameTypeGXP.set(
+                    jsonHandler.getJSONHandler("guildExpByGameType").getSafeInt(gameType));
+            }
+        });
+        return gameTypeGXP.get();
     }
 
     public int getPlacementOnLeaderboard() {
