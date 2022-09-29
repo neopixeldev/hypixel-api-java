@@ -2,6 +2,7 @@ package io.github.neopixel.http;
 
 import io.github.neopixel.exception.NeopixelException;
 import io.github.neopixel.http.cache.CachingStrategy;
+import io.github.neopixel.wrapper.util.JSONHandler;
 import java.io.IOException;
 import java.util.UUID;
 import okhttp3.HttpUrl;
@@ -30,7 +31,7 @@ public class RequestFactory {
      *                       already set.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONObject send(HttpUrl.Builder requestBuilder) {
+    public JSONHandler send(HttpUrl.Builder requestBuilder) {
 
         requestBuilder.addQueryParameter("key", apiKey);
 
@@ -41,7 +42,7 @@ public class RequestFactory {
         try (Response response = client.newCall(request).execute()) {
             JSONObject returnObject = new JSONObject(response.body().string());
             if (RequestValidator.isValid(response, returnObject)) {
-                return returnObject;
+                return new JSONHandler(returnObject);
             } else {
                 throw new NeopixelException("Fatal error, invalid response not caught.");
             }

@@ -2,6 +2,7 @@ package io.github.neopixel.wrapper.util;
 
 import java.util.Optional;
 import java.util.UUID;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONHandler {
@@ -20,58 +21,73 @@ public class JSONHandler {
         this.statsPrefix = statsPrefix;
     }
 
-    public Optional<String> getSafeString(String key) {
+    public JSONArray getSafeJSONArray(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getString(statsPrefix + key));
+            return stats.getJSONArray(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return null;
+        }
+    }
+    public String getSafeString(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return stats.getString(statsPrefix + key);
+        } else {
+            return null;
         }
     }
 
-    public Optional<Integer> getSafeInt(String key) {
+    public boolean getSafeBoolean(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getInt(statsPrefix + key));
+            return stats.getBoolean(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return false;
         }
     }
 
-    public Optional<Double> getSafeDouble(String key) {
+
+    public int getSafeInt(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getDouble(statsPrefix + key));
+          return stats.getInt(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
         }
     }
 
-    public Optional<Long> getSafeLong(String key) {
+    public double getSafeDouble(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(stats.getLong(statsPrefix + key));
+            return stats.getDouble(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
         }
     }
 
-    public Optional<UUID> getSafeUUID(String key) {
+    public long getSafeLong(String key) {
         if (stats.has(statsPrefix + key)) {
-            return Optional.of(UnformattedStringToUUID.convertUnformattedStringToUUID(
-                stats.getString(statsPrefix + key)));
+            return stats.getLong(statsPrefix + key);
         } else {
-            return Optional.empty();
+            return 0;
+        }
+    }
+
+    public UUID getSafeUUID(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return UnformattedStringToUUID.convertUnformattedStringToUUID(
+                getSafeString(key));
+        } else {
+            return null;
         }
 
     }
 
-    public Optional<JSONObject> getJSONObject(String key) {
+    public JSONHandler getJSONHandler(String key) {
         if (stats.has(key)) {
-            return Optional.of(stats.getJSONObject(key));
+            return new JSONHandler(stats.getJSONObject(key));
         } else {
-            return Optional.empty();
+           return null;
         }
     }
 
-    public JSONObject getStatsObject() {
-        return stats;
+    public JSONHandler getThisJSONHandlerWithStatsPrefix(String statsPrefix) {
+        return new JSONHandler(stats, statsPrefix);
     }
-
 }

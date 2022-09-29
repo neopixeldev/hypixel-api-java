@@ -22,31 +22,31 @@ public class HypixelPlayer {
 
     public HypixelPlayer(String username, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = new JSONHandler(requestController.getPlayer(username).getJSONObject("player"));
+        this.jsonHandler = requestController.getPlayer(username).getJSONHandler("player");
     }
 
     public HypixelPlayer(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = new JSONHandler(requestController.getPlayer(uuid).getJSONObject("player"));
+        this.jsonHandler = requestController.getPlayer(uuid).getJSONHandler("player");
     }
 
-    public Optional<String> getUsername() {
+    public String getUsername() {
         return jsonHandler.getSafeString("displayname");
     }
 
-    public Optional<UUID> getUUID() {
+    public UUID getUUID() {
         return jsonHandler.getSafeUUID("uuid");
     }
 
-    public Optional<Integer> getNetworkLevel() {
-        return Optional.of(LevelUtil.getFullNetworkLevel(jsonHandler.getSafeLong("networkExp").get()));
+    public int getNetworkLevel() {
+        return LevelUtil.getFullNetworkLevel(jsonHandler.getSafeLong("networkExp"));
     }
 
-    public Optional<Double> getNetworkEXP() {
+    public double getNetworkEXP() {
         return jsonHandler.getSafeDouble("networkExp");
     }
 
-    public Optional<Integer> getNetworkKarma() {
+    public int getNetworkKarma() {
         return jsonHandler.getSafeInt("karma");
     }
 
@@ -54,24 +54,23 @@ public class HypixelPlayer {
      * @return A double representing the percentage of how far a HypixelPlayer is through their
      * current Network Level.
      */
-    public Optional<Long> getNetworkLevelPercentage() {
-        return Optional.ofNullable(LevelUtil.getProgressExp(jsonHandler.getSafeLong("networkExp").get()));
+    public long getNetworkLevelPercentage() {
+        return LevelUtil.getProgressExp(jsonHandler.getSafeLong("networkExp"));
     }
 
     /**
      * @return A double representing the amount of EXP the HypixelPlayer has progressed into their
      * current Network Level.
      */
-    public Optional<Integer> getEXPIntoCurrentNetworkLevel() {
-        return Optional.ofNullable(LevelUtil.getExpPastLastEventLevel(jsonHandler.getSafeLong("networkExp").get()));
+    public int getEXPIntoCurrentNetworkLevel() {
+        return LevelUtil.getExpPastLastEventLevel(jsonHandler.getSafeLong("networkExp"));
     }
 
     /**
      * @return A double representing how much EXP is required to the next level.
      */
-    public Optional<Integer> getEXPToNextNetworkLevel() {
-        return Optional.ofNullable(
-            LevelUtil.getExpUntilNextEventLevel(jsonHandler.getSafeLong("networkExp").get()));
+    public int getEXPToNextNetworkLevel() {
+        return LevelUtil.getExpUntilNextEventLevel(jsonHandler.getSafeLong("networkExp"));
     }
 
 
@@ -86,8 +85,8 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID().get())
-            .getJSONArray("records");
+        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
+            .getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
 
         friendsRecords.toList().stream().limit(limit).forEach(friendObject -> {
@@ -120,7 +119,7 @@ public class HypixelPlayer {
 
     public Set<HypixelFriend> getHypixelFriends() {
         JSONArray friendsRecords =
-            requestController.getPlayerFriends(getUUID().get()).getJSONArray("records");
+            requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
         friendsRecords.forEach(friendObject -> {
             JSONObject friendJSONObject = (JSONObject) friendObject;
@@ -151,37 +150,36 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername().get()).getJSONObject("session")
-            .getBoolean("online");
+        return requestController.getPlayerStatus(getUsername()).getJSONHandler("session")
+            .getSafeBoolean("online");
     }
 
-    public Optional<Integer> getTotalDailyRewardsClaimed() {
+    public int getTotalDailyRewardsClaimed() {
         return jsonHandler.getSafeInt("totalDailyRewards");
     }
 
-    public Optional<Integer> getTopDailyRewardStreak() {
+    public int getTopDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardHighScore");
     }
 
-    public Optional<Integer> getCurrentDailyRewardStreak() {
+    public int getCurrentDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardStreak");
     }
     
-    public Optional<HypixelRank> getHypixelRank() {
-        return Optional.ofNullable(
-            HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank").get()));
+    public HypixelRank getHypixelRank() {
+        return HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank"));
     }
 
-    public Optional<HypixelColors> getHypixelRankPlusColor() {
-        return Optional.ofNullable(HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor").get()));
+    public HypixelColors getHypixelRankPlusColor() {
+        return HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor"));
     }
 
     public HypixelGuild getGuild() {
-        return new HypixelGuild(getUUID().get(), requestController);
+        return new HypixelGuild(getUUID(), requestController);
     }
 
     public HypixelPlayerGames getGames() {
         return Optional.ofNullable(games)
-            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONObject("stats").get()));
+            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONHandler("stats")));
     }
 }

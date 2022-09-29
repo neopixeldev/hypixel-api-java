@@ -11,15 +11,15 @@ import org.json.JSONObject;
  */
 public class HypixelPlayerGames {
 
-    private final JSONObject stats;
+    private final JSONHandler jsonHandler;
 
     private HypixelBedWarsStats bedWarsStats;
 
-    public HypixelPlayerGames(JSONObject stats) {
-        this.stats = stats;
+    public HypixelPlayerGames(JSONHandler jsonHandler) {
+        this.jsonHandler = jsonHandler;
     }
 
     public HypixelBedWarsStats getBedWarsStats() {
-        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(new JSONHandler(stats.getJSONObject("Bedwars"))));
+        return Optional.ofNullable(bedWarsStats).orElse(bedWarsStats = new HypixelBedWarsStats(jsonHandler.getJSONHandler("Bedwars")));
     }
 }

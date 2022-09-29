@@ -2,22 +2,23 @@ package io.github.neopixel.wrapper.guild;
 
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.player.HypixelPlayer;
+import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
 
 public class HypixelGuild {
     private final RequestController requestController;
-    private final JSONObject guildStats;
+    private final JSONHandler jsonHandler;
 
     public HypixelGuild(String name, RequestController requestController) {
         this.requestController = requestController;
-        this.guildStats = requestController.getGuild(name);
+        this.jsonHandler = requestController.getGuild(name);
     }
 
     public HypixelGuild(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.guildStats = requestController.getGuild(uuid);
+        this.jsonHandler = requestController.getGuild(uuid);
     }
 
     public String getName() {

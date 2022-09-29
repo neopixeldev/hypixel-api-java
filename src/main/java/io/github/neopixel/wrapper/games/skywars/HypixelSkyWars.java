@@ -27,27 +27,27 @@ public class HypixelSkyWars extends HypixelGame implements HypixelLootChestGame 
     }
 
     @Override
-    public final Optional<Integer> getOpenedChestsAmount() {
+    public final int getOpenedChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final Optional<Integer> getOpenedCommonChestsAmount() {
+    public final int getOpenedCommonChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final Optional<Integer> getOpenedRareChestsAmount() {
+    public final int getOpenedRareChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final Optional<Integer> getOpenedEpicChestsAmount() {
+    public final int getOpenedEpicChestsAmount() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final Optional<Integer> getOpenedLegendaryChestsAmount() {
+    public final int getOpenedLegendaryChestsAmount() {
         throw new UnsupportedOperationException();
     }
 }
