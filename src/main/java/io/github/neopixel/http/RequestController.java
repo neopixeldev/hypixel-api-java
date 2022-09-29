@@ -7,6 +7,10 @@ import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.UUID;
 import org.json.JSONObject;
 
+/**
+ * Encapsulates, controls, sends, and recieves requests to and from the Hypixel API.
+ * Methods are overriden and delegate the correct {@link Query query} for the requested {@link Endpoint endpoint}.
+ */
 public class RequestController {
 
     private final RequestFactory requestFactory;
