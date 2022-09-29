@@ -122,6 +122,15 @@ public class HypixelGuild {
         return dailyGXP.get();
     }
 
+    public int getWeeklyGXP() {
+        AtomicInteger dailyGXP = new AtomicInteger();
+
+        getMembers().forEach(member -> {
+            dailyGXP.addAndGet(member.getWeeklyGXP());
+        });
+        return dailyGXP.get();
+    }
+
     public int getPlacementOnLeaderboard() {
         throw new UnsupportedOperationException();
     }
