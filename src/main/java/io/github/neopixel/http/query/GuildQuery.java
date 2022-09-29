@@ -19,10 +19,10 @@ public class GuildQuery extends Query {
     @Override
     public HttpUrl.Builder createRequest() {
         if(uuid != null ) {
-            return HttpUrl.get(Endpoint.PLAYER.getURL()).newBuilder()
+            return HttpUrl.get(Endpoint.GUILD.getURL()).newBuilder()
                 .addQueryParameter("uuid", uuid.toString());
         }
-        return HttpUrl.get(Endpoint.PLAYER.getURL()).newBuilder()
+        return HttpUrl.get(Endpoint.GUILD.getURL()).newBuilder()
             .addQueryParameter("name", name);
     }
 
