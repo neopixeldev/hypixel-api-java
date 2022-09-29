@@ -126,8 +126,4 @@ public class HypixelGuild {
         });
         return dailyGXP.get();
     }
-
-    public int getPlacementOnLeaderboard() {
-        throw new UnsupportedOperationException();
-    }
 }
