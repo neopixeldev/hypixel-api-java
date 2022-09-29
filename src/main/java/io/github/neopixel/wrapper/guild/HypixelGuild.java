@@ -57,10 +57,6 @@ public class HypixelGuild {
             .filter(member -> member.getRank().getName().equals("Guild Master")).findFirst().get();
     }
 
-    public long getDailyGEXP() {
-        throw new UnsupportedOperationException();
-    }
-
     public boolean isPubliclyListed() {
         return jsonHandler.getSafeBoolean("publiclyListed");
     }
