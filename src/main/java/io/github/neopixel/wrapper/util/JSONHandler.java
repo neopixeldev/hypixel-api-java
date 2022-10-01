@@ -47,7 +47,7 @@ public class JSONHandler {
 
     public int getSafeInt(String key) {
         if (stats.has(statsPrefix + key)) {
-          return stats.getInt(statsPrefix + key);
+            return stats.getInt(statsPrefix + key);
         } else {
             return 0;
         }
@@ -83,7 +83,7 @@ public class JSONHandler {
         if (stats.has(key)) {
             return new JSONHandler(stats.getJSONObject(key));
         } else {
-           return null;
+            return null;
         }
     }
 

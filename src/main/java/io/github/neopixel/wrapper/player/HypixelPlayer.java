@@ -17,7 +17,6 @@ import org.json.JSONObject;
 public class HypixelPlayer {
 
     private final RequestController requestController;
-    private HypixelPlayerGames games;
     private final JSONHandler jsonHandler;
 
     public HypixelPlayer(String username, RequestController requestController) {
@@ -165,7 +164,7 @@ public class HypixelPlayer {
     public int getCurrentDailyRewardStreak() {
         return jsonHandler.getSafeInt("rewardStreak");
     }
-    
+
     public HypixelRank getHypixelRank() {
         return HypixelRank.valueOf(jsonHandler.getSafeString("newPackageRank"));
     }
@@ -179,7 +178,6 @@ public class HypixelPlayer {
     }
 
     public HypixelPlayerGames getGames() {
-        return Optional.ofNullable(games)
-            .orElse(games = new HypixelPlayerGames(jsonHandler.getJSONHandler("stats")));
+        return new HypixelPlayerGames(jsonHandler.getJSONHandler("stats"));
     }
 }
