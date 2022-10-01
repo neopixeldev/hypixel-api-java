@@ -61,8 +61,8 @@ public class RequestController {
         return requestFactory.send(query.createRequest());
     }
 
-    public JSONHandler getGuild(String username) {
-        Query query = queryFactory.getGuild(username);
+    public JSONHandler getGuild(String name) {
+        Query query = queryFactory.getGuild(name);
         return requestFactory.send(query.createRequest());
     }
 }

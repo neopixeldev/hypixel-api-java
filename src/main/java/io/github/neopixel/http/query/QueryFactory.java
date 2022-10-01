@@ -39,8 +39,8 @@ public class QueryFactory {
         return new GuildQuery(uuid);
     }
 
-    public Query getGuild(String username) {
-        return new GuildQuery(username);
+    public Query getGuild(String name) {
+        return new GuildQuery(name);
     }
 
 }
