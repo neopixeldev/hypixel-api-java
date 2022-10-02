@@ -1,6 +1,7 @@
 package io.github.neopixel.http.cache;
 
 import io.github.neopixel.http.Endpoint;
+import io.github.neopixel.wrapper.util.JSONHandler;
 import org.json.JSONObject;
 
 /**
@@ -10,11 +11,11 @@ import org.json.JSONObject;
 public class NoCachingStrategy implements CachingStrategy {
 
     @Override
-    public void cacheResponse(Endpoint endpoint, JSONObject res) {
+    public void cacheResponse(Endpoint endpoint, JSONHandler jsonhandler) {
     }
 
     @Override
-    public JSONObject getCachedResponse(Endpoint endpoint) {
+    public JSONHandler getCachedResponse(Endpoint endpoint) {
         return null;
     }
 
