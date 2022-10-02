@@ -4,6 +4,7 @@ import io.github.neopixel.exception.NeopixelException;
 import io.github.neopixel.http.cache.CachingStrategy;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.UUID;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -12,14 +13,11 @@ import okhttp3.Response;
 import org.json.JSONObject;
 
 public class RequestFactory {
-
-    private final CachingStrategy cache;
     private final String apiKey;
     private final OkHttpClient client = new OkHttpClient();
 
-    protected RequestFactory(UUID apiKey, CachingStrategy cache) {
+    protected RequestFactory(UUID apiKey) {
         this.apiKey = apiKey.toString();
-        this.cache = cache;
     }
 
 
@@ -40,7 +38,7 @@ public class RequestFactory {
             .build();
 
         try (Response response = client.newCall(request).execute()) {
-            JSONObject returnObject = new JSONObject(response.body().string());
+            JSONObject returnObject = new JSONObject(Objects.requireNonNull(response.body()).string());
             if (RequestValidator.isValid(response, returnObject)) {
                 return new JSONHandler(returnObject);
             } else {

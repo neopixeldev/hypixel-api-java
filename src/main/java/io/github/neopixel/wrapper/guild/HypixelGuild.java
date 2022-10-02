@@ -19,12 +19,12 @@ public class HypixelGuild {
 
     public HypixelGuild(String name, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getGuild(name).getJSONHandler("guild");
+        this.jsonHandler = requestController.getGuildByName(name).getJSONHandler("guild");
     }
 
     public HypixelGuild(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getGuild(uuid);
+        this.jsonHandler = requestController.getGuildByPlayerUUID(uuid);
     }
 
     public String getName() {

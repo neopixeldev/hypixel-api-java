@@ -9,7 +9,6 @@ import io.github.neopixel.wrapper.util.LevelUtil;
 import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONArray;
@@ -22,12 +21,12 @@ public class HypixelPlayer {
 
     public HypixelPlayer(String username, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getPlayer(username).getJSONHandler("player");
+        this.jsonHandler = requestController.getPlayerByUsername(username).getJSONHandler("player");
     }
 
     public HypixelPlayer(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getPlayer(uuid).getJSONHandler("player");
+        this.jsonHandler = requestController.getPlayerByUUID(uuid).getJSONHandler("player");
     }
 
     public String getUsername() {
@@ -85,7 +84,7 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
+        JSONArray friendsRecords = requestController.getPlayerFriendsByUUID(getUUID())
             .getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
 
@@ -119,7 +118,7 @@ public class HypixelPlayer {
 
     public Set<HypixelFriend> getHypixelFriends() {
         JSONArray friendsRecords =
-            requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records");
+            requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records");
         Set<HypixelFriend> hypixelFriends = new HashSet<>();
         friendsRecords.forEach(friendObject -> {
             JSONObject friendJSONObject = (JSONObject) friendObject;
@@ -150,7 +149,7 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername()).getJSONHandler("session")
+        return requestController.getPlayerStatusByUsername(getUsername()).getJSONHandler("session")
             .getSafeBoolean("online");
     }
 

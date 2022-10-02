@@ -26,16 +26,11 @@ public class RequestValidator {
             String failString = returnObject.getString("cause");
 
             switch (response.code()) {
-                case 400:
-                    throw new MissingFieldException(failString);
-                case 403:
-                    throw new ForbiddenAccessException(failString);
-                case 422:
-                    throw new InvalidDataException(failString);
-                case 429:
-                    throw new KeyThrottleException(failString);
-                default:
-                    throw new UnknownAPIException(failString);
+                case 400 -> throw new MissingFieldException(failString);
+                case 403 -> throw new ForbiddenAccessException(failString);
+                case 422 -> throw new InvalidDataException(failString);
+                case 429 -> throw new KeyThrottleException(failString);
+                default -> throw new UnknownAPIException(failString);
             }
         }
         return false;

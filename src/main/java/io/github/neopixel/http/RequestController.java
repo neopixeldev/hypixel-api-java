@@ -1,68 +1,104 @@
 package io.github.neopixel.http;
 
 import io.github.neopixel.http.cache.CachingStrategy;
+import io.github.neopixel.http.query.HypixelQueryParameterTypes;
 import io.github.neopixel.http.query.Query;
-import io.github.neopixel.http.query.QueryFactory;
+import io.github.neopixel.http.query.QueryParameter;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.UUID;
-import org.json.JSONObject;
 
 public class RequestController {
 
     private final RequestFactory requestFactory;
-    private final QueryFactory queryFactory = new QueryFactory();
+    private final CachingStrategy cachingStrategy;
 
     public RequestController(UUID apiKey, CachingStrategy cachingStrategy) {
-        requestFactory = new RequestFactory(apiKey, cachingStrategy);
+        requestFactory = new RequestFactory(apiKey);
+        this.cachingStrategy = cachingStrategy;
     }
 
-    public JSONHandler getPlayer(UUID uuid) {
-        Query query = queryFactory.getPlayer(uuid);
-        return requestFactory.send(query.createRequest());
+    /**
+     * Retrieves data from the API. Provide the endpoint and the query parameters needed.
+     *
+     * @param endpoint  The endpoint the data should be fetched from.
+     * @param parameter Query parameters.
+     * @return A {@link JSONHandler} wrapping the data retrieved from the API.
+     */
+    private JSONHandler retrieveData(Endpoint endpoint, QueryParameter parameter) {
+        JSONHandler handler = requestFactory.send(new Query(endpoint, parameter).createRequest());
+        cachingStrategy.cacheResponse(endpoint, handler);
+        return handler;
     }
 
-    public JSONHandler getPlayer(String username) {
-        Query query = queryFactory.getPlayer(username);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerByUUID(UUID uuid) {
+        return retrieveData(Endpoint.PLAYER,
+            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
     }
 
-    public JSONHandler getPlayerFriends(UUID uuid) {
-        Query query = queryFactory.getPlayerFriends(uuid);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerByUsername(String username) {
+        return retrieveData(Endpoint.PLAYER,
+            new QueryParameter(HypixelQueryParameterTypes.NAME, username));
     }
 
-    public JSONHandler getPlayerFriends(String username) {
-        Query query = queryFactory.getPlayerFriends(username);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerFriendsByUUID(UUID uuid) {
+        return retrieveData(Endpoint.PLAYER_FRIENDS,
+            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
     }
 
-    public JSONHandler getPlayerRecentGames(UUID uuid) {
-        Query query = queryFactory.getPlayerRecentGames(uuid);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerFriendsByUsername(String username) {
+        return retrieveData(Endpoint.PLAYER_FRIENDS,
+            new QueryParameter(HypixelQueryParameterTypes.NAME, username));
     }
 
-    public JSONHandler getPlayerRecentGames(String username) {
-        Query query = queryFactory.getPlayerRecentGames(username);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerRecentGamesByUUID(UUID uuid) {
+        return retrieveData(Endpoint.PLAYER_RECENT_GAMES,
+            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
     }
 
-    public JSONHandler getPlayerStatus(UUID uuid) {
-        Query query = queryFactory.getPlayerStatus(uuid);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerRecentGamesByUsername(String username) {
+        return retrieveData(Endpoint.PLAYER_RECENT_GAMES,
+            new QueryParameter(HypixelQueryParameterTypes.NAME, username));
     }
 
-    public JSONHandler getPlayerStatus(String username) {
-        Query query = queryFactory.getPlayerStatus(username);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerStatusByUUID(UUID uuid) {
+        return retrieveData(Endpoint.PLAYER_STATUS,
+            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
     }
 
-    public JSONHandler getGuild(UUID uuid) {
-        Query query = queryFactory.getGuild(uuid);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getPlayerStatusByUsername(String username) {
+        return retrieveData(Endpoint.PLAYER_STATUS,
+            new QueryParameter(HypixelQueryParameterTypes.NAME, username));
     }
 
-    public JSONHandler getGuild(String name) {
-        Query query = queryFactory.getGuild(name);
-        return requestFactory.send(query.createRequest());
+    public JSONHandler getGuildByPlayerUUID(UUID uuid) {
+        return retrieveData(Endpoint.GUILD,
+            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
     }
+
+    public JSONHandler getGuildByName(String name) {
+        return retrieveData(Endpoint.GUILD,
+            new QueryParameter(HypixelQueryParameterTypes.NAME, name));
+    }
+
+    public JSONHandler getGuildByID(String id) {
+        return retrieveData(Endpoint.GUILD,
+            new QueryParameter(HypixelQueryParameterTypes.GUILD_ID, id));
+    }
+
+    public JSONHandler getActiveBoosters() {
+        return retrieveData(Endpoint.BOOSTERS, null);
+    }
+
+    public JSONHandler getLeaderboardInformation() {
+        return retrieveData(Endpoint.LEADERBOARDS, null);
+    }
+
+    public JSONHandler getPunishmentStats() {
+        return retrieveData(Endpoint.PUNISHMENTS, null);
+    }
+
+    public JSONHandler getAPIKeyInformation() {
+        return retrieveData(Endpoint.API_KEY, null);
+    }
+
 }
