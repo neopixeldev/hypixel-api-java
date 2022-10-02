@@ -25,9 +25,7 @@ public class RequestController {
      * @return A {@link JSONHandler} wrapping the data retrieved from the API.
      */
     private JSONHandler retrieveData(Endpoint endpoint, QueryParameter parameter) {
-        JSONHandler handler = requestFactory.send(new Query(endpoint, parameter).createRequest());
-        cachingStrategy.cacheResponse(endpoint, handler);
-        return handler;
+        return requestFactory.send(new Query(endpoint, parameter));
     }
 
     public JSONHandler getPlayerByUUID(UUID uuid) {

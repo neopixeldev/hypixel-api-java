@@ -2,6 +2,7 @@ package io.github.neopixel.http;
 
 import io.github.neopixel.exception.NeopixelException;
 import io.github.neopixel.http.cache.CachingStrategy;
+import io.github.neopixel.http.query.Query;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.io.IOException;
 import java.util.Objects;
@@ -25,16 +26,14 @@ public class RequestFactory {
      * Sends a request to the Hypixel API. Returns a {@link JSONObject} of the information
      * retrieved.
      *
-     * @param requestBuilder A {@link Request.Builder} with the base <code>URL</code> and parameters
+     * @param query A {@link Query} with a {@link Request.Builder} with the base <code>URL</code> and parameters
      *                       already set.
      * @return A {@link JSONObject} of the information retrieved.
      */
-    public JSONHandler send(HttpUrl.Builder requestBuilder) {
-
-        requestBuilder.addQueryParameter("key", apiKey);
+    public JSONHandler send(Query query) {
 
         Request request = new Request.Builder()
-            .url(requestBuilder.build().toString())
+            .url(query.createRequest().addQueryParameter("key", apiKey).build().toString())
             .build();
 
         try (Response response = client.newCall(request).execute()) {
