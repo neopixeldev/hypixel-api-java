@@ -9,6 +9,7 @@ import io.github.neopixel.wrapper.util.LevelUtil;
 import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONArray;
@@ -173,7 +174,7 @@ public class HypixelPlayer {
         return HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor"));
     }
 
-    public HypixelGuildMember asGuildMember() {
+    public Optional<HypixelGuildMember> asGuildMember() {
         return getGuild().getMemberByUUID(getUUID());
     }
 
