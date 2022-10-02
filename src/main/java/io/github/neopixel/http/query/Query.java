@@ -32,11 +32,7 @@ public class Query {
      */
     public HttpUrl.Builder createRequest() {
         HttpUrl.Builder builder = Objects.requireNonNull(HttpUrl.get(endpoint.getURL())).newBuilder();
-        queryParameterList.ifPresent(queryParameters -> {
-            Arrays.stream(queryParameters).toList().forEach(parameter -> {
-                builder.addQueryParameter(parameter.type().getKey(), parameter.value());
-            });
-        });
+        queryParameterList.ifPresent(queryParameters -> Arrays.stream(queryParameters).toList().forEach(parameter -> builder.addQueryParameter(parameter.type().getKey(), parameter.value())));
         return builder;
     }
 
