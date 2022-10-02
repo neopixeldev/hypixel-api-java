@@ -5,6 +5,7 @@ public enum HypixelQueryParameterTypes {
 
     UUID("uuid"),
     NAME("name"),
+    GUILD_BY_PLAYER("player"),
     GUILD_ID("id");
 
     private String key;

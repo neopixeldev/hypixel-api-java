@@ -70,7 +70,7 @@ public class RequestController {
 
     public JSONHandler getGuildByPlayerUUID(UUID uuid) {
         return retrieveData(Endpoint.GUILD,
-            new QueryParameter(HypixelQueryParameterTypes.UUID, uuid.toString()));
+            new QueryParameter(HypixelQueryParameterTypes.GUILD_BY_PLAYER, uuid.toString()));
     }
 
     public JSONHandler getGuildByName(String name) {
