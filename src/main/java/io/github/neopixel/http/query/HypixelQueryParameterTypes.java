@@ -8,7 +8,7 @@ public enum HypixelQueryParameterTypes {
     GUILD_BY_PLAYER("player"),
     GUILD_ID("id");
 
-    private String key;
+    private final String key;
 
     String getKey() {
         return key;
