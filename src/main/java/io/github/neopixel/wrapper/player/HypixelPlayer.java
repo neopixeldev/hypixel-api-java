@@ -1,5 +1,6 @@
 package io.github.neopixel.wrapper.player;
 
+import io.github.neopixel.exception.GuildNotFoundException;
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.guild.HypixelGuild;
 import io.github.neopixel.wrapper.guild.HypixelGuildMember;
@@ -175,11 +176,15 @@ public class HypixelPlayer {
     }
 
     public Optional<HypixelGuildMember> asGuildMember() {
-        return getGuild().getMemberByUUID(getUUID());
+        return getGuild().flatMap(guild -> guild.getMemberByUUID(getUUID()));
     }
 
-    public HypixelGuild getGuild() {
-        return new HypixelGuild(getUUID(), requestController);
+    public Optional<HypixelGuild> getGuild() {
+        try {
+            return Optional.of(new HypixelGuild(getUUID(), requestController));
+        } catch (GuildNotFoundException e) {
+            return Optional.empty();
+        }
     }
 
     public HypixelPlayerGames getGames() {
