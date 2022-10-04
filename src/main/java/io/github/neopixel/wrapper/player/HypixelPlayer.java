@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -85,68 +86,49 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        JSONArray friendsRecords = requestController.getPlayerFriends(getUUID())
-            .getSafeJSONArray("records");
-        Set<HypixelFriend> hypixelFriends = new HashSet<>();
-
-        friendsRecords.toList().stream().limit(limit).forEach(friendObject -> {
-            JSONObject friendJSONObject = (JSONObject) friendObject;
-            HypixelFriend hypixelFriend;
-            if (UUID.fromString(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
-                hypixelFriend = new HypixelFriend(
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
-            } else {
-                hypixelFriend = new HypixelFriend(
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
-            }
-            hypixelFriends.add(hypixelFriend);
-        });
-
-        return hypixelFriends;
+        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
+            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+                new JSONHandler((JSONObject) friendObject))).limit(limit).collect(Collectors.toSet());
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
-        JSONArray friendsRecords =
-            requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records");
-        Set<HypixelFriend> hypixelFriends = new HashSet<>();
-        friendsRecords.forEach(friendObject -> {
-            JSONObject friendJSONObject = (JSONObject) friendObject;
-            HypixelFriend hypixelFriend;
-            if (UnformattedStringToUUID.convertUnformattedStringToUUID(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
-                hypixelFriend = new HypixelFriend(
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
-            } else {
-                hypixelFriend = new HypixelFriend(
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidSender")),
-                    UnformattedStringToUUID.convertUnformattedStringToUUID(
-                        friendJSONObject.getString("uuidReceiver")),
-                    Instant.ofEpochSecond(friendJSONObject.getLong("started")), requestController);
-            }
-            hypixelFriends.add(hypixelFriend);
-        });
+        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
+            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+                new JSONHandler((JSONObject) friendObject))).collect(Collectors.toSet());
+    }
 
-        return hypixelFriends;
+
+    private HypixelFriend createHypixelFriendFromJSONHandler(JSONHandler handler) {
+        if (isFriendUUIDSender(handler)) {
+            return createHypixelFriendWhenPlayerUUIDReciever(handler);
+        } else {
+            return createHypixelFriendWhenPlayerUUIDSender(handler);
+        }
+    }
+
+    /**
+     * Determines whether the UUID retrieved from the friends endpoint is the Player or its friend.
+     * This is important for the construction of the {@link HypixelFriend} class because it keeps
+     * track of the player and the friend.
+     *
+     * @param handler The {@link JSONHandler} that will be used to retrieve information from the
+     *                {@link JSONObject} returned from the friend endpoint.
+     * @return
+     */
+    private boolean isFriendUUIDSender(JSONHandler handler) {
+        return handler.getSafeUUID("uuidSender").equals(getUUID());
+    }
+
+    private HypixelFriend createHypixelFriendWhenPlayerUUIDReciever(JSONHandler handler) {
+        return new HypixelFriend(handler.getSafeUUID("uuidReceiver"),
+            handler.getSafeUUID("uuidSender"), handler.getSafeUUID("uuidReceiver"),
+            Instant.ofEpochSecond(handler.getSafeLong("started")), requestController);
+    }
+
+    private HypixelFriend createHypixelFriendWhenPlayerUUIDSender(JSONHandler handler) {
+        return new HypixelFriend(handler.getSafeUUID("uuidSender"),
+            handler.getSafeUUID("uuidSender"), handler.getSafeUUID("uuidReceiver"),
+            Instant.ofEpochSecond(handler.getSafeLong("started")), requestController);
     }
 
     public boolean isOnline() {
