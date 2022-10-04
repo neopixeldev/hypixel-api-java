@@ -179,12 +179,8 @@ public class HypixelPlayer {
         return getGuild().flatMap(guild -> guild.getMemberByUUID(getUUID()));
     }
 
-    public Optional<HypixelGuild> getGuild() {
-        try {
-            return Optional.of(new HypixelGuild(getUUID(), requestController));
-        } catch (GuildNotFoundException e) {
-            return Optional.empty();
-        }
+    public HypixelGuild getGuild() {
+       return new HypixelGuild(getUUID(), requestController);
     }
 
     public HypixelPlayerGames getGames() {
