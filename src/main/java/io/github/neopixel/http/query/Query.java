@@ -40,4 +40,20 @@ public class Query {
         this.queryParameterList = Optional.ofNullable(queryParameterList);
         this.endpoint = endpoint;
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        Query other = (Query) o;
+
+        if(queryParameterList.isEmpty() && other.queryParameterList.isEmpty()) return true;
+        if(queryParameterList.isEmpty() || other.queryParameterList.isEmpty()) return false;
+
+
+        return Arrays.equals(queryParameterList.get(), other.queryParameterList.get());
+    }
 }
