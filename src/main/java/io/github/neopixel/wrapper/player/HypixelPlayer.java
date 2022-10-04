@@ -113,7 +113,7 @@ public class HypixelPlayer {
      *
      * @param handler The {@link JSONHandler} that will be used to retrieve information from the
      *                {@link JSONObject} returned from the friend endpoint.
-     * @return
+     * @return true if the UUID retrieved from the friends endpoint is the friend.
      */
     private boolean isFriendUUIDSender(JSONHandler handler) {
         return handler.getSafeUUID("uuidSender").equals(getUUID());
