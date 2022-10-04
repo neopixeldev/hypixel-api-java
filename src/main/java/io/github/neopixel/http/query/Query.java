@@ -14,6 +14,7 @@ import okhttp3.Request;
  */
 public class Query {
 
+    @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     private final Optional<QueryParameter[]> queryParameterList;
     private final Endpoint endpoint;
 
