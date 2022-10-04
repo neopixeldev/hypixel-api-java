@@ -125,7 +125,8 @@ public class HypixelPlayer {
         friendsRecords.forEach(friendObject -> {
             JSONObject friendJSONObject = (JSONObject) friendObject;
             HypixelFriend hypixelFriend;
-            if (UnformattedStringToUUID.convertUnformattedStringToUUID(friendJSONObject.getString("uuidSender")).equals(getUUID())) {
+            if (UnformattedStringToUUID.convertUnformattedStringToUUID(
+                friendJSONObject.getString("uuidSender")).equals(getUUID())) {
                 hypixelFriend = new HypixelFriend(
                     UnformattedStringToUUID.convertUnformattedStringToUUID(
                         friendJSONObject.getString("uuidReceiver")),
@@ -176,21 +177,21 @@ public class HypixelPlayer {
     }
 
     /**
-     *
      * @return A player as a {@link HypixelGuildMember}.
      * @throws GuildNotFoundException if the player is not in a guild.
      */
     public HypixelGuildMember asGuildMember() {
-        return getGuild().getMembers().stream().filter(hypixelGuildMember -> hypixelGuildMember.getUUID().equals(getUUID())).findFirst().get();
+        return getGuild().getMembers().stream()
+            .filter(hypixelGuildMember -> hypixelGuildMember.getUUID().equals(getUUID()))
+            .findFirst().get();
     }
 
     /**
-     *
      * @return The guild that the player belongs to.
      * @throws GuildNotFoundException if the player is not in a guild.
      */
     public HypixelGuild getGuild() {
-       return new HypixelGuild(getUUID(), requestController);
+        return new HypixelGuild(getUUID(), requestController);
     }
 
     public HypixelPlayerGames getGames() {
