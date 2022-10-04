@@ -1,6 +1,5 @@
 package io.github.neopixel.wrapper.games;
 
-import java.util.Optional;
 
 public interface HypixelCosmetic {
 
@@ -12,8 +11,7 @@ public interface HypixelCosmetic {
         Class<? extends HypixelCosmetic> enumeration,
         String string) {
 
-        for (Object e : enumeration.getEnumConstants()) {
-            HypixelCosmetic cosmetic = (HypixelCosmetic) e;
+        for (HypixelCosmetic cosmetic : enumeration.getEnumConstants()) {
             if (cosmetic.getKey().equals(string)) {
                 return cosmetic;
             }
