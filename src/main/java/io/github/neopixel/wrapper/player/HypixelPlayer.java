@@ -175,10 +175,20 @@ public class HypixelPlayer {
         return HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor"));
     }
 
-    public Optional<HypixelGuildMember> asGuildMember() {
-        return getGuild().flatMap(guild -> guild.getMemberByUUID(getUUID()));
+    /**
+     *
+     * @return A player as a {@link HypixelGuildMember}.
+     * @throws GuildNotFoundException if the player is not in a guild.
+     */
+    public HypixelGuildMember asGuildMember() {
+        return getGuild().getMembers().stream().filter(hypixelGuildMember -> hypixelGuildMember.getUUID().equals(getUUID())).findFirst().get();
     }
 
+    /**
+     *
+     * @return The guild that the player belongs to.
+     * @throws GuildNotFoundException if the player is not in a guild.
+     */
     public HypixelGuild getGuild() {
        return new HypixelGuild(getUUID(), requestController);
     }
