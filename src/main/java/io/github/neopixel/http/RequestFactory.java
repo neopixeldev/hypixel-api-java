@@ -4,6 +4,7 @@ import io.github.neopixel.exception.NeopixelException;
 import io.github.neopixel.http.cache.CachingStrategy;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.UUID;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -40,7 +41,7 @@ public class RequestFactory {
             .build();
 
         try (Response response = client.newCall(request).execute()) {
-            JSONObject returnObject = new JSONObject(response.body().string());
+            JSONObject returnObject = new JSONObject(Objects.requireNonNull(response.body()).string());
             if (RequestValidator.isValid(response, returnObject)) {
                 return new JSONHandler(returnObject);
             } else {
