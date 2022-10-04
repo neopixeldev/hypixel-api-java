@@ -31,8 +31,11 @@ public class Query {
      * API credentials.
      */
     public HttpUrl.Builder createRequest() {
-        HttpUrl.Builder builder = Objects.requireNonNull(HttpUrl.get(endpoint.getURL())).newBuilder();
-        queryParameterList.ifPresent(queryParameters -> Arrays.stream(queryParameters).toList().forEach(parameter -> builder.addQueryParameter(parameter.type().getKey(), parameter.value())));
+        HttpUrl.Builder builder = Objects.requireNonNull(HttpUrl.get(endpoint.getURL()))
+            .newBuilder();
+        queryParameterList.ifPresent(queryParameters -> Arrays.stream(queryParameters).toList()
+            .forEach(parameter -> builder.addQueryParameter(parameter.type().getKey(),
+                parameter.value())));
         return builder;
     }
 
@@ -50,10 +53,18 @@ public class Query {
 
         Query other = (Query) o;
 
-        if(queryParameterList.isEmpty() && other.queryParameterList.isEmpty()) return true;
-        if(queryParameterList.isEmpty() || other.queryParameterList.isEmpty()) return false;
+        if (endpoint.equals(other.endpoint)) {
+            if (queryParameterList.isEmpty() && other.queryParameterList.isEmpty()) {
+                return true;
+            }
+            if (queryParameterList.isEmpty() || other.queryParameterList.isEmpty()) {
+                return false;
+            }
 
+            return Arrays.equals(queryParameterList.get(), other.queryParameterList.get());
+        } else {
+            return false;
+        }
 
-        return Arrays.equals(queryParameterList.get(), other.queryParameterList.get());
     }
 }
