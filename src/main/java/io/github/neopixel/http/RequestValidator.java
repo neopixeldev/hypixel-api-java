@@ -13,12 +13,11 @@ import org.json.JSONObject;
 public class RequestValidator {
 
     public static boolean isValid(Response response, JSONObject returnObject) {
+
         if (response.isSuccessful()) {
-            if (!returnObject.isNull("player") || !returnObject.isNull("guild")) {
-                return true;
-            } else if (returnObject.isNull("player")) {
+            if (returnObject.has("player") && returnObject.isNull("player")) {
                 throw new PlayerNotFoundException("Player not found.");
-            } else if (returnObject.isNull("guild")) {
+            } else if (returnObject.has("guild") && returnObject.isNull("guild")) {
                 throw new GuildNotFoundException("Guild not found.");
             }
         } else {
@@ -26,20 +25,18 @@ public class RequestValidator {
             String failString = returnObject.getString("cause");
 
             switch (response.code()) {
-                case 400:
-                    throw new MissingFieldException(failString);
-                case 403:
-                    throw new ForbiddenAccessException(failString);
-                case 422:
-                    throw new InvalidDataException(failString);
-                case 429:
-                    throw new KeyThrottleException(failString);
-                default:
-                    throw new UnknownAPIException(failString);
+                case 400 -> throw new MissingFieldException(failString);
+                case 403 -> throw new ForbiddenAccessException(failString);
+                case 422 -> throw new InvalidDataException(failString);
+                case 429 -> throw new KeyThrottleException(failString);
+
             }
+
         }
-        return false;
+        return true;
+
     }
 
 }
+
 

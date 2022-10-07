@@ -1,17 +1,17 @@
 package io.github.neopixel.wrapper.player;
 
+import io.github.neopixel.exception.GuildNotFoundException;
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.guild.HypixelGuild;
 import io.github.neopixel.wrapper.guild.HypixelGuildMember;
 import io.github.neopixel.wrapper.util.HypixelColors;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import io.github.neopixel.wrapper.util.LevelUtil;
-import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+
+
 import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,12 +23,12 @@ public class HypixelPlayer {
 
     public HypixelPlayer(String username, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getPlayer(username).getJSONHandler("player");
+        this.jsonHandler = requestController.getPlayerByUsername(username).getJSONHandler("player");
     }
 
     public HypixelPlayer(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getPlayer(uuid).getJSONHandler("player");
+        this.jsonHandler = requestController.getPlayerByUUID(uuid).getJSONHandler("player");
     }
 
     public String getUsername() {
@@ -86,17 +86,16 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
-            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+        return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
+            .stream().map(friendObject -> createHypixelFriendFromJSONHandler(
                 new JSONHandler((JSONObject) friendObject))).limit(limit).collect(Collectors.toSet());
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
-        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
-            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+        return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
+            .stream().map(friendObject -> createHypixelFriendFromJSONHandler(
                 new JSONHandler((JSONObject) friendObject))).collect(Collectors.toSet());
     }
-
 
     private HypixelFriend createHypixelFriendFromJSONHandler(JSONHandler handler) {
         if (isFriendUUIDSender(handler)) {
@@ -132,7 +131,7 @@ public class HypixelPlayer {
     }
 
     public boolean isOnline() {
-        return requestController.getPlayerStatus(getUsername()).getJSONHandler("session")
+        return requestController.getPlayerStatusByUsername(getUsername()).getJSONHandler("session")
             .getSafeBoolean("online");
     }
 
@@ -156,10 +155,20 @@ public class HypixelPlayer {
         return HypixelColors.valueOf(jsonHandler.getSafeString("rankPlusColor"));
     }
 
+    /**
+     * @return A player as a {@link HypixelGuildMember}.
+     * @throws GuildNotFoundException if the player is not in a guild.
+     */
     public HypixelGuildMember asGuildMember() {
-        return getGuild().getMemberByUUID(getUUID());
+        return getGuild().getMembers().stream()
+            .filter(hypixelGuildMember -> hypixelGuildMember.getUUID().equals(getUUID()))
+            .findFirst().get();
     }
 
+    /**
+     * @return The guild that the player belongs to.
+     * @throws GuildNotFoundException if the player is not in a guild.
+     */
     public HypixelGuild getGuild() {
         return new HypixelGuild(getUUID(), requestController);
     }
