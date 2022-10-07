@@ -7,13 +7,10 @@ import io.github.neopixel.wrapper.guild.HypixelGuildMember;
 import io.github.neopixel.wrapper.util.HypixelColors;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import io.github.neopixel.wrapper.util.LevelUtil;
-import io.github.neopixel.wrapper.util.UnformattedStringToUUID;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
-92
+import java.util.UUID;
+
 
 import java.util.stream.Collectors;
 import org.json.JSONArray;
