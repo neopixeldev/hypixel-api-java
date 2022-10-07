@@ -87,13 +87,13 @@ public class HypixelPlayer {
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
         return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
-            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+            .stream().map(friendObject -> createHypixelFriendFromJSONHandler(
                 new JSONHandler((JSONObject) friendObject))).limit(limit).collect(Collectors.toSet());
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
         return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
-            .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
+            .stream().map(friendObject -> createHypixelFriendFromJSONHandler(
                 new JSONHandler((JSONObject) friendObject))).collect(Collectors.toSet());
     }
 
