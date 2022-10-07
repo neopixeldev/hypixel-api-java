@@ -12,6 +12,14 @@ import org.json.JSONObject;
 
 public class RequestValidator {
 
+    /**
+     * Validates the response from the Hypixel API.
+     *
+     * @param response     The {@link Response response} from the API.
+     * @param returnObject The {@link JSONObject} returned from the API.
+     * @return  true if the response is valid, otherwise throws the correct
+     * {@link io.github.neopixel.exception.NeopixelException}.
+     */
     public static boolean isValid(Response response, JSONObject returnObject) {
 
         if (response.isSuccessful()) {
