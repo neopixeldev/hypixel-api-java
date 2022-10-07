@@ -89,17 +89,16 @@ public class HypixelPlayer {
      * {@link HypixelPlayer}'s on the users friend list.
      */
     public Set<HypixelFriend> getHypixelFriends(int limit) {
-        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
+        return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
             .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
                 new JSONHandler((JSONObject) friendObject))).limit(limit).collect(Collectors.toSet());
     }
 
     public Set<HypixelFriend> getHypixelFriends() {
-        return requestController.getPlayerFriends(getUUID()).getSafeJSONArray("records").toList()
+        return requestController.getPlayerFriendsByUUID(getUUID()).getSafeJSONArray("records").toList()
             .stream().map(friendObject -> createHypixelFriendWhenPlayerUUIDReciever(
                 new JSONHandler((JSONObject) friendObject))).collect(Collectors.toSet());
     }
-
 
     private HypixelFriend createHypixelFriendFromJSONHandler(JSONHandler handler) {
         if (isFriendUUIDSender(handler)) {
