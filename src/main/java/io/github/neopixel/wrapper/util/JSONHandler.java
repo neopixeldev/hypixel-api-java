@@ -63,6 +63,14 @@ public class JSONHandler {
         }
     }
 
+    public float getSafeFloat(String key) {
+        if (stats.has(statsPrefix + key)) {
+            return stats.getFloat(statsPrefix + key);
+        } else {
+            return 0f;
+        }
+    }
+
     public long getSafeLong(String key) {
         if (stats.has(statsPrefix + key)) {
             return stats.getLong(statsPrefix + key);
@@ -79,6 +87,14 @@ public class JSONHandler {
             return null;
         }
 
+    }
+
+    public int getIntOrThrow(String key, RuntimeException exception) {
+        if (stats.has(statsPrefix + key)) {
+            return stats.getInt(statsPrefix + key);
+        } else {
+            throw exception;
+        }
     }
 
     public Iterator<String> getKeys() {
