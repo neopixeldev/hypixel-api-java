@@ -7,6 +7,7 @@ import io.github.neopixel.wrapper.util.HypixelGameTypes;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -24,12 +25,12 @@ public class HypixelGuild {
 
     public HypixelGuild(String name, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getGuild(name).getJSONHandler("guild");
+        this.jsonHandler = requestController.getGuildByName(name).getJSONHandler("guild");
     }
 
     public HypixelGuild(UUID uuid, RequestController requestController) {
         this.requestController = requestController;
-        this.jsonHandler = requestController.getGuild(uuid);
+        this.jsonHandler = requestController.getGuildByPlayerUUID(uuid).getJSONHandler("guild");
     }
 
     public String getName() {
@@ -66,9 +67,8 @@ public class HypixelGuild {
         }).collect(Collectors.toList());
     }
 
-    public HypixelGuildMember getMemberByUUID(UUID uuid) {
-        return getMembers().stream().filter(member -> member.getUUID().equals(uuid)).findFirst()
-            .get();
+    public Optional<HypixelGuildMember> getMemberByUUID(UUID uuid) {
+        return getMembers().stream().filter(member -> member.getUUID().equals(uuid)).findFirst();
     }
 
     /**

@@ -1,6 +1,7 @@
 package io.github.neopixel.http.cache;
 
 import io.github.neopixel.http.Endpoint;
+import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Clock;
 import java.util.EnumMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class BasicCachingStrategy implements CachingStrategy {
     private final long validCacheTime;
     private final Clock clock;
     // The long in the value Pair are the current time ms
-    private final Map<Endpoint, Pair<JSONObject, Long>> cache = new EnumMap<>(Endpoint.class);
+    private final Map<Endpoint, Pair<JSONHandler, Long>> cache = new EnumMap<>(Endpoint.class);
 
     /**
      * Creates a new {@link BasicCachingStrategy} with a valid cache time of 20s
@@ -36,19 +37,19 @@ public class BasicCachingStrategy implements CachingStrategy {
     }
 
     @Override
-    public void cacheResponse(Endpoint endpoint, JSONObject res) {
-        cache.put(endpoint, Pair.of(res, clock.millis()));
+    public void cacheResponse(Endpoint endpoint, JSONHandler jsonHandler) {
+        cache.put(endpoint, Pair.of(jsonHandler, clock.millis()));
     }
 
     @Override
-    public JSONObject getCachedResponse(Endpoint endpoint) {
-        Pair<JSONObject, Long> pair = cache.get(endpoint);
+    public JSONHandler getCachedResponse(Endpoint endpoint) {
+        Pair<JSONHandler, Long> pair = cache.get(endpoint);
         return pair == null ? null : pair.getLeft();
     }
 
     @Override
     public boolean isCacheValid(Endpoint endpoint) {
-        Pair<JSONObject, Long> pair = cache.get(endpoint);
+        Pair<JSONHandler, Long> pair = cache.get(endpoint);
         return pair != null && clock.millis() <= pair.getRight() + validCacheTime;
     }
 

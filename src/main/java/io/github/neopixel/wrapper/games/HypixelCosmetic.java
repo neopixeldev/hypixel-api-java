@@ -1,19 +1,19 @@
 package io.github.neopixel.wrapper.games;
 
-import java.util.Optional;
 
 public interface HypixelCosmetic {
 
-    public String getFormattedName();
-    public String getKey();
-    public HypixelCosmeticRarities getRarity();
+    String getFormattedName();
 
-    public static HypixelCosmetic getHypixelCosmeticFromKey(
+    String getKey();
+
+    HypixelCosmeticRarities getRarity();
+
+    static HypixelCosmetic getHypixelCosmeticFromKey(
         Class<? extends HypixelCosmetic> enumeration,
         String string) {
 
-        for (Object e : enumeration.getEnumConstants()) {
-            HypixelCosmetic cosmetic = (HypixelCosmetic) e;
+        for (HypixelCosmetic cosmetic : enumeration.getEnumConstants()) {
             if (cosmetic.getKey().equals(string)) {
                 return cosmetic;
             }
