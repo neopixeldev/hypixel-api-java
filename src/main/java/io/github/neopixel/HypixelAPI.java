@@ -9,8 +9,8 @@ public class HypixelAPI {
 
     private final RequestController requestController;
 
-    private HypixelAPI(UUID key, CachingStrategy cachingStrategy) {
-        this.requestController = new RequestController(key, cachingStrategy);
+    private HypixelAPI(UUID key) {
+        this.requestController = new RequestController(key);
     }
 
     /**
@@ -20,21 +20,9 @@ public class HypixelAPI {
      * @return the newly created instance
      */
     public static HypixelAPI create(UUID key) {
-        return create(key, new NoCachingStrategy());
+        return create(key);
     }
 
-    /**
-     * Creates a new instance of the HypixelAPI object
-     *
-     * @param key             the api key to use for authentication
-     * @param cachingStrategy the caching strategy to use. If null is passed the NoCachingStrategy
-     *                        will be used to disable caching
-     * @return the newly created instance
-     */
-    public static HypixelAPI create(UUID key, CachingStrategy cachingStrategy) {
-        return new HypixelAPI(key, cachingStrategy);
-    }
-    
 
     public HypixelPlayer getPlayerByName(String username) {
         return new HypixelPlayer(username, requestController);

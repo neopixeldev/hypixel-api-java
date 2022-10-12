@@ -13,11 +13,9 @@ import java.util.UUID;
 public class RequestController {
 
     private final RequestFactory requestFactory;
-    private final CachingStrategy cachingStrategy;
 
-    public RequestController(UUID apiKey, CachingStrategy cachingStrategy) {
+    public RequestController(UUID apiKey) {
         requestFactory = new RequestFactory(apiKey);
-        this.cachingStrategy = cachingStrategy;
     }
 
     /**
