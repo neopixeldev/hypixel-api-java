@@ -34,7 +34,7 @@ public class JSONHandler {
         if (stats.has(statsPrefix + key)) {
             return stats.getString(statsPrefix + key);
         } else {
-            return null;
+            return "";
         }
     }
 
