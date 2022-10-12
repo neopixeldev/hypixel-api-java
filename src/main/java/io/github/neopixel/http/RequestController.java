@@ -1,6 +1,5 @@
 package io.github.neopixel.http;
 
-import io.github.neopixel.http.cache.CachingStrategy;
 import io.github.neopixel.http.query.HypixelQueryParameterTypes;
 import io.github.neopixel.http.query.Query;
 import io.github.neopixel.http.query.QueryParameter;

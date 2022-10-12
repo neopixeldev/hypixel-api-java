@@ -1,11 +1,8 @@
 package io.github.neopixel;
 
 import io.github.neopixel.http.RequestController;
-import io.github.neopixel.http.cache.CachingStrategy;
-import io.github.neopixel.http.cache.NoCachingStrategy;
 import io.github.neopixel.wrapper.guild.HypixelGuild;
 import io.github.neopixel.wrapper.player.HypixelPlayer;
-import java.io.IOException;
 import java.util.UUID;
 
 public class HypixelAPI {

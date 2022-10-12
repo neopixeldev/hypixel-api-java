@@ -1,13 +1,14 @@
 package io.github.neopixel.http;
 
 import io.github.neopixel.exception.NeopixelException;
-import io.github.neopixel.http.cache.CachingStrategy;
+import io.github.neopixel.http.cache.CacheInterceptor;
 import io.github.neopixel.http.query.Query;
 import io.github.neopixel.wrapper.util.JSONHandler;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import okhttp3.HttpUrl;
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -15,10 +16,18 @@ import org.json.JSONObject;
 
 public class RequestFactory {
     private final String apiKey;
-    private final OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client;
 
     protected RequestFactory(UUID apiKey) {
         this.apiKey = apiKey.toString();
+
+        File httpCacheDirectory = new File("./cacheDir", "http-cache");
+        int cacheSize = 10 * 1024 * 1024; // 10 MiB
+        Cache cache = new Cache(httpCacheDirectory, cacheSize);
+        this.client = new OkHttpClient.Builder()
+            .addNetworkInterceptor(new CacheInterceptor())
+            .cache(cache)
+            .build();
     }
 
 
