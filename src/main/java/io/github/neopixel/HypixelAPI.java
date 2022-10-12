@@ -20,7 +20,7 @@ public class HypixelAPI {
      * @return the newly created instance
      */
     public static HypixelAPI create(UUID key) {
-        return create(key);
+        return new HypixelAPI(key);
     }
 
 
