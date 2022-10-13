@@ -20,10 +20,11 @@ public class RequestFactory {
 
     protected RequestFactory(UUID apiKey) {
         this.apiKey = apiKey.toString();
+        this.client = new OkHttpClient();
+    }
 
-        File httpCacheDirectory = new File("./cacheDir", "http-cache");
-        int cacheSize = 10 * 1024 * 1024; // 10 MiB
-        Cache cache = new Cache(httpCacheDirectory, cacheSize);
+    protected RequestFactory(UUID apiKey, Cache cache) {
+        this.apiKey = apiKey.toString();
         this.client = new OkHttpClient.Builder()
             .addNetworkInterceptor(new CacheInterceptor())
             .cache(cache)

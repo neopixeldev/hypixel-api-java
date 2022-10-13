@@ -5,10 +5,12 @@ import io.github.neopixel.http.query.Query;
 import io.github.neopixel.http.query.QueryParameter;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.UUID;
+import okhttp3.Cache;
 
 /**
- * Encapsulates, controls, sends, and recieves requests to and from the Hypixel API.
- * Methods are overriden and delegate the correct {@link Query query} for the requested {@link Endpoint endpoint}.
+ * Encapsulates, controls, sends, and recieves requests to and from the Hypixel API. Methods are
+ * overriden and delegate the correct {@link Query query} for the requested
+ * {@link Endpoint endpoint}.
  */
 public class RequestController {
 
@@ -17,6 +19,11 @@ public class RequestController {
     public RequestController(UUID apiKey) {
         requestFactory = new RequestFactory(apiKey);
     }
+
+    public RequestController(UUID apiKey, Cache cache) {
+        requestFactory = new RequestFactory(apiKey, cache);
+    }
+
 
     /**
      * Retrieves data from the API. Provide the endpoint and the query parameters needed.
