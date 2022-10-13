@@ -40,16 +40,7 @@ public enum HypixelDuelsModes {
     BRIDGE_FOURS("bridge_four_"),
 
     BRIDGE_2v2v2v2("bridge_2v2v2v2"),
-    BRIDGE_3v3v3v3("bridge_3v3v3v3"),
-
-
-
-
-
-
-
-
-
+    BRIDGE_3v3v3v3("bridge_3v3v3v3");
 
     final String statsPrefix;
 
