@@ -2,6 +2,7 @@ package io.github.neopixel.wrapper.games.arcade;
 
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
+import java.time.Instant;
 
 public class HypixelArcade extends HypixelGame {
 
@@ -574,6 +575,76 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("zombie_kills_zombies_deadend_normal");
     }
 
+    // dragon wars2 stats
+
+    public int getDragonWars2Wins() {
+        return jsonHandler.getSafeInt("wins_dragonwars2");
+    }
+    public int getDragonWars2Kills() {
+        return jsonHandler.getSafeInt("kills_dragonwars2");
+    }
+
+    // hitw stats
+
+    public int getHitwRecordQ() {
+        return jsonHandler.getSafeInt("hitw_record_q");
+    }
+
+    public int getHitwRecordF() {
+        return jsonHandler.getSafeInt("hitw_record_f");
+    }
+
+    // enderspleef stats
+
+    public String getEnderSpleefTrail() {
+        return jsonHandler.getSafeString("enderspleef_trail");
+    }
+
+    // soccer stats
+
+    public int getSoccerWins() {
+        return jsonHandler.getSafeInt("wins_soccer");
+    }
+
+    public int getSoccerGoals() {
+        return jsonHandler.getSafeInt("goals_soccer");
+    }
+
+    public int getSoccerKicks() {
+        return jsonHandler.getSafeInt("kicks_soccer");
+    }
+
+    public int getSoccerPowerKicks() {
+        return jsonHandler.getSafeInt("powerkicks_soccer");
+    }
+
+    // farm hunt stats
+
+    public int getFarmHuntWins() {
+        return jsonHandler.getSafeInt("wins_farmhunt");
+    }
+
+    // Halloween simulator stats
+
+    public int getHalloweenSimulatorCandyFound() {
+        return jsonHandler.getSafeInt("candy_found_halloween_simulator");
+    }
+
+    public int getHalloweenSimulatorWins() {
+        return jsonHandler.getSafeInt("wins_halloween_simulator");
+    }
+
+    // santa says stats
+
+    public int getSantaSaysRoundWins() {
+        return jsonHandler.getSafeInt("round_wins_santa_says");
+    }
+
+    public int getSantaSaysTopScore() {
+        return jsonHandler.getSafeInt("top_score_santa_says");
+    }
+
+
     public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("coins_weekly_a");
     }
@@ -590,17 +661,24 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("monthly_coins_b");
     }
 
-    public int getHitwRecordQ() {
-        return jsonHandler.getSafeInt("hitw_record_q");
-    }
-
-
     public int getStampLevel() {
         return jsonHandler.getSafeInt("stamp_level");
     }
 
     public int getPoopCollected() {
         return jsonHandler.getSafeInt("poop_collected");
+    }
+
+    public Instant getLastTourneyAd() {
+        return Instant.ofEpochSecond(jsonHandler.getSafeLong("lastTourneyAd"));
+    }
+
+    public boolean isShowInFoBook() {
+        return jsonHandler.getSafeBoolean("showinfobook");
+    }
+
+    public int getMaxWave() {
+        return jsonHandler.getSafeInt("max_wave");
     }
 
 }
