@@ -65,13 +65,7 @@ public class HypixelArcade extends HypixelGame {
 
     // throwout stats
 
-    public int getThrowoutKills() {
-        return jsonHandler.getSafeInt("kills_throw_out");
-    }
 
-    public int getThrowoutDeaths() {
-        return jsonHandler.getSafeInt("deaths_throw_out");
-    }
 
     // ender stats
 
@@ -151,6 +145,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelEnder getEnderStats() {
         return new HypixelEnder(jsonHandler);
+    }
+
+    public HypixelThrowout getThrowoutStats() {
+        return new HypixelThrowout(jsonHandler);
     }
 
 
