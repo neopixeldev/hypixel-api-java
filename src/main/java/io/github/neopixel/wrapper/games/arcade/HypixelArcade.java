@@ -75,25 +75,7 @@ public class HypixelArcade extends HypixelGame {
 
     // ender stats
 
-    public int getEnderWins() {
-        return jsonHandler.getSafeInt("wins_ender");
-    }
 
-    public int getEnderBigShotPowerupActivations() {
-        return jsonHandler.getSafeInt("bigshot_powerup_activations_ender");
-    }
-
-    public int getEnderBlocksDestroyed() {
-        return jsonHandler.getSafeInt("blocks_destroyed_ender");
-    }
-
-    public int getEnderPowerupActivations() {
-        return jsonHandler.getSafeInt("powerup_activations_ender");
-    }
-
-    public int getEnderTripleShotPowerupActivations() {
-        return jsonHandler.getSafeInt("tripleshot_powerup_activations_ender");
-    }
 
     // party games stats
 
@@ -165,6 +147,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelHideAndSeek getHideAndSeekStats() {
         return new HypixelHideAndSeek(jsonHandler);
+    }
+
+    public HypixelEnder getEnderStats() {
+        return new HypixelEnder(jsonHandler);
     }
 
 
