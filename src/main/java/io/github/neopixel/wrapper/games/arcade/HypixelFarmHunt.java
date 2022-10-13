@@ -24,7 +24,7 @@ public class HypixelFarmHunt extends HypixelGame {
         return false;
     }
 
-    public int getFarmHuntWins() {
+    public int getWins() {
         return jsonHandler.getSafeInt("wins_farmhunt");
     }
 
