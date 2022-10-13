@@ -15,16 +15,7 @@ public class HypixelBedWars {
         this.jsonHandler = jsonHandler;
     }
 
-    /**
-     * @return The amount of resources the player has collected.
-     */
-    public int getResourcesCollected() {
-        return jsonHandler.getSafeInt("resources_collected_bedwars");
-    }
 
-    /**
-     * @return The amount of diamonds the player has collected.
-     */
     public int getDiamondsCollected() {
         return jsonHandler.getSafeInt("diamond_resources_collected_bedwars");
     }
