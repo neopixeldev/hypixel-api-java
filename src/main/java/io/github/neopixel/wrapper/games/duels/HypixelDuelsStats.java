@@ -44,28 +44,102 @@ public class HypixelDuelsStats extends HypixelGame implements HypixelLootChestGa
             jsonHandler.getThisJSONHandlerWithStatsPrefix(mode.getStatsPrefix()));
     }
 
+    public boolean isKitMenuOptionEnabled() {
+        return jsonHandler.getSafeString("kit_menu_option").equals("on");
+    }
+
+    public boolean isShowLeaderboardsEnabled() {
+        return jsonHandler.getSafeString("show_lb_option").equals("on");
+    }
+
+    public int getGamesPlayed() {
+        return jsonHandler.getSafeInt("games_played_duels");
+    }
+
+    public String getRematchOption() {
+        return jsonHandler.getSafeString("rematch_option_1");
+    }
+
+    public int getCoins() {
+        return jsonHandler.getSafeInt("coins");
+    }
+
+    public String getActiveProjectileTrail() {
+        return jsonHandler.getSafeString("active_projectile_trail");
+    }
+
+    public String getActiveEmblem() {
+        return jsonHandler.getSafeString("active_emblem");
+    }
+
+    public String getActiveKillMessage() {
+        return jsonHandler.getSafeString("active_killmessages");
+    }
+
+    public String getActiveKillEffect() {
+        return jsonHandler.getSafeString("active_kill_effect");
+    }
+
+    public String getActiveVictoryDance() {
+        return jsonHandler.getSafeString("active_victory_dance");
+    }
+
+    public String getActiveAuras() {
+        return jsonHandler.getSafeString("active_auras");
+    }
+
+    public String getActiveWeaponpacks() {
+        return jsonHandler.getSafeString("active_weaponpacks");
+    }
+
+    public boolean isChallengesEnabled() {
+        return jsonHandler.getSafeBoolean("challenges_enabled");
+    }
+
+    public String getStatusField() {
+        return jsonHandler.getSafeString("status_field");
+    }
+
+    public String getEquippedCustomTitle() {
+        return jsonHandler.getSafeString("equipped_custom_titles");
+    }
+
+    public boolean isProjectileTrailEnabled() {
+        return jsonHandler.getSafeBoolean("toggle_proj_trail");
+    }
+
+    public String getActiveCosmeticTitle() {
+        return jsonHandler.getSafeString("active_cosmetictitle");
+    }
+
+
+
+
+
+
+
     @Override
     public int getOpenedChestsAmount() {
-        return 0;
+        return jsonHandler.getSafeInt("Duels_openedChests");
     }
 
     @Override
     public int getOpenedCommonChestsAmount() {
-        return 0;
+        return jsonHandler.getSafeInt("Duels_openedCommons");
     }
 
     @Override
     public int getOpenedRareChestsAmount() {
-        return 0;
+        return jsonHandler.getSafeInt("Duels_openedRares")
     }
 
     @Override
     public int getOpenedEpicChestsAmount() {
-        return 0;
+        return jsonHandler.getSafeInt("Duels_openedEpics")
     }
 
     @Override
     public int getOpenedLegendaryChestsAmount() {
-        return 0;
+        return jsonHandler.getSafeInt("Duels_openedLegendaries")
     }
 }
