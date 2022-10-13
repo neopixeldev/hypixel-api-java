@@ -33,44 +33,6 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeBoolean("hints");
     }
 
-
-    // sw stats
-    public int getSWKills() {
-        return jsonHandler.getSafeInt("sw_kills");
-    }
-
-    public int getSWShotsFired() {
-        return jsonHandler.getSafeInt("sw_shots_fired");
-    }
-
-    public int getSWWeeklyKillsA() {
-        return jsonHandler.getSafeInt("sw_weekly_kills_a");
-    }
-
-    public int getSWWeeklyKillsB() {
-        return jsonHandler.getSafeInt("sw_weekly_kills_b");
-    }
-
-    public int getSWRebelKills() {
-        return jsonHandler.getSafeInt("sw_rebel_kills");
-    }
-
-    public int getSWDeaths() {
-        return jsonHandler.getSafeInt("sw_deaths");
-    }
-
-    public int getSWMonthlyKillsA() {
-        return jsonHandler.getSafeInt("sw_monthly_kills_a");
-    }
-
-    public int getSWMonthlyKillsB() {
-        return jsonHandler.getSafeInt("sw_monthly_kills_b");
-    }
-
-    public int getSWEmpireKills() {
-        return jsonHandler.getSafeInt("sw_empire_kills");
-    }
-
     public boolean isMusicEnabled() {
         return jsonHandler.getSafeBoolean("music");
     }
@@ -647,7 +609,11 @@ public class HypixelArcade extends HypixelGame {
     public HypixelPixelParty getPixelPartyStats() {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
     }
-    
+
+    public HypixelArcadeSW getArcadeSWStats() {
+        return new HypixelArcadeSW(jsonHandler);
+    }
+
     public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("coins_weekly_a");
     }
