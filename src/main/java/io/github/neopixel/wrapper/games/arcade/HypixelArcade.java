@@ -644,7 +644,10 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("top_score_santa_says");
     }
 
-
+    public HypixelPixelParty getPixelPartyStats() {
+        return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
+    }
+    
     public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("coins_weekly_a");
     }
