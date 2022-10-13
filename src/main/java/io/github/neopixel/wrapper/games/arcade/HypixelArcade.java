@@ -1,6 +1,7 @@
 package io.github.neopixel.wrapper.games.arcade;
 
 import io.github.neopixel.wrapper.games.HypixelGame;
+import io.github.neopixel.wrapper.games.housing.HypixelHousing;
 import io.github.neopixel.wrapper.player.HypixelFriend;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Instant;
@@ -98,25 +99,7 @@ public class HypixelArcade extends HypixelGame {
 
     // hide & seek stats
 
-    public int getHideAndSeekPartyPooperSeekerWins() {
-        return jsonHandler.getSafeInt("party_pooper_seeker_wins_hide_and_seek");
-    }
 
-    public int getHideAndSeekSeekerWins() {
-        return jsonHandler.getSafeInt("seeker_wins_hide_and_seek");
-    }
-
-    public int getHideAndSeekHiderWins() {
-        return jsonHandler.getSafeInt("hider_wins_hide_and_seek");
-    }
-
-    public int getHideAndSeekPartyPooperHiderWins() {
-        return jsonHandler.getSafeInt("party_pooper_hider_wins_hide_and_seek");
-    }
-
-    public int getHideAndSeekPropHuntHiderWins() {
-        return jsonHandler.getSafeInt("prop_hunt_hider_wins_hide_and_seek");
-    }
 
     // dragon wars2 stats
 
@@ -178,6 +161,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelDragonWars2 getDragonWars2Stats() {
         return new HypixelDragonWars2(jsonHandler);
+    }
+
+    public HypixelHideAndSeek getHideAndSeekStats() {
+        return new HypixelHideAndSeek(jsonHandler);
     }
 
 
