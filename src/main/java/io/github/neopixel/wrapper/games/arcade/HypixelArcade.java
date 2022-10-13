@@ -143,23 +143,8 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeString("enderspleef_trail");
     }
 
-    // soccer stats
 
-    public int getSoccerWins() {
-        return jsonHandler.getSafeInt("wins_soccer");
-    }
 
-    public int getSoccerGoals() {
-        return jsonHandler.getSafeInt("goals_soccer");
-    }
-
-    public int getSoccerKicks() {
-        return jsonHandler.getSafeInt("kicks_soccer");
-    }
-
-    public int getSoccerPowerKicks() {
-        return jsonHandler.getSafeInt("powerkicks_soccer");
-    }
 
 
 
@@ -197,6 +182,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelFarmHunt getFarmHuntStats() {
         return new HypixelFarmHunt(jsonHandler);
+    }
+
+    public HypixelSoccer getSoccerStats() {
+        return new HypixelSoccer(jsonHandler);
     }
 
     public int getWeeklyCoinsA() {
