@@ -39,36 +39,41 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeBoolean("music");
     }
 
-    // whole in the wall stats
+    public int getWeeklyCoinsA() {
+        return jsonHandler.getSafeInt("coins_weekly_a");
+    }
 
+    public int getWeeklyCoinsB() {
+        return jsonHandler.getSafeInt("coins_weekly_b");
+    }
 
+    public int getMonthlyCoinsA() {
+        return jsonHandler.getSafeInt("monthly_coins_a");
+    }
 
-    // simon says stats
+    public int getMonthlyCoinsB() {
+        return jsonHandler.getSafeInt("monthly_coins_b");
+    }
 
+    public int getStampLevel() {
+        return jsonHandler.getSafeInt("stamp_level");
+    }
 
+    public int getPoopCollected() {
+        return jsonHandler.getSafeInt("poop_collected");
+    }
 
-    // throwout stats
+    public Instant getLastTourneyAd() {
+        return Instant.ofEpochSecond(jsonHandler.getSafeLong("lastTourneyAd"));
+    }
 
+    public boolean isShowInFoBook() {
+        return jsonHandler.getSafeBoolean("showinfobook");
+    }
 
-
-    // ender stats
-
-
-
-    // party games stats
-
-    // hide & seek stats
-
-
-
-    // dragon wars2 stats
-
-
-
-
-
-
-
+    public int getMaxWave() {
+        return jsonHandler.getSafeInt("max_wave");
+    }
 
 
     public HypixelHitw getHitwStats() {
@@ -141,45 +146,6 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelHoleInTheWall getHoleInTheWallStats() {
         return new HypixelHoleInTheWall(jsonHandler);
-    }
-
-
-
-
-    public int getWeeklyCoinsA() {
-        return jsonHandler.getSafeInt("coins_weekly_a");
-    }
-
-    public int getWeeklyCoinsB() {
-        return jsonHandler.getSafeInt("coins_weekly_b");
-    }
-
-    public int getMonthlyCoinsA() {
-        return jsonHandler.getSafeInt("monthly_coins_a");
-    }
-
-    public int getMonthlyCoinsB() {
-        return jsonHandler.getSafeInt("monthly_coins_b");
-    }
-
-    public int getStampLevel() {
-        return jsonHandler.getSafeInt("stamp_level");
-    }
-
-    public int getPoopCollected() {
-        return jsonHandler.getSafeInt("poop_collected");
-    }
-
-    public Instant getLastTourneyAd() {
-        return Instant.ofEpochSecond(jsonHandler.getSafeLong("lastTourneyAd"));
-    }
-
-    public boolean isShowInFoBook() {
-        return jsonHandler.getSafeBoolean("showinfobook");
-    }
-
-    public int getMaxWave() {
-        return jsonHandler.getSafeInt("max_wave");
     }
 
 }
