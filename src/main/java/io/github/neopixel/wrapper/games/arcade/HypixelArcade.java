@@ -41,13 +41,7 @@ public class HypixelArcade extends HypixelGame {
 
     // whole in the wall stats
 
-    public int getHoleInTheWallRounds() {
-        return jsonHandler.getSafeInt("rounds_hole_in_the_wall");
-    }
 
-    public int getHoleInTheWallWins() {
-        return jsonHandler.getSafeInt("wins_hole_in_the_wall");
-    }
 
     // simon says stats
 
@@ -143,6 +137,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelSimonSays getSimonSaysStats() {
         return new HypixelSimonSays(jsonHandler);
+    }
+
+    public HypixelHoleInTheWall getHoleInTheWallStats() {
+        return new HypixelHoleInTheWall(jsonHandler);
     }
 
 
