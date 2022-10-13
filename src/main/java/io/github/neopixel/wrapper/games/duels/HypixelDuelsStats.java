@@ -130,16 +130,16 @@ public class HypixelDuelsStats extends HypixelGame implements HypixelLootChestGa
 
     @Override
     public int getOpenedRareChestsAmount() {
-        return jsonHandler.getSafeInt("Duels_openedRares")
+        return jsonHandler.getSafeInt("Duels_openedRares");
     }
 
     @Override
     public int getOpenedEpicChestsAmount() {
-        return jsonHandler.getSafeInt("Duels_openedEpics")
+        return jsonHandler.getSafeInt("Duels_openedEpics");
     }
 
     @Override
     public int getOpenedLegendaryChestsAmount() {
-        return jsonHandler.getSafeInt("Duels_openedLegendaries")
+        return jsonHandler.getSafeInt("Duels_openedLegendaries");
     }
 }
