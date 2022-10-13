@@ -37,24 +37,6 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeBoolean("music");
     }
 
-    // One In The Quiver Stats
-
-
-
-    // dayone stats
-
-    public int getDayoneWins() {
-        return jsonHandler.getSafeInt("wins_dayone");
-    }
-
-    public int getDayoneKills() {
-        return jsonHandler.getSafeInt("kills_dayone");
-    }
-
-    public int getDayoneHeadshots() {
-        return jsonHandler.getSafeInt("headshots_dayone");
-    }
-
     // whole in the wall stats
 
     public int getHoleInTheWallRounds() {
@@ -602,6 +584,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelOneInTheQuiver getOneInTheQuiverStats() {
         return new HypixelOneInTheQuiver(jsonHandler);
+    }
+
+    public HypixelDayOne getDayOneStats() {
+        return new HypixelDayOne(jsonHandler);
     }
 
     public int getWeeklyCoinsA() {
