@@ -166,16 +166,6 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("wins_farmhunt");
     }
 
-    // Halloween simulator stats
-
-    public int getHalloweenSimulatorCandyFound() {
-        return jsonHandler.getSafeInt("candy_found_halloween_simulator");
-    }
-
-    public int getHalloweenSimulatorWins() {
-        return jsonHandler.getSafeInt("wins_halloween_simulator");
-    }
-
     public HypixelPixelParty getPixelPartyStats() {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
     }
@@ -202,6 +192,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelSantaSays getSantaSaysStats() {
         return new HypixelSantaSays(jsonHandler);
+    }
+
+    public HypixelHalloweenSimulator getHalloweenSimulatorStats() {
+        return new HypixelHalloweenSimulator(jsonHandler);
     }
 
     public int getWeeklyCoinsA() {
