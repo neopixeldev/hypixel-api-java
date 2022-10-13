@@ -120,12 +120,7 @@ public class HypixelArcade extends HypixelGame {
 
     // dragon wars2 stats
 
-    public int getDragonWars2Wins() {
-        return jsonHandler.getSafeInt("wins_dragonwars2");
-    }
-    public int getDragonWars2Kills() {
-        return jsonHandler.getSafeInt("kills_dragonwars2");
-    }
+
 
 
 
@@ -136,7 +131,7 @@ public class HypixelArcade extends HypixelGame {
     public HypixelHitw getHitwStats() {
         return new HypixelHitw(jsonHandler);
     }
-    
+
     public HypixelPixelParty getPixelPartyStats() {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
     }
@@ -179,6 +174,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelEnderSpleef getEnderSpleefStats() {
         return new HypixelEnderSpleef(jsonHandler);
+    }
+
+    public HypixelDragonWars2 getDragonWars2Stats() {
+        return new HypixelDragonWars2(jsonHandler);
     }
 
 
