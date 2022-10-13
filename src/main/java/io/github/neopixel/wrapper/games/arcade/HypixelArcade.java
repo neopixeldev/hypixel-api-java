@@ -137,11 +137,7 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("hitw_record_f");
     }
 
-    // enderspleef stats
 
-    public String getEnderSpleefTrail() {
-        return jsonHandler.getSafeString("enderspleef_trail");
-    }
 
 
 
@@ -187,6 +183,13 @@ public class HypixelArcade extends HypixelGame {
     public HypixelSoccer getSoccerStats() {
         return new HypixelSoccer(jsonHandler);
     }
+
+    public HypixelEnderSpleef getEnderSpleefStats() {
+        return new HypixelEnderSpleef(jsonHandler);
+    }
+
+
+
 
     public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("coins_weekly_a");
