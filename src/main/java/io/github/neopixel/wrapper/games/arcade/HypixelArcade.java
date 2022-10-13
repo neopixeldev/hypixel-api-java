@@ -331,8 +331,248 @@ public class HypixelArcade extends HypixelGame {
 
     // hide & seek stats
 
-    
+    public int getHideAndSeekPartyPooperSeekerWins() {
+        return jsonHandler.getSafeInt("party_pooper_seeker_wins_hide_and_seek");
+    }
 
+    public int getHideAndSeekSeekerWins() {
+        return jsonHandler.getSafeInt("seeker_wins_hide_and_seek");
+    }
+
+    public int getHideAndSeekHiderWins() {
+        return jsonHandler.getSafeInt("hider_wins_hide_and_seek");
+    }
+
+    public int getHideAndSeekPartyPooperHiderWins() {
+        return jsonHandler.getSafeInt("party_pooper_hider_wins_hide_and_seek");
+    }
+
+    public int getHideAndSeekPropHuntHiderWins() {
+        return jsonHandler.getSafeInt("prop_hunt_hider_wins_hide_and_seek");
+    }
+
+
+    // zombies stats
+
+    public int getZombiesBulletsHit() {
+        return jsonHandler.getSafeInt("bullets_hit_zombies");
+    }
+
+    public int getZombiesBulletShot() {
+        return jsonHandler.getSafeInt("bullet_shot_zombies");
+    }
+
+    public int getZombiesDeaths() {
+        return jsonHandler.getSafeInt("deaths_zombies");
+    }
+
+    public int getZombiesDeadendDeath() {
+        return jsonHandler.getSafeInt("deaths_zombies_deadend");
+    }
+
+    public int getZombiesHeadshots() {
+        return jsonHandler.getSafeInt("headshots_zombies");
+    }
+
+    public int getZombiesBasicZombieKills() {
+        return jsonHandler.getSafeInt("basic_zombies_kills_zombies");
+    }
+
+    public int getZombiesAlienArcadiumDeaths() {
+        return jsonHandler.getSafeInt("deaths_zombies_alienarcadium");
+    }
+
+    public int getZombiesPigZombieKills() {
+        return jsonHandler.getSafeInt("pig_zombie_zombie_kills_zombies");
+    }
+
+    public int getZombiesRainbowZombieKills() {
+        return jsonHandler.getSafeInt("rainbow_zombie_kills_zombies");
+    }
+
+    public int getZombiesSkeletonZombieKills() {
+        return jsonHandler.getSafeInt("skeleton_zombie_kills_zombies");
+    }
+
+    public int getZombiesSpaceBlasterZombieKills(){
+        return jsonHandler.getSafeInt("space_blaster_zombie_kills_zombies");
+    }
+
+    public int getZombiesSpaceGruntZombieKills() {
+        return jsonHandler.getSafeInt("space_grunt_zombie_kills_zombies");
+    }
+
+    public int getZombiesTimesKnockedDown() {
+        return jsonHandler.getSafeInt("times_knocked_down_zombies");
+    }
+
+    public int getZombiesAlienArcadiumTimesKnockedDown() {
+        return jsonHandler.getSafeInt("times_knocked_down_zombies_alienarcadium");
+    }
+
+    public int getZombiesTotalRoundsSurvived() {
+        return jsonHandler.getSafeInt("total_rounds_survived_zombies");
+    }
+
+    public int getZombiesAlienArcadiumTotalRoundsSurvived() {
+        return jsonHandler.getSafeInt("total_rounds_survived_zombies_alienarcadium");
+    }
+
+    public int getZombiesWindowsRepaired() {
+        return jsonHandler.getSafeInt("windows_repaired_zombies");
+    }
+
+    public int getZombiesAlienArcadiumWindowsRepaired() {
+        return jsonHandler.getSafeInt("windows_repaired_zombies_alienarcadium");
+    }
+
+    public int getZombiesWormSmallZombieKills() {
+        return jsonHandler.getSafeInt("worm_small_zombie_kills_zombies");
+    }
+
+    public int getZombiesWormZombieKills() {
+        return jsonHandler.getSafeInt("worm_zombie_kills_zombies");
+    }
+
+    public int getZombiesZombieKills() {
+        return jsonHandler.getSafeInt("zombie_kills_zombies");
+    }
+
+    public int getZombiesAlienArcadiumZombieKills() {
+        return jsonHandler.getSafeInt("zombie_kills_zombies_alienarcadium");
+    }
+
+    public int getZombiesBlobZombieKills() {
+        return jsonHandler.getSafeInt("blob_zombie_kills_zombies");
+    }
+
+    public int getZombiesDoorsOpened() {
+        return jsonHandler.getSafeInt("doors_opened_zombies");
+    }
+
+    public int getZombiesAlienArcadiumDoorsOpened() {
+        return jsonHandler.getSafeInt("doors_opened_zombies_alienarcadium");
+    }
+
+    public int getZombiesFastestTime10() {
+        return jsonHandler.getSafeInt("fastest_time_10_zombies");
+    }
+
+    public int getZombiesBestRound() {
+        return jsonHandler.getSafeInt("best_round_zombies");
+    }
+
+    public int getZombiesDeadEndBestRound() {
+        return jsonHandler.getSafeInt("best_round_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalBestRound() {
+        return jsonHandler.getSafeInt("best_round_zombies_deadend_normal");
+    }
+
+    public int getZombiesEmpoweredZombieKills() {
+        return jsonHandler.getSafeInt("empowered_zombie_kills_zombies");
+    }
+
+    public int getZombiesEnderZombieKills() {
+        return jsonHandler.getSafeInt("ender_zombie_kills_zombies");
+    }
+
+    public int getZombiesEndermiteZombieKills() {
+        return jsonHandler.getSafeInt("endermite_zombie_kills_zombies");
+    }
+
+    public int getZombiesDeadEndNormalFastestTime10() {
+        return jsonHandler.getSafeInt("fastest_time_10_zombies_deadend_normal");
+    }
+
+    public int getZombiesFastestTime20() {
+        return jsonHandler.getSafeInt("fastest_time_20_zombies");
+    }
+
+    public int getZombiesDeadEndNormalFastestTime20() {
+        return jsonHandler.getSafeInt("fastest_time_20_zombies_deadend_normal");
+    }
+
+    public int getZombiesFastestTime30() {
+        return jsonHandler.getSafeInt("fastest_time_30_zombies");
+    }
+
+    public int getZombiesDeadEndNormalFastestTime30() {
+        return jsonHandler.getSafeInt("fastest_time_30_zombies_deadend_normal");
+    }
+
+    public int getZombiesFireZombieKills() {
+        return jsonHandler.getSafeInt("fire_zombies_kills_zombies");
+    }
+
+    public int getZombiesGuardianZombieKills() {
+        return jsonHandler.getSafeInt("guardian_zombie_kills_zombies");
+    }
+
+    public int getZombiesMagmaCubeZombieKills() {
+        return jsonHandler.getSafeInt("magma_cube_zombie_kills_zombies");
+    }
+
+    public int getZombiesSilverfishZombieKills() {
+        return jsonHandler.getSafeInt("silverfish_zombie_kills_zombies");
+    }
+
+    public int getZombiesSkelefishZombieKills() {
+        return jsonHandler.getSafeInt("skelefish_zombie_kills_zombies");
+    }
+
+    public int getZombiesDeadEndTimesKnockedDown() {
+        return jsonHandler.getSafeInt("times_knocked_down_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalTimesKnockedDown() {
+        return jsonHandler.getSafeInt("times_knocked_down_zombies_deadend_normal");
+    }
+
+    public int getZombiesTNTBabyZombieKills() {
+        return jsonHandler.getSafeInt("tnt_baby_zombie_kills_zombies");
+    }
+
+    public int getZombiesDeadEndTotalRoundsSurvived() {
+        return jsonHandler.getSafeInt("total_rounds_survived_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalTotalRoundsSurvived() {
+        return jsonHandler.getSafeInt("total_rounds_survived_zombies_deadend_normal");
+    }
+
+    public int getZombiesDeadEndWindowsRepaired() {
+        return jsonHandler.getSafeInt("times_windows_repaired_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalWindowsRepaired() {
+        return jsonHandler.getSafeInt("times_windows_repaired_zombies_deadend_normal");
+    }
+
+    public int getZombiesWins() {
+        return jsonHandler.getSafeInt("wins_zombies");
+    }
+
+    public int getZombiesDeadEndWins() {
+        return jsonHandler.getSafeInt("wins_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalWins() {
+        return jsonHandler.getSafeInt("wins_zombies_deadend_normal");
+    }
+
+    public int getZombiesWolfZombieKills() {
+        return jsonHandler.getSafeInt("wolf_zombie_kills_zombies");
+    }
+
+    public int getZombiesDeadEndZombieKills() {
+        return jsonHandler.getSafeInt("zombie_kills_zombies_deadend");
+    }
+
+    public int getZombiesDeadEndNormalZombieKills() {
+        return jsonHandler.getSafeInt("zombie_kills_zombies_deadend_normal");
+    }
 
     public int getWeeklyCoinsA() {
         return jsonHandler.getSafeInt("coins_weekly_a");
