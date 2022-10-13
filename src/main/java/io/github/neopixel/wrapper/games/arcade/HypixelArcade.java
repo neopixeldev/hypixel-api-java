@@ -176,19 +176,6 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("wins_halloween_simulator");
     }
 
-    // santa says stats
-
-    public int getSantaSaysRoundWins() {
-        return jsonHandler.getSafeInt("round_wins_santa_says");
-    }
-
-    public int getSantaSaysTopScore() {
-        return jsonHandler.getSafeInt("top_score_santa_says");
-    }
-
-
-
-
     public HypixelPixelParty getPixelPartyStats() {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
     }
@@ -211,6 +198,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelPartyGames getPartyGamesStats() {
         return new HypixelPartyGames(jsonHandler);
+    }
+
+    public HypixelSantaSays getSantaSaysStats() {
+        return new HypixelSantaSays(jsonHandler);
     }
 
     public int getWeeklyCoinsA() {
