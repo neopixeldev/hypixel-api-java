@@ -1,6 +1,7 @@
 package io.github.neopixel.wrapper.games.arcade;
 
 import io.github.neopixel.wrapper.games.HypixelGame;
+import io.github.neopixel.wrapper.player.HypixelFriend;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.time.Instant;
 
@@ -160,11 +161,7 @@ public class HypixelArcade extends HypixelGame {
         return jsonHandler.getSafeInt("powerkicks_soccer");
     }
 
-    // farm hunt stats
 
-    public int getFarmHuntWins() {
-        return jsonHandler.getSafeInt("wins_farmhunt");
-    }
 
     public HypixelPixelParty getPixelPartyStats() {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
@@ -196,6 +193,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelHalloweenSimulator getHalloweenSimulatorStats() {
         return new HypixelHalloweenSimulator(jsonHandler);
+    }
+
+    public HypixelFarmHunt getFarmHuntStats() {
+        return new HypixelFarmHunt(jsonHandler);
     }
 
     public int getWeeklyCoinsA() {
