@@ -51,17 +51,7 @@ public class HypixelArcade extends HypixelGame {
 
     // simon says stats
 
-    public int getSimonSaysRounds() {
-        return jsonHandler.getSafeInt("rounds_simon_says");
-    }
 
-    public int getSimonSaysWins() {
-        return jsonHandler.getSafeInt("wins_simon_says");
-    }
-
-    public int getSimonSaysTopScore() {
-        return jsonHandler.getSafeInt("top_score_simon_says");
-    }
 
     // throwout stats
 
@@ -149,6 +139,10 @@ public class HypixelArcade extends HypixelGame {
 
     public HypixelThrowout getThrowoutStats() {
         return new HypixelThrowout(jsonHandler);
+    }
+
+    public HypixelSimonSays getSimonSaysStats() {
+        return new HypixelSimonSays(jsonHandler);
     }
 
 
