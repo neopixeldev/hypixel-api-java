@@ -25,50 +25,84 @@ public class JSONHandler {
 
     public JSONArray getSafeJSONArray(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getJSONArray(statsPrefix + key);
-        } else {
-            return null;
+            Object object = this.get(key);
+            if (object instanceof JSONArray) {
+                return (JSONArray) object;
+            }
         }
+            return null;
     }
+
     public String getSafeString(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getString(statsPrefix + key);
-        } else {
-            return "";
+            Object object = this.get(key);
+            if (object instanceof String) {
+                return (String) object;
+            }
         }
+        return "";
     }
 
     public boolean getSafeBoolean(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getBoolean(statsPrefix + key);
-        } else {
-            return false;
+            Object object = this.get(key);
+            if (object.equals(Boolean.FALSE)
+                || (object instanceof String && ((String) object)
+                .equalsIgnoreCase("false"))) {
+                return false;
+            } else if (object.equals(Boolean.TRUE)
+                || (object instanceof String && ((String) object)
+                .equalsIgnoreCase("true"))) {
+                return true;
+            }
         }
+        return false;
     }
 
 
     public int getSafeInt(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getInt(statsPrefix + key);
-        } else {
-            return 0;
+            final Object object = this.get(key);
+            if (object instanceof Number) {
+                return ((Number) object).intValue();
+            }
+            try {
+                return Integer.parseInt(object.toString());
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         }
+        return 0;
     }
 
     public double getSafeDouble(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getDouble(statsPrefix + key);
-        } else {
-            return 0;
+            final Object object = this.get(key);
+            if (object instanceof Number) {
+                return ((Number) object).doubleValue();
+            }
+            try {
+                return Double.parseDouble(object.toString());
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         }
+        return 0;
     }
 
     public long getSafeLong(String key) {
         if (stats.has(statsPrefix + key)) {
-            return stats.getLong(statsPrefix + key);
-        } else {
-            return 0;
+            final Object object = this.get(key);
+            if (object instanceof Number) {
+                return ((Number) object).longValue();
+            }
+            try {
+                return Long.parseLong(object.toString());
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         }
+        return 0;
     }
 
     public UUID getSafeUUID(String key) {
@@ -78,7 +112,10 @@ public class JSONHandler {
         } else {
             return null;
         }
+    }
 
+    public Object get(String key) {
+        return stats.get(statsPrefix + key);
     }
 
     public Iterator<String> getKeys() {
