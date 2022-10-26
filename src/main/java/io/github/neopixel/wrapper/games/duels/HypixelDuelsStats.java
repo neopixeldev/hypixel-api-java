@@ -113,12 +113,6 @@ public class HypixelDuelsStats extends HypixelGame implements HypixelLootChestGa
         return jsonHandler.getSafeString("active_cosmetictitle");
     }
 
-
-
-
-
-
-
     @Override
     public int getOpenedChestsAmount() {
         return jsonHandler.getSafeInt("Duels_openedChests");
