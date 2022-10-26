@@ -11,14 +11,11 @@ public class JSONHandler {
 
     private final JSONObject stats;
     private String statsPrefix;
-
     private String statsSuffix;
 
 
     public JSONHandler(JSONObject stats) {
         this.stats = stats;
-        this.statsPrefix = "";
-        this.statsSuffix = "";
     }
 
     public void setStatsPrefix(String statsPrefix) {
@@ -121,7 +118,13 @@ public class JSONHandler {
     }
 
     public Object get(String key) {
-        return stats.get(statsPrefix + key + statsSuffix);
+        if(statsPrefix != null) {
+            return stats.get(statsPrefix + "_" + key);
+        } else if(statsSuffix != null) {
+            return stats.get(key + "_" + statsSuffix);
+        } else {
+            return stats.get(key);
+        }
     }
 
     public Iterator<String> getKeys() {
