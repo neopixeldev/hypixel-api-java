@@ -3,24 +3,34 @@ package io.github.neopixel.wrapper.games.uhc;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelUHCBrawl extends HypixelGame {
+public class HypixelUHCStats extends HypixelGame {
 
-    protected HypixelUHCBrawl(JSONHandler jsonHandler) {
+    protected HypixelUHCStats(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
     @Override
     public String getGameID() {
-        return "UHC_BRAWL";
+        return "UHC";
     }
 
     @Override
     public String getGameName() {
-        return "UHC Brawl";
+        return "UHC Champions";
     }
 
     @Override
     public boolean isRemoved() {
         return false;
     }
+
+    public int getCoins() {
+        return jsonHandler.getSafeInt("coins");
+    }
+
+    public boolean isTeammateDamage() {
+        return jsonHandler.getSafeBoolean("teammate_damage");
+    }
+
+
 }
