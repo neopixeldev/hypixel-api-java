@@ -1,6 +1,7 @@
 package io.github.neopixel.wrapper.games.uhc;
 
 import io.github.neopixel.wrapper.games.HypixelGame;
+import io.github.neopixel.wrapper.games.bedwars.HypixelBedWars;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
 public class HypixelUHCStats extends HypixelGame {
@@ -32,5 +33,9 @@ public class HypixelUHCStats extends HypixelGame {
         return jsonHandler.getSafeBoolean("teammate_damage");
     }
 
-
+    public HypixelUHC getMode(HypixelUHCMode mode) {
+        JSONHandler jsonHandler = this.jsonHandler.getCopy();
+        jsonHandler.setStatsPrefix(mode.getStatsSuffix());
+        return new HypixelUHC(jsonHandler);
+    }
 }
