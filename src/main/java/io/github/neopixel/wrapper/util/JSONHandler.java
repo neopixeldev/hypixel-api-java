@@ -10,18 +10,25 @@ import org.json.JSONObject;
 public class JSONHandler {
 
     private final JSONObject stats;
-    private final String statsPrefix;
+    private String statsPrefix;
+
+    private String statsSuffix;
 
 
     public JSONHandler(JSONObject stats) {
         this.stats = stats;
         this.statsPrefix = "";
+        this.statsSuffix = "";
     }
 
-    public JSONHandler(JSONObject stats, String statsPrefix) {
-        this.stats = stats;
+    public void setStatsPrefix(String statsPrefix) {
         this.statsPrefix = statsPrefix;
     }
+
+    public void setStatsSuffix(String statsSuffix) {
+        this.statsSuffix = statsSuffix;
+    }
+
 
     public JSONArray getSafeJSONArray(String key) {
         if (stats.has(statsPrefix + key)) {
@@ -114,7 +121,7 @@ public class JSONHandler {
     }
 
     public Object get(String key) {
-        return stats.get(statsPrefix + key);
+        return stats.get(statsPrefix + key + statsSuffix);
     }
 
     public Iterator<String> getKeys() {
@@ -123,13 +130,20 @@ public class JSONHandler {
 
     public JSONHandler getJSONHandler(String key) {
         if (stats.has(key)) {
-            return new JSONHandler(stats.getJSONObject(key));
+            JSONHandler handler = new JSONHandler(stats.getJSONObject(key));
+            handler.setStatsPrefix(statsPrefix);
+            handler.setStatsSuffix(statsSuffix);
+            return handler;
         } else {
             return null;
         }
     }
 
-    public JSONHandler getThisJSONHandlerWithStatsPrefix(String statsPrefix) {
-        return new JSONHandler(stats, statsPrefix);
+    public JSONHandler getCopy() {
+        JSONHandler handler = new JSONHandler(stats);
+        handler.setStatsPrefix(statsPrefix);
+        handler.setStatsSuffix(statsSuffix);
+        return handler;
     }
+
 }
