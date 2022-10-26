@@ -2,42 +2,42 @@ package io.github.neopixel.wrapper.games.duels;
 
 public enum HypixelDuelsModes {
 
-    SKYWARS_SOLOS("sw_duel_"),
-    SKYWARS_DOUBLES("sw_doubles_"),
+    SKYWARS_SOLOS("sw_duel"),
+    SKYWARS_DOUBLES("sw_doubles"),
 
-    UHC_SOLOS("uhc_duel_"),
-    UHC_DOUBLES("uhc_doubles_"),
-    UHC_FOURS("uhc_four_"),
-    UHC_MEETUP("uhc_meetup_"),
+    UHC_SOLOS("uhc_duel"),
+    UHC_DOUBLES("uhc_doubles"),
+    UHC_FOURS("uhc_four"),
+    UHC_MEETUP("uhc_meetup"),
 
     SKYWARS_TOURNAMENT("sw_tournament"),
-    UHC_TOURNAMENT("uhc_tournament_"),
-    SUMO_TOURNAMENT("sumo_tournament_"),
+    UHC_TOURNAMENT("uhc_tournament"),
+    SUMO_TOURNAMENT("sumo_tournament"),
     BRIDGE_TOURNAMENT("bridge_tournament"),
 
-    CLASSIC_SOLOS("classic_duel_"),
+    CLASSIC_SOLOS("classic_duel"),
 
-    OP_SOLOS("op_duel_"),
-    OP_DOUBLES("op_doubles_"),
+    OP_SOLOS("op_duel"),
+    OP_DOUBLES("op_doubles"),
 
-    POTION_SOLOS("potion_duel_"),
+    POTION_SOLOS("potion_duel"),
 
-    BLITZ_SOLOS("blitz_duel_"),
+    BLITZ_SOLOS("blitz_duel"),
 
-    COMBO_SOLOS("combo_duel_"),
+    COMBO_SOLOS("combo_duel"),
 
-    BOWSPLEEF_SOLOS("bowspleef_duel_"),
+    BOWSPLEEF_SOLOS("bowspleef_duel"),
 
-    MEGAWALLS_SOLOS("mw_duel_"),
-    MEGAWALLS_DOUBLES("mw_doubles_"),
+    MEGAWALLS_SOLOS("mw_duel"),
+    MEGAWALLS_DOUBLES("mw_doubles"),
 
-    BOW_SOLOS("bow_duel_"),
+    BOW_SOLOS("bow_duel"),
 
-    SUMO("sumo_duel_"),
+    SUMO("sumo_duel"),
 
-    BRIDGE_SOLOS("bridge_duel_"),
-    BRIDGE_DOUBLES("bridge_doubles_"),
-    BRIDGE_FOURS("bridge_four_"),
+    BRIDGE_SOLOS("bridge_duel"),
+    BRIDGE_DOUBLES("bridge_doubles"),
+    BRIDGE_FOURS("bridge_four"),
 
     BRIDGE_2v2v2v2("bridge_2v2v2v2"),
     BRIDGE_3v3v3v3("bridge_3v3v3v3");
