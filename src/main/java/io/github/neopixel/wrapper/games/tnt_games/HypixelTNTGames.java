@@ -43,6 +43,5 @@ public class HypixelTNTGames extends HypixelGame {
     public int getRegenerations(HypixelTNTGamesMode mode) {
         return jsonHandler.getIntOrThrow(mode.getStatsPrefix() + "_regen", new UnsupportedOperationException("That gamemode may not support this type."));
     }
-
-    public int getKills(Hy)
+    
 }
