@@ -18,7 +18,7 @@ public enum HypixelUHCMode {
         this.statsPrefix = statsPrefix;
     }
 
-    public String getStatsPrefix() {
+    public String getStatsSuffix() {
         return statsPrefix;
     }
 
