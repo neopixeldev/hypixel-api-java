@@ -40,8 +40,9 @@ public class HypixelDuelsStats extends HypixelGame implements HypixelLootChestGa
      * @return The player's stats for that mode.
      */
     public HypixelDuels getMode(HypixelDuelsModes mode) {
-        return new HypixelDuels(
-            jsonHandler.getThisJSONHandlerWithStatsPrefix(mode.getStatsPrefix()));
+        JSONHandler jsonHandler = this.jsonHandler.getCopy();
+        jsonHandler.setStatsPrefix(mode.getStatsPrefix());
+        return new HypixelDuels(jsonHandler);
     }
 
     public boolean isKitMenuOptionEnabled() {
