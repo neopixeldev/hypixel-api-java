@@ -31,4 +31,12 @@ public class HypixelHoleInTheWall extends HypixelGame {
     public int getWins() {
         return jsonHandler.getSafeInt("wins_hole_in_the_wall");
     }
+
+    public int getQualificationRecord() {
+        return jsonHandler.getSafeInt("hitw_record_q");
+    }
+
+    public int getFinalsRecord() {
+        return jsonHandler.getSafeInt("hitw_record_f");
+    }
 }
