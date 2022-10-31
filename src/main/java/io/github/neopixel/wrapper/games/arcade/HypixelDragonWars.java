@@ -11,12 +11,12 @@ public class HypixelDragonWars2 extends HypixelGame {
 
     @Override
     public String getGameID() {
-        return "DRAGON_WARS_2";
+        return "DRAGON_WARS";
     }
 
     @Override
     public String getGameName() {
-        return "Dragon Wars 2";
+        return "Dragon Wars";
     }
 
     @Override

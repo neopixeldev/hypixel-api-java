@@ -3,20 +3,20 @@ package io.github.neopixel.wrapper.games.arcade;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelArcadeSW extends HypixelGame {
+public class HypixelGalaxyWars extends HypixelGame {
 
-    protected HypixelArcadeSW(JSONHandler jsonHandler) {
+    protected HypixelGalaxyWars(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
     @Override
     public String getGameID() {
-        return "SW";
+        return "GALAXY_WARS";
     }
 
     @Override
     public String getGameName() {
-        return "Arcade SW";
+        return "Galaxy Wars";
     }
 
     @Override
