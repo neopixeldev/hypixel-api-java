@@ -27,4 +27,24 @@ public class HypixelEnderSpleef extends HypixelGame {
     public String getTrail() {
         return jsonHandler.getSafeString("enderspleef_trail");
     }
+
+    public int getWins() {
+        return jsonHandler.getSafeInt("wins_ender");
+    }
+
+    public int getBigShotPowerupActivations() {
+        return jsonHandler.getSafeInt("bigshot_powerup_activations_ender");
+    }
+
+    public int getBlocksDestroyed() {
+        return jsonHandler.getSafeInt("blocks_destroyed_ender");
+    }
+
+    public int getPowerupActivations() {
+        return jsonHandler.getSafeInt("powerup_activations_ender");
+    }
+
+    public int getTripleShotPowerupActivations() {
+        return jsonHandler.getSafeInt("tripleshot_powerup_activations_ender");
+    }
 }
