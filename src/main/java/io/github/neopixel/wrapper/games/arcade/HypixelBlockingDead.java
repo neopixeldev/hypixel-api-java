@@ -3,20 +3,20 @@ package io.github.neopixel.wrapper.games.arcade;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelDayOne extends HypixelGame {
+public class HypixelBlockingDead extends HypixelGame {
 
-    protected HypixelDayOne(JSONHandler jsonHandler) {
+    protected HypixelBlockingDead(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
     @Override
     public String getGameID() {
-        return "DAY_ONE";
+        return "BLOCKING_DEAD";
     }
 
     @Override
     public String getGameName() {
-        return "Day One";
+        return "Blocking Dead";
     }
 
     @Override
