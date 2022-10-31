@@ -28,4 +28,7 @@ public class HypixelFarmHunt extends HypixelGame {
         return jsonHandler.getSafeInt("wins_farmhunt");
     }
 
+    public int getPoopCollected() {
+        return jsonHandler.getSafeInt("poop_collected");
+    }
 }
