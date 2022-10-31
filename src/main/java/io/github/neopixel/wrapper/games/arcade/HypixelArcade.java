@@ -44,12 +44,12 @@ public class HypixelArcade extends HypixelGame {
     public int getMonthlyCoinsB() {
         return jsonHandler.getSafeInt("monthly_coins_b");
     }
-    
+
     public Instant getLastTourneyAd() {
         return Instant.ofEpochSecond(jsonHandler.getSafeLong("lastTourneyAd"));
     }
 
-    public boolean isShowInFoBook() {
+    public boolean isShowInfoBook() {
         return jsonHandler.getSafeBoolean("showinfobook");
     }
 
@@ -57,15 +57,15 @@ public class HypixelArcade extends HypixelGame {
         return new HypixelPixelParty(jsonHandler.getJSONHandler("pixel_party"));
     }
 
-    public HypixelGalaxyWars getArcadeSWStats() {
+    public HypixelGalaxyWars getGalaxyWarsStats() {
         return new HypixelGalaxyWars(jsonHandler);
     }
 
-    public HypixelBountyHunters getOneInTheQuiverStats() {
+    public HypixelBountyHunters getBountyHuntersStats() {
         return new HypixelBountyHunters(jsonHandler);
     }
 
-    public HypixelBlockingDead getDayOneStats() {
+    public HypixelBlockingDead getBlockingDayStats() {
         return new HypixelBlockingDead(jsonHandler);
     }
 
@@ -85,6 +85,18 @@ public class HypixelArcade extends HypixelGame {
         return new HypixelHalloweenSimulator(jsonHandler);
     }
 
+    public HypixelScubaSimulator getScubaSimulatorStats() {
+        return new HypixelScubaSimulator(jsonHandler);
+    }
+
+    public HypixelGrinchSimulator getGrinchSimulatorStats() {
+        return new HypixelGrinchSimulator(jsonHandler);
+    }
+
+    public HypixelEasterSimulator getEasterSimulatorStats() {
+        return new HypixelEasterSimulator(jsonHandler);
+    }
+
     public HypixelFarmHunt getFarmHuntStats() {
         return new HypixelFarmHunt(jsonHandler);
     }
@@ -97,7 +109,7 @@ public class HypixelArcade extends HypixelGame {
         return new HypixelEnderSpleef(jsonHandler);
     }
 
-    public HypixelDragonWars getDragonWars2Stats() {
+    public HypixelDragonWars getDragonWarsStats() {
         return new HypixelDragonWars(jsonHandler);
     }
 
