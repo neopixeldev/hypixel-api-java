@@ -3,20 +3,20 @@ package io.github.neopixel.wrapper.games.arcade;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelOneInTheQuiver extends HypixelGame {
+public class HypixelBountyHunters extends HypixelGame {
 
-    protected HypixelOneInTheQuiver(JSONHandler jsonHandler) {
+    protected HypixelBountyHunters(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
     @Override
     public String getGameID() {
-        return "ONE_IN_THE_QUIVER";
+        return "BOUNTY_HUNTERS";
     }
 
     @Override
     public String getGameName() {
-        return "One In The Quiver";
+        return "Bounty Hunters";
     }
 
     @Override
