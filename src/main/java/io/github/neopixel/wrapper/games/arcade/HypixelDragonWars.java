@@ -3,9 +3,9 @@ package io.github.neopixel.wrapper.games.arcade;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelDragonWars2 extends HypixelGame {
+public class HypixelDragonWars extends HypixelGame {
 
-    protected HypixelDragonWars2(JSONHandler jsonHandler) {
+    protected HypixelDragonWars(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
