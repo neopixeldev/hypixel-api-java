@@ -13,7 +13,7 @@ public enum HypixelTNTGamesMode {
     PVP_RUN("pvprun"),
     BLOOD_WIZARD("bloodwizard");
 
-    String statsPrefix;
+    final String statsPrefix;
 
     HypixelTNTGamesMode(String statsPrefix) {
         this.statsPrefix = statsPrefix;
