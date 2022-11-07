@@ -1,6 +1,7 @@
 package io.github.neopixel.wrapper.games.tnt_games;
 
 import io.github.neopixel.wrapper.games.HypixelGame;
+import io.github.neopixel.wrapper.games.bedwars.HypixelBedWars;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
 public class HypixelTNTGamesStats extends HypixelGame {
@@ -28,8 +29,18 @@ public class HypixelTNTGamesStats extends HypixelGame {
         return jsonHandler.getSafeInt("coins");
     }
 
+    public int getWinstreak() {
+        return jsonHandler.getSafeInt("winstreak");
+    }
+
+    public int getTagSpeed() {
+        return jsonHandler.getSafeInt("tag_speed");
+    }
+
     public HypixelTNTGames getMode(HypixelTNTGamesMode mode) {
-        return new HypixelTNTGames(jsonHandler.getThisJSONHandlerWithStatsPrefix(mode.getStatsPrefix()));
+        JSONHandler jsonHandler = this.jsonHandler.getCopy();
+        jsonHandler.setStatsPrefix(mode.getStatsPrefix());
+        return new HypixelTNTGames(jsonHandler);
     }
 
 }
