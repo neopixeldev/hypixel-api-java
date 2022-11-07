@@ -3,9 +3,9 @@ package io.github.neopixel.wrapper.games.tnt_games;
 import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelTNTGames extends HypixelGame {
+public class HypixelTNTGamesStats extends HypixelGame {
 
-    protected HypixelTNTGames(JSONHandler jsonHandler) {
+    protected HypixelTNTGamesStats(JSONHandler jsonHandler) {
         super(jsonHandler);
     }
 
@@ -43,5 +43,5 @@ public class HypixelTNTGames extends HypixelGame {
     public int getRegenerations(HypixelTNTGamesMode mode) {
         return jsonHandler.getIntOrThrow(mode.getStatsPrefix() + "_regen", new UnsupportedOperationException("That gamemode may not support this type."));
     }
-    
+
 }
