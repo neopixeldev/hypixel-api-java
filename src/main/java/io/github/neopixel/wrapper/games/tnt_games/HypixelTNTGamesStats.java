@@ -28,4 +28,8 @@ public class HypixelTNTGamesStats extends HypixelGame {
         return jsonHandler.getSafeInt("coins");
     }
 
+    public HypixelTNTGames getMode(HypixelTNTGamesMode mode) {
+        return new HypixelTNTGames(jsonHandler.getThisJSONHandlerWithStatsPrefix(mode.getStatsPrefix()));
+    }
+
 }
