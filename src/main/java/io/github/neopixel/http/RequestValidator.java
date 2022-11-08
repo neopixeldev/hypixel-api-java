@@ -17,7 +17,7 @@ public class RequestValidator {
      *
      * @param response     The {@link Response response} from the API.
      * @param returnObject The {@link JSONObject} returned from the API.
-     * @return  true if the response is valid, otherwise throws the correct
+     * @return true if the response is valid, otherwise throws the correct
      * {@link io.github.neopixel.exception.NeopixelException}.
      */
     public static boolean isValid(Response response, JSONObject returnObject) {
@@ -29,22 +29,22 @@ public class RequestValidator {
                 throw new GuildNotFoundException("Guild not found.");
             }
         } else {
-
             String failString = returnObject.getString("cause");
 
             switch (response.code()) {
-                case 400 -> throw new MissingFieldException(failString);
-                case 403 -> throw new ForbiddenAccessException(failString);
-                case 422 -> throw new InvalidDataException(failString);
-                case 429 -> throw new KeyThrottleException(failString);
-
+                case 400:
+                    throw new MissingFieldException(failString);
+                case 403:
+                    throw new ForbiddenAccessException(failString);
+                case 422:
+                    throw new InvalidDataException(failString);
+                case 429:
+                    throw new KeyThrottleException(failString);
             }
-
         }
+
         return true;
-
     }
-
 }
 
 
