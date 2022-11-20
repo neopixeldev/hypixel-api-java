@@ -9,7 +9,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "move-to-jdk-8-v2" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
