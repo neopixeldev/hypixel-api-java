@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import okhttp3.HttpUrl;
 import okhttp3.HttpUrl.Builder;
 import okhttp3.Request;
@@ -34,7 +35,8 @@ public class Query {
     public HttpUrl.Builder createRequest() {
         HttpUrl.Builder builder = Objects.requireNonNull(HttpUrl.get(endpoint.getURL()))
             .newBuilder();
-        queryParameterList.ifPresent(queryParameters -> Arrays.stream(queryParameters).toList()
+        queryParameterList.ifPresent(queryParameters -> Arrays.stream(queryParameters).collect(
+                Collectors.toList())
             .forEach(parameter -> builder.addQueryParameter(parameter.type().getKey(),
                 parameter.value())));
         return builder;
@@ -55,10 +57,12 @@ public class Query {
         Query other = (Query) o;
 
         if (endpoint.equals(other.endpoint)) {
-            if (queryParameterList.isEmpty() && other.queryParameterList.isEmpty()) {
+
+            // TODO: Decide if we need to check if the optional is empty or not. (Or migrate away from optionals as we did with the UI)
+            if (queryParameterList.get().length == 0 && other.queryParameterList.get().length == 0) {
                 return true;
             }
-            if (queryParameterList.isEmpty() || other.queryParameterList.isEmpty()) {
+            if (queryParameterList.get().length == 0 || other.queryParameterList.get().length == 0) {
                 return false;
             }
 

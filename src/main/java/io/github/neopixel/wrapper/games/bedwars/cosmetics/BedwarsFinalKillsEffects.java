@@ -22,7 +22,7 @@ public enum BedwarsFinalKillsEffects implements HypixelCosmetic {
     EASTER_EGG_THEFT("Easter Egg Theft", "killeffect_egg_theft", HypixelCosmeticRarities.RARE),
 
     REKT("Rekt", "killeffect_rekt", HypixelCosmeticRarities.EPIC),
-    PIÑATA("Piñata", "killeffect_piñata", HypixelCosmeticRarities.EPIC),
+    PINATA("Piñata", "killeffect_piñata", HypixelCosmeticRarities.EPIC),
     BLOOD_EXPLOSION("Blood Explosion", "killeffect_blood_explosion", HypixelCosmeticRarities.EPIC),
     BEEF_EVERYWHERE("Beef Everywhere", "killeffect_beef_everywhere", HypixelCosmeticRarities.EPIC),
     ANVIL_SMASH("Anvil Smash", "killeffect_anvil_smash", HypixelCosmeticRarities.EPIC),
