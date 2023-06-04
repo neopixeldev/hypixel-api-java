@@ -11,26 +11,36 @@ import org.json.JSONObject;
 
 public class SkyblockProfile {
 
-    private final RequestController requestController;
     private final JSONHandler jsonHandler;
 
     public SkyblockProfile(RequestController requestController, String profileId) {
-        this.requestController = requestController;
         this.jsonHandler = requestController.getSkyblockProfile(profileId).getJSONHandler("profile");
     }
 
+    /**
+     * @return The ID of the profile.
+     */
     public String getProfileID() {
         return jsonHandler.getSafeString("profile_id");
     }
 
+    /**
+     * @return The name of the profile. (Ex. Lemon)
+     */
     public String getCuteName() {
         return jsonHandler.getSafeString("cute_name");
     }
 
+    /**
+     * @return True if the profile is currently selected.
+     */
     public Boolean isSelected() {
         return jsonHandler.getSafeBoolean("selected");
     }
 
+    /**
+     * @return The timestamp the profile was last saved to hypixel's database.
+     */
     public Long getLastSave() {
         return jsonHandler.getSafeLong("last_save");
     }

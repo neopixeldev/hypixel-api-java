@@ -8,11 +8,9 @@ import org.json.JSONObject;
 
 public class SkyblockElection {
 
-    private final RequestController requestController;
     private final JSONHandler jsonHandler;
 
     public SkyblockElection(RequestController requestController) {
-        this.requestController = requestController;
         this.jsonHandler = requestController.getSkyblockElection().getJSONHandler("mayor");
     }
 

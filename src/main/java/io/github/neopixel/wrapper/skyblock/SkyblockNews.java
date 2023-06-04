@@ -8,11 +8,9 @@ import org.json.JSONObject;
 
 public class SkyblockNews {
 
-    private final RequestController requestController;
     private final JSONHandler jsonHandler;
 
     public SkyblockNews(RequestController requestController) {
-        this.requestController = requestController;
         this.jsonHandler = requestController.getSkyblockNews();
     }
 
