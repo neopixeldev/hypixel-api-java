@@ -77,6 +77,20 @@ public class SkyblockProfile {
             }).collect(Collectors.toList());
         }
 
+        public List<ProfileMember> getMembers() {
+            List<ProfileMember> members = new ArrayList<>(List.of());
+
+            Iterator<String> iterator = jsonHandler.getJSONHandler("members").getKeys();
+
+            while (iterator.hasNext()) {
+                members.add(
+                    new ProfileMember(jsonHandler.getJSONHandler("members").getJSONHandler(iterator.next()))
+                );
+            }
+
+            return members;
+        }
+
         public static class CurrentUpgrade {
 
             private final JSONHandler jsonHandler;
@@ -140,20 +154,6 @@ public class SkyblockProfile {
                 return jsonHandler.getSafeBoolean("fasttracked");
             }
         }
-    }
-
-    public List<ProfileMember> getMembers() {
-        List<ProfileMember> members = new ArrayList<>(List.of());
-
-        Iterator<String> iterator = jsonHandler.getJSONHandler("members").getKeys();
-
-        while (iterator.hasNext()) {
-            members.add(
-                new ProfileMember(jsonHandler.getJSONHandler("members").getJSONHandler(iterator.next()))
-            );
-        }
-
-        return members;
     }
 
     public static class ProfileMember {
