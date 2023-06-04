@@ -1,8 +1,6 @@
 package io.github.neopixel.wrapper.skyblock.player;
 
 import io.github.neopixel.http.RequestController;
-import io.github.neopixel.wrapper.skyblock.SkyblockElection.MayorPerk;
-import io.github.neopixel.wrapper.skyblock.player.SkyblockProfile.CommunityUpgrades.UpgradeState;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.ArrayList;
 import java.util.Iterator;

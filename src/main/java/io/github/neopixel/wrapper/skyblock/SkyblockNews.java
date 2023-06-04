@@ -1,13 +1,9 @@
 package io.github.neopixel.wrapper.skyblock;
 
 import io.github.neopixel.http.RequestController;
-import io.github.neopixel.wrapper.guild.HypixelGuildMember;
 import io.github.neopixel.wrapper.util.JSONHandler;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class SkyblockNews {
