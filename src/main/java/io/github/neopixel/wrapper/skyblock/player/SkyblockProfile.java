@@ -86,7 +86,7 @@ public class SkyblockProfile {
         }
 
         public List<ProfileMember> getMembers() {
-            List<ProfileMember> members = new ArrayList<>(List.of());
+            List<ProfileMember> members = new ArrayList<>();
 
             Iterator<String> iterator = jsonHandler.getJSONHandler("members").getKeys();
 
