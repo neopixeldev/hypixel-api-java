@@ -107,4 +107,17 @@ public class RequestController {
         return retrieveData(Endpoint.API_KEY, null);
     }
 
+    public JSONHandler getSkyblockNews() {
+        return retrieveData(Endpoint.SKYBLOCK_NEWS, null);
+    }
+
+    public JSONHandler getSkyblockElection() {
+        return retrieveData(Endpoint.SKYBLOCK_ELECTIONS, null);
+    }
+
+    public JSONHandler getSkyblockProfile(String profileId) {
+        return retrieveData(Endpoint.SKYBLOCK_SINGLE_PROFILE,
+            new QueryParameter(HypixelQueryParameterTypes.SKYBLOCK_PROFILE_ID, profileId));
+    }
+
 }
