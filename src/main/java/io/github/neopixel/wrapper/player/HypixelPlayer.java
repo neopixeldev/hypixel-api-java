@@ -176,4 +176,8 @@ public class HypixelPlayer {
     public HypixelPlayerGames getGames() {
         return new HypixelPlayerGames(jsonHandler.getJSONHandler("stats"));
     }
+
+    public HypixelSocialMedia getSocialMedia() {
+        return new HypixelSocialMedia(jsonHandler.getJSONHandler("socialMedia"))
+    }
 }
