@@ -1,6 +1,6 @@
 package io.github.neopixel.wrapper.skyblock.election.candidate;
 
-import io.github.neopixel.wrapper.skyblock.election.SkyblockElection.MayorPerk;
+import io.github.neopixel.wrapper.skyblock.election.perk.MayorPerk;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.List;
 import java.util.stream.Collectors;
