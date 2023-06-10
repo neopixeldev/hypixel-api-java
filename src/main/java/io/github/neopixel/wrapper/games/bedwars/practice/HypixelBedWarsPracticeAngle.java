@@ -9,7 +9,7 @@ public enum HypixelBedWarsPracticeAngle {
         this.angle = angle;
     }
 
-    String getAngle() {
+    public String getAngle() {
         return angle;
     }
 }

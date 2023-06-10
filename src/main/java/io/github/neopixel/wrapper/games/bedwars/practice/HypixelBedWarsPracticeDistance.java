@@ -10,7 +10,7 @@ public enum HypixelBedWarsPracticeDistance {
         this.distance = distance;
     }
 
-    int getDistance() {
+    public int getDistance() {
         return distance;
     }
 }

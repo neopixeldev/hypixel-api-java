@@ -10,7 +10,7 @@ public enum HypixelBedWarsPracticeElevation {
         this.elevation = elevation;
     }
 
-    String getElevation() {
+    public String getElevation() {
         return elevation;
     }
 }
