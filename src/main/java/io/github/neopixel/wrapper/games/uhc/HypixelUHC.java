@@ -1,26 +1,43 @@
 package io.github.neopixel.wrapper.games.uhc;
 
-import io.github.neopixel.wrapper.games.HypixelGame;
+import io.github.neopixel.wrapper.games.bedwars.BedWarsKillCause;
 import io.github.neopixel.wrapper.util.JSONHandler;
 
-public class HypixelUHC extends HypixelGame {
+public class HypixelUHC {
+
+    private final JSONHandler jsonHandler;
 
     protected HypixelUHC(JSONHandler jsonHandler) {
-        super(jsonHandler);
+        this.jsonHandler = jsonHandler;
     }
 
-    @Override
-    public String getGameID() {
-        return "UHC";
+
+    public int getWins() {
+        return jsonHandler.getSafeInt("wins");
     }
 
-    @Override
-    public String getGameName() {
-        return "UHC Champions";
+    public int getHeadsEaten() {
+        return jsonHandler.getSafeInt("heads_eaten");
     }
 
-    @Override
-    public boolean isRemoved() {
-        return false;
+    public int getKills() {
+        return jsonHandler.getSafeInt("kills");
     }
+
+    public int getDeaths() {
+        return jsonHandler.getSafeInt("deaths");
+    }
+
+    public int getKillToDeathRatio() {
+        return getKills() / Math.max(getDeaths(), 1);
+    }
+
+    public int getUltimatesCrafted() {
+        return jsonHandler.getSafeInt("ultimates_crafted");
+    }
+
+    public int getExtraUltimatesCrafted() {
+        return jsonHandler.getSafeInt("extra_ultimates_crafted");
+    }
+
 }

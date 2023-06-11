@@ -5,40 +5,40 @@ package io.github.neopixel.wrapper.games.bedwars;
  */
 public enum HypixelBedWarsMode {
 
-    SOLOS("eight_one_"),
-    DOUBLES("eight_two_"),
-    TRIOS("four_three_"),
-    FOURS("four_four_"),
+    SOLOS("eight_one"),
+    DOUBLES("eight_two"),
+    TRIOS("four_three"),
+    FOURS("four_four"),
 
-    FOUR_VS_FOUR("two_four_"),
+    FOUR_VS_FOUR("two_four"),
 
-    RUSH_SOLOS("eight_one_rush_"),
-    RUSH_DOUBLES("eight_two_rush_"),
-    RUSH_FOURS("four_four_rush_"),
+    RUSH_SOLOS("eight_one_rush"),
+    RUSH_DOUBLES("eight_two_rush"),
+    RUSH_FOURS("four_four_rush"),
 
-    ULTIMATE_DOUBLES("eight_two_ultimate_"),
-    ULTIMATE_FOURS("four_four_ultimate_"),
+    ULTIMATE_DOUBLES("eight_two_ultimate"),
+    ULTIMATE_FOURS("four_four_ultimate"),
 
-    LUCKY_DOUBLES("eight_two_lucky_"),
-    LUCKY_FOURS("four_four_lucky_"),
+    LUCKY_DOUBLES("eight_two_lucky"),
+    LUCKY_FOURS("four_four_lucky"),
 
-    ARMED_DOUBLES("eight_two_armed_"),
-    ARMED_FOURS("four_four_armed_"),
+    ARMED_DOUBLES("eight_two_armed"),
+    ARMED_FOURS("four_four_armed"),
 
-    CASTLE("castle_"),
+    CASTLE("castle"),
 
-    VOIDLESS_DOUBLES("eight_two_voidless_"),
-    VOIDLESS_FOURS("four_four_voidless_"),
+    VOIDLESS_DOUBLES("eight_two_voidless"),
+    VOIDLESS_FOURS("four_four_voidless"),
 
-    UNDERWORLD_DOUBLES("eight_two_underworld_"),
-    UNDERWORLD_FOURS("four_four_underworld_"),
+    UNDERWORLD_DOUBLES("eight_two_underworld"),
+    UNDERWORLD_FOURS("four_four_underworld"),
 
-    SWAP_DOUBLES("eight_two_swap_"),
-    SWAP_FOURS("four_four_swap_"),
+    SWAP_DOUBLES("eight_two_swap"),
+    SWAP_FOURS("four_four_swap"),
 
     OVERALL("");
 
-    String statsPrefix;
+    final String statsPrefix;
 
     HypixelBedWarsMode(String statsPrefix) {
         this.statsPrefix = statsPrefix;
