@@ -49,6 +49,11 @@ public class HypixelBedWarsStats extends HypixelGame implements HypixelLootChest
         return new HypixelBedWars(jsonHandler);
     }
 
+    public HypixelBedWarsPractice getPractice() {
+        return new HypixelBedWarsPractice(
+            jsonHandler.getJSONHandler("Bedwars").getJSONHandler("practice"));
+    }
+
     /**
      * Coins are earned by winning, killing other players, breaking beds, and completing quests.
      * They can be used to purchase Bed Wars cosmetics, such as shopkeeper skins and victory
