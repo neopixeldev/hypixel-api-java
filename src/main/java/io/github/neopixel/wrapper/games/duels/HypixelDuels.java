@@ -5,49 +5,71 @@ import io.github.neopixel.wrapper.games.HypixelGame;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.Optional;
 
-public class HypixelDuels extends HypixelGame implements HypixelLootChestGame {
+public class HypixelDuels {
 
+    private final JSONHandler jsonHandler;
     protected HypixelDuels(JSONHandler jsonHandler) {
-        super(jsonHandler);
+        this.jsonHandler = jsonHandler;
     }
 
-    @Override
-    public String getGameID() {
-        return "DUELS";
+    public int getWins() {
+        return jsonHandler.getSafeInt("wins");
     }
 
-    @Override
-    public String getGameName() {
-        return "Duels";
+    public int getLosses() {
+        return jsonHandler.getSafeInt("losses");
     }
 
-    @Override
-    public boolean isRemoved() {
-        return false;
+    public int getWinToLossRatio() {
+        return getWins() / Math.max(getLosses(), 1);
     }
 
-    @Override
-    public final int getOpenedChestsAmount() {
-        throw new UnsupportedOperationException();
+    public int getKills() {
+        return jsonHandler.getSafeInt("kills");
     }
 
-    @Override
-    public final int getOpenedCommonChestsAmount() {
-        throw new UnsupportedOperationException();
+    public int getDeaths() {
+        return jsonHandler.getSafeInt("deaths");
     }
 
-    @Override
-    public final int getOpenedRareChestsAmount() {
-        throw new UnsupportedOperationException();
+    public int getKillToDeathRatio() {
+        return getKills() / Math.max(getDeaths(), 1);
     }
 
-    @Override
-    public final int getOpenedEpicChestsAmount() {
-        throw new UnsupportedOperationException();
+    public int getMeleeSwings() {
+        return jsonHandler.getSafeInt("melee_swings");
     }
 
-    @Override
-    public final int getOpenedLegendaryChestsAmount() {
-        throw new UnsupportedOperationException();
+    public int getMeleeHits() {
+        return jsonHandler.getSafeInt("melee_hits");
     }
+
+    public int getBowShots() {
+        return jsonHandler.getSafeInt("bow_shots");
+    }
+
+    public int getBowHits() {
+        return jsonHandler.getSafeInt("bow_hits");
+    }
+
+    public int getDamageDealt() {
+        return jsonHandler.getSafeInt("damage_dealt");
+    }
+
+    public int getHealthRegenerated() {
+        return jsonHandler.getSafeInt("health_regenerated");
+    }
+
+    public int getRoundsPlayed() {
+        return jsonHandler.getSafeInt("rounds_played");
+    }
+
+    /**
+     * Used for bridge modes only.
+     * @return The amount of goals a player has in the specific <bold>bridge</bold> mode.
+     */
+    public int getGoals() {
+        return jsonHandler.getSafeInt("goals");
+    }
+
 }
