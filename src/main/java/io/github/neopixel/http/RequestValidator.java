@@ -40,8 +40,6 @@ public class RequestValidator {
                     throw new InvalidDataException(failString);
                 case 429:
                     throw new KeyThrottleException(failString);
-                default:
-                    throw new UnknownAPIException(failString);
             }
         }
 
