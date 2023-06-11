@@ -3,6 +3,9 @@ package io.github.neopixel;
 import io.github.neopixel.http.RequestController;
 import io.github.neopixel.wrapper.guild.HypixelGuild;
 import io.github.neopixel.wrapper.player.HypixelPlayer;
+import io.github.neopixel.wrapper.skyblock.SkyblockElection;
+import io.github.neopixel.wrapper.skyblock.SkyblockNews;
+import io.github.neopixel.wrapper.skyblock.player.SkyblockProfile;
 import java.io.File;
 import java.util.UUID;
 import okhttp3.Cache;
@@ -46,13 +49,23 @@ public class HypixelAPI {
         return new HypixelAPI(key, cache);
     }
 
-
-
     public HypixelPlayer getPlayerByName(String username) {
         return new HypixelPlayer(username, requestController);
     }
 
     public HypixelGuild getGuildByName(String name) {
         return new HypixelGuild(name, requestController);
+    }
+
+    public SkyblockNews getSkyblockNews() {
+        return new SkyblockNews(requestController);
+    }
+
+    public SkyblockElection getSkyblockElection() {
+        return new SkyblockElection(requestController);
+    }
+
+    public SkyblockProfile getSkyblockProfile(String profileId) {
+        return new SkyblockProfile(requestController, profileId);
     }
 }

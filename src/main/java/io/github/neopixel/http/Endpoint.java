@@ -20,7 +20,8 @@ public enum Endpoint {
     PLAYER_RECENT_GAMES("recentgames"),
     PLAYER_RANKED_SKYWARS("player/ranked/skywars"),
 
-    SKYBLOCK_NEWS("skyblock/news"),
+    SKYBLOCK_NEWS("skyblock/news"), // DONE
+    SKYBLOCK_ELECTIONS("resources/skyblock/election"), // DONE
     SKYBLOCK_LOOKUP_AUCTIONS("skyblock/auction"),
     SKYBLOCK_ACTIVE_AUCTIONS("skyblock/auctions"),
     SKYBLOCK_ENDED_AUCTIONS("skyblock/auctions_ended"),
@@ -28,6 +29,7 @@ public enum Endpoint {
     SKYBLOCK_SINGLE_PROFILE("skyblock/profile"),
     SKYBLOCK_PLAYER_PROFILES("skyblock/profiles"),
     SKYBLOCK_PLAYER_BINGO("skyblock/bingo");
+
 
     private final String path;
 

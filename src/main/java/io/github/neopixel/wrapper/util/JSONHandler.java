@@ -113,6 +113,21 @@ public class JSONHandler {
         }
     }
 
+    public Float getSafeFloat(String key) {
+        if (stats.has(statsPrefix + key)) {
+            final Object object = this.get(key);
+            if (object instanceof Number) {
+                return ((Number) object).floatValue();
+            }
+            try {
+                return Float.parseFloat(object.toString());
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0f;
+    }
+
     public Object get(String key) {
         return stats.get(statsPrefix + key);
     }
