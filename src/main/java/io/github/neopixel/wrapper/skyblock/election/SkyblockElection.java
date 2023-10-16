@@ -1,7 +1,7 @@
-package io.github.neopixel.wrapper.skyblock;
+package io.github.neopixel.wrapper.skyblock.election;
 
 import io.github.neopixel.http.RequestController;
-import io.github.neopixel.wrapper.skyblock.election.CurrentElection;
+import io.github.neopixel.wrapper.skyblock.election.candidate.ElectionCandidate;
 import io.github.neopixel.wrapper.skyblock.election.perk.MayorPerk;
 import io.github.neopixel.wrapper.util.JSONHandler;
 import java.util.List;
